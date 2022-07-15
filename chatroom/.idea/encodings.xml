@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/netty/c1/Buffer.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/netty/c1/HelloClient.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/netty/c1/HelloServer.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/netty/c2/CloseFutureClient.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/netty/c2/TestEventLoop.java" charset="UTF-8" />
+  </component>
+</project>

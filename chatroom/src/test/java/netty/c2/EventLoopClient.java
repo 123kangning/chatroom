@@ -16,6 +16,7 @@ import java.nio.charset.StandardCharsets;
 
 @Slf4j
 public class EventLoopClient {
+    //netty中的异步处理并不能提高效率，它的意义是提高吞吐量，（每个线程只做一类事件、合理拆分任务事件也是netty利用异步处理的核心）
     public static void main(String[] args) throws InterruptedException {
         //1.客户端启动器类
         ChannelFuture channelFuture=new Bootstrap()

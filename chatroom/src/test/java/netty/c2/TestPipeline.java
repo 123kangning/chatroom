@@ -21,6 +21,7 @@ public class TestPipeline {
 
                     @Override
                     protected void initChannel(NioSocketChannel nioSocketChannel) throws Exception {
+                        log.info("start");
                         //1.通过Channel拿到Pipeline
                         ChannelPipeline pipeline= nioSocketChannel.pipeline();
                         //2.添加处理器 ，netty会自动添加两个handler （head and last）
@@ -45,11 +46,11 @@ public class TestPipeline {
                             public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
                                 log.info("3 ");
                                 //ctx.writeAndFlush方法，从当前handler出发，向前寻找出站处理器
-                                //ctx.writeAndFlush(ctx.alloc().buffer().writeBytes("hello".getBytes()));
+//                                ctx.writeAndFlush(ctx.alloc().buffer().writeBytes("hello".getBytes()));
                                 //Channel.writeAndFlush方法，从尾部handler出发向前寻找出站处理器
-                                //nioSocketChannel.writeAndFlush(ctx.alloc().buffer().writeBytes("hello".getBytes()));
+                                nioSocketChannel.writeAndFlush(msg);
                                 //作用：唤醒下一个入站处理器，这条语句已经没有意义了
-                                super.channelRead(ctx,msg);
+                                //super.channelRead(ctx,msg);
 
                             }
                         }).addLast("h4",new ChannelOutboundHandlerAdapter(){

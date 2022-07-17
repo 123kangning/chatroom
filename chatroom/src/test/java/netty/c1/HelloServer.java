@@ -5,10 +5,13 @@ import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelOption;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.logging.LogLevel;
+import io.netty.handler.logging.LoggingHandler;
 
 public class HelloServer {
     public static void main(String[] args) {
@@ -19,6 +22,7 @@ public class HelloServer {
                 .group(new NioEventLoopGroup())//accept read
                 //3.选择 服务器的ServerSocketChannel 实现
                 .channel(NioServerSocketChannel.class)
+                .option(ChannelOption.SO_RCVBUF,10)
                 //4.boss 负责处理连接 worker(child)负责处理读写，决定了worker(child) 能执行哪些操作（handler）
                 .childHandler(//handler理解为一道道处理工序，合在一起就是pipeline
                         //5.channel代表和客户端进行数据读写的的通道 Initializer是初始化器，负责添加别的 handler
@@ -27,14 +31,14 @@ public class HelloServer {
                     @Override //accept 连接建立后调用initChannel方法
                     protected void initChannel(NioSocketChannel nioSocketChannel) throws Exception {
                         //6.添加具体handler,即一道流水线工具
-                        nioSocketChannel.pipeline().addLast(new StringDecoder());//将ByteBuf转换为字符串
-                        nioSocketChannel.pipeline().addLast(new ChannelInboundHandlerAdapter() {//自定义handler
+                        nioSocketChannel.pipeline().addLast(new LoggingHandler(LogLevel.DEBUG));//将ByteBuf转换为字符串
+                        /*nioSocketChannel.pipeline().addLast(new ChannelInboundHandlerAdapter() {//自定义handler
                             @Override //读事件
                             public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
                                 //打印上一步转换好的字符串
                                 System.out.println(msg);
                             }
-                        });
+                        });*/
                     }
                 }).bind(8080);//ServerSocket启动后绑定的监听端口
 

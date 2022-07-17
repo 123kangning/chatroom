@@ -10,11 +10,17 @@
     <file url="file://$PROJECT_DIR$/src/test/java/netty/c1/HelloServer.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/netty/c2/CloseFutureClient.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/netty/c2/TestEventLoop.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/test/java/netty/c2/TestJdkFuture.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/netty/c2/TestJdkFuture.java" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/src/test/java/netty/c2/TestNettyFuture.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/netty/c2/TestNettyPromise.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/netty/c2/TestPipeline.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/netty/c3/EchoServer.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/netty/c3/TestByteBuf.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/netty/c3/TestCompositeByteBuf.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/netty/c3/TestSlice.java" charset="UTF-8" />
+    <file url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.1.75.Final/netty-transport-4.1.75.Final.jar!/io/netty/bootstrap/Bootstrap.class" charset="UTF-16BE" />
+    <file url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.1.75.Final/netty-transport-4.1.75.Final.jar!/io/netty/channel/ChannelFuture.class" charset="UTF-16LE" />
+    <file url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.1.75.Final/netty-transport-4.1.75.Final.jar!/io/netty/channel/ChannelInboundHandlerAdapter.class" charset="UTF-16LE" />
+    <file url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.1.75.Final/netty-transport-4.1.75.Final.jar!/io/netty/channel/ChannelOutboundHandlerAdapter.class" charset="UTF-16BE" />
   </component>
 </project>

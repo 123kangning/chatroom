@@ -1,5 +1,7 @@
 package procotol;
 
-public class MessageCodec {
+import io.netty.handler.codec.ByteToMessageCodec;
+
+public class MessageCodec extends ByteToMessageCodec<> {
 
 }

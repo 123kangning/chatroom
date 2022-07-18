@@ -31,15 +31,20 @@
             <version>2.0.0-alpha1</version>
         </dependency>
         <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-codec-http2</artifactId>
+            <version>4.1.77.Final</version>
+        </dependency>
+        <dependency>
             <groupId>io.github.fzdwx</groupId>
             <artifactId>netty</artifactId>
-            <version>0.091</version>
+            <version>0.10.1</version>
             <type>pom</type>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>RELEASE</version>
+            <version>1.18.24</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

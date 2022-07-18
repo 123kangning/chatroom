@@ -5,15 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9ffa9a4-92e7-4c59-af71-ec04fc0405e8" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/netty/c3/EchoServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/netty/c3/TestCompositeByteBuf.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/netty/c3/TestSlice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8598cf3d-151d-4ac9-8b83-ed55f4b5d4b2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8598cf3d-151d-4ac9-8b83-ed55f4b5d4b2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/procotol/MessageCodec.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/netty/c1/Client1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/netty/c1/Server1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/netty/c1/TestLengthFieldDecoder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/netty/c1/HelloClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c1/HelloClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/netty/c1/HelloServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c1/HelloServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c2/TestPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c2/TestPipeline.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,26 +75,13 @@
       <recent name="netty.c2" />
     </key>
   </component>
-  <component name="RunManager" selected="应用程序.HelloClient">
-    <configuration name="CloseFutureClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="netty.c2.CloseFutureClient" />
+  <component name="RunManager" selected="应用程序.TestLengthFieldDecoder">
+    <configuration name="Client1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="netty.c1.Client1" />
       <module name="chatroom" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="netty.c2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EchoServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="netty.c3.EchoServer" />
-      <module name="chatroom" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="netty.c3.*" />
+          <option name="PATTERN" value="netty.c1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -128,12 +115,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestPipeline" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="netty.c2.TestPipeline" />
+    <configuration name="Server1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="netty.c1.Server1" />
       <module name="chatroom" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="netty.c2.*" />
+          <option name="PATTERN" value="netty.c1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestLengthFieldDecoder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="netty.c1.TestLengthFieldDecoder" />
+      <module name="chatroom" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="netty.c1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -142,19 +142,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="应用程序.Client1" />
+      <item itemvalue="应用程序.Server1" />
+      <item itemvalue="应用程序.TestLengthFieldDecoder" />
       <item itemvalue="应用程序.HelloClient" />
-      <item itemvalue="应用程序.CloseFutureClient" />
       <item itemvalue="应用程序.HelloServer" />
-      <item itemvalue="应用程序.EchoServer" />
-      <item itemvalue="应用程序.TestPipeline" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="应用程序.TestLengthFieldDecoder" />
+        <item itemvalue="应用程序.Client1" />
+        <item itemvalue="应用程序.Server1" />
         <item itemvalue="应用程序.HelloClient" />
         <item itemvalue="应用程序.HelloServer" />
-        <item itemvalue="应用程序.EchoServer" />
-        <item itemvalue="应用程序.TestPipeline" />
-        <item itemvalue="应用程序.CloseFutureClient" />
       </list>
     </recent_temporary>
   </component>
@@ -181,7 +181,8 @@
       <workItem from="1658057385847" duration="5662000" />
       <workItem from="1658066236235" duration="1502000" />
       <workItem from="1658068252649" duration="71000" />
-      <workItem from="1658070718751" duration="218000" />
+      <workItem from="1658070718751" duration="1018000" />
+      <workItem from="1658106103921" duration="11586000" />
     </task>
     <servers />
   </component>

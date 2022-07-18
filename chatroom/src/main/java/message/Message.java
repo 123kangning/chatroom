@@ -7,6 +7,7 @@ import java.util.Map;
 public abstract class Message implements Serializable {
 
     private int messageType;
+    private int sequenceId;
     public abstract int getMessageType();
 
     public static final int LoginRequestMessage=0;//登录
@@ -44,10 +45,47 @@ public abstract class Message implements Serializable {
     public static final int FriendQueryRequestMessage=30;//查询好友列表
     public static final int FriendQueryResponseMessage=31;
 
-    private static final Map<Integer,Class<?>> massageClasses = new HashMap<>();
+    private static final Map<Integer,Class<?>> messageClasses = new HashMap<>();
 
-    static{
-        massageClasses.put(0,);
+    public static Class<?> getMessageClass(int messageType){
+        return messageClasses.get(messageType);
     }
+    public int getSequenceId(){
+        return sequenceId;
+    }
+    static{
+        messageClasses.put(0, message.LoginRequestMessage.class);
+        messageClasses.put(1, message.LoginResponseMessage.class);
+        messageClasses.put(2, message.LogoutRequestMessage.class);
+        messageClasses.put(3, message.LogoutResponseMessage.class);
+        messageClasses.put(4, message.LoginRequestMessage.class);
+        messageClasses.put(5, message.SignInResponseMessage.class);
+        messageClasses.put(6, message.SignOutRequestMessage.class);
+        messageClasses.put(7, message.SignOutResponseMessage.class);
+        messageClasses.put(8, message.SearchPasswordRequestMessage.class);
+        messageClasses.put(9, message.SearchPasswordResponseMessage.class);
+        messageClasses.put(10, message.GroupCreateRequestMessage.class);
+        messageClasses.put(11, message.GroupCreateResponseMessage.class);
+        messageClasses.put(12, message.GroupJoinRequestMessage.class);
+        messageClasses.put(13, message.GroupJoinResponseMessage.class);
+        messageClasses.put(14, message.GroupQuitRequestMessage.class);
+        messageClasses.put(15, message.GroupQuitResponseMessage.class);
+        messageClasses.put(16, message.GroupDeleteRequestMessage.class);
+        messageClasses.put(17, message.GroupDeleteResponseMessage.class);
+        messageClasses.put(18, message.GroupChatRequestMessage.class);
+        messageClasses.put(19, message.GroupChatResponseMessage.class);
+        messageClasses.put(20, message.GroupNumberRequestMessage.class);
+        messageClasses.put(21, message.GroupNumberResponseMessage.class);
+        messageClasses.put(22, message.FriendChatRequestMessage.class);
+        messageClasses.put(23, message.FriendChatResponseMessage.class);
+        messageClasses.put(24, message.FriendAddRequestMessage.class);
+        messageClasses.put(25, message.FriendAddResponseMessage.class);
+        messageClasses.put(26, message.FriendShieldRequestMessage.class);
+        messageClasses.put(27, message.FriendShieldResponseMessage.class);
+        messageClasses.put(28, message.FriendDeleteRequestMessage.class);
+        messageClasses.put(29, message.FriendDeleteResponseMessage.class);
+        messageClasses.put(30, message.FriendQueryRequestMessage.class);
+        messageClasses.put(31, message.FriendQueryResponseMessage.class);
 
+    }
 }

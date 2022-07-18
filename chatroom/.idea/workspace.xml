@@ -5,42 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9ffa9a4-92e7-4c59-af71-ec04fc0405e8" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/FriendAddRequestMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/FriendAddResponseMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/FriendChatRequestMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/FriendChatResponseMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/FriendDeleteRequestMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/FriendDeleteResponseMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/FriendQueryRequestMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/FriendQueryResponseMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/FriendShieldRequestMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/FriendShieldResponseMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/GroupChatRequestMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/GroupChatResponseMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/GroupCreateRequestMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/GroupCreateResponseMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/GroupDeleteRequestMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/GroupDeleteResponseMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/GroupJoinRequestMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/GroupJoinResponseMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/GroupNumberRequestMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/GroupNumberResponseMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/GroupQuitRequestMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/GroupQuitResponseMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/LoginRequestMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/LoginResponseMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/LogoutRequestMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/LogoutResponseMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/Message.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/SearchPasswordRequestMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/SearchPasswordResponseMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/SignInRequestMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/SignInResponseMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/SignOutRequestMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/SignOutResponseMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/netty/c3/NettyServerHandle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/message/LoginRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/LoginRequestMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/message/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/Message.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/procotol/MessageCodec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/procotol/MessageCodec.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,13 +66,14 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="procotol" />
       <recent name="netty.c1" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="netty.c2" />
     </key>
   </component>
-  <component name="RunManager" selected="应用程序.TestLengthFieldDecoder">
+  <component name="RunManager" selected="应用程序.TestMessageCodec">
     <configuration name="Client1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="netty.c1.Client1" />
       <module name="chatroom" />
@@ -119,19 +89,6 @@
     </configuration>
     <configuration name="HelloClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="netty.c1.HelloClient" />
-      <module name="chatroom" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="netty.c1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HelloServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="netty.c1.HelloServer" />
       <module name="chatroom" />
       <extension name="coverage">
         <pattern>
@@ -169,20 +126,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestMessageCodec" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="procotol.TestMessageCodec" />
+      <module name="chatroom" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="procotol.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
+      <item itemvalue="应用程序.TestMessageCodec" />
       <item itemvalue="应用程序.Client1" />
       <item itemvalue="应用程序.Server1" />
       <item itemvalue="应用程序.TestLengthFieldDecoder" />
       <item itemvalue="应用程序.HelloClient" />
-      <item itemvalue="应用程序.HelloServer" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="应用程序.TestMessageCodec" />
         <item itemvalue="应用程序.TestLengthFieldDecoder" />
         <item itemvalue="应用程序.Client1" />
         <item itemvalue="应用程序.Server1" />
         <item itemvalue="应用程序.HelloClient" />
-        <item itemvalue="应用程序.HelloServer" />
       </list>
     </recent_temporary>
   </component>
@@ -210,7 +180,8 @@
       <workItem from="1658066236235" duration="1502000" />
       <workItem from="1658068252649" duration="71000" />
       <workItem from="1658070718751" duration="1018000" />
-      <workItem from="1658106103921" duration="18297000" />
+      <workItem from="1658106103921" duration="23303000" />
+      <workItem from="1658155865164" duration="6090000" />
     </task>
     <servers />
   </component>

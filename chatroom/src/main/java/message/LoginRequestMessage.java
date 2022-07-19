@@ -14,4 +14,8 @@ public class LoginRequestMessage extends Message{
     public int getMessageType() {
         return LoginRequestMessage;
     }
+
+    public String toString(){
+        return "username = "+username+", password = "+password;
+    }
 }

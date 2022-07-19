@@ -59,6 +59,8 @@
     <file url="file://$PROJECT_DIR$/src/test/java/netty/c3/TestByteBuf.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/netty/c3/TestCompositeByteBuf.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/netty/c3/TestSlice.java" charset="UTF-8" />
+    <file url="jar://$MAVEN_REPOSITORY$/io/netty/netty-codec/4.1.77.Final/netty-codec-4.1.77.Final.jar!/io/netty/handler/codec/LengthFieldBasedFrameDecoder.class" charset="UTF-16BE" />
+    <file url="jar://$MAVEN_REPOSITORY$/io/netty/netty-handler/4.1.77.Final/netty-handler-4.1.77.Final.jar!/io/netty/handler/logging/LoggingHandler.class" charset="UTF-16BE" />
     <file url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.1.75.Final/netty-transport-4.1.75.Final.jar!/io/netty/bootstrap/Bootstrap.class" charset="UTF-16BE" />
     <file url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.1.75.Final/netty-transport-4.1.75.Final.jar!/io/netty/channel/ChannelFuture.class" charset="UTF-16LE" />
     <file url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.1.75.Final/netty-transport-4.1.75.Final.jar!/io/netty/channel/ChannelInboundHandlerAdapter.class" charset="UTF-16LE" />

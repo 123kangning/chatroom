@@ -7,10 +7,11 @@
     <list default="true" id="a9ffa9a4-92e7-4c59-af71-ec04fc0405e8" name="变更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/message/FriendAddRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/FriendAddRequestMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/message/FriendAddResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/FriendAddResponseMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/message/LoginRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/LoginRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/procotol/MessageCodec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/procotol/MessageCodec.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/message/LoginResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/LoginResponseMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/procotol/TestMessageCodec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/procotol/TestMessageCodec.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +182,8 @@
       <workItem from="1658068252649" duration="71000" />
       <workItem from="1658070718751" duration="1018000" />
       <workItem from="1658106103921" duration="23303000" />
-      <workItem from="1658155865164" duration="6090000" />
+      <workItem from="1658155865164" duration="6685000" />
+      <workItem from="1658192382894" duration="4899000" />
     </task>
     <servers />
   </component>

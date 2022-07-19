@@ -1,6 +1,7 @@
-package procotol;
+package protocol;
 
 import io.netty.buffer.ByteBuf;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageCodec;
 import lombok.extern.slf4j.Slf4j;
@@ -53,8 +54,8 @@ public class MessageCodec extends ByteToMessageCodec<Message> {
             //使用jdk序列化
             ObjectInputStream ois=new ObjectInputStream(new ByteArrayInputStream(bytes));
             Message message=(Message) ois.readObject();
-            log.info("{}, {}, {}, {}, {}",magicNum,serializerType,messageType,sequenceId,length);
-            log.info("{}",message);
+            /*log.info("{}, {}, {}, {}, {}",magicNum,serializerType,messageType,sequenceId,length);
+            log.info("{}",message);*/
             list.add(message);
         }
 

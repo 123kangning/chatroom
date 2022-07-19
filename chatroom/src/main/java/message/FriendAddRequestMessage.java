@@ -1,20 +1,22 @@
 package message;
 
 public class FriendAddRequestMessage extends Message{
-    private String username;
-    private String FriendId;
+    private long userID;
+    private long FriendId;
     public FriendAddRequestMessage(){}
-    public FriendAddRequestMessage(String username,String FriendId){
-        this.username=username;
+    public FriendAddRequestMessage(long userID,long FriendId){
+        this.userID=userID;
         this.FriendId=FriendId;
     }
+    public long getUserId(){return this.userID;}
+    public long getFriendId(){return this.FriendId;}
 
     @Override
     public int getMessageType() {
         return FriendAddRequestMessage;
     }
     public String toString(){
-        return "username = "+username+", FriendId = "+FriendId;
+        return "userID = "+userID+", FriendId = "+FriendId;
     }
 
 }

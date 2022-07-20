@@ -5,58 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9ffa9a4-92e7-4c59-af71-ec04fc0405e8" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/client/ChatClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/protocol/ProtocolFrameDecoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/ChatServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/service/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/service/UserServiceFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/service/UserServiceMemory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/session/Group.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/session/GroupSession.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/session/GroupSessionFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/session/GroupSessionMemory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/session/Session.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/session/SessionFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/session/SessionMemory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/client/ResponseHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/client/view/EnterView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/client/view/MainView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/handler/LoginHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/handler/LogoutHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/handler/SignInHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/handler/SignOutHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/FriendAddRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/FriendAddRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/FriendAddResponseMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/FriendChatRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/FriendChatRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/FriendChatResponseMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/FriendDeleteRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/FriendDeleteRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/FriendDeleteResponseMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/FriendQueryRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/FriendQueryRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/FriendQueryResponseMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/FriendShieldRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/FriendShieldRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/FriendShieldResponseMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/GroupChatRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/GroupChatRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/GroupChatResponseMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/GroupCreateRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/GroupCreateRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/GroupCreateResponseMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/GroupDeleteRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/GroupDeleteRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/GroupDeleteResponseMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/GroupJoinRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/GroupJoinRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/GroupJoinResponseMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/GroupNumberRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/GroupNumberRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/GroupNumberResponseMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/GroupQuitRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/GroupQuitRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/GroupQuitResponseMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/LoginRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/LoginRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/LoginResponseMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ChatClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/message/LogoutRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/LogoutRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/LogoutResponseMessage.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/message/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/SearchPasswordRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/SearchPasswordRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/SearchPasswordResponseMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/message/ResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/ResponseMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/message/SignInRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/SignInRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/SignInResponseMessage.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/message/SignOutRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/SignOutRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/SignOutResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/ResponseMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/procotol/MessageCodec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/protocol/MessageCodec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/procotol/TestMessageCodec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/protocol/TestMessageCodec.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ChatServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/mysql/Test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/mysql/Test1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -164,9 +129,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Test" />
+    <configuration name="SendEmail" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="mysql.SendEmail" />
       <module name="chatroom" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="mysql.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -185,19 +156,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="应用程序.SendEmail" />
       <item itemvalue="应用程序.Test1" />
       <item itemvalue="应用程序.ChatClient" />
       <item itemvalue="应用程序.ChatServer" />
       <item itemvalue="应用程序.HelloServer" />
-      <item itemvalue="应用程序.Test" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="应用程序.ChatClient" />
         <item itemvalue="应用程序.ChatServer" />
         <item itemvalue="应用程序.Test1" />
+        <item itemvalue="应用程序.SendEmail" />
         <item itemvalue="应用程序.HelloServer" />
-        <item itemvalue="应用程序.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -230,7 +201,11 @@
       <workItem from="1658192382894" duration="8755000" />
       <workItem from="1658211657992" duration="15902000" />
       <workItem from="1658232736332" duration="6540000" />
-      <workItem from="1658241907620" duration="7701000" />
+      <workItem from="1658241907620" duration="7731000" />
+      <workItem from="1658279155272" duration="1149000" />
+      <workItem from="1658280313955" duration="20913000" />
+      <workItem from="1658312034817" duration="14335000" />
+      <workItem from="1658327131643" duration="3616000" />
     </task>
     <servers />
   </component>

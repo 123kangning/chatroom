@@ -11,6 +11,9 @@ public class SignInRequestMessage extends Message{
         this.password=password;
         this.phoneNumber=phoneNumber;
     }
+    public String getUsername(){return this.username;}
+    public String getPassword(){return this.password;}
+    public String getPhoneNumber(){return this.phoneNumber;}
 
     @Override
     public int getMessageType() {

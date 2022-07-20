@@ -13,6 +13,10 @@ import message.LoginRequestMessage;
 import message.ResponseMessage;
 import protocol.MessageCodec;
 import protocol.ProtocolFrameDecoder;
+import server.handler.LoginHandler;
+import server.handler.LogoutHandler;
+import server.handler.SignInHandler;
+import server.handler.SignOutHandler;
 
 import java.sql.*;
 import java.util.Set;
@@ -27,7 +31,7 @@ public class ChatServer {
         final String PASSWORD="9264wkn.";
 
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(URL,NAME,PASSWORD);
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -37,10 +41,12 @@ public class ChatServer {
     }
 
     public static void main(String[] args) {
+        jdbc();
         NioEventLoopGroup boss=new NioEventLoopGroup();
         NioEventLoopGroup worker=new NioEventLoopGroup();
         LoggingHandler Log=new LoggingHandler(LogLevel.DEBUG);
 //        MessageCodec codec=new MessageCodec();
+
         ChannelFuture future;
         try {
             future=new ServerBootstrap()
@@ -50,39 +56,15 @@ public class ChatServer {
                         @Override
                         protected void initChannel(NioSocketChannel nioSocketChannel) throws Exception {
                             nioSocketChannel.pipeline().addLast( new ProtocolFrameDecoder())
-                                    .addLast(Log)
+                                    /*.addLast(Log)*/
                                     .addLast(new MessageCodec())
-                                    .addLast(new SimpleChannelInboundHandler<LoginRequestMessage>(){
-
-                                        @Override
-                                        protected void channelRead0(ChannelHandlerContext ctx, LoginRequestMessage msg) throws SQLException {
-                                            long userID=msg.getUserID();
-                                            String password=msg.getPassword();
-                                            log.info("{}",msg);
-                                            System.out.println("#############");
-                                            ResponseMessage message;
-                                            String sql="select online from test1 where userID=? and password=? ";
-                                            PreparedStatement statement=connection.prepareStatement(sql);
-                                            statement.setLong(1,userID);
-                                            statement.setObject(2,password);
-                                            ResultSet set= statement.executeQuery();
-                                            if(set==null){
-                                                log.info("set == null,没找到");
-                                            }else{
-                                                log.info("next 不为空！！！！！！！！！！");
-                                            }
-                                            if(set.next()&&set.getString(1).equals("F")){
-                                                log.info("登录成功");
-                                            }else{
-                                                log.info("登录失败");
-                                            }
-                                            System.out.println("#############");
-                                            //ctx.writeAndFlush(message);
-                                        }
-                                    });
+                                    .addLast(new LoginHandler())
+                                    .addLast(new LogoutHandler())
+                                    .addLast(new SignOutHandler())
+                                    .addLast(new SignInHandler());
                         }
                     })
-                    .bind(8081);
+                    .bind(8084);
             Channel channel=future.sync().channel();
             channel.closeFuture().sync();
         } catch (InterruptedException e) {

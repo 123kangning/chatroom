@@ -7,6 +7,7 @@ public class LogoutRequestMessage extends Message{
     public LogoutRequestMessage(long userID){
         this.userID=userID;
     }
+    public long getUserID(){return this.userID;}
 
     @Override
     public int getMessageType() {

@@ -7,7 +7,7 @@ public class SignOutRequestMessage extends Message{
     public SignOutRequestMessage(long userID){
         this.userID=userID;
     }
-
+    public long getUserID(){return this.userID;}
     @Override
     public int getMessageType() {
         return SignOutRequestMessage;

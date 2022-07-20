@@ -4,6 +4,9 @@
     <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/8598cf3d-151d-4ac9-8b83-ed55f4b5d4b2/console.sql" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/client/ChatClient.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/client/ResponseHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/client/view/EnterView.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/client/view/MainView.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/message/FriendAddRequestMessage.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/message/FriendAddResponseMessage.java" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/src/main/java/message/FriendChatRequestMessage.java" charset="UTF-8" />
@@ -38,10 +41,14 @@
     <file url="file://$PROJECT_DIR$/src/main/java/message/SignInResponseMessage.java" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/src/main/java/message/SignOutRequestMessage.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/protocol/MessageCodec.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/protocol/ProtocolFrameDecoder.java" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/src/main/java/protocol/ProtocolFrameDecoder.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/protocol/Slf4j.java" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/src/main/java/protocol/TestMessageCodec.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/server/ChatServer.java" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/src/main/java/server/ChatServer.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/server/handler/LoginHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/server/handler/LogoutHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/server/handler/SignInHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/server/handler/SignOutHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/service/User.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/service/UserService.java" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/service/UserServiceFactory.java" charset="US-ASCII" />
@@ -55,6 +62,8 @@
     <file url="file://$PROJECT_DIR$/src/main/java/server/session/SessionMemory.java" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/src/test/java/Test.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/mysql.java" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/src/test/java/mysql/MailUtils.java" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/src/test/java/mysql/SendEmail.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/mysql/Test1.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/netty/c1/Buffer.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/netty/c1/Client1.java" charset="US-ASCII" />

@@ -5,6 +5,8 @@ import io.netty.channel.MessageSizeEstimator;
 public class FriendChatRequestMessage extends Message {
     private long userID;
     private long FriendId;
+    private int chatType=0;//0=文本消息、1=文件
+    //talker默认为F=friend
     private String message;
     public FriendChatRequestMessage(){}
     public FriendChatRequestMessage(long userID,long FriendId,String message){
@@ -20,6 +22,6 @@ public class FriendChatRequestMessage extends Message {
         return FriendChatRequestMessage;
     }
     public String toString(){
-        return "userID = "+userID+", FriendId = "+FriendId;
+        return "userID = "+userID+", FriendId = "+FriendId+" message = "+message;
     }
 }

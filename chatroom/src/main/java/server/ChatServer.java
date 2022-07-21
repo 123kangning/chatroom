@@ -13,10 +13,7 @@ import message.LoginRequestMessage;
 import message.ResponseMessage;
 import protocol.MessageCodec;
 import protocol.ProtocolFrameDecoder;
-import server.handler.LoginHandler;
-import server.handler.LogoutHandler;
-import server.handler.SignInHandler;
-import server.handler.SignOutHandler;
+import server.handler.*;
 
 import java.sql.*;
 import java.util.Set;
@@ -62,6 +59,7 @@ public class ChatServer {
                                     .addLast(new LoginHandler())
                                     .addLast(new LogoutHandler())
                                     .addLast(new SignOutHandler())
+                                    .addLast(new FriendChatHandler())
                                     .addLast(new SignInHandler());
                         }
                     })

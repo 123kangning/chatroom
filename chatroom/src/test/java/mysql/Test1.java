@@ -26,6 +26,7 @@ public class Test1 {
         ps.setLong(4,userID);
         ResultSet set=ps.executeQuery();
         ResponseMessage message;
+
         if(set.next()){//找到添加的朋友
             long u1=set.getLong(1);
             long u2=set.getLong(2);

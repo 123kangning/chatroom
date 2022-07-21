@@ -4,6 +4,7 @@
     <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/8598cf3d-151d-4ac9-8b83-ed55f4b5d4b2/console.sql" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/client/ChatClient.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/client/ClientSession.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/client/ResponseHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/client/view/EnterView.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/client/view/MainView.java" charset="UTF-8" />
@@ -45,6 +46,7 @@
     <file url="file://$PROJECT_DIR$/src/main/java/protocol/Slf4j.java" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/src/main/java/protocol/TestMessageCodec.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/ChatServer.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/server/handler/FriendChatHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/LoginHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/LogoutHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/SignInHandler.java" charset="UTF-8" />
@@ -57,8 +59,9 @@
     <file url="file://$PROJECT_DIR$/src/main/java/server/session/GroupSession.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/session/GroupSessionFactory.java" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/session/GroupSessionMemory.java" charset="US-ASCII" />
-    <file url="file://$PROJECT_DIR$/src/main/java/server/session/Session.java" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/src/main/java/server/session/Session.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/session/SessionFactory.java" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/src/main/java/server/session/SessionMap.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/session/SessionMemory.java" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/src/test/java/Test.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/mysql.java" charset="US-ASCII" />
@@ -93,6 +96,7 @@
     <file url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.1.75.Final/netty-transport-4.1.75.Final.jar!/io/netty/channel/ChannelOutboundHandlerAdapter.class" charset="UTF-16BE" />
     <file url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.1.77.Final/netty-transport-4.1.77.Final.jar!/io/netty/bootstrap/AbstractBootstrap.class" charset="UTF-16LE" />
     <file url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.1.77.Final/netty-transport-4.1.77.Final.jar!/io/netty/channel/AbstractChannelHandlerContext.class" charset="UTF-16BE" />
+    <file url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.1.77.Final/netty-transport-4.1.77.Final.jar!/io/netty/channel/ChannelInitializer.class" charset="UTF-16BE" />
     <file url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.1.77.Final/netty-transport-4.1.77.Final.jar!/io/netty/channel/DefaultChannelPipeline.class" charset="GBK" />
     <file url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.1.77.Final/netty-transport-4.1.77.Final.jar!/io/netty/channel/SimpleChannelInboundHandler.class" charset="UTF-16BE" />
   </component>

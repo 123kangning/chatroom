@@ -21,7 +21,7 @@ public class ResponseHandler extends SimpleChannelInboundHandler<ResponseMessage
         int ResponseMessageType=msg.getMessageType();
         log.info("ResponseMessageType={}",ResponseMessageType);
         if(!success){
-            System.out.print("操作失败，"+reason);
+            System.out.print("操作失败 "+reason);
             /*switch (ResponseMessageType){
                 case Message.LoginResponseMessage:
                     new EnterView(ctx);
@@ -35,11 +35,11 @@ public class ResponseHandler extends SimpleChannelInboundHandler<ResponseMessage
             waitSuccess=0;
 
         }else{
-            System.out.print("操作成功"+reason);
+            System.out.print("操作成功 "+reason);
             waitSuccess=1;
         }
         synchronized (waitMessage){
-            waitMessage.notify();
+            waitMessage.notifyAll();
         }
 
 

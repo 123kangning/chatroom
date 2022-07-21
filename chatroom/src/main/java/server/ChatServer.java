@@ -55,6 +55,7 @@ public class ChatServer {
                     .childHandler(new ChannelInitializer<NioSocketChannel>() {
                         @Override
                         protected void initChannel(NioSocketChannel nioSocketChannel) throws Exception {
+                            log.info("channel = "+nioSocketChannel);
                             nioSocketChannel.pipeline().addLast( new ProtocolFrameDecoder())
                                     /*.addLast(Log)*/
                                     .addLast(new MessageCodec())

@@ -1,23 +1,23 @@
-package mysql;
+package server.handler;
 
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
+import message.FriendChatRequestMessage;
 import message.ResponseMessage;
 
-import java.sql.*;
-
 import static server.ChatServer.connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 @Slf4j
-public class Test1 {
-    private static final String URL="jdbc:mysql://localhost:3306/test";
-     private static final String NAME="root";
-     private static final String PASSWORD="9264wkn.";
-    public static void main(String[] args)throws Exception {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection connection= DriverManager.getConnection(URL,NAME,PASSWORD);
-        long userID=9;
-        long FriendID=18;
-        String chat="HaHaHa";
+public class FriendChatHandler extends SimpleChannelInboundHandler<FriendChatRequestMessage> {
+
+    @Override
+    protected void channelRead0(ChannelHandlerContext ctx, FriendChatRequestMessage msg) throws Exception {
+        long userID=msg.getUserID();
+        long FriendID=msg.getFriendId();
+        String chat=msg.getMessage();
         String sql="select * from friend where (toID =? and fromID=?) or (toID =? and fromID=?)";
         PreparedStatement ps=connection.prepareStatement(sql);
         ps.setLong(1,userID);

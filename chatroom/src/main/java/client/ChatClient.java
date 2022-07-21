@@ -1,6 +1,8 @@
 package client;
 
 import client.view.EnterView;
+import client.view.MainView;
+import com.alibaba.druid.util.StringUtils;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.*;
@@ -21,7 +23,7 @@ import java.util.Scanner;
 import java.util.concurrent.CountDownLatch;
 
 
-//@Slf4j
+@Slf4j
 public class ChatClient {
     public static String myUsername;
     public static long myUserID;
@@ -47,9 +49,7 @@ public class ChatClient {
                                         @Override
                                         public void channelActive(ChannelHandlerContext ctx) throws Exception {
 
-                                            new Thread(()->{new EnterView(ctx);System.out.println("\n-----成功退出系统-----");},"system.in").start();
-
-                                            ctx.channel().close();
+                                            new Thread(()->{new EnterView(ctx);},"system.in").start();
                                         }
                                     });
                         }

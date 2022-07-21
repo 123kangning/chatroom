@@ -4,24 +4,26 @@ import client.ChatClient;
 import io.netty.channel.ChannelHandlerContext;
 import lombok.Synchronized;
 import lombok.extern.slf4j.Slf4j;
+import message.FriendChatRequestMessage;
 import message.LogoutRequestMessage;
+import message.SignOutRequestMessage;
 
 import java.util.Scanner;
 
-import static client.ChatClient.waitMessage;
-import static client.ChatClient.waitSuccess;
+import static client.ChatClient.*;
 
 @Slf4j
 public class MainView {
     public MainView(ChannelHandlerContext ctx){
         while(true){
-
-            System.out.println("\n\t+---------------------+");
-            System.out.println("\t| 11 -> 退出群聊(通过ID)|");
+            System.out.printf("\n\t+----- 您的ID为 %d -----+\n",myUserID);
+            System.out.println("\t| 12 -> 退出群聊(通过ID)|");
             System.out.println("\t+---------------------+");
-            System.out.println("\t| 10 -> 加入群聊(通过ID)|");
+            System.out.println("\t| 11 -> 加入群聊(通过ID)|");
             System.out.println("\t+---------------------+");
-            System.out.println("\t| 9 -> 创建群聊        |");
+            System.out.println("\t| 10 -> 创建群聊        |");
+            System.out.println("\t+---------------------+");
+            System.out.println("\t| 9 -> 好友聊天(通过ID) |");
             System.out.println("\t+---------------------+");
             System.out.println("\t| 8 -> 屏蔽好友(通过ID) |");
             System.out.println("\t+---------------------+");
@@ -45,14 +47,30 @@ public class MainView {
                 /*case 1:
                     new EnterView(ctx);
                     break;*/
-                case 2:
+                case 2:{
+                    System.out.println("确定注销吗？[y/n]");
+                    log.info("myUserID = {}",ChatClient.myUserID);
+                    String s1=scanner.nextLine();
+                    if(s1.compareToIgnoreCase("y")==0){
+                        ctx.writeAndFlush(new SignOutRequestMessage(ChatClient.myUserID));
+                        try{
+                            synchronized(waitMessage){
+                                waitMessage.wait();
+                            }
+                        }catch (InterruptedException e){
+                            e.printStackTrace();
+                        }
+                        if(waitSuccess==1){
+                            return;
+                        }
+                    }
                     break;
-                case 3:
+                }
+                case 3:{
                     System.out.println("确定退出吗？[y/n]");
                     log.info("myUserID = {}",ChatClient.myUserID);
                     String s1=scanner.nextLine();
                     log.info("s={}",s1);
-                    log.info("ctx= {}",ctx);
                     if(s1.compareToIgnoreCase("y")==0){
                         ctx.writeAndFlush(new LogoutRequestMessage(ChatClient.myUserID));
                         try{
@@ -66,10 +84,31 @@ public class MainView {
                             return;
                         }
                     }
-
                     break;
+                }
                 case 4:
                 case 5:
+                case 6:
+                case 7:
+                case 8:
+                case 9:{
+                    System.out.println("请输入好友ID：");
+                    long FriendID=Long.valueOf(scanner.nextLine());
+                    System.out.println("聊天内容(按下回车发送)：");
+                    String chat=scanner.nextLine();
+                    FriendChatRequestMessage message=new FriendChatRequestMessage(myUserID,FriendID,chat);
+                    ctx.writeAndFlush(message);
+                    try{
+                        synchronized(waitMessage){
+                            waitMessage.wait();
+                        }
+                    }catch (InterruptedException e){
+                        e.printStackTrace();
+                    }
+                    break;
+                }
+                case 10:
+                case 11:
             }
 
         }

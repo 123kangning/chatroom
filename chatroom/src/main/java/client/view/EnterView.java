@@ -17,11 +17,9 @@ import static client.ChatClient.*;
 @Slf4j
 public class EnterView {
     public EnterView(ChannelHandlerContext ctx){
-        run(ctx);
-    }
-    public void run(ChannelHandlerContext ctx){
-        ByteBuf buf=ctx.alloc().buffer();
+
         while(true){
+            ByteBuf buf=ctx.alloc().buffer();
             System.out.println("\n\t+-----------------+");
             System.out.println("\t|   1   登录       |");
             System.out.println("\t+-----------------+");
@@ -33,7 +31,6 @@ public class EnterView {
             Scanner scanner=new Scanner(System.in);
             switch (Integer.parseInt(scanner.nextLine())){
                 case 1:
-                    //Scanner scanner1=new Scanner(System.in);
                     System.out.println("请输入用户ID：");
                     String s1=scanner.nextLine();
                     while(!StringUtils.isNumber(s1)){
@@ -48,6 +45,7 @@ public class EnterView {
 
                     LoginRequestMessage message=new LoginRequestMessage(userID,password);
                     ctx.writeAndFlush(message);
+                    log.info("case 1 writeAndFlush");
                     try {
                         synchronized (waitMessage){
                             waitMessage.wait();
@@ -91,9 +89,11 @@ public class EnterView {
                     }
                     break;
                 case 0:
+                    System.out.println("\t-----正在退出系统-----");
+                    ctx.channel().close();
                     return;
-
             }
+            log.info("switch -case");
         }
     }
 }

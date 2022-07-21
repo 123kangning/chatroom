@@ -6,6 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 import message.LoginRequestMessage;
 import message.Message;
 import message.ResponseMessage;
+import server.service.User;
+import server.session.SessionMap;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,6 +20,7 @@ public class LoginHandler extends SimpleChannelInboundHandler<LoginRequestMessag
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, LoginRequestMessage msg) {
         try{
+            log.info("run LoginRequestMessage");
             long userID=msg.getUserID();
             String password=msg.getPassword();
             log.info("{}",msg);
@@ -28,11 +31,6 @@ public class LoginHandler extends SimpleChannelInboundHandler<LoginRequestMessag
             statement.setLong(1,userID);
             statement.setObject(2,password);
             ResultSet set= statement.executeQuery();
-            /*if(set==null){
-                log.info("set == null,没找到");
-            }else{
-                log.info("next 不为空！！！！！！！！！！");
-            }*/
 
             if(set.next()){
                 if(set.getString(1).equals("F")){
@@ -50,6 +48,9 @@ public class LoginHandler extends SimpleChannelInboundHandler<LoginRequestMessag
                 log.info("登录失败");
                 message=new ResponseMessage(false,"登录失败,ID或密码错误");
             }
+            User user=new User(userID);
+            SessionMap.addSession(user,ctx.channel());
+            log.info("userID={},channel={}",user.getUserID(),SessionMap.getChannel(user));
             message.setMessageType(Message.LoginResponseMessage);
             ctx.writeAndFlush(message);
         }catch (SQLException e){

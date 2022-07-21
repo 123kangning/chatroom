@@ -18,6 +18,7 @@ public class SignInHandler extends SimpleChannelInboundHandler<SignInRequestMess
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, SignInRequestMessage msg) throws Exception {
         try{
+            log.info("run SignInRequestMessage");
             String username=msg.getUsername();
             String password=msg.getPassword();
             String phoneNumber=msg.getPhoneNumber();
@@ -55,9 +56,9 @@ public class SignInHandler extends SimpleChannelInboundHandler<SignInRequestMess
 
                 set1.next();
                 userID=set1.getLong(1);
-                message=new ResponseMessage(true,"您的id为"+userID);
+                message=new ResponseMessage(true,"，您的id为"+userID);
             }
-            /*message.setMessageType(Message.SignInResponseMessage);*/
+            message.setMessageType(Message.SignInResponseMessage);
             ctx.writeAndFlush(message);
         }catch (SQLException e){
             e.printStackTrace();

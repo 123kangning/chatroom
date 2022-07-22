@@ -6,7 +6,7 @@ CREATE TABLE `message` (
   `is_send` char(1) DEFAULT NULL COMMENT '是否是自己发送 F=不是、T=是',
   `create_date` date DEFAULT NULL COMMENT '消息发送日期',
   `talkerID` int(11) DEFAULT NULL COMMENT '发信人ID',
-  `talker_type` char(1) DEFAULT NULL COMMENT '消息来源：来自群聊时为群聊ID、来自朋友时为朋友ID',
+  `talker_type` int(11) DEFAULT NULL COMMENT '消息来源：来自群聊时为群聊ID、来自朋友时为朋友ID',
   `content` text COMMENT '若为文本消息则存储消息本身、若为文件则存储在服务器文件系统中，并存储文件存储的路径',
   isAccept char(1) default not null comment 'T=已接收、F=未接收',
   PRIMARY KEY (`msg_id`)

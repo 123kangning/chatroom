@@ -60,7 +60,13 @@ public class ChatServer {
                                     .addLast(new LogoutHandler())
                                     .addLast(new SignOutHandler())
                                     .addLast(new FriendChatHandler())
-                                    .addLast(new SignInHandler());
+                                    .addLast(new SignInHandler())
+                                    .addLast(new ChannelInboundHandlerAdapter(){
+                                        @Override
+                                        public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+                                            /*new LogoutHandler();*/
+                                        }
+                                    });
                         }
                     })
                     .bind(8082);

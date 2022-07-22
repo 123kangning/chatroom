@@ -48,7 +48,7 @@ public class LoginHandler extends SimpleChannelInboundHandler<LoginRequestMessag
                 log.info("登录失败");
                 message=new ResponseMessage(false,"登录失败,ID或密码错误");
             }
-            SessionMap.addSession(userID,ctx.channel());
+            SessionMap.add(userID,ctx.channel());
             log.info("userID={},channel={}",userID,SessionMap.getChannel(userID));
             message.setMessageType(Message.LoginResponseMessage);
             ctx.writeAndFlush(message);

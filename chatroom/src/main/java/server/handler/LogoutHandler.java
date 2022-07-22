@@ -5,6 +5,7 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import message.LogoutRequestMessage;
 import message.Message;
 import message.ResponseMessage;
+import server.session.SessionMap;
 
 import static server.ChatServer.connection;
 import java.sql.PreparedStatement;
@@ -15,7 +16,7 @@ public class LogoutHandler extends SimpleChannelInboundHandler<LogoutRequestMess
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, LogoutRequestMessage msg){
         try{
-            long userID=msg.getUserID();
+            long userID= SessionMap.getUser(ctx.channel());
             String sql="update test1 set online='F' where userID=?";
             PreparedStatement statement=connection.prepareStatement(sql);
             statement.setLong(1,userID);

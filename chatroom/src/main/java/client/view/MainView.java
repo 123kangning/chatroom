@@ -78,7 +78,7 @@ public class MainView {
                     String s1=scanner.nextLine();
                     log.info("s={}",s1);
                     if(s1.compareToIgnoreCase("y")==0){
-                        ctx.writeAndFlush(new LogoutRequestMessage(ChatClient.myUserID));
+                        ctx.writeAndFlush(new LogoutRequestMessage());
                         try{
                             synchronized(waitMessage){
                                 waitMessage.wait();

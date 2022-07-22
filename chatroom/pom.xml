@@ -51,6 +51,12 @@
             <version>2.0.0-alpha1</version>
         </dependency>
         <dependency>
+            <groupId>com.github.housepower</groupId>
+            <artifactId>clickhouse-native-jdbc</artifactId>
+            <version>2.6.5</version>
+            <!--<version>1.7-stable</version>-->
+        </dependency>
+        <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-codec-http2</artifactId>
             <version>4.1.77.Final</version>

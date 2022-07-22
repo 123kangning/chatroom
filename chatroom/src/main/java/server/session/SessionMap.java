@@ -8,13 +8,13 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Slf4j
 public final class SessionMap {
-    private static ConcurrentHashMap<User, Channel> map=new ConcurrentHashMap<>();
-    public static void addSession(User user,Channel session){
-        map.put(user,session);
+    private static ConcurrentHashMap<Long, Channel> map=new ConcurrentHashMap<>();
+    public static void addSession(Long userID,Channel session){
+        map.put(userID,session);
     }
-    public static Channel getChannel(User user){
-        if(map.containsKey(user)){
-            return map.get(user);
+    public static Channel getChannel(long userID){
+        if(map.containsKey(userID)){
+            return map.get(userID);
         }else{
             return null;
         }

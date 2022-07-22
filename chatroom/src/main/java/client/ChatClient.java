@@ -45,6 +45,7 @@ public class ChatClient {
                                     /*.addLast(Log)*/
                                     .addLast(clientCodec)
                                     .addLast(new ResponseHandler())
+                                    .addLast(new ClientFriendChatHandler())
                                     .addLast("View handler",new ChannelInboundHandlerAdapter(){
                                         @Override
                                         public void channelActive(ChannelHandlerContext ctx) throws Exception {
@@ -54,7 +55,7 @@ public class ChatClient {
                                     });
                         }
                     })
-                    .connect(new InetSocketAddress("localhost",8084));
+                    .connect(new InetSocketAddress("localhost",8082));
             Channel channel=future.sync().channel();
 
             channel.closeFuture().sync();

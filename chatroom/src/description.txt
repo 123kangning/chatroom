@@ -1,13 +1,41 @@
 消息表设计
-
 CREATE TABLE `message` (
   `msg_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '消息id，自增长',
-  `msg_type` int(11) DEFAULT NULL COMMENT '类型 1：文字；47：emoji；43：音频；436207665：红包；49：文件；48：位置；3：图片',
-  `is_send` int(11) DEFAULT NULL COMMENT '是否是自己发送 0：不是；1：是',
+  `msg_type` char(1) DEFAULT NULL COMMENT '类型 S=文字、F=文件',
+  `is_send` char(1) DEFAULT NULL COMMENT '是否是自己发送 F=不是、T=是',
   `create_time` datetime DEFAULT NULL COMMENT '消息发送时间',
-  `content` longblob COMMENT '消息格式【发信人id:内容】',
-  `talker` varchar(55) DEFAULT NULL COMMENT '聊天对象。群聊，则是群id（xxx@chatroom）；一对一，聊天对象的唯一标识。',
+  `content` longblob COMMENT '消息格式[对方ID][消息内容]',
+  `talker` char(1) DEFAULT NULL COMMENT '聊天对象：G=群聊、F=一对一聊天',
   PRIMARY KEY (`msg_id`),
-  KEY `index_chat_id` (`talker`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+用户表设计
+create table user(
+userID int(11) NOT NULL AUTO_INCREMENT COMMENT '用户id，自增长',
+username varchar(50) NOT NULL COMMENT '用户名',
+password varchar(50) NOT NULL COMMENT '密码',
+mail varchar(50) NOT NULL COMMENT '电子邮箱',
+online char(1) NOT NULL COMMENT '在线状态，T=在线、F=下线',
+primary key(userID)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+朋友表设计
+create table friend(
+fromID int(11) NOT NULL COMMENT '用户1 id',
+toID int(11) NOT NULL COMMENT '用户2 id',
+shield char(1) NOT NULL COMMENT '0=无屏蔽关系，1=前者屏蔽后者，2=后者屏蔽前者，3=双向屏蔽',
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+群组表设计
+create table group(
+groupID int(11) NOT NULL AUTO_INCREMENT COMMENT '组id，自增长',
+groupName varchar(50) NOT NULL COMMENT '组名',
+primary key(groupID)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+群成员表设计
+create table group_member(
+groupID int(11) NOT NULL COMMENT '组id'，
+userID int(11) NOT NULL COMMENT '成员id',
+user_type char(1) NOT NULL COMMENT '0=普通成员，1=管理员，9=群主',
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

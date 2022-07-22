@@ -43,19 +43,20 @@ public class FriendChatHandler extends SimpleChannelInboundHandler<FriendChatReq
                     u2=temp;
                 }//调整之后，消息从u1发往u2
                 ps1.setLong(1,u2);
-                channel= SessionMap.getChannel(new User(u2));
+                channel= SessionMap.getChannel(u2);
 
                 ResultSet set1=ps1.executeQuery();
                 if(set1.next()){
                     //！！！！！！！！！！！！！！！！
                     //后期需要加上把消息存入数据库的代码
                     //！！！！！！！！！！！！！！！！！
-                    log.info("Friend channel = "+channel);
-                    log.info("msg = "+msg);
-                    channel.writeAndFlush(msg);
+
                     if(set1.getString(1).equals("T")){
                         log.info("new ResponseMessage(true,\"\")");
                         message=new ResponseMessage(true,"");
+                        log.info("Friend channel = "+channel);
+                        log.info("msg = "+msg);
+                        channel.writeAndFlush(msg);
                     }else{
                         log.info("new ResponseMessage(true,\"但是朋友不在线\")");
                         message=new ResponseMessage(true,"但是朋友不在线");

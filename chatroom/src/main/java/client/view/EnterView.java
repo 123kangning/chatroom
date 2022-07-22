@@ -29,7 +29,12 @@ public class EnterView {
             System.out.println("\t+-----------------+\n");
             System.out.println("输入你的选择：");
             Scanner scanner=new Scanner(System.in);
-            switch (Integer.parseInt(scanner.nextLine())){
+            String s=scanner.nextLine();
+            while(!StringUtils.isNumber(s)){
+                System.out.println("输入不规范，请重新输入用户ID：");
+                s=scanner.nextLine();
+            }
+            switch (Integer.parseInt(s)){
                 case 1:
                     System.out.println("请输入用户ID：");
                     String s1=scanner.nextLine();

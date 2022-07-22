@@ -63,7 +63,7 @@ public class ChatServer {
                                     .addLast(new SignInHandler());
                         }
                     })
-                    .bind(8084);
+                    .bind(8082);
             Channel channel=future.sync().channel();
             channel.closeFuture().sync();
         } catch (InterruptedException e) {

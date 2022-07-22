@@ -1,6 +1,7 @@
 package client.view;
 
 import client.ChatClient;
+import com.alibaba.druid.util.StringUtils;
 import io.netty.channel.ChannelHandlerContext;
 import lombok.Synchronized;
 import lombok.extern.slf4j.Slf4j;
@@ -43,7 +44,12 @@ public class MainView {
 //            System.out.println("\t+--------------------+");
 
             Scanner scanner=new Scanner(System.in);
-            switch (Integer.parseInt(scanner.nextLine())){
+            String s=scanner.nextLine();
+            while(!StringUtils.isNumber(s)){
+                System.out.println("输入不规范，请重新输入用户ID：");
+                s=scanner.nextLine();
+            }
+            switch (Integer.parseInt(s)){
                 /*case 1:
                     new EnterView(ctx);
                     break;*/
@@ -93,7 +99,12 @@ public class MainView {
                 case 8:
                 case 9:{
                     System.out.println("请输入好友ID：");
-                    long FriendID=Long.valueOf(scanner.nextLine());
+                    String s1=scanner.nextLine();
+                    while(!StringUtils.isNumber(s1)){
+                        System.out.println("输入不规范，请重新输入用户ID：");
+                        s1=scanner.nextLine();
+                    }
+                    long FriendID=Long.valueOf(s1);
                     System.out.println("聊天内容(按下回车发送)：");
                     String chat=scanner.nextLine();
                     FriendChatRequestMessage message=new FriendChatRequestMessage(myUserID,FriendID,chat);

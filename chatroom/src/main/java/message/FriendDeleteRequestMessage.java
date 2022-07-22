@@ -1,10 +1,10 @@
 package message;
 
 public class FriendDeleteRequestMessage extends Message{
-    private long userID;
-    private long FriendId;
+    private int userID;
+    private int FriendId;
     public FriendDeleteRequestMessage(){}
-    public FriendDeleteRequestMessage(long userID,long FriendId){
+    public FriendDeleteRequestMessage(int userID,int FriendId){
         this.userID=userID;
         this.FriendId=FriendId;
     }

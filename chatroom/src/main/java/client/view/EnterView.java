@@ -42,7 +42,7 @@ public class EnterView {
                         System.out.println("输入不规范，请重新输入用户ID：");
                         s1=scanner.nextLine();
                     }
-                    long userID= Long.parseLong(s1);
+                    int userID= Integer.parseInt(s1);
                     ChatClient.myUserID=userID;
                     System.out.println("请输入密码：");
                     String password=scanner.nextLine();
@@ -50,7 +50,6 @@ public class EnterView {
 
                     LoginRequestMessage message=new LoginRequestMessage(userID,password);
                     ctx.writeAndFlush(message);
-                    log.info("case 1 writeAndFlush");
                     try {
                         synchronized (waitMessage){
                             waitMessage.wait();
@@ -75,14 +74,14 @@ public class EnterView {
                     }
                     System.out.println("请输入密码：");
                     String password1=scanner.nextLine();
-                    System.out.println("请输入电话号码：");
-                    String phoneNumber=scanner.nextLine();
-                    while(phoneNumber.length()>=50){
+                    System.out.println("请输入邮箱地址：");
+                    String mail=scanner.nextLine();
+                    while(mail.length()>=50){
                         System.out.println("名称过长，请重新输入用户名称：");
-                        phoneNumber=scanner.nextLine();
+                        mail=scanner.nextLine();
                     }
-                    log.info("username={}, password={}, phoneNumber={}",username,password1,phoneNumber);
-                    SignInRequestMessage message1=new SignInRequestMessage(username,password1,phoneNumber);
+                    log.info("username={}, password={}, mail={}",username,password1,mail);
+                    SignInRequestMessage message1=new SignInRequestMessage(username,password1,mail);
                     ctx.writeAndFlush(message1);
                     try {
                         synchronized (waitMessage){
@@ -98,7 +97,6 @@ public class EnterView {
                     ctx.channel().close();
                     return;
             }
-            log.info("switch -case");
         }
     }
 }

@@ -1,15 +1,15 @@
 package message;
 
 public class LoginRequestMessage extends Message{
-    private long userID;
+    private int userID;
     private String password;
 
     public LoginRequestMessage(){}
-    public LoginRequestMessage(long userID,String password){
+    public LoginRequestMessage(int userID,String password){
         this.userID=userID;
         this.password=password;
     }
-    public long getUserID(){return this.userID;}
+    public int getUserID(){return this.userID;}
     public String getPassword(){return this.password;}
 
     @Override

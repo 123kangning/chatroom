@@ -20,29 +20,29 @@ public class FriendChatHandler extends SimpleChannelInboundHandler<FriendChatReq
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, FriendChatRequestMessage msg) throws Exception {
         try{
-            long userID=msg.getUserID();
-            long FriendID=msg.getFriendId();
+            int userID=msg.getUserID();
+            int FriendID=msg.getFriendId();
             String chat=msg.getMessage();
             String sql="select * from friend where (toID =? and fromID=?) or (toID =? and fromID=?)";
             PreparedStatement ps=connection.prepareStatement(sql);
-            ps.setLong(1,userID);
-            ps.setLong(2,FriendID);
-            ps.setLong(3,FriendID);
-            ps.setLong(4,userID);
+            ps.setInt(1,userID);
+            ps.setInt(2,FriendID);
+            ps.setInt(3,FriendID);
+            ps.setInt(4,userID);
             ResultSet set=ps.executeQuery();
             ResponseMessage message=null;
             if(set.next()){//找到添加的朋友
-                long u1=set.getLong(1);
-                long u2=set.getLong(2);
+                int u1=set.getInt(1);
+                int u2=set.getInt(2);
                 String sql1="select online from test1 where userID=?";
                 PreparedStatement ps1=connection.prepareStatement(sql1);
                 Channel channel;
                 if(u2==userID){//u1是朋友
-                    long temp=u1;
+                    int temp=u1;
                     u1=u2;
                     u2=temp;
                 }//调整之后，消息从u1发往u2
-                ps1.setLong(1,u2);
+                ps1.setInt(1,u2);
                 channel= SessionMap.getChannel(u2);
 
                 ResultSet set1=ps1.executeQuery();

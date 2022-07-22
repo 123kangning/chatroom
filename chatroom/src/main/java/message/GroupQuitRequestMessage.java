@@ -1,10 +1,10 @@
 package message;
 
 public class GroupQuitRequestMessage extends Message{
-    private long userID;
-    private long GroupId;
+    private int userID;
+    private int GroupId;
     public GroupQuitRequestMessage(){}
-    public GroupQuitRequestMessage(long userID,long GroupId){
+    public GroupQuitRequestMessage(int userID,int GroupId){
         this.userID=userID;
         this.GroupId=GroupId;
     }

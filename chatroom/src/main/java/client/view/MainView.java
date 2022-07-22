@@ -104,7 +104,7 @@ public class MainView {
                         System.out.println("输入不规范，请重新输入用户ID：");
                         s1=scanner.nextLine();
                     }
-                    long FriendID=Long.valueOf(s1);
+                    int FriendID=Integer.valueOf(s1);
                     System.out.println("聊天内容(按下回车发送)：");
                     String chat=scanner.nextLine();
                     FriendChatRequestMessage message=new FriendChatRequestMessage(myUserID,FriendID,chat);

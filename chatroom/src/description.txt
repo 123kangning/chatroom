@@ -8,8 +8,7 @@ CREATE TABLE `message` (
   `talkerID` int(11) DEFAULT NULL COMMENT '发信人ID',
   `talker_type` int(11) DEFAULT NULL COMMENT '消息来源：来自群聊时为群聊ID、来自朋友时为朋友ID',
   `content` text COMMENT '若为文本消息则存储消息本身、若为文件则存储在服务器文件系统中，并存储文件存储的路径',
-  isAccept char(1) default not null comment 'T=已接收、F=未接收',
-
+  isAccept char(1) not null comment 'T=已接收、F=未接收',
   PRIMARY KEY (`msg_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -31,15 +30,11 @@ shield char(1) NOT NULL COMMENT '0=无屏蔽关系，1=前者屏蔽后者，2=�
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 群组表设计
-create table group(
+create table `group`(
 groupID int(11) NOT NULL AUTO_INCREMENT COMMENT '组id，自增长',
 group_name varchar(50) NOT NULL COMMENT '组名',
-primary key(groupID)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-群成员表设计
-create table group_member(
-groupID int(11) NOT NULL COMMENT '组id',
 userID int(11) NOT NULL COMMENT '成员id',
-user_type char(1) NOT NULL COMMENT '0=普通成员，1=管理员，9=群主，3=禁言'
+user_type char(1) NOT NULL COMMENT '0=普通成员，1=管理员，9=群主',
+say char(1) not null comment 'T=可发言、F=禁言',
+primary key (groupID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

@@ -1,11 +1,11 @@
 package message;
 
 public class GroupChatRequestMessage extends Message{
-    private long userID;
-    private long GroupId;
+    private int userID;
+    private int GroupId;
     //talker默认为G=group
     public GroupChatRequestMessage(){}
-    public GroupChatRequestMessage(long userID,long GroupId){
+    public GroupChatRequestMessage(int userID,int GroupId){
         this.userID=userID;
         this.GroupId=GroupId;
     }

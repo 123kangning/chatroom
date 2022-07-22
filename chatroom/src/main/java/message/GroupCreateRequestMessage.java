@@ -1,10 +1,10 @@
 package message;
 
 public class GroupCreateRequestMessage extends Message{
-    private long userID;
-    private long GroupID;
+    private int userID;
+    private int GroupID;
     public GroupCreateRequestMessage(){}
-    public GroupCreateRequestMessage(long userID,long GroupID){
+    public GroupCreateRequestMessage(int userID,int GroupID){
         this.userID=userID;
         this.GroupID=GroupID;
     }

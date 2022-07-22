@@ -10,6 +10,7 @@ import io.netty.handler.logging.LoggingHandler;
 
 import lombok.extern.slf4j.Slf4j;
 import message.LoginRequestMessage;
+import message.LogoutRequestMessage;
 import message.ResponseMessage;
 import protocol.MessageCodec;
 import protocol.ProtocolFrameDecoder;
@@ -23,7 +24,7 @@ public class ChatServer {
 
     public static Connection connection;
     public static void jdbc(){
-        final String URL="jdbc:mysql://localhost:3306/test";
+        final String URL="jdbc:mysql://localhost:3306/chatroom";
         final String NAME="root";
         final String PASSWORD="9264wkn.";
 
@@ -56,20 +57,29 @@ public class ChatServer {
                             nioSocketChannel.pipeline().addLast( new ProtocolFrameDecoder())
                                     /*.addLast(Log)*/
                                     .addLast(new MessageCodec())
+                                    .addLast(new ChannelInboundHandlerAdapter(){
+                                        @Override
+                                        public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+                                            log.info("exceptionCaught start");
+                                            LogoutRequestMessage msg=new LogoutRequestMessage();
+                                            log.info("exceptionCaught end");
+
+                                        }
+                                        @Override
+                                        public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+                                            log.info("channelInactive");
+                                            LogoutRequestMessage msg=new LogoutRequestMessage();
+                                            super.channelRead(ctx,msg);
+                                        }
+                                    })
                                     .addLast(new LoginHandler())
                                     .addLast(new LogoutHandler())
                                     .addLast(new SignOutHandler())
                                     .addLast(new FriendChatHandler())
-                                    .addLast(new SignInHandler())
-                                    .addLast(new ChannelInboundHandlerAdapter(){
-                                        @Override
-                                        public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-                                            /*new LogoutHandler();*/
-                                        }
-                                    });
+                                    .addLast(new SignInHandler());
                         }
                     })
-                    .bind(8082);
+                    .bind(8086);
             Channel channel=future.sync().channel();
             channel.closeFuture().sync();
         } catch (InterruptedException e) {

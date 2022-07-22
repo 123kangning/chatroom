@@ -1,10 +1,10 @@
 package message;
 
 public class GroupDeleteRequestMessage extends Message{
-    private long userID;
-    private long GroupId;
+    private int userID;
+    private int GroupId;
     public GroupDeleteRequestMessage(){}
-    public GroupDeleteRequestMessage(long userID,long GroupId){
+    public GroupDeleteRequestMessage(int userID,int GroupId){
         this.userID=userID;
         this.GroupId=GroupId;
     }

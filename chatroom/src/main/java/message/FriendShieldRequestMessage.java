@@ -1,10 +1,10 @@
 package message;
 
 public class FriendShieldRequestMessage extends Message{
-    private long userID;
-    private long FriendId;
+    private int userID;
+    private int FriendId;
     public FriendShieldRequestMessage(){}
-    public FriendShieldRequestMessage(long userID,long FriendId){
+    public FriendShieldRequestMessage(int userID,int FriendId){
         this.userID=userID;
         this.FriendId=FriendId;
     }

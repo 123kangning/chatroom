@@ -6,6 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 import message.ResponseMessage;
 import message.SignInRequestMessage;
 import message.SignOutRequestMessage;
+import server.session.SessionMap;
+
 import static server.ChatServer.connection;
 import java.sql.PreparedStatement;
 
@@ -13,8 +15,8 @@ import java.sql.PreparedStatement;
 public class SignOutHandler extends SimpleChannelInboundHandler<SignOutRequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, SignOutRequestMessage msg) throws Exception {
-        long userID= msg.getUserID();
-        String sql="delete from test1 where userID=?";
+        long userID= SessionMap.getUser(ctx.channel());
+        String sql="delete from user where userID=?";
         PreparedStatement statement=connection.prepareStatement(sql);
         statement.setLong(1,userID);
         int row=statement.executeUpdate();

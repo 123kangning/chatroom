@@ -1,19 +1,19 @@
 package message;
 
 public class SignInRequestMessage extends Message{
-    private String phoneNumber;
+    private String mail;
     private String username;
     private String password;
 
     public SignInRequestMessage(){}
-    public SignInRequestMessage(String username,String password,String phoneNumber){
+    public SignInRequestMessage(String username,String password,String mail){
         this.username=username;
         this.password=password;
-        this.phoneNumber=phoneNumber;
+        this.mail=mail;
     }
     public String getUsername(){return this.username;}
     public String getPassword(){return this.password;}
-    public String getPhoneNumber(){return this.phoneNumber;}
+    public String getMail(){return this.mail;}
 
     @Override
     public int getMessageType() {
@@ -21,6 +21,6 @@ public class SignInRequestMessage extends Message{
     }
 
     public String toString(){
-        return "username = "+username+", password = "+password+", phoneNumber = "+phoneNumber;
+        return "username = "+username+", password = "+password+", mail = "+mail;
     }
 }

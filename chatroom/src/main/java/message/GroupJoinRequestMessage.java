@@ -1,10 +1,10 @@
 package message;
 
 public class GroupJoinRequestMessage extends Message{
-    private long userID;
-    private long GroupId;
+    private int userID;
+    private int GroupId;
     public GroupJoinRequestMessage(){}
-    public GroupJoinRequestMessage(long userID,long GroupId){
+    public GroupJoinRequestMessage(int userID,int GroupId){
         this.userID=userID;
         this.GroupId=GroupId;
     }

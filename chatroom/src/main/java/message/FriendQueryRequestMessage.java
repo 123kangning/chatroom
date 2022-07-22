@@ -1,9 +1,9 @@
 package message;
 
 public class FriendQueryRequestMessage extends Message{
-    private long userID;
+    private int userID;
     public FriendQueryRequestMessage(){}
-    public FriendQueryRequestMessage(long userID){
+    public FriendQueryRequestMessage(int userID){
         this.userID=userID;
     }
 

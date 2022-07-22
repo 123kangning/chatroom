@@ -21,13 +21,13 @@ public class SignInHandler extends SimpleChannelInboundHandler<SignInRequestMess
             log.info("run SignInRequestMessage");
             String username=msg.getUsername();
             String password=msg.getPassword();
-            String phoneNumber=msg.getPhoneNumber();
+            String mail=msg.getMail();
             log.info("{}",msg);
             ResponseMessage message;
-            String sql="select * from test1 where phoneNumber=? ";
+            String sql="select * from user where mail=? ";
             log.info("connection = {}",connection);
             PreparedStatement statement=connection.prepareStatement(sql);
-            statement.setString(1,phoneNumber);
+            statement.setString(1,mail);
 
             ResultSet set= statement.executeQuery();
             /*if(set==null){
@@ -37,25 +37,25 @@ public class SignInHandler extends SimpleChannelInboundHandler<SignInRequestMess
             }*/
             if(set.next()){
                 log.info("注册失败");
-                message=new ResponseMessage(false,"注册失败,每个手机号只能申请一个账号");
+                message=new ResponseMessage(false,"注册失败,每个邮箱只能申请一个账号");
             }else{
                 log.info("注册成功");
-                long userID;
+                int userID;
 
-                String sql1="insert into test1(username,password,phoneNumber,online) values(?,?,?,?)";
+                String sql1="insert into user(username,password,mail,online) values(?,?,?,?)";
                 PreparedStatement statement1=connection.prepareStatement(sql1);
                 statement1.setString(1,username);
                 statement1.setString(2,password);
-                statement1.setString(3,phoneNumber);
+                statement1.setString(3,mail);
                 statement1.setString(4,"F");
                 statement1.executeUpdate();
-                String sql2="select userID from test1 where phoneNumber=?";
+                String sql2="select userID from user where mail=?";
                 PreparedStatement statement2=connection.prepareStatement(sql2);
-                statement2.setString(1,phoneNumber);
+                statement2.setString(1,mail);
                 ResultSet set1=statement2.executeQuery();
 
                 set1.next();
-                userID=set1.getLong(1);
+                userID=set1.getInt(1);
                 message=new ResponseMessage(true,"，您的id为"+userID);
             }
             message.setMessageType(Message.SignInResponseMessage);

@@ -1,13 +1,13 @@
 package message;
 
 public class SignOutRequestMessage extends Message{
-    private long userID;
+    private int userID;
 
     public SignOutRequestMessage(){}
-    public SignOutRequestMessage(long userID){
+    public SignOutRequestMessage(int userID){
         this.userID=userID;
     }
-    public long getUserID(){return this.userID;}
+    public int getUserID(){return this.userID;}
     @Override
     public int getMessageType() {
         return SignOutRequestMessage;

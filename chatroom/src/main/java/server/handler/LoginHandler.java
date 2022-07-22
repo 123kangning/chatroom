@@ -21,11 +21,11 @@ public class LoginHandler extends SimpleChannelInboundHandler<LoginRequestMessag
     protected void channelRead0(ChannelHandlerContext ctx, LoginRequestMessage msg) {
         try{
             log.info("run LoginRequestMessage");
-            long userID=msg.getUserID();
+            int userID=msg.getUserID();
             String password=msg.getPassword();
             log.info("{}",msg);
             ResponseMessage message;
-            String sql="select online from test1 where userID=? and password=? ";
+            String sql="select online from user where userID=? and password=? ";
             log.info("connection = {}",connection);
             PreparedStatement statement=connection.prepareStatement(sql);
             statement.setLong(1,userID);
@@ -35,7 +35,7 @@ public class LoginHandler extends SimpleChannelInboundHandler<LoginRequestMessag
             if(set.next()){
                 if(set.getString(1).equals("F")){
                     log.info("登录成功");
-                    sql="update test1 set online='T' where  userID=?";
+                    sql="update user set online='T' where  userID=?";
                     statement=connection.prepareStatement(sql);
                     statement.setLong(1,userID);
                     statement.executeUpdate();

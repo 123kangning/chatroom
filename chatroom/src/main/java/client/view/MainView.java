@@ -18,20 +18,18 @@ import static client.ChatClient.*;
 public class MainView {
     public MainView(ChannelHandlerContext ctx){
         while(true){
-            System.out.printf("\n\t+----- 您的ID为 %d -----+\n",myUserID);
-            System.out.println("\t+---------------------+");
-            System.out.println("\t| 6 -> 进入消息通知栏   |");
-            System.out.println("\t+---------------------+");
-            System.out.println("\t| 5 -> 进入群组管理界面  |");
-            System.out.println("\t+---------------------+");
-            System.out.println("\t| 4 -> 进入好友管理界面  |");
-            System.out.println("\t+---------------------+");
-            System.out.println("\t| 3 -> 退出            |");
-            System.out.println("\t+---------------------+");
-            System.out.println("\t| 2 -> 注销            |");
-            System.out.println("\t+---------------------+");
-//            System.out.println("\t|   |");
-//            System.out.println("\t+--------------------+");
+            System.out.printf("\n\t+----- 您的ID为 %d -----+\n" +
+                    "\t+---------------------+\n" +
+                    "\t| 6 -> 进入消息通知栏   |\n" +
+                    "\t+---------------------+\n" +
+                    "\t| 5 -> 进入群组管理界面 |\n" +
+                    "\t+---------------------+\n" +
+                    "\t| 4 -> 进入好友管理界面 |\n" +
+                    "\t+---------------------+\n" +
+                    "\t| 3 -> 退出            |\n" +
+                    "\t+---------------------+\n" +
+                    "\t| 2 -> 注销            |\n" +
+                    "\t+---------------------+\n",myUserID);
 
             Scanner scanner=new Scanner(System.in);
             String s=scanner.nextLine();
@@ -58,6 +56,7 @@ public class MainView {
                             return;
                         }
                     }
+                    haveNoRead=false;
                     break;
                 }
                 case 3:{
@@ -78,6 +77,7 @@ public class MainView {
                             return;
                         }
                     }
+                    haveNoRead=false;
                     break;
                 }
                 case 4:new FriendView(ctx);break;

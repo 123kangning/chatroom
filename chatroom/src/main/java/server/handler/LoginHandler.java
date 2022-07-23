@@ -3,6 +3,7 @@ package server.handler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
+import message.FriendChatRequestMessage;
 import message.LoginRequestMessage;
 import message.Message;
 import message.ResponseMessage;
@@ -39,6 +40,13 @@ public class LoginHandler extends SimpleChannelInboundHandler<LoginRequestMessag
                     statement=connection.prepareStatement(sql);
                     statement.setLong(1,userID);
                     statement.executeUpdate();
+                    String sql1="select msg_ID from message where userID=?";
+                    PreparedStatement ps= connection.prepareStatement(sql1);
+                    ps.setInt(1,userID);
+                    set=ps.executeQuery();
+                    /*if(set1.next()){
+                        ctx.writeAndFlush(new FriendChatRequestMessage());
+                    }*/
                     message=new ResponseMessage(true,"");
                 }else{
                     log.info("登录失败");
@@ -52,6 +60,9 @@ public class LoginHandler extends SimpleChannelInboundHandler<LoginRequestMessag
             log.info("userID={},channel={}",userID,SessionMap.getChannel(userID));
             message.setMessageType(Message.LoginResponseMessage);
             ctx.writeAndFlush(message);
+            if(set.next()){
+                ctx.writeAndFlush(new FriendChatRequestMessage());
+            }
         }catch (SQLException e){
             e.printStackTrace();
         }

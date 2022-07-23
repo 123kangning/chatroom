@@ -22,10 +22,10 @@ public class ChatClient {
 
     public static String myUsername;
     public static int myUserID;
-    public static boolean haveNoRead=false;//默认没有未读消息
+    public static volatile boolean haveNoRead=false;//默认没有未读消息
     public static final Object waitMessage=new Object();//服务端消息返回时，notify线程 View handler
     public static volatile int waitSuccess=0;//1表示消息成功、0表示消息失败
-    public static Map<String, List<String>> noticeMap;
+    public static volatile Map<String, List<String>> noticeMap;
     public static void main(String[] args) throws InterruptedException {
         NioEventLoopGroup group=new NioEventLoopGroup();
         LoggingHandler Log=new LoggingHandler(LogLevel.DEBUG);
@@ -52,7 +52,7 @@ public class ChatClient {
                                     });
                         }
                     })
-                    .connect(new InetSocketAddress("localhost",8080));
+                    .connect(new InetSocketAddress("localhost",8081));
             Channel channel=future.sync().channel();
 
             channel.closeFuture().sync();

@@ -11,14 +11,11 @@ import static client.ChatClient.*;
 
 public class NoticeView {
     public NoticeView(ChannelHandlerContext ctx){
+        System.out.printf("\n\t+------------- 您的ID为 %8d --------------+\n",myUserID);
+        System.out.println("\t+------------------消息通知栏-------------------+");
+        System.out.println("\t|           0 -> 查看  |  1 -> 退出             |");
+        System.out.println("\t+----------------------------------------------+");
         while(true){
-            System.out.printf("\n\t+------------- 您的ID为 %8d --------------+\n",myUserID);
-            System.out.println("\t+------------------消息通知栏-------------------+");
-            System.out.println("\t                   0 -> 查看                   |");
-            System.out.println("\t+----------------------------------------------+");
-            System.out.println("\t                   1 -> 退出                   |");
-            System.out.println("\t+----------------------------------------------+");
-
             Scanner scanner=new Scanner(System.in);
             String s=scanner.nextLine();
             while(!StringUtils.isNumber(s)){

@@ -22,10 +22,12 @@ public class ResponseHandler extends SimpleChannelInboundHandler<ResponseMessage
         if(!success){
             System.out.print("操作失败 "+reason);
             waitSuccess=0;
-
         }else{
             if(msg.getMessageType()==Message.noticeMapMessage){
                 noticeMap=msg.getNoticeMap();
+                synchronized (waitMessage){
+                    waitMessage.notifyAll();
+                }
                 return;
             }
             System.out.print("操作成功 "+reason);

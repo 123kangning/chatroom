@@ -9,10 +9,10 @@ public class LogoutRequestMessage extends Message{
     }
     public int getUserID(){return this.userID;}
 
-    @Override
+/*    @Override
     public int getMessageType() {
         return LogoutRequestMessage;
-    }
+    }*/
 
     public String toString(){
         return "userID = "+userID;

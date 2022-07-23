@@ -15,10 +15,10 @@ public class SignInRequestMessage extends Message{
     public String getPassword(){return this.password;}
     public String getMail(){return this.mail;}
 
-    @Override
+/*    @Override
     public int getMessageType() {
         return SignInRequestMessage;
-    }
+    }*/
 
     public String toString(){
         return "username = "+username+", password = "+password+", mail = "+mail;

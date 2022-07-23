@@ -8,11 +8,11 @@ public class GroupCreateRequestMessage extends Message{
         this.userID=userID;
         this.GroupID=GroupID;
     }
-
+/*
     @Override
     public int getMessageType() {
         return GroupChatRequestMessage;
-    }
+    }*/
     public String toString(){
         return "userID = "+userID+", GroupID = "+GroupID;
     }

@@ -4,9 +4,14 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import message.FriendChatRequestMessage;
 
+import static client.ChatClient.*;
+
 public class ClientFriendChatHandler extends SimpleChannelInboundHandler<FriendChatRequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, FriendChatRequestMessage msg) throws Exception {
-        System.out.printf("\n用户%d发来一条消息：%s\n",msg.getUserID(),msg.getMessage());
+        if(!haveNoRead){
+            System.out.println("主人，您有未查看的信息，请注意查看...");
+            haveNoRead=!haveNoRead;
+        }
     }
 }

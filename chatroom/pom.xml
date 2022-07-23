@@ -61,6 +61,7 @@
             <artifactId>netty-codec-http2</artifactId>
             <version>4.1.77.Final</version>
         </dependency>
+
         <dependency>
             <groupId>io.github.fzdwx</groupId>
             <artifactId>netty</artifactId>

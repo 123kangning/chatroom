@@ -11,10 +11,10 @@ public class FriendAddRequestMessage extends Message{
     public int getUserId(){return this.userID;}
     public int getFriendId(){return this.FriendId;}
 
-    @Override
+/*    @Override
     public int getMessageType() {
         return FriendAddRequestMessage;
-    }
+    }*/
     public String toString(){
         return "userID = "+userID+", FriendId = "+FriendId;
     }

@@ -22,8 +22,8 @@ public class MessageCodec extends ByteToMessageCodec<Message> {
         byteBuf.writeBytes(new byte[]{9,2,6,4});
         //2.1 字节,序列化算法方式 0-->jdk ，1-->json
         byteBuf.writeByte(0);
-        //3.1 字节,指令类型
-        byteBuf.writeByte(message.getMessageType());
+/*        //3.1 字节,指令类型
+        byteBuf.writeByte(message.getMessageType());*/
         //4.4 字节,请求序号（为了双工通信，提高异步能力）
         byteBuf.writeInt(message.getSequenceId());
 
@@ -43,7 +43,7 @@ public class MessageCodec extends ByteToMessageCodec<Message> {
     protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf, List<Object> list) throws Exception {
         int magicNum=byteBuf.readInt();
         byte serializerType=byteBuf.readByte();
-        byte messageType=byteBuf.readByte();
+/*        byte messageType=byteBuf.readByte();*/
         int sequenceId=byteBuf.readInt();
         int length=byteBuf.readInt();
         byteBuf.readByte();

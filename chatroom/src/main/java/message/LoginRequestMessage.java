@@ -12,10 +12,10 @@ public class LoginRequestMessage extends Message{
     public int getUserID(){return this.userID;}
     public String getPassword(){return this.password;}
 
-    @Override
+/*    @Override
     public int getMessageType() {
         return LoginRequestMessage;
-    }
+    }*/
 
     public String toString(){
         return "userID = "+userID+", password = "+password;

@@ -8,10 +8,10 @@ public class SearchPasswordRequestMessage extends Message{
         this.userID=userID;
     }
 
-    @Override
+/*    @Override
     public int getMessageType() {
         return SearchPasswordRequestMessage;
-    }
+    }*/
 
     public String toString(){
         return "userID = "+userID;

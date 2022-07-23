@@ -24,7 +24,8 @@ public class FriendChatHandler extends SimpleChannelInboundHandler<FriendChatReq
         try{
             int userID=msg.getUserID();
             int FriendID=msg.getFriendId();
-            int group=(msg.getFromGroup().equals("T"))? msg.getGroup() : userID;
+            int groupID=msg.getGroup();
+            String talker_type=msg.getTalker_type();
             String msg_type=msg.getMsg_type();
             String chat=msg.getMessage();
 
@@ -76,15 +77,17 @@ public class FriendChatHandler extends SimpleChannelInboundHandler<FriendChatReq
                         log.info("new ResponseMessage(true,\"但是朋友不在线\")");
                         message=new ResponseMessage(true,"但是朋友不在线");
                     }
-                    String sql2="insert into message(userID,msg_type,create_date,talkerID,talker_type,content,isAccept) values(?,?,?,?,?,?,?)";
+                    String sql2="insert into message(userID,msg_type,create_date,talkerID,talker_type,groupID,content,isAccept) values(?,?,?,?,?,?,?,?)";
                     PreparedStatement ps2=connection.prepareStatement(sql2);
                     ps2.setInt(1,u2);
                     ps2.setString(2,msg_type);
                     ps2.setDate(3,new Date(System.currentTimeMillis()));
                     ps2.setInt(4,u1);
-                    ps2.setInt(5,group);
-                    ps2.setString(6,chat);
-                    ps2.setString(7,isAccept);
+                    log.info("msg_type = {}!!! groupID={}!!!",msg_type,msg.getGroup());
+                    ps2.setString(5,talker_type);
+                    ps2.setInt(6,groupID);
+                    ps2.setString(7,chat);
+                    ps2.setString(8,"F");
                     int row=ps2.executeUpdate();
                     log.info("row in executeUpdate = "+row);
 

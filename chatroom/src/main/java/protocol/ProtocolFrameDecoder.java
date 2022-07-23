@@ -8,7 +8,7 @@ public class ProtocolFrameDecoder extends LengthFieldBasedFrameDecoder{
     }
 
     public ProtocolFrameDecoder(){
-        this(1024,10,4,2,0);
+        this(1024,9,4,2,0);
     }
 
 }

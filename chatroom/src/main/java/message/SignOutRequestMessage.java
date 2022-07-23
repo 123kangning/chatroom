@@ -8,10 +8,10 @@ public class SignOutRequestMessage extends Message{
         this.userID=userID;
     }
     public int getUserID(){return this.userID;}
-    @Override
+/*    @Override
     public int getMessageType() {
         return SignOutRequestMessage;
-    }
+    }*/
 
     public String toString(){
         return "userID = "+userID;

@@ -58,13 +58,13 @@ public class ChatServer {
                                     /*.addLast(Log)*/
                                     .addLast(new MessageCodec())
                                     .addLast(new ChannelInboundHandlerAdapter(){
-                                        @Override
+                                       /* @Override
                                         public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
                                             log.info("exceptionCaught start");
                                             LogoutRequestMessage msg=new LogoutRequestMessage();
                                             log.info("exceptionCaught end");
 
-                                        }
+                                        }*/
                                         @Override
                                         public void channelInactive(ChannelHandlerContext ctx) throws Exception {
                                             log.info("channelInactive");
@@ -76,10 +76,11 @@ public class ChatServer {
                                     .addLast(new LogoutHandler())
                                     .addLast(new SignOutHandler())
                                     .addLast(new FriendChatHandler())
+                                    .addLast(new NoticeHandler())
                                     .addLast(new SignInHandler());
                         }
                     })
-                    .bind(8086);
+                    .bind(8080);
             Channel channel=future.sync().channel();
             channel.closeFuture().sync();
         } catch (InterruptedException e) {

@@ -9,10 +9,10 @@ public class GroupQuitRequestMessage extends Message{
         this.GroupId=GroupId;
     }
 
-    @Override
+/*    @Override
     public int getMessageType() {
         return GroupQuitRequestMessage;
-    }
+    }*/
     public String toString(){
         return "userID = "+userID+", GroupId = "+GroupId;
     }

@@ -10,10 +10,10 @@ public class GroupChatRequestMessage extends Message{
         this.GroupId=GroupId;
     }
 
-    @Override
+/*    @Override
     public int getMessageType() {
         return GroupChatRequestMessage;
-    }
+    }*/
     public String toString(){
         return "userID = "+userID+", GroupId = "+GroupId;
     }

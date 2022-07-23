@@ -9,10 +9,10 @@ public class GroupJoinRequestMessage extends Message{
         this.GroupId=GroupId;
     }
 
-    @Override
+/*    @Override
     public int getMessageType() {
         return GroupJoinRequestMessage;
-    }
+    }*/
     public String toString(){
         return "userID = "+userID+", GroupId = "+GroupId;
     }

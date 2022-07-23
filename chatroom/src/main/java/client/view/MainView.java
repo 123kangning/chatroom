@@ -107,7 +107,7 @@ public class MainView {
                     int FriendID=Integer.valueOf(s1);
                     System.out.println("聊天内容(按下回车发送)：");
                     String chat=scanner.nextLine();
-                    FriendChatRequestMessage message=new FriendChatRequestMessage(myUserID,FriendID,chat);
+                    FriendChatRequestMessage message=new FriendChatRequestMessage(myUserID,FriendID,chat,"S");
                     ctx.writeAndFlush(message);
                     try{
                         synchronized(waitMessage){

@@ -3,7 +3,6 @@ CREATE TABLE `message` (
   `msg_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '消息id，自增长',
   userID int(11) not null comment '消息接收者',
   `msg_type` char(1) DEFAULT NULL COMMENT '类型 S=文字、F=文件',
-  `is_send` char(1) DEFAULT NULL COMMENT '是否是自己发送 F=不是、T=是',
   `create_date` date DEFAULT NULL COMMENT '消息发送日期',
   `talkerID` int(11) DEFAULT NULL COMMENT '发信人ID',
   `talker_type` int(11) DEFAULT NULL COMMENT '消息来源：来自群聊时为群聊ID、来自朋友时为朋友ID',

@@ -18,23 +18,26 @@ public class ResponseHandler extends SimpleChannelInboundHandler<ResponseMessage
         boolean success=msg.getSuccess();
         String reason=msg.getReason();
         int ResponseMessageType=msg.getMessageType();
-        log.info("ResponseMessageType={}",ResponseMessageType);
+        //log.info("ResponseMessageType={}",ResponseMessageType);
         if(!success){
             System.out.print("操作失败 "+reason);
             waitSuccess=0;
         }else{
-            if(msg.getMessageType()==Message.noticeMapMessage){
-                noticeMap=msg.getNoticeMap();
-                synchronized (waitMessage){
-                    waitMessage.notifyAll();
-                }
-                return;
-            }
-            System.out.print("操作成功 "+reason);
             waitSuccess=1;
+            if(msg.getMessageType()==Message.FriendQueryRequestMessage){
+                friendList=msg.getFriendList();
+                //log.info("friendList=msg.getFriendList()");
+            }
+            else if(msg.getMessageType()==Message.noticeMapMessage){
+                noticeMap=msg.getNoticeMap();
+            }else{
+                System.out.print("操作成功 "+reason);
+            }
+
         }
         synchronized (waitMessage){
             waitMessage.notifyAll();
         }
+        //log.info("waitMessage.notifyAll();");
     }
 }

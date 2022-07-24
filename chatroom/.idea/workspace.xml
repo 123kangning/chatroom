@@ -5,15 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9ffa9a4-92e7-4c59-af71-ec04fc0405e8" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/handler/FriendAddHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/handler/FriendDeleteHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/handler/FriendQueryHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/handler/FriendShieldHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8598cf3d-151d-4ac9-8b83-ed55f4b5d4b2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8598cf3d-151d-4ac9-8b83-ed55f4b5d4b2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ChatClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client/ClientFriendChatHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ClientFriendChatHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client/ResponseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ResponseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/view/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/MainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/view/FriendView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/FriendView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client/view/NoticeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/NoticeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/message/FriendChatRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/FriendChatRequestMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/message/FriendDeleteRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/FriendDeleteRequestMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/message/FriendQueryRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/FriendQueryRequestMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/message/FriendShieldRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/FriendShieldRequestMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/message/ResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/ResponseMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ChatServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/LoginHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/LoginHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,25 +58,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/kangning/clone/Code/java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;ssh.settings&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;00b765dd3013edc925995a50f9ed657c&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/kangning/clone/Code/java",
+    "project.structure.last.edited": "模块",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propCompiler",
+    "spring.configuration.checksum": "00b765dd3013edc925995a50f9ed657c"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="procotol" />
@@ -204,6 +213,7 @@
       <workItem from="1658538395112" duration="7323000" />
       <workItem from="1658557939447" duration="18973000" />
       <workItem from="1658587792727" duration="4505000" />
+      <workItem from="1658660551162" duration="12651000" />
     </task>
     <servers />
   </component>

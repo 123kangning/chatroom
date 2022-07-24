@@ -7,6 +7,7 @@ public class ResponseMessage extends Message{
     private boolean success;
     private String reason;
     private Map<String, List<String>> noticeMap;
+    public  List<String> friendList;
     int MessageType=ResponseMessage;
     public ResponseMessage(){}
     public ResponseMessage(boolean success,String reason){
@@ -22,9 +23,18 @@ public class ResponseMessage extends Message{
         return noticeMap;
     }
 
+    public  void setFriendList(List<String> friendList) {
+        this.friendList = friendList;
+    }
+
     public void setMessageType(int MessageType){
         this.MessageType=MessageType;
     }
+
+    public  List<String> getFriendList() {
+        return friendList;
+    }
+
     public boolean getSuccess(){
         return this.success;
     }

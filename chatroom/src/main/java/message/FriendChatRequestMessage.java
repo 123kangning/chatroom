@@ -16,6 +16,7 @@ public class FriendChatRequestMessage extends Message {
         this.msg_type=msg_type;
     }
 
+
     public void setTalker_type(String talker_type) {
         this.talker_type = talker_type;
     }

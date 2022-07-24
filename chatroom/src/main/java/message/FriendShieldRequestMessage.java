@@ -9,10 +9,18 @@ public class FriendShieldRequestMessage extends Message{
         this.FriendId=FriendId;
     }
 
-/*    @Override
-    public int getMessageType() {
-        return FriendShieldRequestMessage;
-    }*/
+    public int getFriendId() {
+        return FriendId;
+    }
+
+    public int getUserID() {
+        return userID;
+    }
+
+    /*    @Override
+            public int getMessageType() {
+                return FriendShieldRequestMessage;
+            }*/
     public String toString(){
         return "userID = "+userID+", FriendId = "+FriendId;
     }

@@ -26,6 +26,8 @@ public class ChatClient {
     public static final Object waitMessage=new Object();//服务端消息返回时，notify线程 View handler
     public static volatile int waitSuccess=0;//1表示消息成功、0表示消息失败
     public static volatile Map<String, List<String>> noticeMap;
+    public static volatile List<String> friendList;//查询朋友列表
+    public static volatile boolean immediate=false;
     public static void main(String[] args) throws InterruptedException {
         NioEventLoopGroup group=new NioEventLoopGroup();
         LoggingHandler Log=new LoggingHandler(LogLevel.DEBUG);

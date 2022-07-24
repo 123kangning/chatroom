@@ -9,10 +9,18 @@ public class FriendDeleteRequestMessage extends Message{
         this.FriendId=FriendId;
     }
 
-/*    @Override
-    public int getMessageType() {
-        return FriendDeleteRequestMessage;
-    }*/
+    public int getUserID() {
+        return userID;
+    }
+
+    public int getFriendId() {
+        return FriendId;
+    }
+
+    /*    @Override
+            public int getMessageType() {
+                return FriendDeleteRequestMessage;
+            }*/
     public String toString(){
         return "userID = "+userID+", FriendId = "+FriendId;
     }

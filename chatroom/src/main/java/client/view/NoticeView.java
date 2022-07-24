@@ -14,7 +14,7 @@ public class NoticeView {
         System.out.printf("\n\t+------------- 您的ID为 %8d --------------+\n",myUserID);
         System.out.println("\t+------------------消息通知栏-------------------+");
         System.out.println("\t|           0 -> 查看  |  1 -> 退出             |");
-        System.out.println("\t+----------------------------------------------+");
+        System.out.println("\t+---------------------------------------------+");
         while(true){
             Scanner scanner=new Scanner(System.in);
             String s=scanner.nextLine();

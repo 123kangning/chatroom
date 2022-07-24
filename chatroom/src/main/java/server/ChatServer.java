@@ -77,6 +77,10 @@ public class ChatServer {
                                     .addLast(new SignOutHandler())
                                     .addLast(new FriendChatHandler())
                                     .addLast(new NoticeHandler())
+                                    .addLast(new FriendQueryHandler())
+                                    .addLast(new FriendAddHandler())
+                                    .addLast(new FriendDeleteHandler())
+                                    .addLast(new FriendShieldHandler())
                                     .addLast(new SignInHandler());
                         }
                     })

@@ -7,10 +7,11 @@ public class FriendQueryRequestMessage extends Message{
         this.userID=userID;
     }
 
-/*    @Override
-    public int getMessageType() {
-        return FriendQueryRequestMessage;
-    }*/
+    public int getUserID() {
+        return userID;
+    }
+
+
     public String toString(){
         return "userID = "+userID;
     }

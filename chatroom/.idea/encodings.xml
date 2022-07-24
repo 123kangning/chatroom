@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="das://8598cf3d-151d-4ac9-8b83-ed55f4b5d4b2/schema/chatroom/table/friend.sql" charset="US-ASCII" />
     <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/8598cf3d-151d-4ac9-8b83-ed55f4b5d4b2/console.sql" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/description.txt" charset="UTF-8" />
@@ -52,7 +53,11 @@
     <file url="file://$PROJECT_DIR$/src/main/java/protocol/Slf4j.java" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/src/main/java/protocol/TestMessageCodec.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/ChatServer.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/server/handler/FriendAddHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/FriendChatHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/server/handler/FriendDeleteHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/server/handler/FriendQueryHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/server/handler/FriendShieldHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/LoginHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/LogoutHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/NoticeHandler.java" charset="UTF-8" />

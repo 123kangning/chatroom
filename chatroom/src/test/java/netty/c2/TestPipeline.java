@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.graalvm.nativeimage.ImageSingletons;
 
 import java.nio.charset.Charset;
+import java.sql.SQLException;
 
 @Slf4j
 public class TestPipeline {
@@ -72,6 +73,14 @@ public class TestPipeline {
                                 super.write(ctx, msg, promise);
                             }
                         });
+                                nioSocketChannel.pipeline().addLast(new ChannelInboundHandlerAdapter(){
+                                    @Override
+                                    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+                                        if(cause instanceof SQLException){
+                                            //具体操作...
+                                        }
+                                    }
+                                });
                     }
                 })
                 .bind(8080);

@@ -108,6 +108,17 @@ public class FriendView {
                         s1=scanner.nextLine();
                     }
                     int FriendID=Integer.parseInt(s1);
+                    ctx.writeAndFlush(new FriendNoticeMessage(myUserID,FriendID));
+                    try{
+                        synchronized(waitMessage){
+                            waitMessage.wait();
+                        }
+                    }catch (InterruptedException e){
+                        e.printStackTrace();
+                    }
+                    for(String s:friendList){
+                        System.out.println(s);
+                    }
                     System.out.println("聊天内容(按下回车发送)[输入r退出]：");
                     immediate=true;
                     String chat=scanner.nextLine();

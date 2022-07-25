@@ -14,11 +14,11 @@ import static server.ChatServer.connection;
 public class FriendShieldHandler extends SimpleChannelInboundHandler<FriendShieldRequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, FriendShieldRequestMessage msg) throws Exception {
-        try{
+       /* try{*/
             int userID=msg.getUserID();
             int FriendID=msg.getFriendId();
             String shield="1";
-            String sql="select fromID toID shield from friend where (fromID=? and toID=?) or (toID=? and fromID=?)";
+            String sql="select fromID,toID,shield from friend where (fromID=? and toID=?) or (toID=? and fromID=?)";
             PreparedStatement ps=connection.prepareStatement(sql);
             ps.setInt(1,userID);
             ps.setInt(2,FriendID);
@@ -60,8 +60,8 @@ public class FriendShieldHandler extends SimpleChannelInboundHandler<FriendShiel
                 }
             }
             ctx.writeAndFlush(message);
-        }catch(SQLException e){
+  /*      }catch(SQLException e){
             e.printStackTrace();
-        }
+        }*/
     }
 }

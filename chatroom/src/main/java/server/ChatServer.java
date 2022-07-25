@@ -81,10 +81,11 @@ public class ChatServer {
                                     .addLast(new FriendAddHandler())
                                     .addLast(new FriendDeleteHandler())
                                     .addLast(new FriendShieldHandler())
+                                    .addLast(new FriendNoticeHandler())
                                     .addLast(new SignInHandler());
                         }
                     })
-                    .bind(8081);
+                    .bind(8082);
             Channel channel=future.sync().channel();
             channel.closeFuture().sync();
         } catch (InterruptedException e) {

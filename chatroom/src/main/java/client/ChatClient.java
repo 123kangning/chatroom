@@ -10,6 +10,7 @@ import io.netty.handler.logging.LoggingHandler;
 
 import lombok.extern.slf4j.Slf4j;
 import protocol.MessageCodec;
+import protocol.ProtocolFrameDecoder;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -42,6 +43,7 @@ public class ChatClient {
                         protected void initChannel(NioSocketChannel nioSocketChannel) {
                             nioSocketChannel.pipeline()
                                     /*.addLast(Log)*/
+                                    .addLast(new ProtocolFrameDecoder())
                                     .addLast(clientCodec)
                                     .addLast(new ResponseHandler())
                                     .addLast(new ClientFriendChatHandler())

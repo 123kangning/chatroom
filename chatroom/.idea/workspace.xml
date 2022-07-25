@@ -5,18 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9ffa9a4-92e7-4c59-af71-ec04fc0405e8" name="变更" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ChatClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/view/EnterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/EnterView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/view/FriendView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/FriendView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/view/GroupView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/GroupView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/view/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/MainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/view/NoticeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/NoticeView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/protocol/MessageCodec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/protocol/MessageCodec.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/protocol/ProtocolFrameDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/protocol/ProtocolFrameDecoder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ChatServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/FriendNoticeHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/FriendNoticeHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,7 +201,8 @@
       <workItem from="1658587792727" duration="4505000" />
       <workItem from="1658660551162" duration="12680000" />
       <workItem from="1658711067370" duration="7726000" />
-      <workItem from="1658752774003" duration="4781000" />
+      <workItem from="1658752774003" duration="5380000" />
+      <workItem from="1658758927671" duration="1791000" />
     </task>
     <servers />
   </component>

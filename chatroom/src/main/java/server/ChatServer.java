@@ -55,7 +55,8 @@ public class ChatServer {
                         protected void initChannel(NioSocketChannel nioSocketChannel) throws Exception {
                             log.info("channel = "+nioSocketChannel);
                             nioSocketChannel.pipeline().addLast( new ProtocolFrameDecoder())
-                                    .addLast(Log)
+                                    /*.addLast(Log)*/
+                                    .addLast(new ProtocolFrameDecoder())
                                     .addLast(new MessageCodec())
                                     .addLast(new ChannelInboundHandlerAdapter(){
                                        /* @Override

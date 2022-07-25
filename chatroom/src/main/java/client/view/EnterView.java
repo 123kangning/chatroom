@@ -31,7 +31,7 @@ public class EnterView {
             Scanner scanner=new Scanner(System.in);
             String s=scanner.nextLine();
             while(!StringUtils.isNumber(s)){
-                System.out.println("输入不规范，请重新输入用户ID：");
+                System.out.println("输入不规范，请重新输入您的选择：");
                 s=scanner.nextLine();
             }
             switch (Integer.parseInt(s)){

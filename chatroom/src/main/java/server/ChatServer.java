@@ -55,7 +55,7 @@ public class ChatServer {
                         protected void initChannel(NioSocketChannel nioSocketChannel) throws Exception {
                             log.info("channel = "+nioSocketChannel);
                             nioSocketChannel.pipeline().addLast( new ProtocolFrameDecoder())
-                                    /*.addLast(Log)*/
+                                    .addLast(Log)
                                     .addLast(new MessageCodec())
                                     .addLast(new ChannelInboundHandlerAdapter(){
                                        /* @Override
@@ -85,7 +85,7 @@ public class ChatServer {
                                     .addLast(new SignInHandler());
                         }
                     })
-                    .bind(8082);
+                    .bind(8080);
             Channel channel=future.sync().channel();
             channel.closeFuture().sync();
         } catch (InterruptedException e) {

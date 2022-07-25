@@ -33,6 +33,7 @@ public class MessageCodec extends ByteToMessageCodec<Message> {
         byte[] bytes=bos.toByteArray();
         //5.4 字节，消息长度
         byteBuf.writeInt(bytes.length);
+        log.info("encode length={}",bytes.length);
         //6.2字节，备用位
         byteBuf.writeShort(0xffff);
         //6.获取内容的字节数组
@@ -46,6 +47,7 @@ public class MessageCodec extends ByteToMessageCodec<Message> {
 /*        byte messageType=byteBuf.readByte();*/
         int sequenceId=byteBuf.readInt();
         int length=byteBuf.readInt();
+        log.info("decode length={}",length);
         byteBuf.readByte();
         byteBuf.readByte();
         byte[] bytes=new byte[length];

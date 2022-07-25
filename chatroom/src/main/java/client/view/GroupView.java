@@ -1,5 +1,6 @@
 package client.view;
 
+import com.alibaba.druid.util.StringUtils;
 import io.netty.channel.ChannelHandlerContext;
 import server.session.Group;
 
@@ -22,7 +23,13 @@ public class GroupView {
             System.out.println("\t| 1 -> 返回上级目录     |");
             System.out.println("\t+---------------------+");
             Scanner scanner=new Scanner(System.in);
-            switch(Integer.parseInt(scanner.nextLine())) {
+
+            String s0=scanner.nextLine();
+            while(!StringUtils.isNumber(s0)){
+                System.out.println("输入不规范，请重新输入您的选择：");
+                s0=scanner.nextLine();
+            }
+            switch(Integer.parseInt(s0)) {
                 case 1:return;
                 case 2:
                 case 4:

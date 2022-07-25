@@ -29,7 +29,8 @@ public class FriendNoticeHandler extends SimpleChannelInboundHandler<FriendNotic
             ResultSet set=ps.executeQuery();
             List<String> messageList=new ArrayList<>();
             while(set.next()){
-                messageList.add(((set.getInt(1)==userID)?"\t\t\t":"\t")+set.getString(2));
+                messageList.add(((set.getInt(1)==FriendID)?String.format("\t\t\t%30s:%d",set.getString(2),userID):
+                        String.format("\t%d:%s",FriendID,set.getString(2))));
             }
             Collections.reverse(messageList);
             ResponseMessage message=new ResponseMessage(true,"");

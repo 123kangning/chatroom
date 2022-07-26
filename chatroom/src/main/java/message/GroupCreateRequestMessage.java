@@ -2,18 +2,27 @@ package message;
 
 public class GroupCreateRequestMessage extends Message{
     private int userID;
-    private int GroupID;
+    private String groupName;
     public GroupCreateRequestMessage(){}
-    public GroupCreateRequestMessage(int userID,int GroupID){
+    public GroupCreateRequestMessage(int userID,String groupName){
         this.userID=userID;
-        this.GroupID=GroupID;
+        this.groupName=groupName;
     }
-/*
-    @Override
-    public int getMessageType() {
-        return GroupChatRequestMessage;
-    }*/
+
+    public int getUserID() {
+        return userID;
+    }
+
+    public String getGroupName() {
+        return groupName;
+    }
+
+    /*
+            @Override
+            public int getMessageType() {
+                return GroupChatRequestMessage;
+            }*/
     public String toString(){
-        return "userID = "+userID+", GroupID = "+GroupID;
+        return "userID = "+userID+", groupName = "+groupName;
     }
 }

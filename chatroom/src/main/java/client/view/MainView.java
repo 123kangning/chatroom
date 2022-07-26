@@ -18,6 +18,7 @@ import static client.ChatClient.*;
 public class MainView {
     public MainView(ChannelHandlerContext ctx){
         while(true){
+            haveNoRead=false;
             System.out.printf("\n\t+----- 您的ID为 %d -----+\n" +
                     "\t+---------------------+\n" +
                     "\t| 6 -> 进入消息通知栏   |\n" +

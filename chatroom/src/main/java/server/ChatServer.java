@@ -59,13 +59,13 @@ public class ChatServer {
                                     .addLast(new ProtocolFrameDecoder())
                                     .addLast(new MessageCodec())
                                     .addLast(new ChannelInboundHandlerAdapter(){
-                                       /* @Override
+                                        @Override
                                         public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
                                             log.info("exceptionCaught start");
                                             LogoutRequestMessage msg=new LogoutRequestMessage();
                                             log.info("exceptionCaught end");
 
-                                        }*/
+                                        }
                                         @Override
                                         public void channelInactive(ChannelHandlerContext ctx) throws Exception {
                                             log.info("channelInactive");
@@ -83,6 +83,8 @@ public class ChatServer {
                                     .addLast(new FriendDeleteHandler())
                                     .addLast(new FriendShieldHandler())
                                     .addLast(new FriendNoticeHandler())
+                                    .addLast(new FriendGetFileHandler())
+                                    .addLast(new GroupCreateHandler())
                                     .addLast(new SignInHandler());
                         }
                     })

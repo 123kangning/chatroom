@@ -22,7 +22,7 @@ public class NoticeHandler extends SimpleChannelInboundHandler<NoticeRequestMess
     protected void channelRead0(ChannelHandlerContext ctx, NoticeRequestMessage msg){
         try{
             int userID=msg.getUserID();
-            String sql="select  talkerID ,count(1) from message  where userID=? and talker_type='F'";
+            String sql="select  talkerID ,count(1) from message  where userID=? and talker_type='F' and isAccept ='F'";
             PreparedStatement ps=connection.prepareStatement(sql);
             ps.setInt(1,userID);
             ResultSet set=ps.executeQuery();
@@ -30,6 +30,9 @@ public class NoticeHandler extends SimpleChannelInboundHandler<NoticeRequestMess
             List<String> friend=new ArrayList<>();
             List<String> group=new ArrayList<>();
             while(set.next()){
+                if(set.getInt(2)==0){
+                    break;
+                }
                 friend.add(String.format("\t用户%8d 发来%3d 条消息",set.getInt(1),set.getInt(2)));
                 log.info(String.format("\t用户%8d 发来%3d 条消息",set.getInt(1),set.getInt(2)));
             }
@@ -39,6 +42,9 @@ public class NoticeHandler extends SimpleChannelInboundHandler<NoticeRequestMess
             ResultSet set1=ps1.executeQuery();
             /*log.info("set.next={}",set1.next());*/
             while(set1.next()){
+                if(set1.getInt(2)==0){
+                    break;
+                }
                 if(set1.getInt(2)==0)continue;
                 group.add(String.format("\t群组%8d 发来%3d 条消息",set.getInt(1),set.getInt(2)));
                 log.info(String.format("\t群组%8d 发来%3d 条消息",set.getInt(1),set.getInt(2)));

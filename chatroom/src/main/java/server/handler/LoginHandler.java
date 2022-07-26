@@ -40,9 +40,10 @@ public class LoginHandler extends SimpleChannelInboundHandler<LoginRequestMessag
                     statement=connection.prepareStatement(sql);
                     statement.setLong(1,userID);
                     statement.executeUpdate();
-                    String sql1="select msg_ID from message where userID=?";
+                    String sql1="select msg_ID from message where userID=? and isAccept=?";
                     PreparedStatement ps= connection.prepareStatement(sql1);
                     ps.setInt(1,userID);
+                    ps.setString(2,"F");
                     set=ps.executeQuery();
                     /*if(set1.next()){
                         ctx.writeAndFlush(new FriendChatRequestMessage());

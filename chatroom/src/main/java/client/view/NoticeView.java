@@ -16,6 +16,7 @@ public class NoticeView {
         System.out.println("\t|           0 -> 查看  |  1 -> 退出             |");
         System.out.println("\t+---------------------------------------------+");
         while(true){
+            haveNoRead=false;
             Scanner scanner=new Scanner(System.in);
             String s=scanner.nextLine();
             while(!StringUtils.isNumber(s)){

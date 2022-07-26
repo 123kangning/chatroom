@@ -1,5 +1,6 @@
 package message;
 
+import java.io.File;
 import java.util.List;
 import java.util.Map;
 
@@ -9,10 +10,15 @@ public class ResponseMessage extends Message{
     private Map<String, List<String>> noticeMap;
     public  List<String> friendList;
     int MessageType=ResponseMessage;
+    private File file;//接收一个file实例化对象回来
     public ResponseMessage(){}
     public ResponseMessage(boolean success,String reason){
         this.success=success;
         this.reason=reason;
+    }
+
+    public void setFile(File file) {
+        this.file = file;
     }
 
     public void setNoticeMap(Map<String, List<String>> noticeMap) {
@@ -29,6 +35,10 @@ public class ResponseMessage extends Message{
 
     public void setMessageType(int MessageType){
         this.MessageType=MessageType;
+    }
+
+    public File getFile() {
+        return file;
     }
 
     public  List<String> getFriendList() {

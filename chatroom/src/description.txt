@@ -30,7 +30,7 @@ shield char(1) NOT NULL COMMENT '0=无屏蔽关系，1=前者屏蔽后者，2=�
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 群组表设计
-create table `group`(
+create table group1(
 groupID int(11) NOT NULL AUTO_INCREMENT COMMENT '组id，自增长',
 group_name varchar(50) NOT NULL COMMENT '组名',
 userID int(11) NOT NULL COMMENT '成员id',

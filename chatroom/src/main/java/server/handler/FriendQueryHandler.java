@@ -5,6 +5,7 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import message.FriendQueryRequestMessage;
 import message.Message;
 import message.ResponseMessage;
+import server.session.SessionMap;
 
 import static server.ChatServer.connection;
 import java.sql.PreparedStatement;
@@ -37,10 +38,20 @@ public class FriendQueryHandler extends SimpleChannelInboundHandler<FriendQueryR
                     if(shield.equals("1")){
                         ans=ans.concat(", 已屏蔽");
                     }
+                    if(SessionMap.getChannel(u2)!=null){
+                        ans=ans.concat("，在线");
+                    }else{
+                        ans=ans.concat("，离线");
+                    }
                 }else{
                     ans=String.format("\t用户%5d , %10s ",u1,from_name);
                     if(shield.equals("2")){
                         ans=ans.concat(", 已屏蔽");
+                    }
+                    if(SessionMap.getChannel(u1)!=null){
+                        ans=ans.concat("，在线");
+                    }else{
+                        ans=ans.concat("，离线");
                     }
                 }
                 friendList.add(ans);

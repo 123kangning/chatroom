@@ -40,7 +40,7 @@ public abstract class Message implements Serializable {
     public static final int FriendChatResponseMessage=23;
   public static final int FriendAddRequestMessage=24;//添加好友
     public static final int FriendAddResponseMessage=25;
-  public static final int FriendShieldRequestMessage=26;//屏蔽好友
+  public static final int FriendGetFileRequestMessage=26;//文件传输
     public static final int FriendShieldResponseMessage=27;
   public static final int FriendDeleteRequestMessage=28;/*删除好友*/
     public static final int FriendDeleteResponseMessage=29;

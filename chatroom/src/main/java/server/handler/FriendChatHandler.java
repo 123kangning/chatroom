@@ -11,6 +11,12 @@ import server.session.SessionMap;
 
 import static server.ChatServer.connection;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,6 +34,7 @@ public class FriendChatHandler extends SimpleChannelInboundHandler<FriendChatReq
             String talker_type=msg.getTalker_type();
             String msg_type=msg.getMsg_type();
             String chat=msg.getMessage();
+            File file=msg.getFile();
 
             String sql="select * from friend where (toID =? and fromID=?) or (toID =? and fromID=?)";
             PreparedStatement ps=connection.prepareStatement(sql);
@@ -84,12 +91,35 @@ public class FriendChatHandler extends SimpleChannelInboundHandler<FriendChatReq
                     ps2.setDate(3,new Date(System.currentTimeMillis()));
                     ps2.setInt(4,u1);
                     log.info("msg_type = {}!!! groupID={}!!!",msg_type,msg.getGroup());
+                    log.info("talker_type======{}",talker_type);
                     ps2.setString(5,talker_type);
                     ps2.setInt(6,groupID);
-                    ps2.setString(7,chat);
+                    String addFile="";
+                    if(msg_type.equals("S")){
+                        ps2.setString(7,chat);
+                    }else{
+                        addFile=System.getProperty("user.dir")+"/story/"+file.getName();
+                        log.info("addFile = {}",addFile);
+                        ps2.setString(7,addFile);
+                    }
+
                     ps2.setString(8,"F");
                     int row=ps2.executeUpdate();
                     log.info("row in executeUpdate = "+row);
+                    if(msg_type.equals("F")){
+                        File tempFile=new File(addFile);
+                        FileChannel readChannel= new FileInputStream(file).getChannel();
+                        FileChannel writeChannel= new FileOutputStream(tempFile).getChannel();
+                        ByteBuffer buf=ByteBuffer.allocate(1024);
+                        while(readChannel.read(buf)!=-1){
+                            buf.flip();
+                            writeChannel.write(buf);
+                            buf.clear();
+                        }
+                        tempFile.createNewFile();
+                        readChannel.close();
+                        writeChannel.close();
+                    }
 
                 }
             }else{//未找到
@@ -97,7 +127,7 @@ public class FriendChatHandler extends SimpleChannelInboundHandler<FriendChatReq
                 message=new ResponseMessage(false,"找不到该朋友");
             }
             ctx.writeAndFlush(message);
-        }catch(SQLException e) {
+        }catch(SQLException | IOException | NullPointerException e) {
             e.printStackTrace();
         }
     }

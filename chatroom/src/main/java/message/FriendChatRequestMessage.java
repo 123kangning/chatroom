@@ -1,5 +1,7 @@
 package message;
 
+import java.io.File;
+
 public class FriendChatRequestMessage extends Message {
     private int userID;
     private int FriendId;
@@ -7,6 +9,7 @@ public class FriendChatRequestMessage extends Message {
     //talker默认为F=friend
     private String message;
     private String talker_type;//G=消息来自群组,F=消息来自个人
+    private File file;
     private int Group=0;
     public FriendChatRequestMessage(){}
     public FriendChatRequestMessage(int userID,int FriendId,String message,String msg_type){
@@ -15,10 +18,19 @@ public class FriendChatRequestMessage extends Message {
         this.message=message;
         this.msg_type=msg_type;
     }
-
+    public FriendChatRequestMessage(int userID, int FriendId, File file, String msg_type){
+        this.userID=userID;
+        this.FriendId=FriendId;
+        this.file=file;
+        this.msg_type=msg_type;
+    }
 
     public void setTalker_type(String talker_type) {
         this.talker_type = talker_type;
+    }
+
+    public void setFile(File file) {
+        this.file = file;
     }
 
     public void setGroup(int group) {
@@ -35,6 +47,10 @@ public class FriendChatRequestMessage extends Message {
 
     public String getMsg_type() {
         return msg_type;
+    }
+
+    public File getFile() {
+        return file;
     }
 
     public String getMessage(){return this.message;}

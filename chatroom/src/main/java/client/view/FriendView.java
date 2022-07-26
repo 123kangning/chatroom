@@ -25,6 +25,8 @@ public class FriendView {
             System.out.println("\t+---------------------+");
             System.out.println("\t| 4 -> 显示好友列表     |");
             System.out.println("\t+---------------------+");
+            System.out.println("\t| 3 -> 好友申请列表     |");
+            System.out.println("\t+---------------------+");
             System.out.println("\t| 1 -> 返回上级目录     |");
             System.out.println("\t+---------------------+");
             Scanner scanner=new Scanner(System.in);
@@ -35,6 +37,7 @@ public class FriendView {
             }
             switch(Integer.parseInt(s0)){
                 case 1:return;
+
                 case 4:{
                     ctx.writeAndFlush(new FriendQueryRequestMessage(myUserID));
                     try{
@@ -62,7 +65,9 @@ public class FriendView {
                         System.out.println("哦，愚蠢的土拨鼠，你怎么能添加你自己呢？");
                         break;
                     }
-                    ctx.writeAndFlush(new FriendAddRequestMessage(myUserID,FriendID));
+                    FriendChatRequestMessage message=new FriendChatRequestMessage(myUserID,FriendID,"我可以和你交个朋友吗","A");
+                    message.setTalker_type("F");
+                    ctx.writeAndFlush(message);
                     try{
                         synchronized(waitMessage){
                             waitMessage.wait();
@@ -126,7 +131,7 @@ public class FriendView {
                     }
                     if(waitSuccess==1){
                         for(String s:friendList){
-                            System.out.println(s+" length="+s.length());
+                            System.out.println(s);
                             int i=0,length=s.length(),j=100;
                             while(i<length&&s.charAt(i)=='\t'){
                                 i++;

@@ -16,6 +16,7 @@
     <file url="file://$PROJECT_DIR$/src/main/java/client/view/NoticeView.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/message/FriendAddRequestMessage.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/message/FriendAddResponseMessage.java" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/src/main/java/message/FriendApplyQueryMessage.java" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/src/main/java/message/FriendChatRequestMessage.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/message/FriendChatResponseMessage.java" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/src/main/java/message/FriendDeleteRequestMessage.java" charset="UTF-8" />
@@ -58,7 +59,6 @@
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/FriendAddHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/FriendChatHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/FriendDeleteHandler.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/server/handler/FriendGetFileHandler.java" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/FriendGetFileHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/FriendNoticeHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/FriendQueryHandler.java" charset="UTF-8" />

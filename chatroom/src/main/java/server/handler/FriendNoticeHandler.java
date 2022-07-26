@@ -30,7 +30,7 @@ public class FriendNoticeHandler extends SimpleChannelInboundHandler<FriendNotic
                 ctx.writeAndFlush(new ResponseMessage(false,"朋友不存在"));
                 return;
             }
-            String sql1="select userID, content from message where talker_type='F' and ((userID=? and talkerID=?)||(userID=? and talkerID=?)) order by msg_id desc limit ?";
+            String sql1="select userID, content from message where (msg_type='F' or msg_type='S') and talker_type='F' and ((userID=? and talkerID=?)||(userID=? and talkerID=?)) order by msg_id desc limit ?";
             PreparedStatement ps1= connection.prepareStatement(sql1);
             ps1.setInt(1,userID);
             ps1.setInt(2,FriendID);
@@ -40,14 +40,14 @@ public class FriendNoticeHandler extends SimpleChannelInboundHandler<FriendNotic
             set=ps1.executeQuery();
             List<String> messageList=new ArrayList<>();
             while(set.next()){
-                messageList.add(((set.getInt(1)==FriendID)?String.format("\t\t\t%30s:%d",set.getString(2),userID):
+                messageList.add(((set.getInt(1)==FriendID)?String.format("\t\t\t%50s:%d",set.getString(2),userID):
                         String.format("\t%d:%s",FriendID,set.getString(2))));
             }
             Collections.reverse(messageList);
             ResponseMessage message=new ResponseMessage(true,"");
             message.setFriendList(messageList);
             message.setMessageType(Message.FriendQueryRequestMessage);
-            sql="update message set isAccept ='T' where userID=? and talker_type='F' and talkerID=?";
+            sql="update message set isAccept ='T' where userID=? and talker_type='F' and (msg_type='F' or msg_type='S') and talkerID=?";
             ps= connection.prepareStatement(sql);
             ps.setInt(1,userID);
             ps.setInt(2,FriendID);

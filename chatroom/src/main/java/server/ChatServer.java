@@ -78,13 +78,16 @@ public class ChatServer {
                                     .addLast(new SignOutHandler())
                                     .addLast(new FriendChatHandler())
                                     .addLast(new NoticeHandler())
+                                    .addLast(new SendApplyHandler())
                                     .addLast(new FriendQueryHandler())
                                     .addLast(new FriendAddHandler())
                                     .addLast(new FriendDeleteHandler())
                                     .addLast(new FriendShieldHandler())
                                     .addLast(new FriendNoticeHandler())
                                     .addLast(new FriendGetFileHandler())
+                                    .addLast(new FriendApplyQueryHandler())
                                     .addLast(new GroupCreateHandler())
+                                    .addLast(new GroupQueryHandler())
                                     .addLast(new SignInHandler());
                         }
                     })

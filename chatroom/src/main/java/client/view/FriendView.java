@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import message.*;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 
 import static client.ChatClient.*;
@@ -37,7 +38,7 @@ public class FriendView {
             }
             switch(Integer.parseInt(s0)){
                 case 1:return;
-
+                case 3:new FriendApplyView(ctx);
                 case 4:{
                     ctx.writeAndFlush(new FriendQueryRequestMessage(myUserID));
                     try{
@@ -51,6 +52,12 @@ public class FriendView {
                         System.out.println(s);
                     }
                     System.out.println("\t+---------------------+");
+                    System.out.println("按下回车返回...");
+                    try {
+                        System.in.read();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     break;
                 }
                 case 6:{
@@ -65,8 +72,7 @@ public class FriendView {
                         System.out.println("哦，愚蠢的土拨鼠，你怎么能添加你自己呢？");
                         break;
                     }
-                    FriendChatRequestMessage message=new FriendChatRequestMessage(myUserID,FriendID,"我可以和你交个朋友吗","A");
-                    message.setTalker_type("F");
+                    SendApplyMessage message=new SendApplyMessage(myUserID,FriendID,"请求添加你为好友");
                     ctx.writeAndFlush(message);
                     try{
                         synchronized(waitMessage){

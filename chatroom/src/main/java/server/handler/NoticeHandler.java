@@ -22,7 +22,7 @@ public class NoticeHandler extends SimpleChannelInboundHandler<NoticeRequestMess
     protected void channelRead0(ChannelHandlerContext ctx, NoticeRequestMessage msg){
         try{
             int userID=msg.getUserID();
-            String sql="select  talkerID ,count(1) from message  where userID=? and talker_type='F' and isAccept ='F'";
+            String sql="select  talkerID ,count(1) from message  where userID=? and talker_type='F' and isAccept ='F' group by talkerID";
             PreparedStatement ps=connection.prepareStatement(sql);
             ps.setInt(1,userID);
             ResultSet set=ps.executeQuery();

@@ -36,28 +36,5 @@ public class NoticeView {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        /*while(true){
-            haveNoRead=false;
-            Scanner scanner=new Scanner(System.in);
-            String s=scanner.nextLine();
-            while(!StringUtils.isNumber(s)){
-                System.out.println("输入不规范，请重新输入您的选择：");
-                s=scanner.nextLine();
-            }
-            switch (Integer.parseInt(s)){
-                case 0:{
-
-                    break;
-                }
-                case 1:{
-                    try {
-                        System.in.read();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    return;
-                }
-            }
-        }*/
     }
 }

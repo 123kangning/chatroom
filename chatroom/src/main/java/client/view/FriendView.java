@@ -14,7 +14,7 @@ import static client.ChatClient.*;
 public class FriendView {
     public FriendView(ChannelHandlerContext ctx){
         while (true){
-            haveNoRead=false;
+
             System.out.printf("\n\t+----- 您的ID为 %d -----+\n",myUserID);
             System.out.println("\t| 9 -> 好友聊天(通过ID) |");
             System.out.println("\t+---------------------+");
@@ -30,6 +30,10 @@ public class FriendView {
             System.out.println("\t+---------------------+");
             System.out.println("\t| 1 -> 返回上级目录     |");
             System.out.println("\t+---------------------+");
+            System.out.println("haveNoRead = "+haveNoRead);
+            if(haveNoRead>0){
+                System.out.println("主人，您有未查看的信息，请注意查看...");
+            }
             Scanner scanner=new Scanner(System.in);
             String s0=scanner.nextLine();
             while(!StringUtils.isNumber(s0)){
@@ -38,7 +42,7 @@ public class FriendView {
             }
             switch(Integer.parseInt(s0)){
                 case 1:return;
-                case 3:new FriendApplyView(ctx);
+                case 3:new FriendApplyView(ctx);break;
                 case 4:{
                     ctx.writeAndFlush(new FriendQueryRequestMessage(myUserID));
                     try{
@@ -73,6 +77,7 @@ public class FriendView {
                         break;
                     }
                     SendApplyMessage message=new SendApplyMessage(myUserID,FriendID,"请求添加你为好友");
+                    message.setPurpose("F");
                     ctx.writeAndFlush(message);
                     try{
                         synchronized(waitMessage){
@@ -136,6 +141,7 @@ public class FriendView {
                         e.printStackTrace();
                     }
                     if(waitSuccess==1){
+                        talkWith=FriendID;
                         for(String s:friendList){
                             System.out.println(s);
                             int i=0,length=s.length(),j=100;

@@ -10,6 +10,7 @@ public class FriendChatRequestMessage extends Message {
     private String message;
     private String talker_type;//G=消息来自群组,F=消息来自个人
     private File file;
+    private int count=1;//登录时用其统计未读信息条数
     private int Group=0;
     public FriendChatRequestMessage(){}
     public FriendChatRequestMessage(int userID,int FriendId,String message,String msg_type){
@@ -23,6 +24,10 @@ public class FriendChatRequestMessage extends Message {
         this.FriendId=FriendId;
         this.file=file;
         this.msg_type=msg_type;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 
     public void setTalker_type(String talker_type) {
@@ -51,6 +56,10 @@ public class FriendChatRequestMessage extends Message {
 
     public File getFile() {
         return file;
+    }
+
+    public int getCount() {
+        return count;
     }
 
     public String getMessage(){return this.message;}

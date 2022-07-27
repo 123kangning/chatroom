@@ -29,7 +29,11 @@ public class ResponseHandler extends SimpleChannelInboundHandler<ResponseMessage
             waitSuccess=0;
         }else{
             waitSuccess=1;
-            if(msg.getMessageType()==Message.FriendGetFileRequestMessage){
+            haveNoRead-=msg.getReadCount();
+            if(msg.getMessageType()==Message.CheckGradeInGroup){
+                gradeInGroup=msg.getGradeInGroup();
+            }
+            else if(msg.getMessageType()==Message.FriendGetFileRequestMessage){
                 System.out.println("接收成功，请选择一个目录将其保存下来[使用绝对路径]");
                 receiveFile(msg.getFile());
                 System.out.println("保存成功");

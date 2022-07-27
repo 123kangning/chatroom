@@ -5,22 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9ffa9a4-92e7-4c59-af71-ec04fc0405e8" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/client/view/FriendApplyView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/GroupQueryRequestMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/SendApplyMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/handler/FriendApplyQueryHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/handler/GroupQueryHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/handler/SendApplyHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/client/view/GroupEnterView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/message/GroupCheckGradeRequestMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/message/GroupUnSayRequestMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/handler/GroupCheckGradeHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/handler/GroupJoinHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/handler/GroupMemberHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/handler/GroupQuitHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/handler/GroupUnSayHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/description.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/description.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ChatClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/ClientFriendChatHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ClientFriendChatHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/ResponseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ResponseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/view/EnterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/EnterView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/view/FriendApplyView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/FriendApplyView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client/view/FriendView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/FriendView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client/view/GroupView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/GroupView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/view/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/MainView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client/view/NoticeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/NoticeView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/FriendAddRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/FriendAddRequestMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/message/FriendChatRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/FriendChatRequestMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/message/GroupJoinRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/GroupJoinRequestMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/message/GroupNumberRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/GroupMemberRequestMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/message/GroupQuitRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/GroupQuitRequestMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/message/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/message/ResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/ResponseMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/message/SendApplyMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/SendApplyMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ChatServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/FriendAddHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/FriendAddHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/FriendApplyQueryHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/FriendApplyQueryHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/FriendNoticeHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/FriendNoticeHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/GroupCreateHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/GroupCreateHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/GroupQueryHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/GroupQueryHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/LoginHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/LoginHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/NoticeHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/NoticeHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/SendApplyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/SendApplyHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +110,7 @@
       <recent name="netty.c2" />
     </key>
   </component>
-  <component name="RunManager" selected="应用程序.Test">
+  <component name="RunManager" selected="应用程序.client.ChatClient">
     <configuration name="ChatServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="server.ChatServer" />
       <module name="chatroom" />
@@ -217,7 +237,8 @@
       <workItem from="1658758927671" duration="5944000" />
       <workItem from="1658797508530" duration="27893000" />
       <workItem from="1658847280859" duration="3079000" />
-      <workItem from="1658883853129" duration="12700000" />
+      <workItem from="1658883853129" duration="36171000" />
+      <workItem from="1658932553922" duration="10902000" />
     </task>
     <servers />
   </component>

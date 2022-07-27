@@ -88,6 +88,11 @@ public class ChatServer {
                                     .addLast(new FriendApplyQueryHandler())
                                     .addLast(new GroupCreateHandler())
                                     .addLast(new GroupQueryHandler())
+                                    .addLast(new GroupJoinHandler())
+                                    .addLast(new GroupCheckGradeHandler())
+                                    .addLast(new GroupMemberHandler())
+                                    .addLast(new GroupUnSayHandler())
+                                    .addLast(new GroupQuitHandler())
                                     .addLast(new SignInHandler());
                         }
                     })

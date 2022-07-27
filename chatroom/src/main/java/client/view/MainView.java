@@ -18,7 +18,6 @@ import static client.ChatClient.*;
 public class MainView {
     public MainView(ChannelHandlerContext ctx){
         while(true){
-            haveNoRead=false;
             System.out.printf("\n\t+----- 您的ID为 %d -----+\n" +
                     "\t+---------------------+\n" +
                     "\t| 6 -> 进入消息通知栏   |\n" +
@@ -31,6 +30,10 @@ public class MainView {
                     "\t+---------------------+\n" +
                     "\t| 2 -> 注销            |\n" +
                     "\t+---------------------+\n",myUserID);
+            System.out.println("haveNoRead = "+haveNoRead);
+            if(haveNoRead>0){
+                System.out.println("主人，您有未查看的信息，请注意查看...");
+            }
 
             Scanner scanner=new Scanner(System.in);
             String s=scanner.nextLine();
@@ -57,7 +60,7 @@ public class MainView {
                             return;
                         }
                     }
-                    haveNoRead=false;
+                    haveNoRead=0;
                     break;
                 }
                 case 3:{
@@ -78,7 +81,7 @@ public class MainView {
                             return;
                         }
                     }
-                    haveNoRead=false;
+                    haveNoRead=0;
                     break;
                 }
                 case 4:new FriendView(ctx);break;

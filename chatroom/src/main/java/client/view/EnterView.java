@@ -30,6 +30,7 @@ public class EnterView {
             System.out.println("输入你的选择：");
             Scanner scanner=new Scanner(System.in);
             String s=scanner.nextLine();
+
             while(!StringUtils.isNumber(s)){
                 System.out.println("输入不规范，请重新输入您的选择：");
                 s=scanner.nextLine();

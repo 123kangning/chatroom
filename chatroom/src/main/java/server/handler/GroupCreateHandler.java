@@ -8,6 +8,7 @@ import message.ResponseMessage;
 
 import static server.ChatServer.connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @Slf4j
@@ -17,11 +18,26 @@ public class GroupCreateHandler extends SimpleChannelInboundHandler<GroupCreateR
         try{
             int userID=msg.getUserID();
             String groupName=msg.getGroupName();
-            String sql="insert into group1(group_name,userID,user_type,say) values(?,?,'9','T')";
+            String sql1="insert into group1(group_name,ownerID) values(?,?)";
+            PreparedStatement ps1= connection.prepareStatement(sql1);
+            ps1.setString(1,groupName);
+            ps1.setInt(2,userID);
+            int row=ps1.executeUpdate();
+            log.info("第一次 row={}",row);
+            String sql2="select groupID from group1 order by groupID desc limit 1";
+            PreparedStatement ps2= connection.prepareStatement(sql2);
+            ResultSet set=ps2.executeQuery();
+            int groupID=0;
+            if(set.next()){
+                groupID=set.getInt(1);
+            }
+            String sql="insert into group2(groupID,group_name,userID,user_type,say) values(?,?,?,'9','T')";
             PreparedStatement ps= connection.prepareStatement(sql);
-            ps.setString(1,groupName);
-            ps.setInt(2,userID);
-            int row=ps.executeUpdate();
+            ps.setInt(1,groupID);
+            ps.setString(2,groupName);
+            ps.setInt(3,userID);
+            row=ps.executeUpdate();
+            log.info("第二次 row={}",row);
             ResponseMessage message;
             if(row==1){
                 message=new ResponseMessage(true,"");

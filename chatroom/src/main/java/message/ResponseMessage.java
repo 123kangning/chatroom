@@ -7,9 +7,11 @@ import java.util.Map;
 public class ResponseMessage extends Message{
     private boolean success;
     private String reason;
+    private int readCount=0;
     private Map<String, List<String>> noticeMap;
     public  List<String> friendList;
     int MessageType=ResponseMessage;
+    private int gradeInGroup;
     private File file;//接收一个file实例化对象回来
     public ResponseMessage(){}
     public ResponseMessage(boolean success,String reason){
@@ -19,6 +21,14 @@ public class ResponseMessage extends Message{
 
     public void setFile(File file) {
         this.file = file;
+    }
+
+    public void setReadCount(int readCount) {
+        this.readCount = readCount;
+    }
+
+    public void setGradeInGroup(int gradeInGroup) {
+        this.gradeInGroup = gradeInGroup;
     }
 
     public void setNoticeMap(Map<String, List<String>> noticeMap) {
@@ -39,6 +49,14 @@ public class ResponseMessage extends Message{
 
     public File getFile() {
         return file;
+    }
+
+    public int getGradeInGroup() {
+        return gradeInGroup;
+    }
+
+    public int getReadCount() {
+        return readCount;
     }
 
     public  List<String> getFriendList() {

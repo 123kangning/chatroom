@@ -5,11 +5,16 @@ public class SendApplyMessage extends Message{
     private int friendID;
     private int groupID=0;
     private String message;
-    public String Talker_type="F";
+    private String Talker_type="F";
+    private String purpose="F";//F为了添加朋友而发申请，G为了进入群组而发申请(这两个设置都是在Talker_type=F的前提下)
     public SendApplyMessage(int userID,int friendID,String message){
         this.userID=userID;
         this.friendID=friendID;
         this.message=message;
+    }
+
+    public void setPurpose(String purpose) {
+        this.purpose = purpose;
     }
 
     public void setGroupID(int groupID) {
@@ -26,6 +31,10 @@ public class SendApplyMessage extends Message{
 
     public int getUserID() {
         return userID;
+    }
+
+    public String getPurpose() {
+        return purpose;
     }
 
     public int getGroupID() {

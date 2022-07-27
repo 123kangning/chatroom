@@ -32,11 +32,13 @@ public class FriendApplyQueryHandler extends SimpleChannelInboundHandler<FriendA
             message=new ResponseMessage(true,"");
             message.setFriendList(friendList);
             message.setMessageType(Message.FriendQueryRequestMessage);
-            ctx.writeAndFlush(message);
+
             sql="update message set isAccept='T' where userID=? and talker_type='F' and msg_type='A' and isAccept='F'";
             ps= connection.prepareStatement(sql);
             ps.setInt(1,userID);
-            ps.executeUpdate();
+            int row=ps.executeUpdate();
+            message.setReadCount(row);
+            ctx.writeAndFlush(message);
             log.info("ctx.writeAndFlush(message) FriendApplyQueryHandler");
         }catch (SQLException e){
             e.printStackTrace();

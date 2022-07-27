@@ -17,7 +17,6 @@ public class FriendApplyView {
     public FriendApplyView(ChannelHandlerContext ctx){
         System.out.printf("\n\t+------------- 您的ID为 %8d --------------+\n",myUserID);
         System.out.println("\t+------------------好友申请栏-------------------+");
-        haveNoRead=false;
         ctx.writeAndFlush(new FriendApplyQueryMessage(myUserID));
         try{
             synchronized (waitMessage){
@@ -30,9 +29,8 @@ public class FriendApplyView {
         for(String s1:friendList){
             System.out.println(s1);
         }
+
         Scanner scanner=new Scanner(System.in);
-
-
 
         while(true){
             System.out.println("输入[1]通过好友请求，[2]拒绝好友请求，[0]退出：");

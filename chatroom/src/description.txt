@@ -33,8 +33,15 @@ shield char(1) NOT NULL COMMENT '0=无屏蔽关系，1=前者屏蔽后者，2=�
 create table group1(
 groupID int(11) NOT NULL AUTO_INCREMENT COMMENT '组id，自增长',
 group_name varchar(50) NOT NULL COMMENT '组名',
+ownerID int(11) NOT NULL COMMENT '群主',
+primary key (groupID)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+群组表设计
+create table group2(
+groupID int(11) NOT NULL  COMMENT '组id',
+group_name varchar(50) NOT NULL COMMENT '组名',
 userID int(11) NOT NULL COMMENT '成员id',
 user_type char(1) NOT NULL COMMENT '0=普通成员，1=管理员，9=群主',
-say char(1) not null comment 'T=可发言、F=禁言',
-primary key (groupID)
+say char(1) not null comment 'T=可发言、F=禁言'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

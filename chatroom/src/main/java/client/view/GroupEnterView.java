@@ -68,7 +68,7 @@ public class GroupEnterView {
                 case 3:case4(scanner,"T");break;
                 case 4:case4(scanner,"F");break;
                 case 5:case5(scanner);break;
-                case 6:
+                case 6:case6(scanner);break;
                 case 7:
                 case 8:
                 case 9:

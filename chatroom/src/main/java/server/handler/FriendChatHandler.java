@@ -116,7 +116,9 @@ public class FriendChatHandler extends SimpleChannelInboundHandler<FriendChatReq
                         log.info("msg = "+msg);
                         Channel channel= SessionMap.getChannel(u2);
                         log.info("Friend channel = {}，u1={},u2={},userID={},FriendID={}",channel,u1,u2,userID,FriendID);
-                        msg.setMessage(addFile);
+                        if(msg_type.equals("F")){
+                            msg.setMessage(addFile);
+                        }
                         channel.writeAndFlush(msg);
                     }else{
                         isAccept="F";

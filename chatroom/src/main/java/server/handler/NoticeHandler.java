@@ -45,9 +45,8 @@ public class NoticeHandler extends SimpleChannelInboundHandler<NoticeRequestMess
                 if(set1.getInt(2)==0){
                     break;
                 }
-                if(set1.getInt(2)==0)continue;
-                group.add(String.format("\t群组%8d 发来%3d 条消息",set.getInt(1),set.getInt(2)));
-                log.info(String.format("\t群组%8d 发来%3d 条消息",set.getInt(1),set.getInt(2)));
+                group.add(String.format("\t群组%8d 发来%3d 条消息",set1.getInt(1),set1.getInt(2)));
+                log.info(String.format("\t群组%8d 发来%3d 条消息",set1.getInt(1),set1.getInt(2)));
             }
             noticeMap.put("F",friend);
             noticeMap.put("G",group);

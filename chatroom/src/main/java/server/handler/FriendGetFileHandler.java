@@ -32,8 +32,10 @@ public class FriendGetFileHandler extends SimpleChannelInboundHandler<FriendGetF
                 log.info("file绝对路径：{}",file.getAbsolutePath());
                 log.info("exist = {}",file.exists());
                 ResponseMessage message=new ResponseMessage(true,"");
-                message.setFile(file);
-                message.setMessageType(Message.FriendGetFileRequestMessage);
+                if(!msg.isRefuse()){
+                    message.setFile(file);
+                    message.setMessageType(Message.FriendGetFileRequestMessage);
+                }
                 ctx.writeAndFlush(message);
                 log.info("服务端文件发送成功");
                 String sql1="update message set isAccept ='T' where content =?";

@@ -9,15 +9,12 @@ import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 
 import lombok.extern.slf4j.Slf4j;
-import message.LoginRequestMessage;
 import message.LogoutRequestMessage;
-import message.ResponseMessage;
 import protocol.MessageCodec;
 import protocol.ProtocolFrameDecoder;
 import server.handler.*;
 
 import java.sql.*;
-import java.util.Set;
 
 @Slf4j
 public class ChatServer {
@@ -93,6 +90,7 @@ public class ChatServer {
                                     .addLast(new GroupMemberHandler())
                                     .addLast(new GroupUnSayHandler())
                                     .addLast(new GroupQuitHandler())
+                                    .addLast(new GroupApplyQueryHandler())
                                     .addLast(new SignInHandler());
                         }
                     })

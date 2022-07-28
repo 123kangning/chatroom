@@ -19,6 +19,7 @@ public class ClientFriendChatHandler extends SimpleChannelInboundHandler<FriendC
             System.out.println(ans);
             log.info("in ClientFriendChatHandler");
             if(msg.getMsg_type().equals("F")){
+                isY=true;
                 System.out.println("有文件到来，输入y对这个文件进行处理，输入n暂不处理：");
                 log.info("FriendView.receiveFile(msg.getMessage(), new Scanner(System.in),ctx,msg.getUserID())");
                 new Thread(()->{

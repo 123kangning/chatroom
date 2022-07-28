@@ -62,9 +62,11 @@ public class LoginHandler extends SimpleChannelInboundHandler<LoginRequestMessag
 
             int count=0;
             while(set.next())count++;
-            FriendChatRequestMessage message1=new FriendChatRequestMessage();
-            message1.setCount(count);
-            ctx.writeAndFlush(message1);
+            if(message.getSuccess()){
+                FriendChatRequestMessage message1=new FriendChatRequestMessage();
+                message1.setCount(count);
+                ctx.writeAndFlush(message1);
+            }
             message.setMessageType(Message.LoginResponseMessage);
             ctx.writeAndFlush(message);
         }catch (SQLException e){

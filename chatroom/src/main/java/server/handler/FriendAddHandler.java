@@ -65,6 +65,11 @@ public class FriendAddHandler extends SimpleChannelInboundHandler<FriendAddReque
                 ps.setString(3,friendName);
                 ps.setString(4,username);
                 count+=ps.executeUpdate();
+                sql="update message set isAccept='T' where userID=? and talkerID=? and talker_type='F' and msg_type='A' and isAccept='F'";
+                ps= connection.prepareStatement(sql);
+                ps.setInt(1,userID);
+                ps.setInt(2,FriendID);
+                int row=ps.executeUpdate();
             }
 
             if(count==length){
@@ -125,6 +130,11 @@ public class FriendAddHandler extends SimpleChannelInboundHandler<FriendAddReque
             }else{
                 message=new ResponseMessage(false,"添加失败");
             }
+            sql="update message set isAccept='T' where userID=? and talkerID=? and talker_type='F' and msg_type='A' and isAccept='F'";
+            ps= connection.prepareStatement(sql);
+            ps.setInt(1,userID);
+            ps.setInt(2,FriendID);
+            ps.executeUpdate();
             ctx.writeAndFlush(message);
         }catch (SQLException e){
             e.printStackTrace();

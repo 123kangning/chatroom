@@ -25,11 +25,14 @@ public class ChatClient {
     public static int myUserID;
     public static volatile int haveNoRead=0;//默认没有未读消息
     public static final Object waitMessage=new Object();//服务端消息返回时，notify线程 View handler
+    public static final Object waitRVFile=new Object();
+    public static volatile String checkRECV="n";
     public static volatile int waitSuccess=0;//1表示消息成功、0表示消息失败
     public static volatile Map<String, List<String>> noticeMap;
     public static volatile List<String> friendList;//查询朋友列表
     public static volatile int gradeInGroup=0;
     public static volatile boolean immediate=false;
+    public static volatile String haveFile="";
     public static volatile int talkWith=0;
     public static void main(String[] args) throws InterruptedException {
         NioEventLoopGroup group=new NioEventLoopGroup();

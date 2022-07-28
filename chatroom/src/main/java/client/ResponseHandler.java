@@ -1,5 +1,5 @@
 package client;
-
+///////////////////////////////////////////////////////////////////
 import client.view.EnterView;
 import client.view.MainView;
 import io.netty.channel.ChannelHandlerContext;
@@ -28,8 +28,10 @@ public class ResponseHandler extends SimpleChannelInboundHandler<ResponseMessage
             System.out.print("操作失败 "+reason);
             waitSuccess=0;
         }else{
+            System.out.println(3);
             waitSuccess=1;
             haveNoRead-=msg.getReadCount();
+            haveFile=msg.getHaveFile();
             if(msg.getMessageType()==Message.CheckGradeInGroup){
                 gradeInGroup=msg.getGradeInGroup();
             }

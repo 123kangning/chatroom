@@ -21,7 +21,7 @@ public class FriendGetFileHandler extends SimpleChannelInboundHandler<FriendGetF
         try{
             int userID=msg.getUserID();
             int FriendID=msg.getFriendID();
-            String sql="select content from message where userID=? and talkerID =? and talker_type='F' and msg_type=?";
+            String sql="select content from message where userID=? and talkerID =? and talker_type='F' and msg_type=? and isAccept='F'";
             PreparedStatement ps= connection.prepareStatement(sql);
             ps.setInt(1,userID);
             ps.setInt(2,FriendID);
@@ -40,6 +40,11 @@ public class FriendGetFileHandler extends SimpleChannelInboundHandler<FriendGetF
                 PreparedStatement ps1= connection.prepareStatement(sql1);
                 ps1.setString(1,set.getString(1));
                 ps1.executeUpdate();
+                sql="update message set isAccept ='T' where userID=? and talker_type='F' and (msg_type='F' or msg_type='S') and talkerID=?";
+                ps= connection.prepareStatement(sql);
+                ps.setInt(1,userID);
+                ps.setInt(2,FriendID);
+                ps.executeUpdate();
             }
         }catch (SQLException e){
             e.printStackTrace();

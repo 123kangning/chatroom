@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -15,8 +16,10 @@ import static client.ChatClient.myUserID;
 @Slf4j
 public class Test {
     public static void main(String[] args) throws IOException {
-        System.out.println("11");
-        System.in.read();
-        System.out.println("11");
+        /*System.out.println("11");
+        Scanner scanner=new Scanner(System.in);
+        String s=scanner.nextLine();
+        System.out.println("s.length="+s.length());*/
+        System.out.println(new DateTime(System.currentTimeMillis()));
     }
 }

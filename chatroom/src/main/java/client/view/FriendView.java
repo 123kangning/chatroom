@@ -142,40 +142,13 @@ public class FriendView {
                     }
                     if(waitSuccess==1){
                         talkWith=FriendID;
+                        int count=0;
                         for(String s:friendList){
                             System.out.println(s);
-                            int i=0,length=s.length(),j=100;
-                            while(i<length&&s.charAt(i)=='\t'){
-                                i++;
+                            if(haveFile.charAt(count)=='1'){
+                                FriendView.receiveFile(s,scanner,ctx,FriendID);
                             }
-                            while(i<length&&(s.charAt(i)<='9'&&s.charAt(i)>='0')){
-                                i++;
-                            }
-                            while(i<length&&s.charAt(i)==':'){
-                                j=i;
-                                i++;
-                            }
-                            //log.info("i={}, s.charAt(i)={}",i,s.charAt(i));
-                            if(i<length&&i>j&&s.charAt(i)=='/'){
-                                System.out.println("对方发来一个文件，是否接收？[T->接收][F->忽略]：");
-                                String choice=scanner.nextLine();
-                                while(!choice.equalsIgnoreCase("T")&&!choice.equalsIgnoreCase("F")){
-                                    System.out.println("输入不规范，请重新输入");
-                                    choice=scanner.nextLine();
-                                }
-                                if(choice.equalsIgnoreCase("T")){
-
-                                    FriendGetFileRequestMessage m1=new FriendGetFileRequestMessage(myUserID,FriendID);
-                                    ctx.writeAndFlush(m1);
-                                    try{
-                                        synchronized(waitMessage){
-                                            waitMessage.wait();
-                                        }
-                                    }catch (InterruptedException e){
-                                        e.printStackTrace();
-                                    }
-                                }
-                            }
+                            count++;
                         }
                     }else{
                         break;
@@ -188,13 +161,13 @@ public class FriendView {
                         FriendChatRequestMessage message;
                         if(chat.equalsIgnoreCase("F")){
                             File file;
-                            System.out.println("请输入待发送的文件的[路径路径]：");
+                            System.out.println("请输入待发送的文件的[绝对路径]：");
                             file=new File(scanner.nextLine());
                             while(!file.exists()||!file.isFile()){
                                 if(!file.exists()){
-                                    System.out.println("文件不存在，请重新输入待发送的文件的[路径路径]");
+                                    System.out.println("文件不存在，请重新输入待发送的文件的[绝对路径]");
                                 }else{
-                                    System.out.println("不是文件，请重新输入待发送的文件的[路径路径]");
+                                    System.out.println("不是文件，请重新输入待发送的文件的[绝对路径]");
                                 }
                                 file=new File(scanner.nextLine());
                             }
@@ -208,7 +181,18 @@ public class FriendView {
                             }catch (InterruptedException e){
                                 e.printStackTrace();
                             }
-                        }else{
+                        }else if(chat.equalsIgnoreCase("Y")){
+                            checkRECV="y";
+                            synchronized (waitRVFile){
+                                try {
+                                    waitRVFile.wait();
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                                checkRECV="n";
+                            }
+                        }
+                        else {
                             message=new FriendChatRequestMessage(myUserID,FriendID,chat,"S");
                             message.setTalker_type("F");
                             ctx.writeAndFlush(message);
@@ -222,7 +206,6 @@ public class FriendView {
                             if(waitSuccess==0){
                                 break;
                             }
-
                         }
                         System.out.println("聊天内容(按下回车发送)[输入F表示发送文件][输入r退出]：");
                         chat=scanner.nextLine();
@@ -232,6 +215,44 @@ public class FriendView {
                     }
                     break;
                 }
+            }
+        }
+    }
+    public static void receiveFile(String s,Scanner scanner,ChannelHandlerContext ctx,int FriendID){
+        log.info("enter receiveFile!!!");
+        int i=0,length=s.length(),j=100;
+        while(i<length&&s.charAt(i)=='\t'){
+            i++;
+        }
+        while(i<length&&(s.charAt(i)<='9'&&s.charAt(i)>='0')){
+            i++;
+        }
+        while(i<length&&s.charAt(i)==':'){
+            j=i;
+            i++;
+        }
+        //log.info("count={}, s.charAt(count)={}",count,haveFile.charAt(count));
+        if(i<length&&i>j&&s.charAt(i)=='/'){
+            System.out.println("对方发来一个文件，是否接收？[T->接收][F->忽略]：");
+            String choice=scanner.nextLine();
+            log.info("choice ={}",choice);
+            while(!choice.equalsIgnoreCase("T")&&!choice.equalsIgnoreCase("F")){
+                System.out.println("输入不规范，请重新输入");
+                choice=scanner.nextLine();
+            }
+            if(choice.equalsIgnoreCase("T")){
+
+                FriendGetFileRequestMessage m1=new FriendGetFileRequestMessage(myUserID,FriendID);
+                ctx.writeAndFlush(m1);
+                System.out.println(1);
+                try{
+                    synchronized(waitMessage){
+                        waitMessage.wait();
+                    }
+                }catch (InterruptedException e){
+                    e.printStackTrace();
+                }
+                System.out.println(2);
             }
         }
     }

@@ -12,11 +12,16 @@ public class ResponseMessage extends Message{
     public  List<String> friendList;
     int MessageType=ResponseMessage;
     private int gradeInGroup;
+    private String haveFile="";
     private File file;//接收一个file实例化对象回来
     public ResponseMessage(){}
     public ResponseMessage(boolean success,String reason){
         this.success=success;
         this.reason=reason;
+    }
+
+    public void setHaveFile(String haveFile) {
+        this.haveFile = haveFile;
     }
 
     public void setFile(File file) {
@@ -57,6 +62,10 @@ public class ResponseMessage extends Message{
 
     public int getReadCount() {
         return readCount;
+    }
+
+    public String getHaveFile() {
+        return haveFile;
     }
 
     public  List<String> getFriendList() {

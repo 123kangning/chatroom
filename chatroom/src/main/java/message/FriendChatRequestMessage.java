@@ -30,6 +30,10 @@ public class FriendChatRequestMessage extends Message {
         this.count = count;
     }
 
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
     public void setTalker_type(String talker_type) {
         this.talker_type = talker_type;
     }

@@ -22,8 +22,8 @@ public class FriendUnShiedHandler extends SimpleChannelInboundHandler<FriendUnSh
         PreparedStatement ps=connection.prepareStatement(sql);
         ps.setInt(1,userID);
         ps.setInt(2,FriendID);
-        ps.setInt(4,userID);
-        ps.setInt(3,FriendID);
+        ps.setInt(3,userID);
+        ps.setInt(4,FriendID);
         ResultSet set=ps.executeQuery();
         if(set.next()){
             log.info("fromID={},toID={},shied={}",set.getInt(1),set.getInt(2),set.getString(3));
@@ -42,22 +42,27 @@ public class FriendUnShiedHandler extends SimpleChannelInboundHandler<FriendUnSh
                 if(set.getInt(1)==userID){
                     log.info("case 3");
                     shield="2";
-                    sql="update friend set shield=? where fromID=? and toID=?";
-                    ps= connection.prepareStatement(sql);
-                    ps.setString(1,shield);
-                    ps.setInt(2,userID);
-                    ps.setInt(3,FriendID);
-                    int row=ps.executeUpdate();
                 }else{
                     log.info("case 4");
                     shield="1";
-                    sql="update friend set shield=? where fromID=? and toID=?";
-                    ps= connection.prepareStatement(sql);
-                    ps.setString(1,shield);
-                    ps.setInt(3,userID);
-                    ps.setInt(2,FriendID);
-                    int row=ps.executeUpdate();
                 }
+            }
+            if(set.getInt(1)==userID){
+
+                sql="update friend set shield=? where fromID=? and toID=?";
+                ps= connection.prepareStatement(sql);
+                ps.setString(1,shield);
+                ps.setInt(2,userID);
+                ps.setInt(3,FriendID);
+                int row=ps.executeUpdate();
+            }else{
+
+                sql="update friend set shield=? where fromID=? and toID=?";
+                ps= connection.prepareStatement(sql);
+                ps.setString(1,shield);
+                ps.setInt(3,userID);
+                ps.setInt(2,FriendID);
+                int row=ps.executeUpdate();
             }
         }
         log.info("结束");

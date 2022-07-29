@@ -1,6 +1,6 @@
 package message;
 
-public class FriendUnShieldRequestMessage {
+public class FriendUnShieldRequestMessage extends Message{
     private int userID;
     private int FriendId;
     public FriendUnShieldRequestMessage(){}

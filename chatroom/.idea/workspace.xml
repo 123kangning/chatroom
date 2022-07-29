@@ -5,42 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9ffa9a4-92e7-4c59-af71-ec04fc0405e8" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/CheckHaveMessageRequestMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/FriendUnShieldRequestMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/handler/FriendUnShiedHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/view/EnterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/EnterView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/view/FriendView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/FriendView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/view/GroupEnterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/GroupEnterView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/view/GroupView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/GroupView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/GroupQuitRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/GroupQuitRequestMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ChatClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/ClientFriendChatHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ClientFriendChatHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/message/FriendUnShieldRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/FriendUnShieldRequestMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ChatServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/FriendAddHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/FriendAddHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/FriendApplyQueryHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/FriendApplyQueryHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/FriendChatHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/FriendChatHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/FriendQueryHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/FriendQueryHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/FriendShieldHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/FriendShieldHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/GroupApplyQueryHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/GroupApplyQueryHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/GroupJoinHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/GroupJoinHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/GroupQueryHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/GroupQueryHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/GroupQuitHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/GroupQuitHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/LoginHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/LoginHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/NoticeHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/NoticeHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/SendApplyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/SendApplyHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/service/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/service/UserServiceFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/service/UserServiceMemory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/session/Group.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/session/GroupSession.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/session/GroupSessionFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/session/GroupSessionMemory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/session/SessionFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/session/SessionMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/session/SessionMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/session/SessionMemory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/FriendUnShiedHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/FriendUnShiedHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,26 +48,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/kangning/clone/yanran",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "Runtime.Targets.Configurable",
-    "spring.configuration.checksum": "00b765dd3013edc925995a50f9ed657c"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/kangning/clone/yanran&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Runtime.Targets.Configurable&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;00b765dd3013edc925995a50f9ed657c&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="procotol" />
@@ -242,7 +214,8 @@
       <workItem from="1658932553922" duration="11050000" />
       <workItem from="1658970828422" duration="34844000" />
       <workItem from="1659019258094" duration="2753000" />
-      <workItem from="1659055631952" duration="22314000" />
+      <workItem from="1659055631952" duration="22871000" />
+      <workItem from="1659087136468" duration="6146000" />
     </task>
     <servers />
   </component>
@@ -264,17 +237,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/server/handler/FriendChatHandler.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

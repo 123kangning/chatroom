@@ -8,7 +8,6 @@ import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import message.FriendChatRequestMessage;
 import message.ResponseMessage;
-import server.service.User;
 import server.session.SessionMap;
 
 import static server.ChatServer.connection;

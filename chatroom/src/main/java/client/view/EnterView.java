@@ -25,7 +25,7 @@ public class EnterView {
             System.out.println("\t+-----------------+");
             System.out.println("\t|   2   注册       |");
             System.out.println("\t+-----------------+");
-            System.out.println("\t|   0   退出系统    |");
+            System.out.println("\t|   0   退出系统   |");
             System.out.println("\t+-----------------+\n");
             System.out.println("输入你的选择：");
             Scanner scanner=new Scanner(System.in);

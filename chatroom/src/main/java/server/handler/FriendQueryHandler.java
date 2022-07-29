@@ -35,7 +35,7 @@ public class FriendQueryHandler extends SimpleChannelInboundHandler<FriendQueryR
                 String ans;
                 if(u1==userID){
                     ans=String.format("\t用户%5d , %10s ",u2,to_name);
-                    if(shield.equals("1")){
+                    if(shield.equals("1")||shield.equals("3")){
                         ans=ans.concat(", 已屏蔽");
                     }
                     if(SessionMap.getChannel(u2)!=null){
@@ -45,7 +45,7 @@ public class FriendQueryHandler extends SimpleChannelInboundHandler<FriendQueryR
                     }
                 }else{
                     ans=String.format("\t用户%5d , %10s ",u1,from_name);
-                    if(shield.equals("2")){
+                    if(shield.equals("2")||shield.equals("3")){
                         ans=ans.concat(", 已屏蔽");
                     }
                     if(SessionMap.getChannel(u1)!=null){

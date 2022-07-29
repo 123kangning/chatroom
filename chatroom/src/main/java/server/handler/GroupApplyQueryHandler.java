@@ -18,14 +18,14 @@ public class GroupApplyQueryHandler extends SimpleChannelInboundHandler<GroupApp
     protected void channelRead0(ChannelHandlerContext ctx, GroupApplyQueryRequestMessage msg) throws Exception {
         try{
             int userID=msg.getUserID();
-            String sql="select groupID,talkerID,content from message where userID=? and talker_type ='G'";
+            String sql="select groupID,talkerID,content from message where userID=? and talker_type ='G' and isAccept='F'";
             PreparedStatement ps= connection.prepareStatement(sql);
             ps.setInt(1,userID);
             ResultSet set=ps.executeQuery();
             List<String> list=new ArrayList<>();
             while(set.next()){
                 String content=set.getString(3);
-                String people=content.equals("您已被踢出群聊")?"执行人 用户":"邀请人 用户";
+                String people=content.equals("您已被移出群聊")?"执行人 用户":"邀请人 用户";
                 String ans=String.format("%s%5d,%s%5d",content,set.getInt(1),people,set.getInt(2));
                 list.add(ans);
             }

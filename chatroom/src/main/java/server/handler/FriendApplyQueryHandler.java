@@ -25,7 +25,9 @@ public class FriendApplyQueryHandler extends SimpleChannelInboundHandler<FriendA
             ResultSet set=ps.executeQuery();
             ResponseMessage message;
             List<String> friendList=new ArrayList<>();
+            int count=0;
             while(set.next()){
+                count++;
                 log.info(String.format("\t用户%5d 请求添加你为好友",set.getInt(1)));
                 friendList.add(String.format("\t用户%5d 请求添加你为好友",set.getInt(1)));
             }
@@ -33,11 +35,7 @@ public class FriendApplyQueryHandler extends SimpleChannelInboundHandler<FriendA
             message.setFriendList(friendList);
             message.setMessageType(Message.FriendQueryRequestMessage);
 
-            sql="update message set isAccept='T' where userID=? and talker_type='F' and msg_type='A' and isAccept='F'";
-            ps= connection.prepareStatement(sql);
-            ps.setInt(1,userID);
-            int row=ps.executeUpdate();
-            message.setReadCount(row);
+            message.setReadCount(count);
             ctx.writeAndFlush(message);
             log.info("ctx.writeAndFlush(message) FriendApplyQueryHandler");
         }catch (SQLException e){

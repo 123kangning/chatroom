@@ -20,6 +20,6 @@ public class Test {
         Scanner scanner=new Scanner(System.in);
         String s=scanner.nextLine();
         System.out.println("s.length="+s.length());*/
-        System.out.println(new DateTime(System.currentTimeMillis()));
+        System.out.printf("%s%5d,","啦啦啦",20);
     }
 }

@@ -2,20 +2,22 @@ package server.handler;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
+import lombok.extern.slf4j.Slf4j;
 import message.FriendAddRequestMessage;
 import message.ResponseMessage;
-
+import server.handler.GroupJoinHandler.*;
 import static server.ChatServer.connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-
+@Slf4j
 public class FriendAddHandler extends SimpleChannelInboundHandler<FriendAddRequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, FriendAddRequestMessage msg) throws Exception {
         if(msg.getSetList()){
             choice1(ctx,msg);
+
         }else{
             choice2(ctx,msg);
         }
@@ -30,7 +32,10 @@ public class FriendAddHandler extends SimpleChannelInboundHandler<FriendAddReque
                 int userID=msg.getUserId();
                 String username="";
                 String friendName="";
-
+                if(!GroupJoinHandler.CheckHaveMessage(userID, "A", FriendID, "F",0,"请求添加你为好友","F")){
+                    log.info("消息判断不存在");
+                    continue;
+                }
                 String s1="select toID from friend where (fromID=? and toID=?) or (toID=? and fromID=?)";
                 PreparedStatement check= connection.prepareStatement(s1);
                 check.setInt(1,userID);
@@ -88,6 +93,10 @@ public class FriendAddHandler extends SimpleChannelInboundHandler<FriendAddReque
         try{
             int userID=msg.getUserId();
             int FriendID=msg.getFriendId();
+            if(!GroupJoinHandler.CheckHaveMessage(userID, "A", FriendID, "F",0,"请求添加你为好友","F")){
+                log.info("消息判断不存在");
+                return;
+            }
             String username="";
             String friendName="";
             ResponseMessage message;

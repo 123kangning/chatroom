@@ -7,7 +7,6 @@ import message.FriendChatRequestMessage;
 import message.LoginRequestMessage;
 import message.Message;
 import message.ResponseMessage;
-import server.service.User;
 import server.session.SessionMap;
 
 import java.sql.PreparedStatement;

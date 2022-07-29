@@ -2,7 +2,6 @@ package server.session;
 
 import io.netty.channel.Channel;
 import lombok.extern.slf4j.Slf4j;
-import server.service.User;
 
 import java.util.concurrent.ConcurrentHashMap;
 

@@ -2,11 +2,13 @@ package message;
 
 public class GroupQuitRequestMessage extends Message{
     private int delID;
+    private int userID;
     private int GroupId;
     public GroupQuitRequestMessage(){}
-    public GroupQuitRequestMessage(int userID,int GroupId){
-        this.delID=userID;
+    public GroupQuitRequestMessage(int delID,int GroupId,int userID){
+        this.delID=delID;
         this.GroupId=GroupId;
+        this.userID=userID;
     }
 
     public int getDelID() {
@@ -17,6 +19,9 @@ public class GroupQuitRequestMessage extends Message{
         return GroupId;
     }
 
+    public int getUserID() {
+        return userID;
+    }
     /*    @Override
             public int getMessageType() {
                 return GroupQuitRequestMessage;

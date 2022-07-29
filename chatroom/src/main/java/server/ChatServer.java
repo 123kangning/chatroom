@@ -80,6 +80,7 @@ public class ChatServer {
                                     .addLast(new FriendAddHandler())
                                     .addLast(new FriendDeleteHandler())
                                     .addLast(new FriendShieldHandler())
+                                    .addLast(new FriendUnShiedHandler())
                                     .addLast(new FriendNoticeHandler())
                                     .addLast(new FriendGetFileHandler())
                                     .addLast(new FriendApplyQueryHandler())

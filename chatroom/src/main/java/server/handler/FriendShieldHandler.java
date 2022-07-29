@@ -2,6 +2,7 @@ package server.handler;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
+import lombok.extern.slf4j.Slf4j;
 import message.FriendShieldRequestMessage;
 import message.ResponseMessage;
 
@@ -10,11 +11,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import static server.ChatServer.connection;
-
+@Slf4j
 public class FriendShieldHandler extends SimpleChannelInboundHandler<FriendShieldRequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, FriendShieldRequestMessage msg) throws Exception {
-       /* try{*/
+        try{
             int userID=msg.getUserID();
             int FriendID=msg.getFriendId();
             String shield="1";
@@ -26,6 +27,7 @@ public class FriendShieldHandler extends SimpleChannelInboundHandler<FriendShiel
             ps.setInt(3,FriendID);
             ResultSet set=ps.executeQuery();
             if(set.next()){
+                log.info("fromID={},toID={},shied={}",set.getInt(1),set.getInt(2),set.getString(3));
                 if(set.getString(3).equals("3")){//已经是双向屏蔽
                     ctx.writeAndFlush(new ResponseMessage(true,""));
                     return;
@@ -33,6 +35,7 @@ public class FriendShieldHandler extends SimpleChannelInboundHandler<FriendShiel
                 //判断是否要双向屏蔽
                 if((set.getInt(1)==userID&&set.getString(3).equals("2"))||
                         (set.getInt(1)==FriendID&&set.getString(3).equals("1"))){
+
                     shield="3";
                 }
             }
@@ -60,8 +63,8 @@ public class FriendShieldHandler extends SimpleChannelInboundHandler<FriendShiel
                 }
             }
             ctx.writeAndFlush(message);
-  /*      }catch(SQLException e){
+        }catch(SQLException e){
             e.printStackTrace();
-        }*/
+        }
     }
 }

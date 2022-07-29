@@ -36,7 +36,7 @@ public class NoticeHandler extends SimpleChannelInboundHandler<NoticeRequestMess
                 friend.add(String.format("\t用户%8d 发来%3d 条消息",set.getInt(1),set.getInt(2)));
                 log.info(String.format("\t用户%8d 发来%3d 条消息",set.getInt(1),set.getInt(2)));
             }
-            String sql1="select talkerID ,count(1) from message  where userID=? and talker_type='G'";
+            String sql1="select groupID ,count(1) from message  where userID=? and talker_type='G' and isAccept='F' group by groupID";
             PreparedStatement ps1=connection.prepareStatement(sql1);
             ps1.setInt(1,userID);
             ResultSet set1=ps1.executeQuery();

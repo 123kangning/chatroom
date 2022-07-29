@@ -24,6 +24,8 @@ public class FriendView {
             System.out.println("\t+---------------------+");
             System.out.println("\t| 6 -> 添加好友(通过ID) |");
             System.out.println("\t+---------------------+");
+            System.out.println("\t| 5 -> 解除屏蔽(通过ID) |");
+            System.out.println("\t+---------------------+");
             System.out.println("\t| 4 -> 显示好友列表     |");
             System.out.println("\t+---------------------+");
             System.out.println("\t| 3 -> 好友申请列表     |");
@@ -60,6 +62,25 @@ public class FriendView {
                     try {
                         System.in.read();
                     } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                }
+                case 5:{
+                    System.out.println("请输入要解除屏蔽的好友ID：");
+                    String s1=scanner.nextLine();
+                    while(!StringUtils.isNumber(s1)){
+                        System.out.println("输入不规范，请重新输入用户ID：");
+                        s1=scanner.nextLine();
+                    }
+                    int FriendID=Integer.parseInt(s1);
+                    ctx.writeAndFlush(new FriendUnShieldRequestMessage(myUserID,FriendID));
+                    log.info("1111");
+                    try{
+                        synchronized(waitMessage){
+                            waitMessage.wait();
+                        }
+                    }catch (InterruptedException e){
                         e.printStackTrace();
                     }
                     break;

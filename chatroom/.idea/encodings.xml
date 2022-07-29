@@ -16,6 +16,7 @@
     <file url="file://$PROJECT_DIR$/src/main/java/client/view/GroupView.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/client/view/MainView.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/client/view/NoticeView.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/message/CheckHaveMessageRequestMessage.java" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/src/main/java/message/FriendAddRequestMessage.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/message/FriendAddResponseMessage.java" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/src/main/java/message/FriendApplyQueryMessage.java" charset="UTF-8" />
@@ -29,6 +30,7 @@
     <file url="file://$PROJECT_DIR$/src/main/java/message/FriendQueryResponseMessage.java" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/src/main/java/message/FriendShieldRequestMessage.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/message/FriendShieldResponseMessage.java" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/src/main/java/message/FriendUnShieldRequestMessage.java" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/src/main/java/message/GroupApplyQueryRequestMessage.java" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/src/main/java/message/GroupChatRequestMessage.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/message/GroupChatResponseMessage.java" charset="US-ASCII" />
@@ -71,6 +73,7 @@
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/FriendNoticeHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/FriendQueryHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/FriendShieldHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/server/handler/FriendUnShiedHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/GroupApplyQueryHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/GroupCheckGradeHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/GroupCreateHandler.java" charset="UTF-8" />
@@ -95,7 +98,7 @@
     <file url="file://$PROJECT_DIR$/src/main/java/server/session/GroupSessionMemory.java" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/session/Session.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/session/SessionFactory.java" charset="US-ASCII" />
-    <file url="file://$PROJECT_DIR$/src/main/java/server/session/SessionMap.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/server/session/SessionMap.java" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/session/SessionMemory.java" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/src/test/java/Test.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/mysql.java" charset="US-ASCII" />
@@ -130,6 +133,7 @@
     <file url="file://$PROJECT_DIR$/story/description.txt2022-07-28 13:14:36" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/target/classes/server/ChatServer.class" charset="GBK" />
     <file url="jar://$MAVEN_REPOSITORY$/com/alibaba/druid/1.2.9/druid-1.2.9.jar!/com/alibaba/druid/util/StringUtils.class" charset="UTF-16BE" />
+    <file url="jar://$MAVEN_REPOSITORY$/io/netty/netty-buffer/4.1.77.Final/netty-buffer-4.1.77.Final.jar!/io/netty/buffer/ByteBuf.class" charset="UTF-16BE" />
     <file url="jar://$MAVEN_REPOSITORY$/io/netty/netty-codec/4.1.77.Final/netty-codec-4.1.77.Final.jar!/io/netty/handler/codec/ByteToMessageCodec.class" charset="GBK" />
     <file url="jar://$MAVEN_REPOSITORY$/io/netty/netty-codec/4.1.77.Final/netty-codec-4.1.77.Final.jar!/io/netty/handler/codec/ByteToMessageDecoder.class" charset="UTF-16BE" />
     <file url="jar://$MAVEN_REPOSITORY$/io/netty/netty-codec/4.1.77.Final/netty-codec-4.1.77.Final.jar!/io/netty/handler/codec/LengthFieldBasedFrameDecoder.class" charset="UTF-16BE" />
@@ -141,6 +145,9 @@
     <file url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.1.77.Final/netty-transport-4.1.77.Final.jar!/io/netty/bootstrap/AbstractBootstrap.class" charset="UTF-16LE" />
     <file url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.1.77.Final/netty-transport-4.1.77.Final.jar!/io/netty/channel/AbstractChannelHandlerContext.class" charset="UTF-16BE" />
     <file url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.1.77.Final/netty-transport-4.1.77.Final.jar!/io/netty/channel/Channel.class" charset="GBK" />
+    <file url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.1.77.Final/netty-transport-4.1.77.Final.jar!/io/netty/channel/ChannelDuplexHandler.class" charset="UTF-16BE" />
+    <file url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.1.77.Final/netty-transport-4.1.77.Final.jar!/io/netty/channel/ChannelHandler.class" charset="UTF-16LE" />
+    <file url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.1.77.Final/netty-transport-4.1.77.Final.jar!/io/netty/channel/ChannelInboundHandler.class" charset="UTF-16BE" />
     <file url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.1.77.Final/netty-transport-4.1.77.Final.jar!/io/netty/channel/ChannelInboundHandlerAdapter.class" charset="UTF-16LE" />
     <file url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.1.77.Final/netty-transport-4.1.77.Final.jar!/io/netty/channel/ChannelInitializer.class" charset="UTF-16BE" />
     <file url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.1.77.Final/netty-transport-4.1.77.Final.jar!/io/netty/channel/DefaultChannelPipeline.class" charset="GBK" />

@@ -120,7 +120,7 @@ public class GroupEnterView {
             s0=scanner.nextLine();
         }
         int delID=Integer.parseInt(s0);
-        ctx.writeAndFlush(new GroupQuitRequestMessage(delID,groupID));
+        ctx.writeAndFlush(new GroupQuitRequestMessage(delID,groupID,myUserID));
         try{
             synchronized(waitMessage){
                 waitMessage.wait();
@@ -137,8 +137,9 @@ public class GroupEnterView {
             s0=scanner.nextLine();
         }
         int FriendID=Integer.parseInt(s0);
-        SendApplyMessage message=new SendApplyMessage(myUserID,FriendID,String.format("邀请你加入群组%5d ",groupID));
+        SendApplyMessage message=new SendApplyMessage(myUserID,FriendID,"邀请你加入群组 ");
         message.setTalker_type("G");
+        message.setGroupID(groupID);
         ctx.writeAndFlush(message);
         try{
             synchronized(waitMessage){

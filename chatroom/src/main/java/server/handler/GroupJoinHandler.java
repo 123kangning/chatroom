@@ -2,6 +2,8 @@ package server.handler;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
+import lombok.extern.slf4j.Slf4j;
+import message.CheckHaveMessageRequestMessage;
 import message.GroupJoinRequestMessage;
 import message.ResponseMessage;
 
@@ -9,7 +11,7 @@ import static server.ChatServer.connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+@Slf4j
 public class GroupJoinHandler extends SimpleChannelInboundHandler<GroupJoinRequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, GroupJoinRequestMessage msg) throws Exception {
@@ -17,10 +19,22 @@ public class GroupJoinHandler extends SimpleChannelInboundHandler<GroupJoinReque
         int count=0;
         if(msg.getSetList()){
             for(int groupID:msg.getList()){
-                count+=choice(ctx,msg,groupID);
+                if(CheckHaveMessage(msg.getUserID(),"A",0,"G",groupID,"","F")){
+                    log.info("消息判断存在");
+                    count+=choice(ctx,msg,groupID);
+                }else{
+                    log.info("消息判断不存在");
+                }
+
             }
         }else{
-            count+=choice(ctx,msg,msg.getGroupId());
+            if(CheckHaveMessage(msg.getUserID(),"A",0,"G",msg.getGroupId(),"","F")){
+                log.info("消息判断存在");
+                count+=choice(ctx,msg,msg.getGroupId());
+            }else{
+                log.info("消息判断不存在");
+            }
+
         }
         message=new ResponseMessage(true,"");
         message.setReadCount(count);
@@ -59,7 +73,7 @@ public class GroupJoinHandler extends SimpleChannelInboundHandler<GroupJoinReque
                 ps1.executeUpdate();
             }
 
-            sql="update message set isAccept='T' where userID=? and talkerID=? and talker_type='G' and msg_type='A' and isAccept='F'";
+            sql="update message set isAccept='T' where userID=? and groupID=? and talker_type='G' and msg_type='A' and isAccept='F'";
             ps= connection.prepareStatement(sql);
             ps.setInt(1,userID);
             ps.setInt(2,groupID);
@@ -69,5 +83,32 @@ public class GroupJoinHandler extends SimpleChannelInboundHandler<GroupJoinReque
             e.printStackTrace();
         }
         return 1;
+    }
+    public static boolean CheckHaveMessage(int userID,String msg_type,int talkerID,String talker_type,int groupID,String content,String isAccept){
+        try{
+            String sql;
+            if(talker_type.equals("G")){
+                sql="select msg_id from message where userID=? and msg_type=?  and talker_type=? and groupID=? and content=? and isAccept=?";
+            }else{
+                sql="select msg_id from message where userID=? and msg_type=?  and talker_type=? and groupID=? and content=? and isAccept=? and talkerID=?";
+            }
+
+            PreparedStatement ps= connection.prepareStatement(sql);
+            ps.setInt(1,userID);
+            ps.setString(2,msg_type);
+            ps.setString(3,talker_type);
+            ps.setInt(4,groupID);
+            ps.setString(5,content);
+            ps.setString(6,isAccept);
+            if(talker_type.equals("F")){
+                ps.setInt(7,talkerID);
+            }
+
+            ResultSet set=ps.executeQuery();
+            return set.next();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return true;
     }
 }

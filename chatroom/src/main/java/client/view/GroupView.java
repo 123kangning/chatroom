@@ -31,6 +31,7 @@ public class GroupView {
             System.out.println("\t+---------------------+");
             System.out.println("\t| 1 -> 返回上级目录     |");
             System.out.println("\t+---------------------+");
+            System.out.println("haveNoRead = "+haveNoRead);
             if(haveNoRead>0){
                 System.out.println("主人，您有未查看的信息，请注意查看...");
             }
@@ -161,17 +162,18 @@ public class GroupView {
         String[] s1=s0.split(" ");
         List<Integer> list=new ArrayList<>();
         for(String s:s1){
+            if(!StringUtils.isNumber(s)){
+                System.out.println("输入不规范");
+                return;
+            }
             list.add(Integer.parseInt(s));
         }
-        GroupJoinRequestMessage message=new GroupJoinRequestMessage(myUserID,list);
-        message.setSetList(true);
-        message.setNoAdd(true);
+        ReceiveMessageRequestMessage message=new ReceiveMessageRequestMessage(list);
         ctx.writeAndFlush(message);
         try {
             synchronized (waitMessage){
                 waitMessage.wait();
             }
-
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -181,7 +183,7 @@ public class GroupView {
             System.out.println(s);
         }
 
-        System.out.println("输入[1]通过群组邀请请求，[2]拒绝群组邀请请求，[3]确认群组踢出通知\n[4]通过用户入群申请，[0]退出：");
+        System.out.println("输入[1]通过群组邀请请求，[2]拒绝群组邀请请求，[3]确认群组通知\n[4]通过用户入群申请，[0]退出：");
         String s0=scanner.nextLine();
         while(!StringUtils.isNumber(s0)){
             System.out.println("输入不规范，请重新输入您的选择：");
@@ -216,8 +218,8 @@ public class GroupView {
                 break;
             }
             case 3:{
-                System.out.println("请输入要确认消息的群组ID,若有多个，以空格分隔开：");
-
+                System.out.println("请输入要确认消息的ID,若有多个，以空格分隔开：");
+                s0=scanner.nextLine();
                 receiveInformation(ctx,s0);
                 break;
             }

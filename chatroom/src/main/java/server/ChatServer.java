@@ -93,6 +93,9 @@ public class ChatServer {
                                     .addLast(new GroupQuitHandler())
                                     .addLast(new GroupApplyQueryHandler())
                                     .addLast(new GroupCutManagerHandler())
+                                    .addLast(new GroupAddManagerHandler())
+                                    .addLast(new ReceiveMessageHandler())
+                                    .addLast(new GroupDeleteHandler())
                                     .addLast(new SignInHandler());
                         }
                     })

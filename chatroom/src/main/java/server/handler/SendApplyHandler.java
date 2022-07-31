@@ -49,6 +49,9 @@ public class SendApplyHandler extends SimpleChannelInboundHandler<SendApplyMessa
                     return;
                 }
                 SendInsertIntoMessage(friendID,userID,talker_type,groupID,content,"F");
+                Channel channel= SessionMap.getChannel(friendID);
+                if(channel!=null)
+                    channel.writeAndFlush(new FriendChatRequestMessage());
             }else{
                 String sql="select userID from group2 where groupID=? and (user_type='1' or user_type='9')";
                 PreparedStatement ps= connection.prepareStatement(sql);
@@ -60,12 +63,13 @@ public class SendApplyHandler extends SimpleChannelInboundHandler<SendApplyMessa
                 }
                 for(int friend:list){
                     SendInsertIntoMessage(friend,userID,talker_type,groupID,content,"F");
+                    Channel channel= SessionMap.getChannel(friend);
+                    if(channel!=null)
+                        channel.writeAndFlush(new FriendChatRequestMessage());
                 }
             }
 
-            Channel channel= SessionMap.getChannel(friendID);
-            if(channel!=null)
-                channel.writeAndFlush(new FriendChatRequestMessage());
+
 
             ctx.writeAndFlush(new ResponseMessage(true,""));
         }catch (SQLException e){

@@ -2,10 +2,7 @@ package client.view;
 
 import com.alibaba.druid.util.StringUtils;
 import io.netty.channel.ChannelHandlerContext;
-import message.GroupMemberRequestMessage;
-import message.GroupQuitRequestMessage;
-import message.GroupUnSayRequestMessage;
-import message.SendApplyMessage;
+import message.*;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -25,9 +22,69 @@ public class GroupEnterView {
         }
     }
     public void choice1(ChannelHandlerContext ctx){
+        while(true){
+            System.out.printf("\n\t+----- 您的ID为 %d ------+\n",myUserID);
+            System.out.println("\t| 2 -> 进入聊天界面      |");
+            System.out.println("\t+----------------------+");
+            System.out.println("\t| 1 -> 查看群成员列表    |");
+            System.out.println("\t+----------------------+");
+            System.out.println("\t| 0 -> 返回上一级目录    |");
+            System.out.println("\t+----------------------+");
+            if(haveNoRead>0){
+                System.out.println("主人，您有未查看的信息，请注意查看...");
+            }
+            Scanner scanner=new Scanner(System.in);
 
+            String s0=scanner.nextLine();
+            while(!StringUtils.isNumber(s0)){
+                System.out.println("输入不规范，请重新输入您的选择：");
+                s0=scanner.nextLine();
+            }
+            switch(Integer.parseInt(s0)){
+                case 0:return;
+                case 1:case1();break;
+                case 2:
+            }
+        }
     }
-    public void choice2(ChannelHandlerContext ctx){}
+    public void choice2(ChannelHandlerContext ctx){
+        while(true){
+            System.out.printf("\n\t+----- 您的ID为 %d ------+\n",myUserID);
+            System.out.println("\t| 6 -> 邀请成员(通过ID)  |");
+            System.out.println("\t+----------------------+");
+            System.out.println("\t| 5 -> 踢出成员(通过ID)  |");
+            System.out.println("\t+----------------------+");
+            System.out.println("\t| 4 -> 禁言(通过ID)     |");
+            System.out.println("\t+----------------------+");
+            System.out.println("\t| 3 -> 解除禁言(通过ID)  |");
+            System.out.println("\t+----------------------+");
+            System.out.println("\t| 2 -> 进入聊天界面      |");
+            System.out.println("\t+----------------------+");
+            System.out.println("\t| 1 -> 查看群成员列表    |");
+            System.out.println("\t+----------------------+");
+            System.out.println("\t| 0 -> 返回上一级目录    |");
+            System.out.println("\t+----------------------+");
+            if(haveNoRead>0){
+                System.out.println("主人，您有未查看的信息，请注意查看...");
+            }
+            Scanner scanner=new Scanner(System.in);
+
+            String s0=scanner.nextLine();
+            while(!StringUtils.isNumber(s0)){
+                System.out.println("输入不规范，请重新输入您的选择：");
+                s0=scanner.nextLine();
+            }
+            switch(Integer.parseInt(s0)){
+                case 0:return;
+                case 1:case1();break;
+                case 2:
+                case 3:case4(scanner,"T");break;
+                case 4:case4(scanner,"F");break;
+                case 5:case5(scanner);break;
+                case 6:case6(scanner);break;
+            }
+        }
+    }
     public void choice3(ChannelHandlerContext ctx){
         while(true){
             System.out.printf("\n\t+----- 您的ID为 %d ------+\n",myUserID);
@@ -69,11 +126,10 @@ public class GroupEnterView {
                 case 4:case4(scanner,"F");break;
                 case 5:case5(scanner);break;
                 case 6:case6(scanner);break;
-                case 7:
-                case 8:
-                case 9:
+                case 7:case7(scanner);break;
+                case 8:case8(scanner);break;
+                case 9:case9(scanner);break;
             }
-
         }
     }
     public void case1(){
@@ -157,6 +213,40 @@ public class GroupEnterView {
             s0=scanner.nextLine();
         }
         int FriendID=Integer.parseInt(s0);
-
+        ctx.writeAndFlush(new GroupCutManagerRequestMessage(FriendID,groupID));
+        try{
+            synchronized(waitMessage){
+                waitMessage.wait();
+            }
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+    }
+    public void case8(Scanner scanner){
+        System.out.println("输入你要添加的管理员ID：");
+        String s0=scanner.nextLine();
+        while(!StringUtils.isNumber(s0)){
+            System.out.println("输入不规范，请重新输入要添加的管理员ID：");
+            s0=scanner.nextLine();
+        }
+        int FriendID=Integer.parseInt(s0);
+        ctx.writeAndFlush(new GroupAddManagerRequestMessage(FriendID,groupID));
+        try{
+            synchronized(waitMessage){
+                waitMessage.wait();
+            }
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+    }
+    public void case9(Scanner scanner){
+        ctx.writeAndFlush(new GroupDeleteRequestMessage(myUserID,groupID));
+        try{
+            synchronized(waitMessage){
+                waitMessage.wait();
+            }
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
     }
 }

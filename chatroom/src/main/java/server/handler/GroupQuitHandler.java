@@ -1,10 +1,13 @@
 package server.handler;
 
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
+import message.FriendChatRequestMessage;
 import message.GroupQuitRequestMessage;
 import message.ResponseMessage;
+import server.session.SessionMap;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -48,6 +51,9 @@ public class GroupQuitHandler extends SimpleChannelInboundHandler<GroupQuitReque
             ctx.writeAndFlush(message);
             if(userID!=delID){
                 row=SendInsertIntoMessage(delID,userID,"G",groupID,"您已被移出群聊","F");
+                Channel channel= SessionMap.getChannel(delID);
+                if(channel!=null)
+                    channel.writeAndFlush(new FriendChatRequestMessage());
             }
 
             log.info("row=SendInsertIntoMessage = {}",row);

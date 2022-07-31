@@ -9,11 +9,12 @@ public class GroupDeleteRequestMessage extends Message{
         this.GroupId=GroupId;
     }
 
-/*    @Override
-    public int getMessageType() {
-        return GroupDeleteRequestMessage;
-    }*/
-    public String toString(){
-        return "userID = "+userID+", GroupId = "+GroupId;
+    public int getUserID() {
+        return userID;
     }
+
+    public int getGroupId() {
+        return GroupId;
+    }
+
 }

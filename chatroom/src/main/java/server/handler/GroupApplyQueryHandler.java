@@ -19,7 +19,7 @@ public class GroupApplyQueryHandler extends SimpleChannelInboundHandler<GroupApp
     protected void channelRead0(ChannelHandlerContext ctx, GroupApplyQueryRequestMessage msg) throws Exception {
         try{
             int userID=msg.getUserID();
-            String sql="select groupID,talkerID,content from message where userID=? and msg_type='A' and groupID!=0 and isAccept='F'";
+            String sql="select groupID,talkerID,content,msg_id from message where userID=? and msg_type='A' and groupID!=0 and isAccept='F'";
             PreparedStatement ps= connection.prepareStatement(sql);
             ps.setInt(1,userID);
             ResultSet set=ps.executeQuery();
@@ -28,7 +28,7 @@ public class GroupApplyQueryHandler extends SimpleChannelInboundHandler<GroupApp
                 String content=set.getString(3);
                 String people=content.equals("您已被移出群聊")?"执行人 用户":(content.equals("申请加入群组")?"申请人 用户":"邀请人 用户");
                 log.info("people = {}",people);
-                String ans=String.format("%s%5d,%s%5d",content,set.getInt(1),people,set.getInt(2));
+                String ans=String.format("%s%5d,%s%5d,消息ID：%d",content,set.getInt(1),people,set.getInt(2),set.getInt(4));
                 list.add(ans);
             }
             ResponseMessage message=new ResponseMessage(true,"");

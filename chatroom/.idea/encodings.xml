@@ -31,6 +31,7 @@
     <file url="file://$PROJECT_DIR$/src/main/java/message/FriendShieldRequestMessage.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/message/FriendShieldResponseMessage.java" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/src/main/java/message/FriendUnShieldRequestMessage.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/message/GroupAddManagerRequestMessage.java" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/src/main/java/message/GroupApplyQueryRequestMessage.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/message/GroupChatRequestMessage.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/message/GroupChatResponseMessage.java" charset="US-ASCII" />
@@ -54,6 +55,7 @@
     <file url="file://$PROJECT_DIR$/src/main/java/message/LogoutResponseMessage.java" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/src/main/java/message/Message.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/message/NoticeRequestMessage.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/message/ReceiveMessageRequestMessage.java" charset="US-ASCII" />
     <file url="file://$PROJECT_DIR$/src/main/java/message/ResponseMessage.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/message/SearchPasswordRequestMessage.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/message/SearchPasswordResponseMessage.java" charset="US-ASCII" />
@@ -75,10 +77,12 @@
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/FriendQueryHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/FriendShieldHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/FriendUnShiedHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/server/handler/GroupAddManagerHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/GroupApplyQueryHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/GroupCheckGradeHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/GroupCreateHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/GroupCutManagerHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/server/handler/GroupDeleteHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/GroupJoinHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/GroupMemberHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/GroupQueryHandler.java" charset="UTF-8" />
@@ -87,6 +91,7 @@
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/LoginHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/LogoutHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/NoticeHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/server/handler/ReceiveMessageHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/SendApplyHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/SignInHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/server/handler/SignOutHandler.java" charset="UTF-8" />

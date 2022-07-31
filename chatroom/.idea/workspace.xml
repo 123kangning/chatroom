@@ -5,19 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9ffa9a4-92e7-4c59-af71-ec04fc0405e8" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/GroupCutManagerRequestMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/handler/GroupCutManagerHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/message/GroupAddManagerRequestMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/message/ReceiveMessageRequestMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/handler/GroupAddManagerHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/handler/GroupDeleteHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/handler/ReceiveMessageHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/ClientFriendChatHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ClientFriendChatHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client/view/GroupEnterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/GroupEnterView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client/view/GroupView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/GroupView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/GroupJoinRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/GroupJoinRequestMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/message/GroupDeleteRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/GroupDeleteRequestMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ChatServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/FriendNoticeHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/FriendNoticeHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/GroupApplyQueryHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/GroupApplyQueryHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/GroupJoinHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/GroupJoinHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/GroupQuitHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/GroupQuitHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/SendApplyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/SendApplyHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +49,9 @@
         <option name="userSettingsFile" value="$USER_HOME$/.m2/settings.xml" />
       </MavenGeneralSettings>
     </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2Bve8NJbdWOfAVHd3xZEBETwIZn" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -223,7 +229,7 @@
       <workItem from="1659087136468" duration="6288000" />
       <workItem from="1659228329387" duration="34000" />
       <workItem from="1659228424055" duration="10000" />
-      <workItem from="1659228607549" duration="10171000" />
+      <workItem from="1659228607549" duration="23630000" />
     </task>
     <servers />
   </component>

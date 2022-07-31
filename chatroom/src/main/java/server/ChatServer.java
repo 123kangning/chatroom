@@ -97,6 +97,7 @@ public class ChatServer {
                                     .addLast(new ReceiveMessageHandler())
                                     .addLast(new GroupDeleteHandler())
                                     .addLast(new GroupNoticeHandler())
+                                    .addLast(new GroupChatHandler())
                                     .addLast(new SignInHandler());
                         }
                     })

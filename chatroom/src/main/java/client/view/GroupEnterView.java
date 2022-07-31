@@ -122,7 +122,7 @@ public class GroupEnterView {
             switch(Integer.parseInt(s0)){
                 case 0:return;
                 case 1:case1();break;
-                case 2:
+                case 2:case2(scanner);break;
                 case 3:case4(scanner,"T");break;
                 case 4:case4(scanner,"F");break;
                 case 5:case5(scanner);break;
@@ -179,7 +179,7 @@ public class GroupEnterView {
         immediateGroup=true;
         String chat=scanner.nextLine();
         while(!chat.equalsIgnoreCase("r")){
-            FriendChatRequestMessage message;
+            GroupChatRequestMessage message;
             if(chat.equalsIgnoreCase("F")){
                 File file;
                 System.out.println("请输入待发送的文件的[绝对路径]：");
@@ -192,8 +192,9 @@ public class GroupEnterView {
                     }
                     file=new File(scanner.nextLine());
                 }
-                message=new FriendChatRequestMessage(myUserID,FriendID,file,"F");
-                message.setTalker_type("F");
+                message=new GroupChatRequestMessage(myUserID,groupID);
+                message.setMsg_type("F");
+                message.setFile(file);
                 ctx.writeAndFlush(message);
                 try{
                     synchronized(waitMessage){
@@ -214,8 +215,9 @@ public class GroupEnterView {
                 }
             }
             else {
-                message=new FriendChatRequestMessage(myUserID,FriendID,chat,"S");
-                message.setTalker_type("F");
+                message=new GroupChatRequestMessage(myUserID,groupID);
+                message.setMessage(chat);
+                message.setMsg_type("S");
                 ctx.writeAndFlush(message);
                 try{
                     synchronized(waitMessage){

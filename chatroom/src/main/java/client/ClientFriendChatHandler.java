@@ -14,7 +14,7 @@ import static client.ChatClient.*;
 public class ClientFriendChatHandler extends SimpleChannelInboundHandler<FriendChatRequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, FriendChatRequestMessage msg) throws Exception {
-        if(immediate&&msg.getUserID()==talkWith){
+        if((immediate&&msg.getUserID()==talkWith)||(immediateGroup&&msg.getGroup()==talkWithGroup)){
             String ans=String.format("\t%d:%s",msg.getUserID(),msg.getMessage());
             System.out.println(ans);
             log.info("in ClientFriendChatHandler");
@@ -43,7 +43,7 @@ public class ClientFriendChatHandler extends SimpleChannelInboundHandler<FriendC
                 }).start();
             }
         }else{
-            if(haveNoRead==0&&!immediate){
+            if(haveNoRead==0&&(!immediate&&!immediateGroup)){
                 System.out.println("主人，您有未查看的信息，请注意查看...");
             }
             int count=msg.getCount();

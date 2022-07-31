@@ -64,7 +64,7 @@ public class FriendChatHandler extends SimpleChannelInboundHandler<FriendChatReq
 
                 ResultSet set1=ps1.executeQuery();
                 if(set1.next()){
-                    ChatHandler(u1,u2,msg_type,talker_type,groupID,chat,file,set1.getString(1),msg,message);
+                    message=ChatHandler(u1,u2,msg_type,talker_type,groupID,chat,file,set1.getString(1),msg);
                 }
             }else{//未找到
                 log.info("new ResponseMessage(false,\"找不到该朋友\")");
@@ -75,7 +75,8 @@ public class FriendChatHandler extends SimpleChannelInboundHandler<FriendChatReq
             e.printStackTrace();
         }
     }
-    public void ChatHandler(int fromID, int toID, String msg_type, String talker_type, int groupID, String chat, File file, String onLine, FriendChatRequestMessage msg,ResponseMessage message)throws Exception{
+    public ResponseMessage ChatHandler(int fromID, int toID, String msg_type, String talker_type, int groupID, String chat, File file, String onLine, FriendChatRequestMessage msg)throws Exception{
+        ResponseMessage message;
         String sql2="insert into message(userID,msg_type,create_date,talkerID,talker_type,groupID,content,isAccept) values(?,?,?,?,?,?,?,?)";
         PreparedStatement ps2=connection.prepareStatement(sql2);
         ps2.setInt(1,toID);
@@ -136,5 +137,6 @@ public class FriendChatHandler extends SimpleChannelInboundHandler<FriendChatReq
             log.info("new ResponseMessage(true,\"但是朋友不在线\")");
             message=new ResponseMessage(true,"但是朋友不在线");
         }
+        return message;
     }
 }

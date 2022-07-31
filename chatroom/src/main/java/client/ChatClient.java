@@ -33,8 +33,10 @@ public class ChatClient {
     public static volatile List<String> friendList;//查询朋友列表
     public static volatile int gradeInGroup=0;
     public static volatile boolean immediate=false;
+    public static volatile boolean immediateGroup=false;
     public static volatile String haveFile="";
-    public static volatile int talkWith=0;
+    public static volatile int talkWith=0;//正与哪个朋友聊天
+    public static volatile int talkWithGroup=0;//正在哪个群聊聊天
     public static void main(String[] args) throws InterruptedException {
         NioEventLoopGroup group=new NioEventLoopGroup();
         LoggingHandler Log=new LoggingHandler(LogLevel.DEBUG);

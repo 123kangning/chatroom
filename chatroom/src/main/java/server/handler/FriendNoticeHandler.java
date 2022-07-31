@@ -44,10 +44,10 @@ public class FriendNoticeHandler extends SimpleChannelInboundHandler<FriendNotic
             StringBuilder ans=new StringBuilder();
 
             while(set.next()){
-                if(set.getString(3).equals("F")&&set.getInt(1)==userID){
+                if(set.getString(3).equals("F")&&set.getInt(1)==userID){//统计未读消息条数
                     count1++;
                 }
-                if(set.getString(4).equals("F")&&set.getString(3).equals("F")){
+                if(set.getString(4).equals("F")&&set.getString(3).equals("F")){//标记未处理文件
                     ans.append("1");
                 }else{
                     ans.append("0");

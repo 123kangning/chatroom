@@ -8,7 +8,7 @@ CREATE TABLE `message` (
   `talker_type` char(1) DEFAULT NULL COMMENT '消息来源：来自群聊时为G、来自朋友时为F',
   `groupID` int(11) DEFAULT NULL COMMENT '若消息来自群聊，则查看这一行',
   `content` text COMMENT '若为文本消息则存储消息本身、若为文件则存储在服务器文件系统中，并存储文件存储的路径',
-  isAccept char(1) not null comment 'T=已查看、F=未查看    ',
+  isAccept char(1) not null comment 'T=已查看、F=未查看',
   PRIMARY KEY (`msg_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

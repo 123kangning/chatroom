@@ -4,6 +4,8 @@ import java.util.List;
 
 public class GroupJoinRequestMessage extends Message{
     private int userID;
+    private int talkerID=0;
+    private String talker_type="G";
     private int GroupId;
     private boolean noAdd=false;
     private boolean setList=false;
@@ -22,6 +24,14 @@ public class GroupJoinRequestMessage extends Message{
         this.noAdd = noAdd;
     }
 
+    public void setTalker_type(String talker_type) {
+        this.talker_type = talker_type;
+    }
+
+    public void setTalkerID(int talkerID) {
+        this.talkerID = talkerID;
+    }
+
     public void setSetList(boolean setList) {
         this.setList = setList;
     }
@@ -32,6 +42,14 @@ public class GroupJoinRequestMessage extends Message{
 
     public boolean getSetList() {
         return setList;
+    }
+
+    public String getTalker_type() {
+        return talker_type;
+    }
+
+    public int getTalkerID() {
+        return talkerID;
     }
 
     public List<Integer> getList() {

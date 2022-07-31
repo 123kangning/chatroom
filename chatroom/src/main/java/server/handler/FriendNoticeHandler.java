@@ -65,6 +65,11 @@ public class FriendNoticeHandler extends SimpleChannelInboundHandler<FriendNotic
             message.setMessageType(Message.FriendQueryRequestMessage);
             message.setHaveFile(String.valueOf(ans));
             log.info("finally ans = {}",ans);
+            sql="update message set isAccept ='T' where userID=? and talker_type='F' and (msg_type='F' or msg_type='S') and talkerID=?";
+            ps= connection.prepareStatement(sql);
+            ps.setInt(1,userID);
+            ps.setInt(2,FriendID);
+            ps.executeUpdate();
 
             log.info("count in FriendNoticeHandler = {}",count1);
             message.setReadCount(count1);

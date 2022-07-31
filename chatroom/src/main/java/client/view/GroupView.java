@@ -62,52 +62,7 @@ public class GroupView {
                     }catch (InterruptedException e){
                         e.printStackTrace();
                     }
-                    for(String s:friendList){
-                        System.out.println(s);
-                    }
-
-                    System.out.println("输入[1]通过群组邀请请求，[2]拒绝群组邀请请求，[3]确认群组踢出通知，[0]退出：");
-                    s0=scanner.nextLine();
-                    while(!StringUtils.isNumber(s0)){
-                        System.out.println("输入不规范，请重新输入您的选择：");
-                        s0=scanner.nextLine();
-                    }
-                    switch(Integer.parseInt(s0)){
-                        case 1:{
-                            System.out.println("请输入要加入的群组ID,若有多个，以空格分隔开：");
-                            s0=scanner.nextLine();
-                            String[] s1=s0.split(" ");
-                            List<Integer> list=new ArrayList<>();
-                            for(String s:s1){
-                                list.add(Integer.parseInt(s));
-                            }
-
-                            GroupJoinRequestMessage message=new GroupJoinRequestMessage(myUserID,list);
-                            message.setSetList(true);
-                            ctx.writeAndFlush(message);
-                            try {
-                                synchronized (waitMessage){
-                                    waitMessage.wait();
-                                }
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                            break;
-                        }
-                        case 2:{
-                            System.out.println("请输入要拒绝的群组ID,若有多个，以空格分隔开：");
-                            s0=scanner.nextLine();
-                            receiveInformation(ctx,s0);
-                            break;
-                        }
-                        case 3:{
-                            System.out.println("请输入要确认消息的群组ID,若有多个，以空格分隔开：");
-                            s0=scanner.nextLine();
-                            receiveInformation(ctx,s0);
-                            break;
-                        }
-                        case 0: break;
-                    }
+                    dealRequest(ctx,scanner);
                     break;
                 }
                 case 4:{
@@ -219,6 +174,71 @@ public class GroupView {
 
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }
+    }
+    protected void dealRequest(ChannelHandlerContext ctx,Scanner scanner){
+        for(String s:friendList){
+            System.out.println(s);
+        }
+
+        System.out.println("输入[1]通过群组邀请请求，[2]拒绝群组邀请请求，[3]确认群组踢出通知\n[4]通过用户入群申请，[0]退出：");
+        String s0=scanner.nextLine();
+        while(!StringUtils.isNumber(s0)){
+            System.out.println("输入不规范，请重新输入您的选择：");
+            s0=scanner.nextLine();
+        }
+        switch(Integer.parseInt(s0)){
+            case 1:{
+                System.out.println("请输入要加入的群组ID,若有多个，以空格分隔开：");
+                s0=scanner.nextLine();
+                String[] s1=s0.split(" ");
+                List<Integer> list=new ArrayList<>();
+                for(String s:s1){
+                    list.add(Integer.parseInt(s));
+                }
+
+                GroupJoinRequestMessage message=new GroupJoinRequestMessage(myUserID,list);
+                message.setSetList(true);
+                ctx.writeAndFlush(message);
+                try {
+                    synchronized (waitMessage){
+                        waitMessage.wait();
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+            case 2:{
+                System.out.println("请输入要拒绝的群组ID,若有多个，以空格分隔开：");
+                s0=scanner.nextLine();
+                receiveInformation(ctx,s0);
+                break;
+            }
+            case 3:{
+                System.out.println("请输入要确认消息的群组ID,若有多个，以空格分隔开：");
+
+                receiveInformation(ctx,s0);
+                break;
+            }
+            case 4:{
+                System.out.println("请输入要通过申请的用户ID和其要进入的群组，以空格分隔开：");
+                s0=scanner.nextLine();
+                String[] s=s0.split(" ");
+                GroupJoinRequestMessage message=new GroupJoinRequestMessage(myUserID,Integer.parseInt(s[1]));
+                message.setTalkerID(Integer.parseInt(s[0]));
+                message.setTalker_type("F");
+                ctx.writeAndFlush(message);
+                try {
+                    synchronized (waitMessage){
+                        waitMessage.wait();
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+            case 0: break;
         }
     }
 }

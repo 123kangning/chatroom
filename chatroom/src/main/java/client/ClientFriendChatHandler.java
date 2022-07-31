@@ -41,10 +41,9 @@ public class ClientFriendChatHandler extends SimpleChannelInboundHandler<FriendC
                     }
 
                 }).start();
-
             }
         }else{
-            if(haveNoRead==0&&immediate==false){
+            if(haveNoRead==0&&!immediate){
                 System.out.println("主人，您有未查看的信息，请注意查看...");
             }
             int count=msg.getCount();

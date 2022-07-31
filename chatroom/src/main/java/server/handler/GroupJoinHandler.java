@@ -3,7 +3,6 @@ package server.handler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
-import message.CheckHaveMessageRequestMessage;
 import message.GroupJoinRequestMessage;
 import message.ResponseMessage;
 
@@ -19,22 +18,21 @@ public class GroupJoinHandler extends SimpleChannelInboundHandler<GroupJoinReque
         int count=0;
         if(msg.getSetList()){
             for(int groupID:msg.getList()){
-                if(CheckHaveMessage(msg.getUserID(),"A",0,"G",groupID,"","F")){
+                if(CheckHaveMessage(msg.getUserID(),"A",0,"G",groupID,"邀请你加入群组","F")||
+                        CheckHaveMessage(msg.getUserID(),"A",0,"G",groupID,"您已被移出群聊","F")){
                     log.info("消息判断存在");
                     count+=choice(ctx,msg,groupID);
                 }else{
                     log.info("消息判断不存在");
                 }
-
             }
-        }else{
-            if(CheckHaveMessage(msg.getUserID(),"A",0,"G",msg.getGroupId(),"","F")){
+        }else{//在用户申请加入群组时，talkerID为申请的用户的ID
+            if(CheckHaveMessage(msg.getUserID(),"A",msg.getTalkerID(),"F",msg.getGroupId(),"申请加入群组","F")){
                 log.info("消息判断存在");
                 count+=choice(ctx,msg,msg.getGroupId());
             }else{
                 log.info("消息判断不存在");
             }
-
         }
         message=new ResponseMessage(true,"");
         message.setReadCount(count);
@@ -42,7 +40,14 @@ public class GroupJoinHandler extends SimpleChannelInboundHandler<GroupJoinReque
     }
     protected int choice(ChannelHandlerContext ctx,GroupJoinRequestMessage msg,int groupID){
         try{
-            int userID=msg.getUserID();
+            int userID;
+            if(msg.getTalker_type().equals("F")){
+                userID=msg.getTalkerID();
+                log.info("case 1");
+            }else{
+                userID=msg.getTalkerID();
+                log.info("case 0");
+            }
             String group_name;
             String sqlCheck="select group_name from group1 where groupID=?";
             PreparedStatement psCheck= connection.prepareStatement(sqlCheck);
@@ -71,6 +76,7 @@ public class GroupJoinHandler extends SimpleChannelInboundHandler<GroupJoinReque
                 ps1.setString(2,group_name);
                 ps1.setInt(3,userID);
                 ps1.executeUpdate();
+                log.info("case 2");
             }
 
             sql="update message set isAccept='T' where userID=? and groupID=? and talker_type='G' and msg_type='A' and isAccept='F'";

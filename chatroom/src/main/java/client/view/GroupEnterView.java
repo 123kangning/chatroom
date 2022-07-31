@@ -35,7 +35,7 @@ public class GroupEnterView {
             System.out.println("\t+----------------------+");
             System.out.println("\t| 8 -> 添加管理员(通过ID) |");
             System.out.println("\t+----------------------+");
-            System.out.println("\t| 7 -> 删除管理员(通过ID) |");
+            System.out.println("\t| 7 -> 撤除管理员(通过ID) |");
             System.out.println("\t+----------------------+");
             System.out.println("\t| 6 -> 邀请成员(通过ID)  |");
             System.out.println("\t+----------------------+");
@@ -148,5 +148,15 @@ public class GroupEnterView {
         }catch (InterruptedException e){
             e.printStackTrace();
         }
+    }
+    public void case7(Scanner scanner){
+        System.out.println("输入你要撤除的管理员ID：");
+        String s0=scanner.nextLine();
+        while(!StringUtils.isNumber(s0)){
+            System.out.println("输入不规范，请重新输入要撤销的管理员ID：");
+            s0=scanner.nextLine();
+        }
+        int FriendID=Integer.parseInt(s0);
+
     }
 }

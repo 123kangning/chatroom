@@ -52,9 +52,9 @@ public class FriendNoticeHandler extends SimpleChannelInboundHandler<FriendNotic
                 }else{
                     ans.append("0");
                 }
-                messageList.add(((set.getInt(1)==FriendID)?String.format("\t\t\t%50s:%d",set.getString(2),userID):
+                messageList.add(((set.getInt(1)==FriendID)?String.format("\t\t\t%80s:%d",set.getString(2),userID):
                         String.format("\t%d:%s",FriendID,set.getString(2))));
-                log.info(((set.getInt(1)==FriendID)?String.format("\t\t\t%50s:%d",set.getString(2),userID):
+                log.info(((set.getInt(1)==FriendID)?String.format("\t\t\t%80s:%d",set.getString(2),userID):
                         String.format("\t%d:%s",FriendID,set.getString(2))));
                 log.info("ans = {}",ans);
             }
@@ -65,7 +65,7 @@ public class FriendNoticeHandler extends SimpleChannelInboundHandler<FriendNotic
             message.setMessageType(Message.FriendQueryRequestMessage);
             message.setHaveFile(String.valueOf(ans));
             log.info("finally ans = {}",ans);
-            sql="update message set isAccept ='T' where userID=? and talker_type='F' and (msg_type='F' or msg_type='S') and talkerID=?";
+            sql="update message set isAccept ='T' where userID=? and talker_type='F' and msg_type='S' and talkerID=?";
             ps= connection.prepareStatement(sql);
             ps.setInt(1,userID);
             ps.setInt(2,FriendID);

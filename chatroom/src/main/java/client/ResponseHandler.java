@@ -1,5 +1,5 @@
 package client;
-///////////////////////////////////////////////////////////////////
+
 import client.view.EnterView;
 import client.view.MainView;
 import io.netty.channel.ChannelHandlerContext;
@@ -28,7 +28,7 @@ public class ResponseHandler extends SimpleChannelInboundHandler<ResponseMessage
             System.out.print("操作失败 "+reason);
             waitSuccess=0;
         }else{
-            System.out.println(3);
+            //System.out.println(3);
             waitSuccess=1;
             haveNoRead-=msg.getReadCount();
             haveFile=msg.getHaveFile();
@@ -47,7 +47,7 @@ public class ResponseHandler extends SimpleChannelInboundHandler<ResponseMessage
             else if(msg.getMessageType()==Message.noticeMapMessage){
                 noticeMap=msg.getNoticeMap();
             }else{
-                System.out.print("操作成功 "+reason);
+                //System.out.print("操作成功 "+reason);
             }
 
         }
@@ -60,7 +60,7 @@ public class ResponseHandler extends SimpleChannelInboundHandler<ResponseMessage
         try{
             Scanner scanner=new Scanner(System.in);
             String addFile=scanner.nextLine();
-            log.info("addFile = {}",addFile);
+            //log.info("addFile = {}",addFile);
             File tempFile1=new File(addFile);
             while(!tempFile1.isDirectory()){
                 System.out.println("不是目录，请重新输入：");

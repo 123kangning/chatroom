@@ -101,7 +101,7 @@ public class ChatServer {
                                     .addLast(new SignInHandler());
                         }
                     })
-                    .bind(8081);
+                    .bind(8080);
             Channel channel=future.sync().channel();
             channel.closeFuture().sync();
         } catch (InterruptedException e) {

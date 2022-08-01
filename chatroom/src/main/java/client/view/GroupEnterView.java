@@ -44,7 +44,7 @@ public class GroupEnterView {
             switch(Integer.parseInt(s0)){
                 case 0:return;
                 case 1:case1();break;
-                case 2:
+                case 2:case2(scanner);break;
             }
         }
     }
@@ -78,7 +78,7 @@ public class GroupEnterView {
             switch(Integer.parseInt(s0)){
                 case 0:return;
                 case 1:case1();break;
-                case 2:
+                case 2:case2(scanner);break;
                 case 3:case4(scanner,"T");break;
                 case 4:case4(scanner,"F");break;
                 case 5:case5(scanner);break;
@@ -166,8 +166,9 @@ public class GroupEnterView {
             int count=0;
             for(String s:friendList){
                 System.out.println(s);
+                System.out.printf("count=%d,haveFile.charAt(count)=%c haveFile=%s\n",count,haveFile.charAt(count),haveFile);
                 if(haveFile.charAt(count)=='1'){
-                    FriendView.receiveFile(s,scanner,ctx,groupID);
+                    FriendView.receiveFile(s,scanner,ctx,0,true,groupID);
                 }
                 count++;
             }

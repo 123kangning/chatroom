@@ -75,7 +75,7 @@ public class FriendView {
                     }
                     int FriendID=Integer.parseInt(s1);
                     ctx.writeAndFlush(new FriendUnShieldRequestMessage(myUserID,FriendID));
-                    log.info("1111");
+                    //log.info("1111");
                     try{
                         synchronized(waitMessage){
                             waitMessage.wait();
@@ -167,7 +167,7 @@ public class FriendView {
                         for(String s:friendList){
                             System.out.println(s);
                             if(haveFile.charAt(count)=='1'){
-                                FriendView.receiveFile(s,scanner,ctx,FriendID);
+                                FriendView.receiveFile(s,scanner,ctx,FriendID,false,0);
                             }
                             count++;
                         }
@@ -239,9 +239,9 @@ public class FriendView {
             }
         }
     }
-    public static void receiveFile(String s,Scanner scanner,ChannelHandlerContext ctx,int FriendID){
-        log.info("enter receiveFile!!!");
-        int i=0,length=s.length(),j=100;
+    public static void receiveFile(String s,Scanner scanner,ChannelHandlerContext ctx,int FriendID,boolean isGroup,int groupID){
+        //log.info("enter receiveFile!!!");
+       /* int i=0,length=s.length(),j=100;
         while(i<length&&s.charAt(i)=='\t'){
             i++;
         }
@@ -251,12 +251,12 @@ public class FriendView {
         while(i<length&&s.charAt(i)==':'){
             j=i;
             i++;
-        }
+        }*/
         //log.info("count={}, s.charAt(count)={}",count,haveFile.charAt(count));
-        if(i<length&&i>j&&s.charAt(i)=='/'){
+        //if(s.charAt(i)=='/'){
             System.out.println("对方发来一个文件，是否接收？[T->接收][F->拒绝][P->暂不处理]：");
             String choice=scanner.nextLine();
-            log.info("choice ={}",choice);
+            log.info("choice ={},length={}",choice,choice.length());
             while(!choice.equalsIgnoreCase("T")&&!choice.equalsIgnoreCase("F")&&!choice.equalsIgnoreCase("P")){
                 System.out.println("输入不规范，请重新输入");
                 choice=scanner.nextLine();
@@ -264,6 +264,11 @@ public class FriendView {
             if(choice.equalsIgnoreCase("T")){
 
                 FriendGetFileRequestMessage m1=new FriendGetFileRequestMessage(myUserID,FriendID);
+                if(isGroup){
+                    log.info("isGroup ==true groupID={}",groupID);
+                    m1.setGroup(isGroup);
+                    m1.setGroupID(groupID);
+                }
                 ctx.writeAndFlush(m1);
                 System.out.println(1);
                 try{
@@ -273,10 +278,15 @@ public class FriendView {
                 }catch (InterruptedException e){
                     e.printStackTrace();
                 }
-                System.out.println(2);
+                //System.out.println(2);
             }else if(choice.equalsIgnoreCase("F")){
                 FriendGetFileRequestMessage m1=new FriendGetFileRequestMessage(myUserID,FriendID);
                 m1.setRefuse(true);
+                if(isGroup){
+                    log.info("isGroup ==true groupID={}",groupID);
+                    m1.setGroup(isGroup);
+                    m1.setGroupID(groupID);
+                }
                 ctx.writeAndFlush(m1);
                 System.out.println(1);
                 try{
@@ -287,6 +297,5 @@ public class FriendView {
                     e.printStackTrace();
                 }
             }
-        }
     }
 }

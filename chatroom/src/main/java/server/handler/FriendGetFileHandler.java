@@ -19,6 +19,7 @@ public class FriendGetFileHandler extends SimpleChannelInboundHandler<FriendGetF
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, FriendGetFileRequestMessage msg) throws Exception {
         try{
+            log.info("enter FriendGetFileHandler");
             int userID=msg.getUserID();
             int FriendID=msg.getFriendID();
             boolean isGroup=msg.isGroup();
@@ -27,12 +28,11 @@ public class FriendGetFileHandler extends SimpleChannelInboundHandler<FriendGetF
             PreparedStatement ps;
             ResultSet set;
             if(isGroup){
-                sql="select content,msg_id from message where userID=? and talkerID =? and talker_type='F' and msg_type=? and isAccept='F' and groupID=?";
+                sql="select content,msg_id from message where userID=?  and talker_type='G' and msg_type=? and isAccept='F' and groupID=?";
                 ps= connection.prepareStatement(sql);
                 ps.setInt(1,userID);
-                ps.setInt(2,FriendID);
-                ps.setString(3,"G");
-                ps.setInt(4,groupID);
+                ps.setString(2,"F");
+                ps.setInt(3,groupID);
             }else{
                 sql="select content,msg_id from message where userID=? and talkerID =? and talker_type='F' and msg_type=? and isAccept='F'";
                 ps= connection.prepareStatement(sql);
@@ -61,6 +61,8 @@ public class FriendGetFileHandler extends SimpleChannelInboundHandler<FriendGetF
                 ps= connection.prepareStatement(sql);
                 ps.setInt(1,set.getInt(2));
                 ps.executeUpdate();*/
+            }else{
+                log.info("什么也没有找到");
             }
         }catch (SQLException e){
             e.printStackTrace();

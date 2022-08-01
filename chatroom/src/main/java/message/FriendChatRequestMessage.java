@@ -8,6 +8,7 @@ public class FriendChatRequestMessage extends Message {
     private String msg_type;//S=文本消息、F=文件
     //talker默认为F=friend
     private String message;
+    private String prefix;
     private String talker_type;//G=消息来自群组,F=消息来自个人
     private File file;
     private int count=1;//登录时用其统计未读信息条数
@@ -30,6 +31,10 @@ public class FriendChatRequestMessage extends Message {
         this.count = count;
     }
 
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
+    }
+
     public void setMessage(String message) {
         this.message = message;
     }
@@ -40,6 +45,10 @@ public class FriendChatRequestMessage extends Message {
 
     public void setFile(File file) {
         this.file = file;
+    }
+
+    public void setMsg_type(String msg_type) {
+        this.msg_type = msg_type;
     }
 
     public void setGroup(int group) {
@@ -54,10 +63,13 @@ public class FriendChatRequestMessage extends Message {
         return Group;
     }
 
+    public String getPrefix() {
+        return prefix;
+    }
+
     public String getMsg_type() {
         return msg_type;
     }
-
     public File getFile() {
         return file;
     }

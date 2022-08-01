@@ -107,7 +107,7 @@ public class GroupView {
                         break;
                     }
                     GroupQuitRequestMessage message=new GroupQuitRequestMessage(myUserID,groupID,myUserID);
-                    log.info("GroupQuitRequestMessage");
+                    //log.info("GroupQuitRequestMessage");
                     ctx.writeAndFlush(message);
                     try{
                         synchronized(waitMessage){
@@ -116,7 +116,6 @@ public class GroupView {
                     }catch (InterruptedException e){
                         e.printStackTrace();
                     }
-                    log.info("123123");
                     break;
                 }
                 case 7:{

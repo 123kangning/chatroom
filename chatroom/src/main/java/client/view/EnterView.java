@@ -47,7 +47,7 @@ public class EnterView {
                     ChatClient.myUserID=userID;
                     System.out.println("请输入密码：");
                     String password=scanner.nextLine();
-                    System.out.println("username="+userID+", password="+password);
+                    //System.out.println("username="+userID+", password="+password);
 
                     LoginRequestMessage message=new LoginRequestMessage(userID,password);
                     ctx.writeAndFlush(message);

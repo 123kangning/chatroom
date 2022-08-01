@@ -45,7 +45,7 @@ public class MainView {
 
                 case 2:{
                     System.out.println("确定注销吗？[y/n]");
-                    log.info("myUserID = {}",ChatClient.myUserID);
+                    //log.info("myUserID = {}",ChatClient.myUserID);
                     String s1=scanner.nextLine();
                     if(s1.compareToIgnoreCase("y")==0){
                         ctx.writeAndFlush(new SignOutRequestMessage(ChatClient.myUserID));
@@ -65,9 +65,9 @@ public class MainView {
                 }
                 case 3:{
                     System.out.println("确定退出吗？[y/n]");
-                    log.info("myUserID = {}",ChatClient.myUserID);
+                    //log.info("myUserID = {}",ChatClient.myUserID);
                     String s1=scanner.nextLine();
-                    log.info("s={}",s1);
+                    //log.info("s={}",s1);
                     if(s1.compareToIgnoreCase("y")==0){
                         ctx.writeAndFlush(new LogoutRequestMessage());
                         try{

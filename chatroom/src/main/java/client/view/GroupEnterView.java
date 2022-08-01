@@ -166,7 +166,7 @@ public class GroupEnterView {
             int count=0;
             for(String s:friendList){
                 System.out.println(s);
-                System.out.printf("count=%d,haveFile.charAt(count)=%c haveFile=%s\n",count,haveFile.charAt(count),haveFile);
+                //System.out.printf("count=%d,haveFile.charAt(count)=%c haveFile=%s\n",count,haveFile.charAt(count),haveFile);
                 if(haveFile.charAt(count)=='1'){
                     FriendView.receiveFile(s,scanner,ctx,0,true,groupID);
                 }

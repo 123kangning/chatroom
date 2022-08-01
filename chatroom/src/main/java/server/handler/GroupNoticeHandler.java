@@ -70,6 +70,9 @@ public class GroupNoticeHandler extends SimpleChannelInboundHandler<GroupNoticeR
 
         }
         Collections.reverse(list);
+        for(String s1:list){
+            System.out.println("s1="+s1);
+        }System.out.println("-------------------------------------");
         ans.reverse();
         ResponseMessage message=new ResponseMessage(true,"");
         message.setFriendList(list);

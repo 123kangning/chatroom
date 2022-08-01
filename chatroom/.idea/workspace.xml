@@ -4,24 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9ffa9a4-92e7-4c59-af71-ec04fc0405e8" name="变更" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ChatClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/ClientFriendChatHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ClientFriendChatHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/ResponseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ResponseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/view/EnterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/EnterView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/view/FriendView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/FriendView.java" afterDir="false" />
+    <list default="true" id="a9ffa9a4-92e7-4c59-af71-ec04fc0405e8" name="变更" comment="变更">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client/view/GroupEnterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/GroupEnterView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/view/GroupView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/GroupView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/view/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/MainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/FriendChatRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/FriendChatRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/protocol/MessageCodec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/protocol/MessageCodec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ChatServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/FriendChatHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/FriendChatHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/FriendGetFileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/FriendGetFileHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/FriendNoticeHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/FriendNoticeHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/GroupChatHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/GroupChatHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/GroupNoticeHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/GroupNoticeHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +53,10 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/kangning/clone/111/chatroom",
+    "last_opened_file_path": "/home/kangning/clone/chatroom-java/chatroom",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "模块",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -234,6 +223,8 @@
       <workItem from="1659267220238" duration="8325000" />
       <workItem from="1659277144345" duration="6549000" />
       <workItem from="1659361886599" duration="194000" />
+      <workItem from="1659362469581" duration="104000" />
+      <workItem from="1659362997071" duration="4145000" />
     </task>
     <servers />
   </component>

@@ -75,7 +75,9 @@ public class ChatServer {
                                         @Override
                                         public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
                                             log.info("exceptionCaught start");
-                                            LogoutRequestMessage msg = new LogoutRequestMessage();
+                                            log.info(cause.toString());
+
+                                            //LogoutRequestMessage msg = new LogoutRequestMessage();
                                             log.info("exceptionCaught end");
 
                                         }

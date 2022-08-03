@@ -16,24 +16,18 @@ import static client.ChatClient.*;
 public class GroupView {
     public GroupView(ChannelHandlerContext ctx) {
         while (true) {
-            System.out.printf("\n\t+----- 您的ID为 %d -----+\n", myUserID);
-            System.out.println("\t| 7 -> 选择群聊(通过ID) |");
-            System.out.println("\t+---------------------+");
-            System.out.println("\t| 6 -> 退出群聊(通过ID) |");
-            System.out.println("\t+---------------------+");
-            System.out.println("\t| 5 -> 加入群聊(通过ID) |");
-            System.out.println("\t+---------------------+");
-            System.out.println("\t| 4 -> 创建群聊        |");
-            System.out.println("\t+---------------------+");
-            System.out.println("\t| 3 -> 群处理通知       |");//别的群邀请你加入或将你踢出
-            System.out.println("\t+---------------------+");
-            System.out.println("\t| 2 -> 显示加入的群组列表|");
-            System.out.println("\t+---------------------+");
-            System.out.println("\t| 1 -> 返回上级目录     |");
-            System.out.println("\t+---------------------+");
-            System.out.println("haveNoRead = " + haveNoRead);
+            System.out.printf("\n\t+----------------- 您的ID为 %d -------------------+\n", myUserID);
+            System.out.println("\t| 7 -> 选择群聊(通过ID)\t| 3 -> 群处理通知      \t|");//别的群邀请你加入或将你踢出
+            System.out.println("\t+-----------------------+-----------------------+");
+            System.out.println("\t| 6 -> 退出群聊(通过ID)\t| 2 -> 显示加入的群组列表\t|");
+            System.out.println("\t+-----------------------+-----------------------+");
+            System.out.println("\t| 5 -> 加入群聊(通过ID)\t| 0 -> 返回上级目录    \t|");
+            System.out.println("\t+-----------------------+-----------------------+");
+            System.out.println("\t| 4 -> 创建群聊       \t|");
+            System.out.println("\t+-----------------------+");
             if (haveNoRead > 0) {
-                System.out.println("主人，您有未查看的信息，请注意查看...");
+                System.out.println("\thaveNoRead = " + haveNoRead);
+                System.out.println("\t主人，您有未查看的信息，请注意查看...");
             }
             Scanner scanner = new Scanner(System.in);
 
@@ -43,7 +37,7 @@ public class GroupView {
                 s0 = scanner.nextLine();
             }
             switch (Integer.parseInt(s0)) {
-                case 1:
+                case 0:
                     return;
                 case 2: {
                     query(ctx);

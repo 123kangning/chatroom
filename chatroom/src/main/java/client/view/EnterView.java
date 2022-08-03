@@ -20,15 +20,15 @@ public class EnterView {
 
         while (true) {
             ByteBuf buf = ctx.alloc().buffer();
-            System.out.println("\n\t+-----------------+");
-            System.out.println("\t|   1   登录       |");
-            System.out.println("\t+-----------------+");
-            System.out.println("\t|   2   注册       |");
-            System.out.println("\t+-----------------+");
-            System.out.println("\t|   3   找回密码    |");
-            System.out.println("\t+-----------------+");
-            System.out.println("\t|   0   退出系统   |");
-            System.out.println("\t+-----------------+\n");
+            System.out.println("\n\t+-------------------+");
+            System.out.println("\t|   1   登录      \t|");
+            System.out.println("\t+-------------------+");
+            System.out.println("\t|   2   注册      \t|");
+            System.out.println("\t+-------------------+");
+            System.out.println("\t|   3   找回密码   \t|");
+            System.out.println("\t+-------------------+");
+            System.out.println("\t|   0   退出系统  \t|");
+            System.out.println("\t+-------------------+\n");
             System.out.println("输入你的选择：");
             Scanner scanner = new Scanner(System.in);
             String s = scanner.nextLine();

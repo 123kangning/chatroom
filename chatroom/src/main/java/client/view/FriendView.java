@@ -16,26 +16,19 @@ public class FriendView {
     public FriendView(ChannelHandlerContext ctx) {
         while (true) {
 
-            System.out.printf("\n\t+----- 您的ID为 %d -----+\n", myUserID);
-            System.out.println("\t| 9 -> 好友聊天(通过ID) |");
-            System.out.println("\t+---------------------+");
-            System.out.println("\t| 8 -> 屏蔽好友(通过ID) |");
-            System.out.println("\t+---------------------+");
-            System.out.println("\t| 7 -> 删除好友(通过ID) |");
-            System.out.println("\t+---------------------+");
-            System.out.println("\t| 6 -> 添加好友(通过ID) |");
-            System.out.println("\t+---------------------+");
-            System.out.println("\t| 5 -> 解除屏蔽(通过ID) |");
-            System.out.println("\t+---------------------+");
-            System.out.println("\t| 4 -> 显示好友列表     |");
-            System.out.println("\t+---------------------+");
-            System.out.println("\t| 3 -> 好友申请列表     |");
-            System.out.println("\t+---------------------+");
-            System.out.println("\t| 1 -> 返回上级目录     |");
-            System.out.println("\t+---------------------+");
-            System.out.println("haveNoRead = " + haveNoRead);
+            System.out.printf("\n\t+------------------ 您的ID为 %d ------------------+\n", myUserID);
+            System.out.println("\t| 9 -> 好友聊天(通过ID)\t| 5 -> 解除屏蔽(通过ID)\t|");
+            System.out.println("\t+-----------------------+-----------------------+");
+            System.out.println("\t| 8 -> 屏蔽好友(通过ID)\t| 4 -> 显示好友列表    \t|");
+            System.out.println("\t+-----------------------+-----------------------+");
+            System.out.println("\t| 7 -> 删除好友(通过ID)\t| 3 -> 好友申请列表    \t|");
+            System.out.println("\t+-----------------------+-----------------------+");
+            System.out.println("\t| 6 -> 添加好友(通过ID)\t| 0 -> 返回上级目录    \t|");
+            System.out.println("\t+-----------------------------------------------+");
+
+            System.out.println("\thaveNoRead = " + haveNoRead);
             if (haveNoRead > 0) {
-                System.out.println("主人，您有未查看的信息，请注意查看...");
+                System.out.println("\t主人，您有未查看的信息，请注意查看...");
             }
             Scanner scanner = new Scanner(System.in);
             String s0 = scanner.nextLine();
@@ -44,7 +37,7 @@ public class FriendView {
                 s0 = scanner.nextLine();
             }
             switch (Integer.parseInt(s0)) {
-                case 1:
+                case 0:
                     return;
                 case 3:
                     new FriendApplyView(ctx);
@@ -216,7 +209,7 @@ public class FriendView {
                                 }
                                 checkRECV = "n";
                             }
-                        } else {
+                        } else if(chat.length()>0){
                             message = new FriendChatRequestMessage(myUserID, FriendID, chat, "S");
                             message.setTalker_type("F");
                             ctx.writeAndFlush(message);

@@ -32,16 +32,17 @@ public class GroupEnterView {
 
     public void choice1(ChannelHandlerContext ctx) {
         while (true) {
-            System.out.printf("\n\t+----- 您的ID为 %d ------+\n", myUserID);
-            System.out.println("\t| 2 -> 进入聊天界面      |");
-            System.out.println("\t+----------------------+");
-            System.out.println("\t| 1 -> 查看群成员列表    |");
-            System.out.println("\t+----------------------+");
-            System.out.println("\t| 0 -> 返回上一级目录    |");
-            System.out.println("\t+----------------------+");
-            System.out.println("haveNoRead = " + haveNoRead);
+            System.out.printf("\n\t+------ 您的ID为 %d ------+\n", myUserID);
+            System.out.println("\t| 2 -> 进入聊天界面     \t|");
+            System.out.println("\t+-----------------------+");
+            System.out.println("\t| 1 -> 查看群成员列表   \t|");
+            System.out.println("\t+-----------------------+");
+            System.out.println("\t| 0 -> 返回上一级目录   \t|");
+            System.out.println("\t+-----------------------+");
+
             if (haveNoRead > 0) {
-                System.out.println("主人，您有未查看的信息，请注意查看...");
+                System.out.println("\thaveNoRead = " + haveNoRead);
+                System.out.println("\t主人，您有未查看的信息，请注意查看...");
             }
             Scanner scanner = new Scanner(System.in);
 
@@ -65,24 +66,19 @@ public class GroupEnterView {
 
     public void choice2(ChannelHandlerContext ctx) {
         while (true) {
-            System.out.printf("\n\t+----- 您的ID为 %d ------+\n", myUserID);
-            System.out.println("\t| 6 -> 邀请成员(通过ID)  |");
-            System.out.println("\t+----------------------+");
-            System.out.println("\t| 5 -> 踢出成员(通过ID)  |");
-            System.out.println("\t+----------------------+");
-            System.out.println("\t| 4 -> 禁言(通过ID)     |");
-            System.out.println("\t+----------------------+");
-            System.out.println("\t| 3 -> 解除禁言(通过ID)  |");
-            System.out.println("\t+----------------------+");
-            System.out.println("\t| 2 -> 进入聊天界面      |");
-            System.out.println("\t+----------------------+");
-            System.out.println("\t| 1 -> 查看群成员列表    |");
-            System.out.println("\t+----------------------+");
-            System.out.println("\t| 0 -> 返回上一级目录    |");
-            System.out.println("\t+----------------------+");
-            System.out.println("haveNoRead = " + haveNoRead);
+            System.out.printf("\n\t+------------------ 您的ID为 %d ------------------+\n", myUserID);
+            System.out.println("\t| 6 -> 邀请成员(通过ID) \t| 2 -> 进入聊天界面    \t|");
+            System.out.println("\t+-----------------------------------------------+");
+            System.out.println("\t| 5 -> 踢出成员(通过ID) \t| 1 -> 查看群成员列表   \t|");
+            System.out.println("\t+-----------------------------------------------+");
+            System.out.println("\t| 4 -> 禁言(通过ID)    \t| 0 -> 返回上一级目录   \t|");
+            System.out.println("\t+-----------------------------------------------+");
+            System.out.println("\t| 3 -> 解除禁言(通过ID) \t|");
+            System.out.println("\t+-----------------------+");
+
             if (haveNoRead > 0) {
-                System.out.println("主人，您有未查看的信息，请注意查看...");
+                System.out.println("\thaveNoRead = " + haveNoRead);
+                System.out.println("\t主人，您有未查看的信息，请注意查看...");
             }
             Scanner scanner = new Scanner(System.in);
 
@@ -118,30 +114,21 @@ public class GroupEnterView {
 
     public void choice3(ChannelHandlerContext ctx) {
         while (true) {
-            System.out.printf("\n\t+----- 您的ID为 %d ------+\n", myUserID);
-            System.out.println("\t|   9 -> 解散群聊        |");
-            System.out.println("\t+----------------------+");
-            System.out.println("\t| 8 -> 添加管理员(通过ID) |");
-            System.out.println("\t+----------------------+");
-            System.out.println("\t| 7 -> 撤除管理员(通过ID) |");
-            System.out.println("\t+----------------------+");
-            System.out.println("\t| 6 -> 邀请成员(通过ID)  |");
-            System.out.println("\t+----------------------+");
-            System.out.println("\t| 5 -> 踢出成员(通过ID)  |");
-            System.out.println("\t+----------------------+");
-            System.out.println("\t| 4 -> 禁言(通过ID)     |");
-            System.out.println("\t+----------------------+");
-            System.out.println("\t| 3 -> 解除禁言(通过ID)  |");
-            System.out.println("\t+----------------------+");
-            System.out.println("\t| 2 -> 进入聊天界面      |");
-            System.out.println("\t+----------------------+");
-            System.out.println("\t| 1 -> 查看群成员列表    |");
-            System.out.println("\t+----------------------+");
-            System.out.println("\t| 0 -> 返回上一级目录    |");
-            System.out.println("\t+----------------------+");
-            System.out.println("haveNoRead = " + haveNoRead);
+            System.out.printf("\n\t+----------------- 您的ID为 %d -------------------+\n", myUserID);
+            System.out.println("\t| 9 -> 解散群聊(望君三思) \t| 4 -> 禁言(通过ID)   \t|");
+            System.out.println("\t+-----------------------------------------------+");
+            System.out.println("\t| 8 -> 添加管理员(通过ID)\t| 3 -> 解除禁言(通过ID)\t|");
+            System.out.println("\t+-----------------------------------------------+");
+            System.out.println("\t| 7 -> 撤除管理员(通过ID)\t| 2 -> 进入聊天界面    \t|");
+            System.out.println("\t+-----------------------------------------------+");
+            System.out.println("\t| 6 -> 邀请成员(通过ID) \t| 1 -> 查看群成员列表   \t|");
+            System.out.println("\t+-----------------------------------------------+");
+            System.out.println("\t| 5 -> 踢出成员(通过ID) \t| 0 -> 返回上一级目录   \t|");
+            System.out.println("\t+-----------------------------------------------+");
+
             if (haveNoRead > 0) {
-                System.out.println("主人，您有未查看的信息，请注意查看...");
+                System.out.println("\thaveNoRead = " + haveNoRead);
+                System.out.println("\t主人，您有未查看的信息，请注意查看...");
             }
             Scanner scanner = new Scanner(System.in);
 

@@ -15,21 +15,21 @@ import static client.ChatClient.*;
 public class MainView {
     public MainView(ChannelHandlerContext ctx) {
         while (true) {
-            System.out.printf("\n\t+----- 您的ID为 %d -----+\n" +
-                    "\t+---------------------+\n" +
-                    "\t| 6 -> 进入消息通知栏   |\n" +
-                    "\t+---------------------+\n" +
-                    "\t| 5 -> 进入群组管理界面 |\n" +
-                    "\t+---------------------+\n" +
-                    "\t| 4 -> 进入好友管理界面 |\n" +
-                    "\t+---------------------+\n" +
-                    "\t| 3 -> 退出            |\n" +
-                    "\t+---------------------+\n" +
-                    "\t| 2 -> 注销            |\n" +
-                    "\t+---------------------+\n", myUserID);
-            System.out.println("haveNoRead = " + haveNoRead);
+            System.out.printf("\n\t+------ 您的ID为 %d ------+\n" +
+                    "\t| 6 -> 进入消息通知栏  \t|\n" +
+                    "\t+-----------------------+\n" +
+                    "\t| 5 -> 进入群组管理界面\t|\n" +
+                    "\t+-----------------------+\n" +
+                    "\t| 4 -> 进入好友管理界面\t|\n" +
+                    "\t+-----------------------+\n" +
+                    "\t| 3 -> 退出          \t|\n" +
+                    "\t+-----------------------+\n" +
+                    "\t| 2 -> 注销          \t|\n" +
+                    "\t+-----------------------+\n", myUserID);
+
             if (haveNoRead > 0) {
-                System.out.println("主人，您有未查看的信息，请注意查看...");
+                System.out.println("\thaveNoRead = " + haveNoRead);
+                System.out.println("\t主人，您有未查看的信息，请注意查看...");
             }
 
             Scanner scanner = new Scanner(System.in);

@@ -4,52 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9ffa9a4-92e7-4c59-af71-ec04fc0405e8" name="变更" comment="变更">
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/ChangePasswordRequestMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/handler/ChangePasswordHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/handler/SearchPasswordHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/session/MailSession.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Mail1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/SendMailHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/TestMail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ChatClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/ResponseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ResponseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/view/EnterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/EnterView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/ResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/ResponseMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/SearchPasswordRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/SearchPasswordRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ChatServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/FriendGetFileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/FriendGetFileHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/GroupNoticeHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/GroupNoticeHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/LoginHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/LoginHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/LogoutHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/LogoutHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/session/SessionMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/session/SessionMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/mysql/Test0.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/mysql/Test0.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/mysql/Test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/mysql/Test1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/mysql/Test2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/mysql/Test2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c1/Buffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c1/Buffer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c1/Client1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c1/Client1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c1/HelloClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c1/HelloClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c1/HelloServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c1/HelloServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c1/Server1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c1/Server1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c1/TestLengthFieldDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c1/TestLengthFieldDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c2/CloseFutureClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c2/CloseFutureClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c2/EventLoopClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c2/EventLoopClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c2/EventLoopServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c2/EventLoopServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c2/TestEventLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c2/TestEventLoop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c2/TestJdkFuture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c2/TestJdkFuture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c2/TestNettyFuture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c2/TestNettyFuture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c2/TestNettyPromise.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c2/TestNettyPromise.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c2/TestPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c2/TestPipeline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c3/EchoServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c3/EchoServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c3/NettyServerHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c3/NettyServerHandle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c3/TestByteBuf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c3/TestByteBuf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c3/TestCompositeByteBuf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c3/TestCompositeByteBuf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c3/TestSlice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c3/TestSlice.java" afterDir="false" />
-    </list>
+    <list default="true" id="a9ffa9a4-92e7-4c59-af71-ec04fc0405e8" name="变更" comment="变更" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -256,7 +211,7 @@
       <workItem from="1659362469581" duration="104000" />
       <workItem from="1659362997071" duration="4540000" />
       <workItem from="1659445682951" duration="844000" />
-      <workItem from="1659490377072" duration="21031000" />
+      <workItem from="1659490377072" duration="21336000" />
     </task>
     <servers />
   </component>

@@ -8,6 +8,9 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 
+import io.netty.handler.timeout.IdleState;
+import io.netty.handler.timeout.IdleStateEvent;
+import io.netty.handler.timeout.IdleStateHandler;
 import lombok.extern.slf4j.Slf4j;
 import message.LogoutRequestMessage;
 import protocol.MessageCodec;
@@ -53,9 +56,19 @@ public class ChatServer {
                         protected void initChannel(NioSocketChannel nioSocketChannel) throws Exception {
                             log.info("channel = "+nioSocketChannel);
                             nioSocketChannel.pipeline().addLast( new ProtocolFrameDecoder())
-                                    /*.addLast(Log)*/
-                                    .addLast(new ProtocolFrameDecoder())
                                     .addLast(new MessageCodec())
+                                    /*.addLast(Log)*/
+                                    .addLast(new IdleStateHandler(15,0,0))
+                                    .addLast(new ChannelDuplexHandler(){
+                                        @Override
+                                        public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
+                                            IdleStateEvent event=(IdleStateEvent) evt;
+                                            if(event.state()== IdleState.READER_IDLE){
+
+                                            }
+                                            super.userEventTriggered(ctx, evt);
+                                        }
+                                    })
                                     .addLast(new ChannelInboundHandlerAdapter(){
                                         @Override
                                         public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {

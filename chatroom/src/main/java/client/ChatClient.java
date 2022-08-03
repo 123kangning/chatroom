@@ -8,7 +8,11 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 
+import io.netty.handler.timeout.IdleState;
+import io.netty.handler.timeout.IdleStateEvent;
+import io.netty.handler.timeout.IdleStateHandler;
 import lombok.extern.slf4j.Slf4j;
+import message.PingMessage;
 import protocol.MessageCodec;
 import protocol.ProtocolFrameDecoder;
 
@@ -54,6 +58,17 @@ public class ChatClient {
                                     /*.addLast(Log)*/
                                     .addLast(new ProtocolFrameDecoder())
                                     .addLast(clientCodec)
+                                    .addLast(new IdleStateHandler(0,7,0))
+                                    .addLast(new ChannelDuplexHandler(){
+                                        @Override
+                                        public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
+                                            IdleStateEvent event=(IdleStateEvent) evt;
+                                            if(event.state()== IdleState.WRITER_IDLE){
+                                                ctx.writeAndFlush(new PingMessage());
+                                            }
+                                            super.userEventTriggered(ctx, evt);
+                                        }
+                                    })
                                     .addLast(new ResponseHandler())
                                     .addLast(new ClientFriendChatHandler())
                                     .addLast("View handler",new ChannelInboundHandlerAdapter(){

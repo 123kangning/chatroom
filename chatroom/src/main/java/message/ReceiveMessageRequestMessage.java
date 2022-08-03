@@ -1,17 +1,17 @@
 package message;
 
 import java.util.List;
-import java.util.PrimitiveIterator;
 
-public class ReceiveMessageRequestMessage extends Message{
+public class ReceiveMessageRequestMessage extends Message {
     private int msg_id;
     private List<Integer> list;
 
-    public ReceiveMessageRequestMessage(int msg_id){
-        this.msg_id=msg_id;
+    public ReceiveMessageRequestMessage(int msg_id) {
+        this.msg_id = msg_id;
     }
-    public ReceiveMessageRequestMessage(List<Integer> list){
-        this.list=list;
+
+    public ReceiveMessageRequestMessage(List<Integer> list) {
+        this.list = list;
     }
 
     public List<Integer> getList() {

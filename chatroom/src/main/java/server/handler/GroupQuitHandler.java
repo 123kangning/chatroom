@@ -13,64 +13,67 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import static server.ChatServer.connection;
+
 @Slf4j
 public class GroupQuitHandler extends SimpleChannelInboundHandler<GroupQuitRequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, GroupQuitRequestMessage msg) throws Exception {
-        try{
+        try {
             log.info("enter GroupQuitHandler");
-            int delID=msg.getDelID();
-            int userID=msg.getUserID();
-            int groupID=msg.getGroupId();
-            String sql="select say from group2 where groupID=? and userID=?";
-            PreparedStatement ps= connection.prepareStatement(sql);
-            ps.setInt(1,groupID);
-            ps.setInt(2,delID);
-            ResultSet set=ps.executeQuery();
+            int delID = msg.getDelID();
+            int userID = msg.getUserID();
+            int groupID = msg.getGroupId();
+            String sql = "select say from group2 where groupID=? and userID=?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, groupID);
+            ps.setInt(2, delID);
+            ResultSet set = ps.executeQuery();
             log.info("1 run");
-            if(!set.next()){
+            if (!set.next()) {
                 ctx.writeAndFlush(new ResponseMessage(false, "群聊中无此人"));
                 log.info("群聊中无此人");
                 return;
             }
-            String sql1="delete from group2 where userID=? and groupID=?";
-            PreparedStatement ps1= connection.prepareStatement(sql1);
-            ps1.setInt(1,delID);
-            ps1.setInt(2,groupID);
-            int row=ps1.executeUpdate();
+            String sql1 = "delete from group2 where userID=? and groupID=?";
+            PreparedStatement ps1 = connection.prepareStatement(sql1);
+            ps1.setInt(1, delID);
+            ps1.setInt(2, groupID);
+            int row = ps1.executeUpdate();
             log.info("2 run");
             ResponseMessage message;
-            if(row==1){
-                message=new ResponseMessage(true,"");
+            if (row == 1) {
+                message = new ResponseMessage(true, "");
                 log.info("new ResponseMessage(true,\"\")");
-            }else{
-                message=new ResponseMessage(false,"踢成员失败");
+            } else {
+                message = new ResponseMessage(false, "踢成员失败");
                 log.info("new ResponseMessage(false,\"踢成员失败\")");
             }
             ctx.writeAndFlush(message);
-            if(userID!=delID){
-                row=SendInsertIntoMessage(delID,userID,"G",groupID,"您已被移出群聊","F");
-                Channel channel= SessionMap.getChannel(delID);
-                if(channel!=null)
+            if (userID != delID) {
+                row = SendInsertIntoMessage(delID, userID, "G", groupID, "您已被移出群聊", "F");
+                Channel channel = SessionMap.getChannel(delID);
+                if (channel != null)
                     channel.writeAndFlush(new FriendChatRequestMessage());
             }
 
-            log.info("row=SendInsertIntoMessage = {}",row);
-        }catch(SQLException e){
+            log.info("row=SendInsertIntoMessage = {}", row);
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-    public int  SendInsertIntoMessage(int userID,int talkerID,String talker_type,int groupID,String content,String isAccept)throws SQLException{
-        String sql="insert into message(userID,msg_type,create_date,talkerID,talker_type,groupID,content,isAccept) values(?,'A',?,?,?,?,?,?)";
-        PreparedStatement ps= connection.prepareStatement(sql);
-        ps.setInt(1,userID);
-        ps.setDate(2,new Date(System.currentTimeMillis()));
-        ps.setInt(3,talkerID);
-        ps.setString(4,talker_type);
-        ps.setInt(5,groupID);
-        ps.setString(6,content);
-        ps.setString(7,isAccept);
+
+    public int SendInsertIntoMessage(int userID, int talkerID, String talker_type, int groupID, String content, String isAccept) throws SQLException {
+        String sql = "insert into message(userID,msg_type,create_date,talkerID,talker_type,groupID,content,isAccept) values(?,'A',?,?,?,?,?,?)";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setInt(1, userID);
+        ps.setDate(2, new Date(System.currentTimeMillis()));
+        ps.setInt(3, talkerID);
+        ps.setString(4, talker_type);
+        ps.setInt(5, groupID);
+        ps.setString(6, content);
+        ps.setString(7, isAccept);
         return ps.executeUpdate();
     }
 }

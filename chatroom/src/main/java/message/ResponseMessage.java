@@ -4,21 +4,24 @@ import java.io.File;
 import java.util.List;
 import java.util.Map;
 
-public class ResponseMessage extends Message{
+public class ResponseMessage extends Message {
     private boolean success;
     private String reason;
-    private int readCount=0;
+    private int readCount = 0;
     private int mailAuthCode;
     private Map<String, List<String>> noticeMap;
-    public  List<String> friendList;
-    int MessageType=ResponseMessage;
+    public List<String> friendList;
+    int MessageType = ResponseMessage;
     private int gradeInGroup;
-    private String haveFile="";
+    private String haveFile = "";
     private File file;//接收一个file实例化对象回来
-    public ResponseMessage(){}
-    public ResponseMessage(boolean success,String reason){
-        this.success=success;
-        this.reason=reason;
+
+    public ResponseMessage() {
+    }
+
+    public ResponseMessage(boolean success, String reason) {
+        this.success = success;
+        this.reason = reason;
     }
 
     public void setMailAuthCode(int mailAuthCode) {
@@ -49,12 +52,12 @@ public class ResponseMessage extends Message{
         return noticeMap;
     }
 
-    public  void setFriendList(List<String> friendList) {
+    public void setFriendList(List<String> friendList) {
         this.friendList = friendList;
     }
 
-    public void setMessageType(int MessageType){
-        this.MessageType=MessageType;
+    public void setMessageType(int MessageType) {
+        this.MessageType = MessageType;
     }
 
     public File getFile() {
@@ -77,20 +80,23 @@ public class ResponseMessage extends Message{
         return haveFile;
     }
 
-    public  List<String> getFriendList() {
+    public List<String> getFriendList() {
         return friendList;
     }
 
-    public boolean getSuccess(){
+    public boolean getSuccess() {
         return this.success;
     }
-    public String getReason(){
+
+    public String getReason() {
         return this.reason;
     }
+
     public int getMessageType() {
         return this.MessageType;
     }
-    public String toString(){
-        return "success = "+success+", reason = "+reason;
+
+    public String toString() {
+        return "success = " + success + ", reason = " + reason;
     }
 }

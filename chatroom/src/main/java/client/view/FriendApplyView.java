@@ -4,55 +4,53 @@ import com.alibaba.druid.util.StringUtils;
 import io.netty.channel.ChannelHandlerContext;
 import message.FriendAddRequestMessage;
 import message.FriendApplyQueryMessage;
-import message.NoticeRequestMessage;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import static client.ChatClient.*;
-import static client.ChatClient.noticeMap;
 
 public class FriendApplyView {
-    public FriendApplyView(ChannelHandlerContext ctx){
-        System.out.printf("\n\t+------------- 您的ID为 %8d --------------+\n",myUserID);
+    public FriendApplyView(ChannelHandlerContext ctx) {
+        System.out.printf("\n\t+------------- 您的ID为 %8d --------------+\n", myUserID);
         System.out.println("\t+------------------好友申请栏-------------------+");
         ctx.writeAndFlush(new FriendApplyQueryMessage(myUserID));
-        try{
-            synchronized (waitMessage){
+        try {
+            synchronized (waitMessage) {
                 waitMessage.wait();
             }
-        }catch (InterruptedException e){
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-        for(String s1:friendList){
+        for (String s1 : friendList) {
             System.out.println(s1);
         }
 
-        Scanner scanner=new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
-        while(true){
+        while (true) {
             System.out.println("输入[1]通过好友请求，[2]拒绝好友请求，[0]退出：");
-            String s0=scanner.nextLine();
-            while(!StringUtils.isNumber(s0)){
+            String s0 = scanner.nextLine();
+            while (!StringUtils.isNumber(s0)) {
                 System.out.println("输入不规范，请重新输入您的选择：");
-                s0=scanner.nextLine();
+                s0 = scanner.nextLine();
             }
-            switch(Integer.parseInt(s0)){
-                case 1:{
+            switch (Integer.parseInt(s0)) {
+                case 1: {
                     System.out.println("请输入要通过的好友ID,若有多个，以空格分隔开：");
-                    s0=scanner.nextLine();
-                    String[] s1=s0.split(" ");
-                    List<Integer> list=new ArrayList<>();
-                    for(String s:s1){
+                    s0 = scanner.nextLine();
+                    String[] s1 = s0.split(" ");
+                    List<Integer> list = new ArrayList<>();
+                    for (String s : s1) {
                         list.add(Integer.parseInt(s));
                     }
-                    FriendAddRequestMessage message=new FriendAddRequestMessage(myUserID,list);
+                    FriendAddRequestMessage message = new FriendAddRequestMessage(myUserID, list);
                     message.setSetList(true);
                     ctx.writeAndFlush(message);
                     try {
-                        synchronized (waitMessage){
+                        synchronized (waitMessage) {
                             waitMessage.wait();
                         }
 
@@ -62,7 +60,8 @@ public class FriendApplyView {
                     break;
                 }
                 case 2:
-                case 0: return;
+                case 0:
+                    return;
             }
 
 

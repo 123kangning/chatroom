@@ -1,12 +1,13 @@
 package message;
 
-public class GroupNoticeRequestMessage extends Message{
-    private int userID;
-    private int groupID;
-    private int count=50;
-    public GroupNoticeRequestMessage(int userID,int groupID){
-        this.userID=userID;
-        this.groupID=groupID;
+public class GroupNoticeRequestMessage extends Message {
+    private final int userID;
+    private final int groupID;
+    private final int count = 50;
+
+    public GroupNoticeRequestMessage(int userID, int groupID) {
+        this.userID = userID;
+        this.groupID = groupID;
     }
 
     public int getUserID() {

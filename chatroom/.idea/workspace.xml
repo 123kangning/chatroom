@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9ffa9a4-92e7-4c59-af71-ec04fc0405e8" name="变更" comment="变更">
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/PingMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ChatClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ChatServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/view/GroupEnterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/GroupEnterView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +84,7 @@
       <recent name="netty.c2" />
     </key>
   </component>
-  <component name="RunManager" selected="应用程序.Mail1">
+  <component name="RunManager" selected="应用程序.client.ChatClient">
     <configuration name="ChatServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="server.ChatServer" />
       <module name="chatroom" />
@@ -216,7 +214,7 @@
       <workItem from="1659362469581" duration="104000" />
       <workItem from="1659362997071" duration="4540000" />
       <workItem from="1659445682951" duration="844000" />
-      <workItem from="1659490377072" duration="24638000" />
+      <workItem from="1659490377072" duration="25308000" />
     </task>
     <servers />
   </component>

@@ -1,12 +1,15 @@
 package message;
 
-public class GroupCreateRequestMessage extends Message{
+public class GroupCreateRequestMessage extends Message {
     private int userID;
     private String groupName;
-    public GroupCreateRequestMessage(){}
-    public GroupCreateRequestMessage(int userID,String groupName){
-        this.userID=userID;
-        this.groupName=groupName;
+
+    public GroupCreateRequestMessage() {
+    }
+
+    public GroupCreateRequestMessage(int userID, String groupName) {
+        this.userID = userID;
+        this.groupName = groupName;
     }
 
     public int getUserID() {
@@ -22,7 +25,7 @@ public class GroupCreateRequestMessage extends Message{
             public int getMessageType() {
                 return GroupChatRequestMessage;
             }*/
-    public String toString(){
-        return "userID = "+userID+", groupName = "+groupName;
+    public String toString() {
+        return "userID = " + userID + ", groupName = " + groupName;
     }
 }

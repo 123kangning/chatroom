@@ -2,19 +2,23 @@ package message;
 
 import java.util.List;
 
-public class FriendAddRequestMessage extends Message{
+public class FriendAddRequestMessage extends Message {
     private int userID;
     private List<Integer> FriendIDList;
     private int FriendId;
-    private boolean setList=false;
-    public FriendAddRequestMessage(){}
-    public FriendAddRequestMessage(int userID,int FriendId){
-        this.userID=userID;
-        this.FriendId=FriendId;
+    private boolean setList = false;
+
+    public FriendAddRequestMessage() {
     }
-    public FriendAddRequestMessage(int userID,List<Integer> FriendIdList){
-        this.userID=userID;
-        this.FriendIDList=FriendIdList;
+
+    public FriendAddRequestMessage(int userID, int FriendId) {
+        this.userID = userID;
+        this.FriendId = FriendId;
+    }
+
+    public FriendAddRequestMessage(int userID, List<Integer> FriendIdList) {
+        this.userID = userID;
+        this.FriendIDList = FriendIdList;
     }
 
     public void setSetList(boolean setList) {
@@ -25,8 +29,13 @@ public class FriendAddRequestMessage extends Message{
         return setList;
     }
 
-    public int getUserId(){return this.userID;}
-    public int getFriendId(){return this.FriendId;}
+    public int getUserId() {
+        return this.userID;
+    }
+
+    public int getFriendId() {
+        return this.FriendId;
+    }
 
     public List<Integer> getFriendIDList() {
         return FriendIDList;
@@ -36,8 +45,8 @@ public class FriendAddRequestMessage extends Message{
         public int getMessageType() {
             return FriendAddRequestMessage;
         }*/
-    public String toString(){
-        return "userID = "+userID+", FriendId = "+FriendId;
+    public String toString() {
+        return "userID = " + userID + ", FriendId = " + FriendId;
     }
 
 }

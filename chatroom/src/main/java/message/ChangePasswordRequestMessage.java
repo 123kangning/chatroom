@@ -1,13 +1,12 @@
 package message;
 
-import server.session.MailSession;
-
 public class ChangePasswordRequestMessage extends Message {
-    private int userID;
-    private String password;
-    public ChangePasswordRequestMessage(int userID,String password){
-        this.userID=userID;
-        this.password=password;
+    private final int userID;
+    private final String password;
+
+    public ChangePasswordRequestMessage(int userID, String password) {
+        this.userID = userID;
+        this.password = password;
     }
 
     public int getUserID() {

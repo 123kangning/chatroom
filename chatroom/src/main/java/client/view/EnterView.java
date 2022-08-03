@@ -5,7 +5,10 @@ import com.alibaba.druid.util.StringUtils;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import lombok.extern.slf4j.Slf4j;
-import message.*;
+import message.ChangePasswordRequestMessage;
+import message.LoginRequestMessage;
+import message.SearchPasswordRequestMessage;
+import message.SignInRequestMessage;
 
 import java.util.Scanner;
 
@@ -13,10 +16,10 @@ import static client.ChatClient.*;
 
 @Slf4j
 public class EnterView {
-    public EnterView(ChannelHandlerContext ctx){
+    public EnterView(ChannelHandlerContext ctx) {
 
-        while(true){
-            ByteBuf buf=ctx.alloc().buffer();
+        while (true) {
+            ByteBuf buf = ctx.alloc().buffer();
             System.out.println("\n\t+-----------------+");
             System.out.println("\t|   1   登录       |");
             System.out.println("\t+-----------------+");
@@ -27,62 +30,62 @@ public class EnterView {
             System.out.println("\t|   0   退出系统   |");
             System.out.println("\t+-----------------+\n");
             System.out.println("输入你的选择：");
-            Scanner scanner=new Scanner(System.in);
-            String s=scanner.nextLine();
+            Scanner scanner = new Scanner(System.in);
+            String s = scanner.nextLine();
 
-            while(!StringUtils.isNumber(s)){
+            while (!StringUtils.isNumber(s)) {
                 System.out.println("输入不规范，请重新输入您的选择：");
-                s=scanner.nextLine();
+                s = scanner.nextLine();
             }
-            switch (Integer.parseInt(s)){
-                case 1:{
+            switch (Integer.parseInt(s)) {
+                case 1: {
                     System.out.println("请输入用户ID：");
-                    String s1=scanner.nextLine();
-                    while(!StringUtils.isNumber(s1)){
+                    String s1 = scanner.nextLine();
+                    while (!StringUtils.isNumber(s1)) {
                         System.out.println("输入不规范，请重新输入用户ID：");
-                        s1=scanner.nextLine();
+                        s1 = scanner.nextLine();
                     }
-                    int userID= Integer.parseInt(s1);
-                    ChatClient.myUserID=userID;
+                    int userID = Integer.parseInt(s1);
+                    ChatClient.myUserID = userID;
                     System.out.println("请输入密码：");
-                    String password=scanner.nextLine();
+                    String password = scanner.nextLine();
                     //System.out.println("username="+userID+", password="+password);
 
-                    LoginRequestMessage message=new LoginRequestMessage(userID,password);
+                    LoginRequestMessage message = new LoginRequestMessage(userID, password);
                     ctx.writeAndFlush(message);
                     try {
-                        synchronized (waitMessage){
+                        synchronized (waitMessage) {
                             waitMessage.wait();
                         }
 
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    if(waitSuccess==1){
+                    if (waitSuccess == 1) {
                         new MainView(ctx);
                     }
                     break;
                 }
-                case 2:{
+                case 2: {
                     System.out.println("请输入用户名称(<=50位)：");
-                    String username= scanner.nextLine();
-                    while(username.length()>=50){
+                    String username = scanner.nextLine();
+                    while (username.length() >= 50) {
                         System.out.println("名称过长，请重新输入用户名称：");
-                        username= scanner.nextLine();
+                        username = scanner.nextLine();
                     }
                     System.out.println("请输入密码：");
-                    String password1=scanner.nextLine();
+                    String password1 = scanner.nextLine();
                     System.out.println("请输入邮箱地址：");
-                    String mail=scanner.nextLine();
-                    while(mail.length()>=50){
+                    String mail = scanner.nextLine();
+                    while (mail.length() >= 50) {
                         System.out.println("名称过长，请重新输入用户名称：");
-                        mail=scanner.nextLine();
+                        mail = scanner.nextLine();
                     }
-                    log.info("username={}, password={}, mail={}",username,password1,mail);
-                    SignInRequestMessage message1=new SignInRequestMessage(username,password1,mail);
+                    log.info("username={}, password={}, mail={}", username, password1, mail);
+                    SignInRequestMessage message1 = new SignInRequestMessage(username, password1, mail);
                     ctx.writeAndFlush(message1);
                     try {
-                        synchronized (waitMessage){
+                        synchronized (waitMessage) {
                             waitMessage.wait();
                         }
 
@@ -91,50 +94,50 @@ public class EnterView {
                     }
                     break;
                 }
-                case 3:{
+                case 3: {
                     System.out.println("请输入你的ID：");
-                    String s1=scanner.nextLine();
-                    while(!StringUtils.isNumber(s1)){
+                    String s1 = scanner.nextLine();
+                    while (!StringUtils.isNumber(s1)) {
                         System.out.println("输入不规范，请重新输入用户ID：");
-                        s1=scanner.nextLine();
+                        s1 = scanner.nextLine();
                     }
-                    int userID= Integer.parseInt(s1);
+                    int userID = Integer.parseInt(s1);
                     ctx.writeAndFlush(new SearchPasswordRequestMessage(userID));
                     try {
-                        synchronized (waitMessage){
+                        synchronized (waitMessage) {
                             waitMessage.wait();
                         }
 
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    if(waitSuccess==1){
+                    if (waitSuccess == 1) {
                         System.out.println("请输入你收到的验证码：");
-                        s1=scanner.nextLine();
-                        int AuthCode=Integer.parseInt(s1);
-                        if(AuthCode==mailAuthCode){
+                        s1 = scanner.nextLine();
+                        int AuthCode = Integer.parseInt(s1);
+                        if (AuthCode == mailAuthCode) {
                             System.out.println("请重新设置你的密码：");
-                            s1=scanner.nextLine();
-                            while(s1.length()<6){
+                            s1 = scanner.nextLine();
+                            while (s1.length() < 6) {
                                 System.out.println("密码过短，请重新输入密码：");
-                                s1=scanner.nextLine();
+                                s1 = scanner.nextLine();
                             }
-                            ctx.writeAndFlush(new ChangePasswordRequestMessage(userID,s1));
+                            ctx.writeAndFlush(new ChangePasswordRequestMessage(userID, s1));
                             try {
-                                synchronized (waitMessage){
+                                synchronized (waitMessage) {
                                     waitMessage.wait();
                                 }
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
-                            if(waitSuccess==1){
+                            if (waitSuccess == 1) {
                                 System.out.println("密码重置成功");
                             }
                         }
                     }
                     break;
                 }
-                case 0:{
+                case 0: {
                     System.out.println("\t-----正在退出系统-----");
                     ctx.channel().close();
                     return;

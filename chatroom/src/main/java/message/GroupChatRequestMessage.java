@@ -2,17 +2,20 @@ package message;
 
 import java.io.File;
 
-public class GroupChatRequestMessage extends Message{
+public class GroupChatRequestMessage extends Message {
     private int userID;
     private int GroupId;
     //talker默认为G=group
     private String msg_type;//S=文本消息、F=文件
     private String message;
     private File file;
-    public GroupChatRequestMessage(){}
-    public GroupChatRequestMessage(int userID,int GroupId){
-        this.userID=userID;
-        this.GroupId=GroupId;
+
+    public GroupChatRequestMessage() {
+    }
+
+    public GroupChatRequestMessage(int userID, int GroupId) {
+        this.userID = userID;
+        this.GroupId = GroupId;
     }
 
     public void setMessage(String message) {
@@ -47,7 +50,7 @@ public class GroupChatRequestMessage extends Message{
         return GroupId;
     }
 
-    public String toString(){
-        return "userID = "+userID+", GroupId = "+GroupId;
+    public String toString() {
+        return "userID = " + userID + ", GroupId = " + GroupId;
     }
 }

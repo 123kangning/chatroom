@@ -11,20 +11,24 @@ public class FriendChatRequestMessage extends Message {
     private String prefix;
     private String talker_type;//G=消息来自群组,F=消息来自个人
     private File file;
-    private int count=1;//登录时用其统计未读信息条数
-    private int Group=0;
-    public FriendChatRequestMessage(){}
-    public FriendChatRequestMessage(int userID,int FriendId,String message,String msg_type){
-        this.userID=userID;
-        this.FriendId=FriendId;
-        this.message=message;
-        this.msg_type=msg_type;
+    private int count = 1;//登录时用其统计未读信息条数
+    private int Group = 0;
+
+    public FriendChatRequestMessage() {
     }
-    public FriendChatRequestMessage(int userID, int FriendId, File file, String msg_type){
-        this.userID=userID;
-        this.FriendId=FriendId;
-        this.file=file;
-        this.msg_type=msg_type;
+
+    public FriendChatRequestMessage(int userID, int FriendId, String message, String msg_type) {
+        this.userID = userID;
+        this.FriendId = FriendId;
+        this.message = message;
+        this.msg_type = msg_type;
+    }
+
+    public FriendChatRequestMessage(int userID, int FriendId, File file, String msg_type) {
+        this.userID = userID;
+        this.FriendId = FriendId;
+        this.file = file;
+        this.msg_type = msg_type;
     }
 
     public void setCount(int count) {
@@ -70,6 +74,7 @@ public class FriendChatRequestMessage extends Message {
     public String getMsg_type() {
         return msg_type;
     }
+
     public File getFile() {
         return file;
     }
@@ -78,14 +83,23 @@ public class FriendChatRequestMessage extends Message {
         return count;
     }
 
-    public String getMessage(){return this.message;}
-    public int getFriendId(){return this.FriendId;}
-    public int getUserID(){return this.userID;}
-/*    @Override
-    public int getMessageType() {
-        return FriendChatRequestMessage;
-    }*/
-    public String toString(){
-        return "userID = "+userID+", FriendId = "+FriendId+" message = "+message;
+    public String getMessage() {
+        return this.message;
+    }
+
+    public int getFriendId() {
+        return this.FriendId;
+    }
+
+    public int getUserID() {
+        return this.userID;
+    }
+
+    /*    @Override
+        public int getMessageType() {
+            return FriendChatRequestMessage;
+        }*/
+    public String toString() {
+        return "userID = " + userID + ", FriendId = " + FriendId + " message = " + message;
     }
 }

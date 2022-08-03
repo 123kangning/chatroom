@@ -33,8 +33,7 @@ public abstract class Message implements Serializable {
     public static final int GroupDeleteResponseMessage=17;
   public static final int GroupChatRequestMessage=18;//群组聊天
     public static final int GroupChatResponseMessage=19;
-  public static final int GroupNumberRequestMessage=20;//获得群成员列表
-    public static final int GroupNumberResponseMessage=21;
+  public static final int GroupNoticeMessage=20;//接收群组历史消息
 
   public static final int FriendChatRequestMessage=22;//好友聊天
     public static final int FriendChatResponseMessage=23;
@@ -42,7 +41,7 @@ public abstract class Message implements Serializable {
     public static final int FriendAddResponseMessage=25;
   public static final int FriendGetFileRequestMessage=26;//文件传输
     public static final int FriendShieldResponseMessage=27;
-  public static final int FriendDeleteRequestMessage=28;/*删除好友*/
+  public static final int FriendNoticeMessage=28;/*好友接收历史消息*/
     public static final int FriendDeleteResponseMessage=29;
     public static final int FriendQueryRequestMessage=30;/*查询好友列表*/
     public static final int FriendQueryResponseMessage=31;

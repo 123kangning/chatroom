@@ -31,7 +31,6 @@ public class ResponseHandler extends SimpleChannelInboundHandler<ResponseMessage
             //System.out.println(3);
             waitSuccess=1;
             haveNoRead-=msg.getReadCount();
-            haveFile=msg.getHaveFile();
             if(msg.getMessageType()==Message.CheckGradeInGroup){
                 gradeInGroup=msg.getGradeInGroup();
             }
@@ -41,6 +40,7 @@ public class ResponseHandler extends SimpleChannelInboundHandler<ResponseMessage
                 System.out.println("保存成功");
             }
             else if(msg.getMessageType()==Message.FriendQueryRequestMessage){
+                haveFile=msg.getHaveFile();
                 friendList=msg.getFriendList();
                 //log.info("friendList=msg.getFriendList()");
             }

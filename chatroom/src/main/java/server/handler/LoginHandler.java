@@ -1,5 +1,6 @@
 package server.handler;
 
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
@@ -33,7 +34,11 @@ public class LoginHandler extends SimpleChannelInboundHandler<LoginRequestMessag
             ResultSet set= statement.executeQuery();
 
             if(set.next()){
-                if(set.getString(1).equals("F")){
+                if(set.getString(1).equals("T")){
+                    log.info("已登录，准备强制登录");
+                    Channel channel=SessionMap.getChannel(userID);
+                    channel.close();
+                }
                     log.info("登录成功");
                     sql="update user set online='T' where  userID=?";
                     statement=connection.prepareStatement(sql);
@@ -48,10 +53,7 @@ public class LoginHandler extends SimpleChannelInboundHandler<LoginRequestMessag
                         ctx.writeAndFlush(new FriendChatRequestMessage());
                     }*/
                     message=new ResponseMessage(true,"");
-                }else{
-                    log.info("登录失败");
-                    message=new ResponseMessage(false,"登录失败,已登录");
-                }
+
             }else{
                 log.info("登录失败");
                 message=new ResponseMessage(false,"登录失败,ID或密码错误");

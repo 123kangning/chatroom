@@ -15,10 +15,10 @@ import io.netty.util.concurrent.Future;
 @Slf4j
 public class TestNettyFuture {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        NioEventLoopGroup group=new NioEventLoopGroup();
+        NioEventLoopGroup group = new NioEventLoopGroup();
 
-        EventLoop eventLoop=group.next();
-        Future<Integer> future=eventLoop.submit(new Callable<Integer>() {
+        EventLoop eventLoop = group.next();
+        Future<Integer> future = eventLoop.submit(new Callable<Integer>() {
             @Override
             public Integer call() throws Exception {
                 log.debug("执行计算");
@@ -32,7 +32,7 @@ public class TestNettyFuture {
         future.addListener(new GenericFutureListener<Future<? super Integer>>() {
             @Override
             public void operationComplete(Future<? super Integer> future) throws Exception {
-                log.info("接受结果 ：{}",future.getNow());
+                log.info("接受结果 ：{}", future.getNow());
             }
         });
     }

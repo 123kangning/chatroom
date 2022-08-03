@@ -20,6 +20,12 @@ public class LogoutHandler extends SimpleChannelInboundHandler<LogoutRequestMess
         try{
             log.info("LogoutHandler");
             long userID= SessionMap.getUser(ctx.channel());
+            log.info("这个管道是 {}",ctx.channel());
+            log.info("In LogoutHandler userID={}",SessionMap.getUser(ctx.channel()));
+            if(userID==0){
+                ctx.writeAndFlush(new ResponseMessage(true,""));
+                return;
+            }
             String sql="update user set online='F' where userID=?";
             PreparedStatement statement=connection.prepareStatement(sql);
             statement.setLong(1,userID);

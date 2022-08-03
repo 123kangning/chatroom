@@ -8,6 +8,7 @@ public class ResponseMessage extends Message{
     private boolean success;
     private String reason;
     private int readCount=0;
+    private int mailAuthCode;
     private Map<String, List<String>> noticeMap;
     public  List<String> friendList;
     int MessageType=ResponseMessage;
@@ -18,6 +19,10 @@ public class ResponseMessage extends Message{
     public ResponseMessage(boolean success,String reason){
         this.success=success;
         this.reason=reason;
+    }
+
+    public void setMailAuthCode(int mailAuthCode) {
+        this.mailAuthCode = mailAuthCode;
     }
 
     public void setHaveFile(String haveFile) {
@@ -54,6 +59,10 @@ public class ResponseMessage extends Message{
 
     public File getFile() {
         return file;
+    }
+
+    public int getMailAuthCode() {
+        return mailAuthCode;
     }
 
     public int getGradeInGroup() {

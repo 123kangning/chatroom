@@ -15,26 +15,26 @@ import java.nio.charset.StandardCharsets;
 public class EventLoopServer {
     public static void main(String[] args) {
         //细分：创建出一个独立EventLoopGroup用于执行较为耗时的事件，使得执行NIO的线程不会被耗时的事件拖慢
-        EventLoopGroup group=new DefaultEventLoopGroup();
+        EventLoopGroup group = new DefaultEventLoopGroup();
         new ServerBootstrap()
                 //boss  and worker
                 //boss负责accept 事件 , worker负责socketChannel上的读写事件
-                .group(new NioEventLoopGroup(),new NioEventLoopGroup())
+                .group(new NioEventLoopGroup(), new NioEventLoopGroup())
                 .channel(NioServerSocketChannel.class)
                 .childHandler(new ChannelInitializer<NioSocketChannel>() {
                     @Override
                     protected void initChannel(NioSocketChannel nioSocketChannel) throws Exception {
-                        nioSocketChannel.pipeline().addLast("handler1",new ChannelInboundHandlerAdapter(){
+                        nioSocketChannel.pipeline().addLast("handler1", new ChannelInboundHandlerAdapter() {
                             @Override //msg is ByteBuf
                             public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-                                ByteBuf buf=(ByteBuf)msg;
+                                ByteBuf buf = (ByteBuf) msg;
                                 log.debug(buf.toString(StandardCharsets.UTF_8));
                                 ctx.fireChannelRead(msg);//将消息传递给下一个handler
                             }
-                        }).addLast(group,"handler2",new ChannelInboundHandlerAdapter(){
+                        }).addLast(group, "handler2", new ChannelInboundHandlerAdapter() {
                             @Override //msg is ByteBuf
                             public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-                                ByteBuf buf=(ByteBuf)msg;
+                                ByteBuf buf = (ByteBuf) msg;
                                 log.debug(buf.toString(StandardCharsets.UTF_8));
                                 System.out.println(buf.toString(StandardCharsets.UTF_8));
                             }

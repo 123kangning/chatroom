@@ -3,13 +3,14 @@ package netty.c2;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.*;
+
 @Slf4j
 public class TestJdkFuture {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         //1.创建线程池
-        ExecutorService executorService= Executors.newFixedThreadPool(2);
+        ExecutorService executorService = Executors.newFixedThreadPool(2);
         //2.提交任务
-        Future<Integer> future=executorService.submit(new Callable<Integer>() {
+        Future<Integer> future = executorService.submit(new Callable<Integer>() {
 
             @Override
             public Integer call() throws Exception {
@@ -21,7 +22,7 @@ public class TestJdkFuture {
         });
         //3.主线程通过Future获取结果
         log.debug("等待结果");
-        log.debug("结果是 {}",future.get());
+        log.debug("结果是 {}", future.get());
 
     }
 }

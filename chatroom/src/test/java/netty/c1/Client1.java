@@ -20,8 +20,9 @@ public class Client1 {
     public static void main(String[] args) {
         send();
     }
-    public static void send(){
-        NioEventLoopGroup group=new NioEventLoopGroup();
+
+    public static void send() {
+        NioEventLoopGroup group = new NioEventLoopGroup();
         new Bootstrap()
                 .group(group)
                 .channel(NioSocketChannel.class)
@@ -30,14 +31,14 @@ public class Client1 {
                     @Override
                     protected void initChannel(NioSocketChannel nioSocketChannel) throws Exception {
                         nioSocketChannel.pipeline().addLast(new LoggingHandler(LogLevel.DEBUG));
-                        nioSocketChannel.pipeline().addLast(new ChannelInboundHandlerAdapter(){
+                        nioSocketChannel.pipeline().addLast(new ChannelInboundHandlerAdapter() {
                             @Override
                             public void channelActive(ChannelHandlerContext ctx) throws Exception {
-                                ByteBuf buf=ctx.alloc().buffer();
-                                char c='a';
-                                Random random=new Random();
-                                for(int i=0;i<10;i++){
-                                    ByteBuf buf1=fill(c,random.nextInt(10)+1);
+                                ByteBuf buf = ctx.alloc().buffer();
+                                char c = 'a';
+                                Random random = new Random();
+                                for (int i = 0; i < 10; i++) {
+                                    ByteBuf buf1 = fill(c, random.nextInt(10) + 1);
                                     buf.writeBytes(buf1);
                                     c++;
                                 }
@@ -50,12 +51,13 @@ public class Client1 {
 
 
     }
-    public static ByteBuf fill(char c,int len){
-        ByteBuf buf= ByteBufAllocator.DEFAULT.buffer(16);
-        for(int i=0;i<len;i++){
+
+    public static ByteBuf fill(char c, int len) {
+        ByteBuf buf = ByteBufAllocator.DEFAULT.buffer(16);
+        for (int i = 0; i < len; i++) {
             buf.writeByte(c);
         }
-        for(int i=len;i<16;i++){
+        for (int i = len; i < 16; i++) {
             buf.writeByte('_');
         }
         return buf;

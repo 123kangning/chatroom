@@ -31,6 +31,7 @@ public class ResponseHandler extends SimpleChannelInboundHandler<ResponseMessage
             //System.out.println(3);
             waitSuccess=1;
             haveNoRead-=msg.getReadCount();
+            mailAuthCode=msg.getMailAuthCode();
             if(msg.getMessageType()==Message.CheckGradeInGroup){
                 gradeInGroup=msg.getGradeInGroup();
             }

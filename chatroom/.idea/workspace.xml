@@ -5,13 +5,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9ffa9a4-92e7-4c59-af71-ec04fc0405e8" name="变更" comment="变更">
+      <change afterPath="$PROJECT_DIR$/src/main/java/message/ChangePasswordRequestMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/handler/ChangePasswordHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/handler/SearchPasswordHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/session/MailSession.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Mail1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/SendMailHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/TestMail.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ChatClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client/ResponseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ResponseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/view/GroupEnterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/GroupEnterView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/view/EnterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/EnterView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/message/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/message/ResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/ResponseMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/message/SearchPasswordRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/SearchPasswordRequestMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ChatServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/FriendGetFileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/FriendGetFileHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/GroupNoticeHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/GroupNoticeHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/LoginHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/LoginHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/LogoutHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/LogoutHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/session/SessionMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/session/SessionMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/mysql/Test0.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/mysql/Test0.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/mysql/Test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/mysql/Test1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/mysql/Test2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/mysql/Test2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c1/Buffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c1/Buffer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c1/Client1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c1/Client1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c1/HelloClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c1/HelloClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c1/HelloServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c1/HelloServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c1/Server1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c1/Server1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c1/TestLengthFieldDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c1/TestLengthFieldDecoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c2/CloseFutureClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c2/CloseFutureClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c2/EventLoopClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c2/EventLoopClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c2/EventLoopServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c2/EventLoopServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c2/TestEventLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c2/TestEventLoop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c2/TestJdkFuture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c2/TestJdkFuture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c2/TestNettyFuture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c2/TestNettyFuture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c2/TestNettyPromise.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c2/TestNettyPromise.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/netty/c2/TestPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c2/TestPipeline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c3/EchoServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c3/EchoServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c3/NettyServerHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c3/NettyServerHandle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c3/TestByteBuf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c3/TestByteBuf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c3/TestCompositeByteBuf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c3/TestCompositeByteBuf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/netty/c3/TestSlice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/netty/c3/TestSlice.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +126,7 @@
       <recent name="netty.c2" />
     </key>
   </component>
-  <component name="RunManager" selected="应用程序.client.ChatClient">
+  <component name="RunManager" selected="应用程序.Mail1">
     <configuration name="ChatServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="server.ChatServer" />
       <module name="chatroom" />
@@ -103,6 +140,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Mail1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Mail1" />
+      <module name="chatroom" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Test" />
       <module name="chatroom" />
@@ -110,28 +154,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test0" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="mysql.Test0" />
+    <configuration name="TestMail" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TestMail" />
       <module name="chatroom" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="mysql.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestPipeline" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="netty.c2.TestPipeline" />
-      <module name="chatroom" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="netty.c2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -150,8 +175,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="应用程序.TestPipeline" />
-      <item itemvalue="应用程序.Test0" />
+      <item itemvalue="应用程序.Mail1" />
+      <item itemvalue="应用程序.TestMail" />
       <item itemvalue="应用程序.Test" />
       <item itemvalue="应用程序.client.ChatClient" />
       <item itemvalue="应用程序.ChatServer" />
@@ -160,9 +185,9 @@
       <list>
         <item itemvalue="应用程序.client.ChatClient" />
         <item itemvalue="应用程序.ChatServer" />
+        <item itemvalue="应用程序.Mail1" />
+        <item itemvalue="应用程序.TestMail" />
         <item itemvalue="应用程序.Test" />
-        <item itemvalue="应用程序.TestPipeline" />
-        <item itemvalue="应用程序.Test0" />
       </list>
     </recent_temporary>
   </component>
@@ -231,7 +256,7 @@
       <workItem from="1659362469581" duration="104000" />
       <workItem from="1659362997071" duration="4540000" />
       <workItem from="1659445682951" duration="844000" />
-      <workItem from="1659490377072" duration="5547000" />
+      <workItem from="1659490377072" duration="21031000" />
     </task>
     <servers />
   </component>

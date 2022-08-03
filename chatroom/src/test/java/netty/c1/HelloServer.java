@@ -22,16 +22,16 @@ public class HelloServer {
                 //调整系统接收缓冲区（滑动窗口）
                 //.option(ChannelOption.SO_RCVBUF,10)
                 //调整netty接收缓冲区（ByteBuf）
-                .childOption(ChannelOption.RCVBUF_ALLOCATOR,new AdaptiveRecvByteBufAllocator(16,16,16))
+                .childOption(ChannelOption.RCVBUF_ALLOCATOR, new AdaptiveRecvByteBufAllocator(16, 16, 16))
                 //4.boss 负责处理连接 worker(child)负责处理读写，决定了worker(child) 能执行哪些操作（handler）
                 .childHandler(//handler理解为一道道处理工序，合在一起就是pipeline
                         //5.channel代表和客户端进行数据读写的的通道 Initializer是初始化器，负责添加别的 handler
-                        new ChannelInitializer<NioSocketChannel>(){
+                        new ChannelInitializer<NioSocketChannel>() {
 
-                    @Override //accept 连接建立后调用initChannel方法
-                    protected void initChannel(NioSocketChannel nioSocketChannel) throws Exception {
-                        //6.添加具体handler,即一道流水线工具
-                        nioSocketChannel.pipeline().addLast(new LoggingHandler(LogLevel.DEBUG));//将ByteBuf转换为字符串
+                            @Override //accept 连接建立后调用initChannel方法
+                            protected void initChannel(NioSocketChannel nioSocketChannel) throws Exception {
+                                //6.添加具体handler,即一道流水线工具
+                                nioSocketChannel.pipeline().addLast(new LoggingHandler(LogLevel.DEBUG));//将ByteBuf转换为字符串
                         /*nioSocketChannel.pipeline().addLast(new ChannelInboundHandlerAdapter() {//自定义handler
                             @Override //读事件
                             public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
@@ -39,8 +39,8 @@ public class HelloServer {
                                 System.out.println(msg);
                             }
                         });*/
-                    }
-                }).bind(8080);//ServerSocket启动后绑定的监听端口
+                            }
+                        }).bind(8080);//ServerSocket启动后绑定的监听端口
 
     }
 }

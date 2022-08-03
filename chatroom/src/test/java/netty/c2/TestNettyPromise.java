@@ -11,16 +11,16 @@ import java.util.concurrent.ExecutionException;
 public class TestNettyPromise {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         //1.准备EvenLoop对象
-        NioEventLoopGroup group=new NioEventLoopGroup();
-        EventLoop eventLoop=group.next();
+        NioEventLoopGroup group = new NioEventLoopGroup();
+        EventLoop eventLoop = group.next();
         //2.主动创建promise,结果容器
-        DefaultPromise<Integer> promise=new DefaultPromise<>(eventLoop);
+        DefaultPromise<Integer> promise = new DefaultPromise<>(eventLoop);
 
-        new Thread(()->{
+        new Thread(() -> {
             //3.任意一个线程执行计算，执行完毕
             log.info("开始计算");
             try {
-                int i=1/0;
+                int i = 1 / 0;
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -31,7 +31,7 @@ public class TestNettyPromise {
         }).start();
         //4.接受结果
         log.info("等待结果");
-        log.info("结果是{}",promise.get());
+        log.info("结果是{}", promise.get());
 
     }
 }

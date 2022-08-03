@@ -47,6 +47,7 @@ public class GroupNoticeHandler extends SimpleChannelInboundHandler<GroupNoticeR
                 for(int i=1;i<self;i++){
                     list.remove(list.size()-1);
                 }
+                ans=new StringBuilder(ans.substring(0,list.size()));
                 self=1;
             }
             content=set.getString(3);

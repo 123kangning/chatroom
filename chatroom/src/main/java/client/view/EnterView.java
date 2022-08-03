@@ -5,10 +5,7 @@ import com.alibaba.druid.util.StringUtils;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import lombok.extern.slf4j.Slf4j;
-import message.LoginRequestMessage;
-import message.LogoutRequestMessage;
-import message.Message;
-import message.SignInRequestMessage;
+import message.*;
 
 import java.util.Scanner;
 
@@ -25,6 +22,8 @@ public class EnterView {
             System.out.println("\t+-----------------+");
             System.out.println("\t|   2   注册       |");
             System.out.println("\t+-----------------+");
+            System.out.println("\t|   3   找回密码    |");
+            System.out.println("\t+-----------------+");
             System.out.println("\t|   0   退出系统   |");
             System.out.println("\t+-----------------+\n");
             System.out.println("输入你的选择：");
@@ -36,7 +35,7 @@ public class EnterView {
                 s=scanner.nextLine();
             }
             switch (Integer.parseInt(s)){
-                case 1:
+                case 1:{
                     System.out.println("请输入用户ID：");
                     String s1=scanner.nextLine();
                     while(!StringUtils.isNumber(s1)){
@@ -62,11 +61,9 @@ public class EnterView {
                     if(waitSuccess==1){
                         new MainView(ctx);
                     }
-                /*Message.LoginResponseMessage.await();
-                log.info("会执行到这里吗？？？");*/
-
                     break;
-                case 2:
+                }
+                case 2:{
                     System.out.println("请输入用户名称(<=50位)：");
                     String username= scanner.nextLine();
                     while(username.length()>=50){
@@ -93,10 +90,55 @@ public class EnterView {
                         e.printStackTrace();
                     }
                     break;
-                case 0:
+                }
+                case 3:{
+                    System.out.println("请输入你的ID：");
+                    String s1=scanner.nextLine();
+                    while(!StringUtils.isNumber(s1)){
+                        System.out.println("输入不规范，请重新输入用户ID：");
+                        s1=scanner.nextLine();
+                    }
+                    int userID= Integer.parseInt(s1);
+                    ctx.writeAndFlush(new SearchPasswordRequestMessage(userID));
+                    try {
+                        synchronized (waitMessage){
+                            waitMessage.wait();
+                        }
+
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    if(waitSuccess==1){
+                        System.out.println("请输入你收到的验证码：");
+                        s1=scanner.nextLine();
+                        int AuthCode=Integer.parseInt(s1);
+                        if(AuthCode==mailAuthCode){
+                            System.out.println("请重新设置你的密码：");
+                            s1=scanner.nextLine();
+                            while(s1.length()<6){
+                                System.out.println("密码过短，请重新输入密码：");
+                                s1=scanner.nextLine();
+                            }
+                            ctx.writeAndFlush(new ChangePasswordRequestMessage(userID,s1));
+                            try {
+                                synchronized (waitMessage){
+                                    waitMessage.wait();
+                                }
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                            if(waitSuccess==1){
+                                System.out.println("密码重置成功");
+                            }
+                        }
+                    }
+                    break;
+                }
+                case 0:{
                     System.out.println("\t-----正在退出系统-----");
                     ctx.channel().close();
                     return;
+                }
             }
         }
     }

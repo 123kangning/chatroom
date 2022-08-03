@@ -23,6 +23,7 @@ public class ChatClient {
 
     public static String myUsername;
     public static int myUserID;
+    public static volatile int mailAuthCode;
     public static volatile int haveNoRead=0;//默认没有未读消息
     public static final Object waitMessage=new Object();//服务端消息返回时，notify线程 View handler
     public static final Object waitRVFile=new Object();

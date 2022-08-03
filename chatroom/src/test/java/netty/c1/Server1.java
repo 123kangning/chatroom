@@ -14,11 +14,11 @@ import io.netty.handler.logging.LoggingHandler;
 
 public class Server1 {
     public static void main(String[] args) {
-        NioEventLoopGroup group=new NioEventLoopGroup();
+        NioEventLoopGroup group = new NioEventLoopGroup();
         new ServerBootstrap()
                 .group(group)
                 .channel(NioServerSocketChannel.class)
-                .childOption(ChannelOption.RCVBUF_ALLOCATOR,new AdaptiveRecvByteBufAllocator(16,16,16))
+                .childOption(ChannelOption.RCVBUF_ALLOCATOR, new AdaptiveRecvByteBufAllocator(16, 16, 16))
                 .childHandler(new ChannelInitializer<NioSocketChannel>() {
 
                     @Override

@@ -27,5 +27,14 @@ public final class SessionMap {
             return 0;
         }
     }
+    public static boolean remove(int userID,Channel channel){
+        if(mapToChannel.containsKey(userID)){
+            mapToChannel.remove(userID);
+            mapToUser.remove(channel);
+            return true;
+        }else{
+            return false;
+        }
+    }
 
 }

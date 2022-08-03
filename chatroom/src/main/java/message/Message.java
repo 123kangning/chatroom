@@ -20,8 +20,7 @@ public abstract class Message implements Serializable {
     public static final int SignInResponseMessage=5;
   public static final int SignOutRequestMessage=6;//注销
     public static final int SignOutResponseMessage=7;
-  public static final int SearchPasswordRequestMessage=8;//找回密码
-    public static final int SearchPasswordResponseMessage=9;
+  public static final int SearchPassword=8;//找回密码
 
   public static final int CheckGradeInGroup=10;//判断在群组中的身份
     public static final int GroupCreateResponseMessage=11;

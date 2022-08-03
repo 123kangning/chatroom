@@ -11,14 +11,15 @@ import java.net.InetSocketAddress;
 
 public class HelloClient {
     public static void main(String[] args) throws InterruptedException {
-        for(int i=0;i<10;i++){
+        for (int i = 0; i < 10; i++) {
             send();
         }
     }
+
     public static void send() throws InterruptedException {
-        NioEventLoopGroup group=new NioEventLoopGroup();
+        NioEventLoopGroup group = new NioEventLoopGroup();
         //1.客户端启动器类
-        try{
+        try {
             new Bootstrap()
                     //2.添加 EventLoop
                     .group(group)
@@ -30,11 +31,11 @@ public class HelloClient {
                         @Override //在连接建立后被调用
                         protected void initChannel(NioSocketChannel nioSocketChannel) throws Exception {
 
-                            nioSocketChannel.pipeline().addLast(new ChannelInboundHandlerAdapter(){
+                            nioSocketChannel.pipeline().addLast(new ChannelInboundHandlerAdapter() {
                                 @Override
                                 public void channelActive(ChannelHandlerContext ctx) throws Exception {
-                                    ByteBuf buf=ctx.alloc().buffer(16);
-                                    buf.writeBytes(new byte[]{'0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h'});
+                                    ByteBuf buf = ctx.alloc().buffer(16);
+                                    buf.writeBytes(new byte[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'});
                                     ctx.writeAndFlush(buf);
                                     ctx.channel().close();
                                 }
@@ -42,9 +43,9 @@ public class HelloClient {
                         }
                     })
                     //5.连接到服务器
-                    .connect(new InetSocketAddress("localhost",8080))
+                    .connect(new InetSocketAddress("localhost", 8080))
                     .sync();
-        }finally{
+        } finally {
             group.shutdownGracefully();
         }
 

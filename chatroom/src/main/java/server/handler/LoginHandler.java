@@ -37,6 +37,8 @@ public class LoginHandler extends SimpleChannelInboundHandler<LoginRequestMessag
                 if(set.getString(1).equals("T")){
                     log.info("已登录，准备强制登录");
                     Channel channel=SessionMap.getChannel(userID);
+                    boolean fin=SessionMap.remove(userID,channel);
+                    log.info("移除管道->{}",fin);
                     channel.close();
                 }
                     log.info("登录成功");

@@ -13,6 +13,7 @@ import message.LogoutRequestMessage;
 import protocol.MessageCodec;
 import protocol.ProtocolFrameDecoder;
 import server.handler.*;
+import server.session.SessionMap;
 
 import java.sql.*;
 
@@ -66,8 +67,10 @@ public class ChatServer {
                                         @Override
                                         public void channelInactive(ChannelHandlerContext ctx) throws Exception {
                                             log.info("channelInactive");
-                                            LogoutRequestMessage msg=new LogoutRequestMessage();
-                                            super.channelRead(ctx,msg);
+                                            if(SessionMap.getUser(ctx.channel())!=0){
+                                                LogoutRequestMessage msg=new LogoutRequestMessage();
+                                                super.channelRead(ctx,msg);
+                                            }
                                         }
                                     })
                                     .addLast(new LoginHandler())
@@ -98,7 +101,9 @@ public class ChatServer {
                                     .addLast(new GroupDeleteHandler())
                                     .addLast(new GroupNoticeHandler())
                                     .addLast(new GroupChatHandler())
-                                    .addLast(new SignInHandler());
+                                    .addLast(new SignInHandler())
+                                    .addLast(new ChangePasswordHandler())
+                                    .addLast(new SearchPasswordHandler());
                         }
                     })
                     .bind(8080);

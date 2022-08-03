@@ -19,7 +19,7 @@ public class EventLoopClient {
     //netty中的异步处理并不能提高效率，它的意义是提高吞吐量，（每个线程只做一类事件、合理拆分任务事件也是netty利用异步处理的核心）
     public static void main(String[] args) throws InterruptedException {
         //1.客户端启动器类
-        ChannelFuture channelFuture=new Bootstrap()
+        ChannelFuture channelFuture = new Bootstrap()
                 //2.添加 EventLoop
                 .group(new NioEventLoopGroup())
                 //3.选择客户端channel实现
@@ -34,7 +34,7 @@ public class EventLoopClient {
                 })
                 //5.连接到服务器
                 //connect 异步非阻塞，另一个线程（NIO线程）去执行connect,当前线程没有进行等待（）无阻塞向下执行，需要使用sync()方法等待connect方法执行成功
-                .connect(new InetSocketAddress("localhost",8080));
+                .connect(new InetSocketAddress("localhost", 8080));
         //￥使用sync方法同步处理i结果
         /*channelFuture.sync();//阻塞方法，直到连接建立
         Channel channel=channelFuture.channel();//代表连接对象，如果没有sync()方法，这个channel就是一个无用的channel
@@ -47,8 +47,8 @@ public class EventLoopClient {
             @Override
             public void operationComplete(ChannelFuture channelFuture) throws Exception {
 
-                Channel channel=channelFuture.channel();//代表连接对象，如果没有sync()方法，这个channel就是一个无用的channel
-                log.debug("{}",channel);
+                Channel channel = channelFuture.channel();//代表连接对象，如果没有sync()方法，这个channel就是一个无用的channel
+                log.debug("{}", channel);
                 channel.writeAndFlush("hello");
 
 

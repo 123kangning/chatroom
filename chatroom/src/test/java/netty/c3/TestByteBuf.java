@@ -11,13 +11,13 @@ import java.nio.charset.Charset;
 public class TestByteBuf {
     public static void main(String[] args) {
         //ByteBuf可动态扩容
-        ByteBuf buf= ByteBufAllocator.DEFAULT.buffer();
+        ByteBuf buf = ByteBufAllocator.DEFAULT.buffer();
 
-        StringBuilder sb=new StringBuilder();
-        for(int i=0;i<300;i++){
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 300; i++) {
             sb.append("a");
         }
         buf.writeBytes(sb.toString().getBytes());
-        log.debug("buf = {},",buf);
+        log.debug("buf = {},", buf);
     }
 }

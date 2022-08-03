@@ -21,17 +21,17 @@ public class EchoServer {
                 .childHandler(new ChannelInitializer<NioSocketChannel>() {
                     @Override
                     protected void initChannel(NioSocketChannel nioSocketChannel) throws Exception {
-                        nioSocketChannel.pipeline().addLast(new ChannelInboundHandlerAdapter(){
+                        nioSocketChannel.pipeline().addLast(new ChannelInboundHandlerAdapter() {
                             @Override
                             public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-                                ByteBuf buf=msg instanceof ByteBuf ? ((ByteBuf)msg):null;
-                                System.out.println("buf = "+buf);
+                                ByteBuf buf = msg instanceof ByteBuf ? ((ByteBuf) msg) : null;
+                                System.out.println("buf = " + buf);
                                 assert buf != null;
-                                log.info("count1 = "+buf.refCnt());
+                                log.info("count1 = " + buf.refCnt());
                                 //ctx.writeAndFlush方法执行之后ByteBuf中计数器数自动减一
                                 //ctx.writeAndFlush(buf);
                                 nioSocketChannel.writeAndFlush(buf);
-                                log.info("count2 = "+buf.refCnt());
+                                log.info("count2 = " + buf.refCnt());
 
                             }
                         });

@@ -1,5 +1,6 @@
 package protocol;
 
+import Config.Config;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageCodec;
@@ -11,6 +12,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.List;
+import java.util.Properties;
 
 @Slf4j
 public class MessageCodec extends ByteToMessageCodec<Message> {
@@ -20,13 +22,13 @@ public class MessageCodec extends ByteToMessageCodec<Message> {
         //1.4 字节,魔数
         byteBuf.writeBytes(new byte[]{9, 2, 6, 4});
         //2.1 字节,序列化算法方式 0-->jdk ，1-->json
-        byteBuf.writeByte(0);
+        byteBuf.writeByte(Config.getSerializerAlgorithm().ordinal());
 /*        //3.1 字节,指令类型
         byteBuf.writeByte(message.getMessageType());*/
         //4.4 字节,请求序号（为了双工通信，提高异步能力）
         byteBuf.writeInt(message.getSequenceId());
 
-        byte[] bytes=Serializer.Algorithm.Java.serialize(message);
+        byte[] bytes=Config.getSerializerAlgorithm().serialize(message);
         //5.4 字节，消息长度
         byteBuf.writeInt(bytes.length);
         //log.info("encode length={}",bytes.length);
@@ -50,7 +52,7 @@ public class MessageCodec extends ByteToMessageCodec<Message> {
         byteBuf.readBytes(bytes, 0, length);
         if (serializerType == 0) {
             //使用jdk序列化
-            Message message = Serializer.Algorithm.Java.deserialize(Message.class,bytes);
+            Message message = Serializer.Algorithm.values()[serializerType].deserialize(Message.class,bytes);
             /*log.info("{}, {}, {}, {}, {}",magicNum,serializerType,messageType,sequenceId,length);
             log.info("{}",message);*/
             list.add(message);

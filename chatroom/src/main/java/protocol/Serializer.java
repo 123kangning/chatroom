@@ -1,8 +1,9 @@
 package protocol;
 
-import message.Message;
+import com.google.gson.Gson;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public interface Serializer {
     <T> T deserialize(Class<T> cla,byte[] bytes);
@@ -32,6 +33,19 @@ public interface Serializer {
                     e.printStackTrace();
                     throw new RuntimeException("序列化失败",e);
                 }
+            }
+        },
+        Json {
+            @Override
+            public <T> T deserialize(Class<T> cla, byte[] bytes) {
+                String json=new String(bytes,StandardCharsets.UTF_8);
+                return new Gson().fromJson(json,cla);
+            }
+
+            @Override
+            public <T> byte[] serialize(T object) {
+                String json=new Gson().toJson(object);
+                return json.getBytes(StandardCharsets.UTF_8);
             }
         }
     }

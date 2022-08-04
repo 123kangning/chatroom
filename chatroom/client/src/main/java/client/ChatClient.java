@@ -82,7 +82,7 @@ public class ChatClient {
                                     });
                         }
                     })
-                    .connect(new InetSocketAddress("localhost", 8080));
+                    .connect(new InetSocketAddress("192.168.30.213", 8080));
             Channel channel = future.sync().channel();
 
             channel.closeFuture().sync();

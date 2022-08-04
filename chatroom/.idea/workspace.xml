@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9ffa9a4-92e7-4c59-af71-ec04fc0405e8" name="变更" comment="变更">
-      <change afterPath="$PROJECT_DIR$/src/main/java/message/AuthCodeRequestMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/handler/SendAuthCodeHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/protocol/Serializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/ResponseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ResponseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/view/EnterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/EnterView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ChatServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/FriendApplyQueryHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/FriendApplyQueryHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/SignInHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/SignInHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/protocol/MessageCodec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/protocol/MessageCodec.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +18,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="AnnotationType" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -91,7 +85,7 @@
       <recent name="netty.c2" />
     </key>
   </component>
-  <component name="RunManager" selected="应用程序.Test">
+  <component name="RunManager" selected="应用程序.client.ChatClient">
     <configuration name="ChatServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="server.ChatServer" />
       <module name="chatroom" />
@@ -148,9 +142,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="应用程序.Test" />
         <item itemvalue="应用程序.client.ChatClient" />
         <item itemvalue="应用程序.ChatServer" />
+        <item itemvalue="应用程序.Test" />
         <item itemvalue="应用程序.Mail1" />
         <item itemvalue="应用程序.TestMail" />
       </list>
@@ -222,7 +216,8 @@
       <workItem from="1659362997071" duration="4540000" />
       <workItem from="1659445682951" duration="844000" />
       <workItem from="1659490377072" duration="30182000" />
-      <workItem from="1659575390995" duration="6947000" />
+      <workItem from="1659575390995" duration="7218000" />
+      <workItem from="1659583008356" duration="1896000" />
     </task>
     <servers />
   </component>

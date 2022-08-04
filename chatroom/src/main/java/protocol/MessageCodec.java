@@ -26,10 +26,7 @@ public class MessageCodec extends ByteToMessageCodec<Message> {
         //4.4 字节,请求序号（为了双工通信，提高异步能力）
         byteBuf.writeInt(message.getSequenceId());
 
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        ObjectOutputStream oos = new ObjectOutputStream(bos);
-        oos.writeObject(message);
-        byte[] bytes = bos.toByteArray();
+        byte[] bytes=Serializer.Algorithm.Java.serialize(message);
         //5.4 字节，消息长度
         byteBuf.writeInt(bytes.length);
         //log.info("encode length={}",bytes.length);
@@ -53,8 +50,7 @@ public class MessageCodec extends ByteToMessageCodec<Message> {
         byteBuf.readBytes(bytes, 0, length);
         if (serializerType == 0) {
             //使用jdk序列化
-            ObjectInputStream ois = new ObjectInputStream(new ByteArrayInputStream(bytes));
-            Message message = (Message) ois.readObject();
+            Message message = Serializer.Algorithm.Java.deserialize(Message.class,bytes);
             /*log.info("{}, {}, {}, {}, {}",magicNum,serializerType,messageType,sequenceId,length);
             log.info("{}",message);*/
             list.add(message);

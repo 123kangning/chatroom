@@ -15,7 +15,7 @@ import static server.ChatServer.connection;
 public class SignOutHandler extends SimpleChannelInboundHandler<SignOutRequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, SignOutRequestMessage msg) throws Exception {
-        long userID = SessionMap.getUser(ctx.channel());
+        int userID = SessionMap.getUser(ctx.channel());
         String sql = "delete from user where userID=?";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setLong(1, userID);
@@ -28,6 +28,19 @@ public class SignOutHandler extends SimpleChannelInboundHandler<SignOutRequestMe
             message = new ResponseMessage(false, "注销失败");
         }
         ctx.writeAndFlush(message);
+        String sql1="delete from friend where fromID=? or toID=?";
+        PreparedStatement ps=connection.prepareStatement(sql1);
+        ps.setInt(1,userID);
+        ps.setInt(2,userID);
+
+        sql1="delete from group2 where userID=? ";
+        ps=connection.prepareStatement(sql1);
+        ps.setInt(1,userID);
+        ps.executeUpdate();
+        sql1="delete from message where talkerID=?  and isAccept='F'";
+        ps=connection.prepareStatement(sql1);
+        ps.setInt(1,userID);
+        ps.executeUpdate();
         log.info("ctx.writeAndFlush(message)");
     }
 }

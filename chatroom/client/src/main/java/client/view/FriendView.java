@@ -1,7 +1,10 @@
 package client.view;
 
 import com.alibaba.druid.util.StringUtils;
+import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.util.concurrent.Future;
+import io.netty.util.concurrent.GenericFutureListener;
 import lombok.extern.slf4j.Slf4j;
 import message.*;
 
@@ -191,7 +194,13 @@ public class FriendView {
                             }
                             message = new FriendChatRequestMessage(myUserID, FriendID, file, "F");
                             message.setTalker_type("F");
-                            ctx.writeAndFlush(message);
+                            ChannelFuture sendFile= ctx.writeAndFlush(message);
+                            sendFile.addListener(new GenericFutureListener<Future<? super Void>>() {
+                                @Override
+                                public void operationComplete(Future<? super Void> future) throws Exception {
+                                    System.out.println("发送完成");
+                                }
+                            });
                             try {
                                 synchronized (waitMessage) {
                                     waitMessage.wait();

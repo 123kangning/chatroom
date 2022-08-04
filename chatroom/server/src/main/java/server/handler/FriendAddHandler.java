@@ -66,26 +66,34 @@ public class FriendAddHandler extends SimpleChannelInboundHandler<FriendAddReque
                     ctx.writeAndFlush(message);
                     return;
                 }
-                String sql = "insert into  friend(fromID,toID,shield,to_name,From_name) values(?,?,'0',?,?)";
-                ps = connection.prepareStatement(sql);
-                ps.setInt(1, userID);
-                ps.setInt(2, FriendID);
-                ps.setString(3, friendName);
-                ps.setString(4, username);
-                count += ps.executeUpdate();
-                sql = "update message set isAccept='T' where userID=? and talkerID=? and talker_type='F' and msg_type='A' and isAccept='F'";
+
+                if(!msg.isNoAdd()){
+                    String sql = "insert into  friend(fromID,toID,shield,to_name,From_name) values(?,?,'0',?,?)";
+                    ps = connection.prepareStatement(sql);
+                    ps.setInt(1, userID);
+                    ps.setInt(2, FriendID);
+                    ps.setString(3, friendName);
+                    ps.setString(4, username);
+                    count += ps.executeUpdate();
+                }
+
+
+                String sql = "update message set isAccept='T' where userID=? and talkerID=? and talker_type='F' and msg_type='A' and isAccept='F'";
                 ps = connection.prepareStatement(sql);
                 ps.setInt(1, userID);
                 ps.setInt(2, FriendID);
                 int row = ps.executeUpdate();
             }
-
-            if (count == length) {
+            if(msg.isNoAdd()){
                 message = new ResponseMessage(true, "");
-            } else if (count > 0) {
-                message = new ResponseMessage(false, "部分添加失败");
-            } else {
-                message = new ResponseMessage(false, "添加失败");
+            }else{
+                if (count == length) {
+                    message = new ResponseMessage(true, "");
+                } else if (count > 0) {
+                    message = new ResponseMessage(false, "部分添加失败");
+                } else {
+                    message = new ResponseMessage(false, "添加失败");
+                }
             }
             ctx.writeAndFlush(message);
         } catch (SQLException e) {

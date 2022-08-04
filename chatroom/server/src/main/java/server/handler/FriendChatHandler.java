@@ -105,7 +105,7 @@ public class FriendChatHandler extends SimpleChannelInboundHandler<FriendChatReq
         if (msg_type.equals("S")) {
             ps2.setString(7, chat);
         } else {
-            addFile = System.getProperty("user.dir") + "server/story/" + file.getName() + new DateTime(System.currentTimeMillis());
+            addFile = System.getProperty("user.dir") + "/server/story/" + file.getName() + new DateTime(System.currentTimeMillis());
             log.info("addFile = {}", addFile);
             if (msg_type.equals("F")) {
                 log.info("chat = {}", file.getAbsolutePath());

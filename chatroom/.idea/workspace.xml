@@ -5,14 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9ffa9a4-92e7-4c59-af71-ec04fc0405e8" name="变更" comment="变更">
-      <change afterPath="$PROJECT_DIR$/client/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/test/java/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ChatClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/Config/Config.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/protocol/MessageCodec.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/protocol/MessageCodec.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/protocol/Serializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/Config/Config.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/protocol/MessageCodec.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/protocol/MessageCodec.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/protocol/Serializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/handler/FriendChatHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/handler/FriendChatHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/handler/FriendGetFileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/handler/FriendGetFileHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/Config/Config.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/protocol/MessageCodec.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/protocol/MessageCodec.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/protocol/Serializer$Algorithm$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/protocol/Serializer$Algorithm$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/protocol/Serializer$Algorithm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/protocol/Serializer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/server/handler/FriendChatHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/handler/FriendChatHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Config/Config.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/protocol/MessageCodec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/protocol/MessageCodec.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/protocol/Serializer.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +106,7 @@
       <recent name="netty.c2" />
     </key>
   </component>
-  <component name="RunManager" selected="应用程序.Test (1)">
+  <component name="RunManager" selected="应用程序.client.ChatClient">
     <configuration name="ChatServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="server.ChatServer" />
       <module name="chatroom" />
@@ -114,27 +127,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Test" />
-      <module name="chatroom" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestConnection" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="netty.source.TestConnection" />
-      <module name="chatroom" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="netty.source.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="client.ChatClient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+    <configuration name="client.ChatClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="client.ChatClient" />
       <module name="chatroom" />
       <extension name="coverage">
@@ -147,20 +140,45 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="client.ChatClient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="client.ChatClient" />
+      <module name="client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="server.ChatServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="server.ChatServer" />
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="应用程序.Test (1)" />
-      <item itemvalue="应用程序.TestConnection" />
-      <item itemvalue="应用程序.Test" />
+      <item itemvalue="应用程序.server.ChatServer" />
       <item itemvalue="应用程序.client.ChatClient" />
       <item itemvalue="应用程序.ChatServer" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="应用程序.Test (1)" />
-        <item itemvalue="应用程序.TestConnection" />
+        <item itemvalue="应用程序.client.ChatClient" />
+        <item itemvalue="应用程序.server.ChatServer" />
         <item itemvalue="应用程序.client.ChatClient" />
         <item itemvalue="应用程序.ChatServer" />
-        <item itemvalue="应用程序.Test" />
+        <item itemvalue="应用程序.Test (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -233,7 +251,7 @@
       <workItem from="1659575390995" duration="7218000" />
       <workItem from="1659583008356" duration="2427000" />
       <workItem from="1659596294948" duration="2488000" />
-      <workItem from="1659599228230" duration="5029000" />
+      <workItem from="1659599228230" duration="6471000" />
     </task>
     <servers />
   </component>

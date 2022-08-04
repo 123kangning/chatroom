@@ -52,10 +52,10 @@ public class FriendGetFileHandler extends SimpleChannelInboundHandler<FriendGetF
                     message.setMessageType(Message.FriendGetFileRequestMessage);
                 }
                 ctx.writeAndFlush(message);
-                if (!isGroup) {
+                /*if (!isGroup) {
                     boolean del = file.delete();
                     log.info("story 中文件空间清除 {}", del);
-                }
+                }*/
                 log.info("服务端文件发送成功");
                 String sql1 = "update message set isAccept ='T' where msg_id =?";
                 PreparedStatement ps1 = connection.prepareStatement(sql1);

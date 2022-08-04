@@ -45,7 +45,10 @@ public class ResponseHandler extends SimpleChannelInboundHandler<ResponseMessage
                 //log.info("friendList=msg.getFriendList()");
             } else if (msg.getMessageType() == Message.noticeMapMessage) {
                 noticeMap = msg.getNoticeMap();
-            } else {
+            }else if(msg.getMessageType()==Message.SignInResponseMessage){
+                System.out.println("\t"+msg.getReason());
+            }
+            else {
                 //System.out.print("操作成功 "+reason);
             }
 

@@ -121,6 +121,7 @@ public class ChatServer {
                                     .addLast(new GroupChatHandler())
                                     .addLast(new SignInHandler())
                                     .addLast(new ChangePasswordHandler())
+                                    .addLast(new SendAuthCodeHandler())
                                     .addLast(new SearchPasswordHandler());
                         }
                     })

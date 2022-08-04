@@ -21,7 +21,7 @@ public class FriendApplyQueryHandler extends SimpleChannelInboundHandler<FriendA
     protected void channelRead0(ChannelHandlerContext ctx, FriendApplyQueryMessage msg) throws Exception {
         try {
             int userID = msg.getUserID();
-            String sql = "select talkerID from message where userID=? and talker_type='F' and msg_type='A' and isAccept='F'";
+            String sql = "select talkerID from message where userID=? and talker_type='F' and msg_type='A' and groupID=0 and  isAccept='F'";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, userID);
             ResultSet set = ps.executeQuery();

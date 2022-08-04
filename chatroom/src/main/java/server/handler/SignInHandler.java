@@ -56,7 +56,7 @@ public class SignInHandler extends SimpleChannelInboundHandler<SignInRequestMess
 
                 set1.next();
                 userID = set1.getInt(1);
-                message = new ResponseMessage(true, "，您的id为" + userID);
+                message = new ResponseMessage(true, "您的id为" + userID);
             }
             message.setMessageType(Message.SignInResponseMessage);
             ctx.writeAndFlush(message);

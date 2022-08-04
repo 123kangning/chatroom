@@ -5,10 +5,7 @@ import com.alibaba.druid.util.StringUtils;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import lombok.extern.slf4j.Slf4j;
-import message.ChangePasswordRequestMessage;
-import message.LoginRequestMessage;
-import message.SearchPasswordRequestMessage;
-import message.SignInRequestMessage;
+import message.*;
 
 import java.util.Scanner;
 
@@ -75,15 +72,14 @@ public class EnterView {
                     }
                     System.out.println("请输入密码：");
                     String password1 = scanner.nextLine();
-                    System.out.println("请输入邮箱地址：");
+                    System.out.println("请输入邮箱地址用于接收验证码(形如:xxx@qq.com、xxx@gmail.com)：");
                     String mail = scanner.nextLine();
                     while (mail.length() >= 50) {
-                        System.out.println("名称过长，请重新输入用户名称：");
+                        System.out.println("邮箱地址过长，请重新输入：");
                         mail = scanner.nextLine();
                     }
                     log.info("username={}, password={}, mail={}", username, password1, mail);
-                    SignInRequestMessage message1 = new SignInRequestMessage(username, password1, mail);
-                    ctx.writeAndFlush(message1);
+                    ctx.writeAndFlush(new AuthCodeRequestMessage(mail));
                     try {
                         synchronized (waitMessage) {
                             waitMessage.wait();
@@ -91,6 +87,34 @@ public class EnterView {
 
                     } catch (InterruptedException e) {
                         e.printStackTrace();
+                    }
+                    if (waitSuccess == 1) {
+                        System.out.println("请输入你收到的验证码：");
+                        String s1;
+                        for(int i=0;i<2;i++){
+                            s1= scanner.nextLine();
+                            int AuthCode = Integer.parseInt(s1);
+                            if (AuthCode == mailAuthCode) {
+                                SignInRequestMessage message1 = new SignInRequestMessage(username, password1, mail);
+                                ctx.writeAndFlush(message1);
+                                try {
+                                    synchronized (waitMessage) {
+                                        waitMessage.wait();
+                                    }
+
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                                break;
+                            }else{
+                                if(i==0){
+                                    System.out.println("输入错误，你还有一次机会");
+                                }else{
+                                    System.out.println("注册失败");
+                                }
+                            }
+                        }
+
                     }
                     break;
                 }
@@ -118,7 +142,7 @@ public class EnterView {
                         if (AuthCode == mailAuthCode) {
                             System.out.println("请重新设置你的密码：");
                             s1 = scanner.nextLine();
-                            while (s1.length() < 6) {
+                            while (s1.length() < 3) {
                                 System.out.println("密码过短，请重新输入密码：");
                                 s1 = scanner.nextLine();
                             }

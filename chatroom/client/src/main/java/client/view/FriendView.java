@@ -1,5 +1,6 @@
 package client.view;
 
+import client.SendFile;
 import com.alibaba.druid.util.StringUtils;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandlerContext;
@@ -182,7 +183,7 @@ public class FriendView {
                         FriendChatRequestMessage message;
                         if (chat.equalsIgnoreCase("F")) {
                             File file;
-                            System.out.println("请输入待发送的文件的[绝对路径]：");
+                            System.out.println("请输入待发送的文件的[绝对路径](不支持1G以上文件！)：");
                             file = new File(scanner.nextLine());
                             while (!file.exists() || !file.isFile()) {
                                 if (!file.exists()) {
@@ -192,17 +193,10 @@ public class FriendView {
                                 }
                                 file = new File(scanner.nextLine());
                             }
-                            message = new FriendChatRequestMessage(myUserID, FriendID, file, "F");
+                            message = new FriendChatRequestMessage(myUserID, FriendID, (byte[]) null, "F");
                             message.setTalker_type("F");
-                            ChannelFuture sendFile= ctx.writeAndFlush(message);
+                            new SendFile(ctx,file,message);//调用发送文件类
 
-                            try {
-                                synchronized (waitMessage) {
-                                    waitMessage.wait();
-                                }
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
                         } else if (chat.equalsIgnoreCase("Y") && isY) {
                             checkRECV = "y";
                             synchronized (waitRVFile) {

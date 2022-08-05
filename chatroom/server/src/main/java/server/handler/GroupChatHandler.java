@@ -22,7 +22,7 @@ public class GroupChatHandler extends SimpleChannelInboundHandler<GroupChatReque
             int groupID = msg.getGroupId();
             String msg_type = msg.getMsg_type();
             String chat = msg.getMessage();
-            File file = msg.getFile();
+            byte[] file = msg.getFile();
             String sql = "select userID from group2 where groupID=? and userID=? and say='T'";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, groupID);
@@ -56,7 +56,7 @@ public class GroupChatHandler extends SimpleChannelInboundHandler<GroupChatReque
                 String onLine = set1.getString(1);
                 log.info("online = {}", onLine);
 
-                ctx.writeAndFlush(handler.ChatHandler(userID, FriendID, msg_type, "G", groupID, chat, file, onLine));
+                ctx.writeAndFlush(handler.ChatHandler(userID, FriendID, msg_type, "G", groupID, chat, file, msg.getPath(),msg.getFileName(),onLine));
 
             }
         } catch (SQLException e) {

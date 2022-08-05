@@ -1,5 +1,6 @@
 package client.view;
 
+import client.SendFile;
 import com.alibaba.druid.util.StringUtils;
 import io.netty.channel.ChannelHandlerContext;
 import message.*;
@@ -234,15 +235,8 @@ public class GroupEnterView {
                 }
                 message = new GroupChatRequestMessage(myUserID, groupID);
                 message.setMsg_type("F");
-                message.setFile(file);
-                ctx.writeAndFlush(message);
-                try {
-                    synchronized (waitMessage) {
-                        waitMessage.wait();
-                    }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                new SendFile(ctx,file,message);
+
             } else if (chat.equalsIgnoreCase("Y") && isY) {
                 checkRECV = "y";
                 synchronized (waitRVFile) {

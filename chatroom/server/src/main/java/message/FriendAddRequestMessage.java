@@ -8,7 +8,6 @@ public class FriendAddRequestMessage extends Message {
     private int FriendId;
     private boolean setList = false;
     private boolean noAdd;
-
     public FriendAddRequestMessage() {
     }
 
@@ -22,24 +21,24 @@ public class FriendAddRequestMessage extends Message {
         this.FriendIDList = FriendIdList;
     }
 
-    public void setNoAdd(boolean noAdd) {
-        this.noAdd = noAdd;
-    }
-
     public void setSetList(boolean setList) {
         this.setList = setList;
+    }
+
+    public void setNoAdd(boolean noAdd) {
+        this.noAdd = noAdd;
     }
 
     public boolean getSetList() {
         return setList;
     }
 
-    public int getUserId() {
-        return this.userID;
-    }
-
     public boolean isNoAdd() {
         return noAdd;
+    }
+
+    public int getUserId() {
+        return this.userID;
     }
 
     public int getFriendId() {

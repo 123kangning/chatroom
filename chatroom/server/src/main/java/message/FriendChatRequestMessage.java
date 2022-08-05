@@ -1,7 +1,5 @@
 package message;
 
-import java.io.File;
-
 public class FriendChatRequestMessage extends Message {
     private int userID;
     private int FriendId;
@@ -10,7 +8,10 @@ public class FriendChatRequestMessage extends Message {
     private String message;
     private String prefix;
     private String talker_type;//G=消息来自群组,F=消息来自个人
-    private File file;
+    private byte[] file;
+    private int fileSize;
+    private String path;
+    private String fileName;
     private int count = 1;//登录时用其统计未读信息条数
     private int Group = 0;
 
@@ -24,15 +25,27 @@ public class FriendChatRequestMessage extends Message {
         this.msg_type = msg_type;
     }
 
-    public FriendChatRequestMessage(int userID, int FriendId, File file, String msg_type) {
+    public FriendChatRequestMessage(int userID, int FriendId, byte[] file, String msg_type) {
         this.userID = userID;
         this.FriendId = FriendId;
         this.file = file;
         this.msg_type = msg_type;
     }
 
+    public void setFileSize(int fileSize) {
+        this.fileSize = fileSize;
+    }
+
     public void setCount(int count) {
         this.count = count;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 
     public void setPrefix(String prefix) {
@@ -47,7 +60,7 @@ public class FriendChatRequestMessage extends Message {
         this.talker_type = talker_type;
     }
 
-    public void setFile(File file) {
+    public void setFile(byte[] file) {
         this.file = file;
     }
 
@@ -59,12 +72,24 @@ public class FriendChatRequestMessage extends Message {
         Group = group;
     }
 
+    public String getFileName() {
+        return fileName;
+    }
+
+    public int getFileSize() {
+        return fileSize;
+    }
+
     public String getTalker_type() {
         return talker_type;
     }
 
     public int getGroup() {
         return Group;
+    }
+
+    public String getPath() {
+        return path;
     }
 
     public String getPrefix() {
@@ -75,7 +100,7 @@ public class FriendChatRequestMessage extends Message {
         return msg_type;
     }
 
-    public File getFile() {
+    public byte[] getFile() {
         return file;
     }
 

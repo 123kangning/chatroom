@@ -22,7 +22,7 @@ import java.util.Scanner;
 @Slf4j
 public class Test {
     public static void main(String[] args){
-        File file=new File("/home/kangning/1.log");
+        /*File file=new File("/home/kangning/1.log");
         log.info("file.length = {}",file.length());
         try (RandomAccessFile file1 = new RandomAccessFile(file, "r")) {
             log.info("file.length = {}",file1.length());
@@ -31,18 +31,17 @@ public class Test {
             throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
-        }
-        /*Scanner scanner=new Scanner(System.in);
-        for(int j=0;j<10;j++){
-            int percent=Integer.parseInt(scanner.nextLine());
-            System.out.print("|");
-            for(int i=0;i<percent;i++){
+        }*/
+        Scanner scanner=new Scanner(System.in);
+        for(int i=0;i<10;i++){
+            System.out.print("\r|");
+            for(int j=0;j<i*10;j++){
                 System.out.print("#");
             }
-            for(int i=percent;i<100;i++){
+            for(int j=i*10;j<100;j++){
                 System.out.print("-");
             }
-            System.out.println("|");
-        }*/
+            System.out.print("|");
+        }
     }
 }

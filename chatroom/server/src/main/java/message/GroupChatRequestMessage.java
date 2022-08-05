@@ -8,8 +8,10 @@ public class GroupChatRequestMessage extends Message {
     //talker默认为G=group
     private String msg_type;//S=文本消息、F=文件
     private String message;
-    private File file;
-
+    private byte[] file;
+    private int fileSize;
+    private String path;
+    private String fileName;
     public GroupChatRequestMessage() {
     }
 
@@ -18,11 +20,23 @@ public class GroupChatRequestMessage extends Message {
         this.GroupId = GroupId;
     }
 
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public void setFileSize(int fileSize) {
+        this.fileSize = fileSize;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
     public void setMessage(String message) {
         this.message = message;
     }
 
-    public void setFile(File file) {
+    public void setFile(byte[] file) {
         this.file = file;
     }
 
@@ -34,11 +48,23 @@ public class GroupChatRequestMessage extends Message {
         return msg_type;
     }
 
+    public int getFileSize() {
+        return fileSize;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
     public String getMessage() {
         return message;
     }
 
-    public File getFile() {
+    public byte[] getFile() {
         return file;
     }
 

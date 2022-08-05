@@ -70,6 +70,7 @@ public class ChatClient {
                                             super.userEventTriggered(ctx, evt);
                                         }
                                     })
+                                    .addLast(new FileResponseHandler())
                                     .addLast(new ResponseHandler())
                                     .addLast(new ClientFriendChatHandler())
                                     .addLast("View handler", new ChannelInboundHandlerAdapter() {

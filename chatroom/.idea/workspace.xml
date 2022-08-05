@@ -5,15 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9ffa9a4-92e7-4c59-af71-ec04fc0405e8" name="变更" comment="变更">
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/client/FileResponseHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/client/SendFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/message/FileResponseMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/message/FileResponseMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/server/handler/ReceiveFileHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/ChannelFile/ChatClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/ChannelFile/ChatServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/ChannelFile/ResponseHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/ChannelFile/SendFileHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/view/FriendApplyView.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/view/FriendApplyView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ChatClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/client/view/FriendView.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/view/FriendView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/FriendAddRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/message/FriendAddRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/FriendAddRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/message/FriendAddRequestMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/target/classes/client/ChatClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/client/ChatClient.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/server/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/ChatServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/handler/FriendAddHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/handler/FriendAddHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/handler/SignOutHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/handler/SignOutHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/test/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/test-classes/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/test-classes/Test.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,31 +59,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "11",
-    "last_opened_file_path": "/home/kangning/clone/chatroom-java/chatroom",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "Runtime.Targets.Configurable",
-    "spring.configuration.checksum": "26cd0440b47a31c35e473727ce870cd6"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/kangning/clone/chatroom-java/chatroom&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Runtime.Targets.Configurable&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;26cd0440b47a31c35e473727ce870cd6&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="procotol" />
@@ -91,16 +98,31 @@
       <recent name="server.session" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="message" />
+      <recent name="ChannelFile" />
       <recent name="netty.c2" />
     </key>
   </component>
-  <component name="RunManager" selected="应用程序.client.ChatClient">
-    <configuration name="ChatServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="server.ChatServer" />
-      <module name="chatroom" />
+  <component name="RunManager" selected="应用程序.Test (1)">
+    <configuration name="ChannelFile.ChatServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ChannelFile.ChatServer" />
+      <module name="server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="server.*" />
+          <option name="PATTERN" value="ChannelFile.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ChatClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="client.ChatClient" />
+      <module name="client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="client.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -168,18 +190,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="应用程序.ChannelFile.ChatServer" />
+      <item itemvalue="应用程序.ChatClient" />
       <item itemvalue="应用程序.Test (1)" />
       <item itemvalue="应用程序.server.ChatServer" />
       <item itemvalue="应用程序.client.ChatClient" />
-      <item itemvalue="应用程序.ChatServer" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="应用程序.client.ChatClient" />
+        <item itemvalue="应用程序.Test (1)" />
+        <item itemvalue="应用程序.ChannelFile.ChatServer" />
+        <item itemvalue="应用程序.ChatClient" />
         <item itemvalue="应用程序.server.ChatServer" />
         <item itemvalue="应用程序.client.ChatClient" />
-        <item itemvalue="应用程序.client.ChatClient" />
-        <item itemvalue="应用程序.ChatServer" />
       </list>
     </recent_temporary>
   </component>
@@ -253,7 +276,9 @@
       <workItem from="1659583008356" duration="2427000" />
       <workItem from="1659596294948" duration="2488000" />
       <workItem from="1659599228230" duration="7835000" />
-      <workItem from="1659610509317" duration="9624000" />
+      <workItem from="1659610509317" duration="10066000" />
+      <workItem from="1659623668249" duration="612000" />
+      <workItem from="1659661614887" duration="10027000" />
     </task>
     <servers />
   </component>

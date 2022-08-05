@@ -95,6 +95,7 @@ public class ChatServer {
                                     .addLast(new LoginHandler())
                                     .addLast(new LogoutHandler())
                                     .addLast(new SignOutHandler())
+                                    .addLast(new ReceiveFileHandler())
                                     .addLast(new FriendChatHandler())
                                     .addLast(new NoticeHandler())
                                     .addLast(new SendApplyHandler())

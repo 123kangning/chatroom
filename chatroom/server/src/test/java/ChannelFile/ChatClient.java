@@ -1,6 +1,5 @@
-package client;
+package ChannelFile;
 
-import client.view.EnterView;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -15,32 +14,20 @@ import message.PingMessage;
 import protocol.MessageCodec;
 import protocol.ProtocolFrameDecoder;
 
+import java.io.File;
 import java.net.InetSocketAddress;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 
 @Slf4j
 public class ChatClient {
-
-    public static String myUsername;
-    public static int myUserID;
-    public static volatile int mailAuthCode;
-    public static volatile int haveNoRead = 0;//默认没有未读消息
-    public static final Object waitMessage = new Object();//服务端消息返回时，notify线程 View handler
-    public static final Object waitRVFile = new Object();
-    public static volatile String checkRECV = "n";
-    public static volatile boolean isY = false;
-    public static volatile int waitSuccess = 0;//1表示消息成功、0表示消息失败
-    public static volatile Map<String, List<String>> noticeMap;
-    public static volatile List<String> friendList;//查询朋友列表
-    public static volatile int gradeInGroup = 0;
-    public static volatile boolean immediate = false;
-    public static volatile boolean immediateGroup = false;
+    public static final Object waitMessage = new Object();
+    public static volatile int waitSuccess = 0;
+    public static volatile List<String> friendList;
     public static volatile String haveFile = "";
-    public static volatile int fileLength;//文件总大小
-    public static volatile int talkWith = 0;//正与哪个朋友聊天
-    public static volatile int talkWithGroup = 0;//正在哪个群聊聊天
+
 
     public static void main(String[] args) throws InterruptedException {
         NioEventLoopGroup group = new NioEventLoopGroup();
@@ -59,26 +46,24 @@ public class ChatClient {
                                     /*.addLast(Log)*/
                                     .addLast(new ProtocolFrameDecoder())
                                     .addLast(clientCodec)
-                                    .addLast(new IdleStateHandler(0, 7, 0))
-                                    .addLast(new ChannelDuplexHandler() {
-                                        @Override
-                                        public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
-                                            IdleStateEvent event = (IdleStateEvent) evt;
-                                            if (event.state() == IdleState.WRITER_IDLE) {
-                                                ctx.writeAndFlush(new PingMessage());
-                                            }
-                                            super.userEventTriggered(ctx, evt);
-                                        }
-                                    })
+
                                     .addLast(new ResponseHandler())
-                                    .addLast(new ClientFriendChatHandler())
                                     .addLast("View handler", new ChannelInboundHandlerAdapter() {
                                         @Override
                                         public void channelActive(ChannelHandlerContext ctx) {
+                                            Scanner scanner=new Scanner(System.in);
+                                            File file;
+                                            System.out.println("请输入待发送的文件的[绝对路径]：");
+                                            file = new File(scanner.nextLine());
+                                            while (!file.exists() || !file.isFile()) {
+                                                if (!file.exists()) {
+                                                    System.out.println("文件不存在，请重新输入待发送的文件的[绝对路径]");
+                                                } else {
+                                                    System.out.println("不是文件，请重新输入待发送的文件的[绝对路径]");
+                                                }
+                                                file = new File(scanner.nextLine());
+                                            }
 
-                                            new Thread(() -> {
-                                                new EnterView(ctx);
-                                            }, "system.in").start();
                                         }
                                     });
                         }

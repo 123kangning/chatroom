@@ -195,12 +195,7 @@ public class FriendView {
                             message = new FriendChatRequestMessage(myUserID, FriendID, file, "F");
                             message.setTalker_type("F");
                             ChannelFuture sendFile= ctx.writeAndFlush(message);
-                            sendFile.addListener(new GenericFutureListener<Future<? super Void>>() {
-                                @Override
-                                public void operationComplete(Future<? super Void> future) throws Exception {
-                                    System.out.println("发送完成");
-                                }
-                            });
+
                             try {
                                 synchronized (waitMessage) {
                                     waitMessage.wait();

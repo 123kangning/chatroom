@@ -13,6 +13,7 @@ import io.netty.handler.timeout.IdleStateEvent;
 import io.netty.handler.timeout.IdleStateHandler;
 import lombok.extern.slf4j.Slf4j;
 import message.LogoutRequestMessage;
+import message.PingMessage;
 import protocol.MessageCodec;
 import protocol.ProtocolFrameDecoder;
 import server.handler.*;
@@ -67,9 +68,15 @@ public class ChatServer {
                                         public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
                                             IdleStateEvent event = (IdleStateEvent) evt;
                                             if (event.state() == IdleState.READER_IDLE) {
-
+                                                new LogoutHandler();
                                             }
                                             super.userEventTriggered(ctx, evt);
+                                        }
+                                    })
+                                    .addLast(new SimpleChannelInboundHandler<PingMessage>() {
+                                        @Override
+                                        protected void channelRead0(ChannelHandlerContext ctx, PingMessage msg) throws Exception {
+
                                         }
                                     })
                                     .addLast(new ChannelInboundHandlerAdapter() {

@@ -207,7 +207,17 @@ public class FriendView {
                                 }
                                 checkRECV = "n";
                             }
-                        } else if(chat.length()>0){
+                        }else if(chat.equalsIgnoreCase("N") && isY){
+                            checkRECV = "Q";
+                            synchronized (waitRVFile) {
+                                try {
+                                    waitRVFile.wait();
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                                checkRECV = "n";
+                            }
+                        }else if(chat.length()>0){
                             message = new FriendChatRequestMessage(myUserID, FriendID, chat, "S");
                             message.setTalker_type("F");
                             ctx.writeAndFlush(message);
@@ -227,6 +237,7 @@ public class FriendView {
                     }
                     if (chat.equalsIgnoreCase("r")) {
                         immediate = false;
+                        talkWith=0;
                     }
                     break;
                 }

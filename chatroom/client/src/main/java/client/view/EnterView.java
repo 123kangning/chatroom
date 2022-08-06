@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import message.*;
 
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 import static client.ChatClient.*;
 
@@ -66,7 +67,7 @@ public class EnterView {
                 case 2: {
                     System.out.println("请输入用户名称(<=50位)：");
                     String username = scanner.nextLine();
-                    while (username.length() >= 50) {
+                    while (username.length() > 50) {
                         System.out.println("名称过长，请重新输入用户名称：");
                         username = scanner.nextLine();
                     }
@@ -74,11 +75,11 @@ public class EnterView {
                     String password1 = scanner.nextLine();
                     System.out.println("请输入邮箱地址用于接收验证码(形如:xxx@qq.com、xxx@gmail.com)：");
                     String mail = scanner.nextLine();
-                    while (mail.length() >= 50) {
-                        System.out.println("邮箱地址过长，请重新输入：");
+                    String pattern="^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
+                    while (!Pattern.matches(pattern,mail)) {
+                        System.out.println("邮箱格式不正确，请重新输入：");
                         mail = scanner.nextLine();
                     }
-                    log.info("username={}, password={}, mail={}", username, password1, mail);
                     ctx.writeAndFlush(new AuthCodeRequestMessage(mail));
                     try {
                         synchronized (waitMessage) {

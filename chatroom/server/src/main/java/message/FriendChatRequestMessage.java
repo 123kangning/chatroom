@@ -10,6 +10,8 @@ public class FriendChatRequestMessage extends Message {
     private String talker_type;//G=消息来自群组,F=消息来自个人
     private byte[] file;
     private int fileSize;
+    private int start;
+    private int onceSize;
     private String path;
     private String fileName;
     private int count = 1;//登录时用其统计未读信息条数
@@ -36,16 +38,24 @@ public class FriendChatRequestMessage extends Message {
         this.fileSize = fileSize;
     }
 
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public void setStart(int start) {
+        this.start = start;
+    }
+
+    public void setOnceSize(int onceSize) {
+        this.onceSize = onceSize;
+    }
+
     public void setCount(int count) {
         this.count = count;
     }
 
     public void setFileName(String fileName) {
         this.fileName = fileName;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
     }
 
     public void setPrefix(String prefix) {
@@ -76,6 +86,18 @@ public class FriendChatRequestMessage extends Message {
         return fileName;
     }
 
+    public int getOnceSize() {
+        return onceSize;
+    }
+
+    public int getStart() {
+        return start;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
     public int getFileSize() {
         return fileSize;
     }
@@ -88,9 +110,6 @@ public class FriendChatRequestMessage extends Message {
         return Group;
     }
 
-    public String getPath() {
-        return path;
-    }
 
     public String getPrefix() {
         return prefix;

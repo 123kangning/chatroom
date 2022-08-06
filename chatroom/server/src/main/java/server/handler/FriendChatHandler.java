@@ -34,7 +34,6 @@ public class FriendChatHandler extends SimpleChannelInboundHandler<FriendChatReq
             String talker_type = msg.getTalker_type();
             String msg_type = msg.getMsg_type();
             String chat = msg.getMessage();
-            byte[] file = msg.getFile();
 
             String sql = "select * from friend where (toID =? and fromID=?) or (toID =? and fromID=?)";
             PreparedStatement ps = connection.prepareStatement(sql);
@@ -65,7 +64,7 @@ public class FriendChatHandler extends SimpleChannelInboundHandler<FriendChatReq
 
                 ResultSet set1 = ps1.executeQuery();
                 if (set1.next()) {
-                    message = ChatHandler(u1, u2, msg_type, talker_type, groupID, chat, file,msg.getPath(), msg.getFileName(),set1.getString(1));
+                    message = ChatHandler(u1, u2, msg_type, talker_type, groupID, chat,msg.getPath(),set1.getString(1));
                 }
             } else {//未找到
                 log.info("new ResponseMessage(false,\"找不到该朋友\")");
@@ -77,7 +76,7 @@ public class FriendChatHandler extends SimpleChannelInboundHandler<FriendChatReq
         }
     }
 
-    public ResponseMessage ChatHandler(int fromID, int toID, String msg_type, String talker_type, int groupID, String chat, byte[] file,String path,String fileName, String onLine) throws Exception {
+    public ResponseMessage ChatHandler(int fromID, int toID, String msg_type, String talker_type, int groupID, String chat,String path, String onLine) throws Exception {
         ResponseMessage message;
         String sql2 = "insert into message(userID,msg_type,create_date,talkerID,talker_type,groupID,content,isAccept) values(?,?,?,?,?,?,?,?)";
         PreparedStatement ps2 = connection.prepareStatement(sql2);
@@ -85,8 +84,7 @@ public class FriendChatHandler extends SimpleChannelInboundHandler<FriendChatReq
         ps2.setString(2, msg_type);
         ps2.setDate(3, new Date(System.currentTimeMillis()));
         ps2.setInt(4, fromID);
-        log.info("msg_type = {}!!! groupID={}!!!", msg_type, groupID);
-        log.info("talker_type======{}", talker_type);
+
         ps2.setString(5, talker_type);
         ps2.setInt(6, groupID);
 
@@ -95,38 +93,20 @@ public class FriendChatHandler extends SimpleChannelInboundHandler<FriendChatReq
         msg.setGroup(groupID);
         if (talker_type.equals("G")) {
             msg.setPrefix(String.format("%3s %d:", new GroupNoticeHandler().Id2Type(fromID, groupID), fromID));
-            log.info("?????message = {}?????", msg.getMessage());
         } else {
             msg.setPrefix(String.format("\t%d :", fromID));
-            log.info("?????message = {}?????", msg.getMessage());
         }
 
-        String addFile = "";
         if (msg_type.equals("S")) {
             ps2.setString(7, chat);
         } else {
-            addFile = System.getProperty("user.dir") + "/server/story/" + fileName + new DateTime(System.currentTimeMillis());
-            log.info("addFile = {}", addFile);
             if (msg_type.equals("F")) {
                 log.info("chat = {}", path);
-                File tempFile = new File(addFile);
-                tempFile.createNewFile();
-                FileChannel readChannel = new FileInputStream(path).getChannel();
-                FileChannel writeChannel = new FileOutputStream(tempFile).getChannel();
-                ByteBuffer buf = ByteBuffer.allocate(1024);
-                while (readChannel.read(buf) != -1) {
-                    buf.flip();
-                    writeChannel.write(buf);
-                    buf.clear();
-                }
-
-                readChannel.close();
-                writeChannel.close();
-                ps2.setString(7, addFile);
-                msg.setMessage(addFile);
+                ps2.setString(7, path);
+                msg.setMessage(path);
                 msg.setMsg_type("F");
-                msg.setFile(file);
-                msg.setPath(addFile);
+                msg.setFile(null);
+                msg.setPath(path);
             }
         }
 
@@ -157,7 +137,6 @@ public class FriendChatHandler extends SimpleChannelInboundHandler<FriendChatReq
         }
 
         int row = ps2.executeUpdate();
-        log.info("row in executeUpdate = " + row);
         return message;
     }
 }

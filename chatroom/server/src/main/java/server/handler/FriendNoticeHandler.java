@@ -56,10 +56,19 @@ public class FriendNoticeHandler extends SimpleChannelInboundHandler<FriendNotic
                 } else {
                     ans.append("0");
                 }
-                messageList.add(((set.getInt(1) == FriendID) ? String.format("\t\t\t%80s:%d", set.getString(2), userID) :
-                        String.format("\t%d:%s", FriendID, set.getString(2))));
-                log.info(((set.getInt(1) == FriendID) ? String.format("\t\t\t%80s:%d", set.getString(2), userID) :
-                        String.format("\t%d:%s", FriendID, set.getString(2))));
+                String m=set.getString(2);
+                if(set.getString(4).equals("F")){
+                    for(int i=m.length()-1;i>=0;i--){
+                        if(m.charAt(i)=='/'){
+                            m=m.substring(i+1);
+                            break;
+                        }
+                    }
+                }
+                messageList.add(((set.getInt(1) == FriendID) ? String.format("\t\t\t%80s:%d", m, userID) :
+                        String.format("\t%d:%s", FriendID, m)));
+                log.info(((set.getInt(1) == FriendID) ? String.format("\t\t\t%80s:%d", m, userID) :
+                        String.format("\t%d:%s", FriendID, m)));
                 log.info("ans = {}", ans);
             }
             Collections.reverse(messageList);

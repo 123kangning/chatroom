@@ -63,12 +63,21 @@ public class GroupNoticeHandler extends SimpleChannelInboundHandler<GroupNoticeR
                 ans.append("0");
             }
             String people = Id2Type(talkerID, groupID);
-            if (talkerID == userID) {
-                s = String.format("\t\t\t%80s:%d", content, userID);
-            } else {
-                s = String.format("%3s %d:%s", people, talkerID, content);
+            String content1=content;
+            if(set.getString(5).equals("F")){
+                for(int i=content.length()-1;i>=0;i--){
+                    if(content.charAt(i)=='/'){
+                        content1=content.substring(i+1);
+                        break;
+                    }
+                }
             }
-            log.info(s);
+
+            if (talkerID == userID) {
+                s = String.format("\t\t\t%80s:%d", content1, userID);
+            } else {
+                s = String.format("%3s %d:%s", people, talkerID, content1);
+            }
             list.add(s);
 
         }

@@ -8,23 +8,25 @@ import message.*;
 import static client.ChatClient.*;
 
 import java.io.*;
+import java.util.Arrays;
+
 @Slf4j
 public class SendFile {
+    private static final int MAX_LENGTH = 1 << 30;
+
     public SendFile(ChannelHandlerContext ctx, File file,Message message){
 
         try (RandomAccessFile randomAccessFile = new RandomAccessFile(file, "r")) {
             fileLength= (int) randomAccessFile.length();
-            if(fileLength>1024*1024*1024){
+            if(fileLength>MAX_LENGTH){
                 System.out.println("文件大于1G，拒绝发送！");
                 return;
             }
 
             if(message instanceof FriendChatRequestMessage){
-                ((FriendChatRequestMessage)message).setPath(file.getAbsolutePath());
                 ((FriendChatRequestMessage)message).setFileName(file.getName());
                 ((FriendChatRequestMessage)message).setFileSize(fileLength);
             }else{
-                ((GroupChatRequestMessage)message).setPath(file.getAbsolutePath());
                 ((GroupChatRequestMessage)message).setFileName(file.getName());
                 ((GroupChatRequestMessage)message).setFileSize(fileLength);
             }
@@ -32,21 +34,22 @@ public class SendFile {
             int once=fileLength/100;
             if(once<1024){
                 once=1024;
-            }else if(once>284634){//似乎是一个比较合适的上限
-                once=284634;
+            }else if(once>1048000){
+                once=1048000;
             }
             byte[] bytes=new byte[once];
 
-            int byteRead=0;
-            while((byteRead=randomAccessFile.read(bytes))!=-1){
+            while(randomAccessFile.read(bytes)!=-1){
                 if(message instanceof FriendChatRequestMessage){
                     ((FriendChatRequestMessage)message).setFile(bytes);
                 }else{
                     ((GroupChatRequestMessage)message).setFile(bytes);
                 }
+
                 ChannelFuture sendFile= ctx.writeAndFlush(message);
-                //log.info("还在发送");
-            }
+                sendFile.sync();
+                //log.info("还在发送，fileSize={},sum={},send={},bytes.length={}",fileLength,sum,byteRead,bytes.length);
+            }//log.info("发送完毕");
             try {
                 synchronized (waitMessage) {
                     waitMessage.wait();
@@ -54,8 +57,8 @@ public class SendFile {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
-        } catch (IOException e) {
+            System.out.println();
+        } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
     }

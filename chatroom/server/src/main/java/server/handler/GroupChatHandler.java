@@ -56,7 +56,7 @@ public class GroupChatHandler extends SimpleChannelInboundHandler<GroupChatReque
                 String onLine = set1.getString(1);
                 log.info("online = {}", onLine);
 
-                ctx.writeAndFlush(handler.ChatHandler(userID, FriendID, msg_type, "G", groupID, chat, file, msg.getPath(),msg.getFileName(),onLine));
+                ctx.writeAndFlush(handler.ChatHandler(userID, FriendID, msg_type, "G", groupID, chat, msg.getPath(),onLine));
 
             }
         } catch (SQLException e) {

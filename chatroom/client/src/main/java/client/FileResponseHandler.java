@@ -18,7 +18,7 @@ public class FileResponseHandler extends SimpleChannelInboundHandler<FileRespons
         for(int i=percent;i<100;i++){
             System.out.print("-");
         }
-        System.out.print("|");
+        System.out.printf("|%3d%%",percent);
         /*if(percent==100){//1.客户端循环将文件所有内容发送完毕之后，才陷入阻塞
             synchronized (waitMessage){
                 waitMessage.notifyAll();

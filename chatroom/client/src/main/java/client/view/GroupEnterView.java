@@ -266,6 +266,10 @@ public class GroupEnterView {
             System.out.println("聊天内容(按下回车发送)[输入F表示发送文件][输入r退出]：");
             chat = scanner.nextLine();
         }
+        if(chat.equalsIgnoreCase("r")){
+            immediateGroup=false;
+            talkWithGroup=0;
+        }
     }
 
     public void case4(Scanner scanner, String say) {

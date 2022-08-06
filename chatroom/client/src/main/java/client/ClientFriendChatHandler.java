@@ -14,8 +14,15 @@ import static client.ChatClient.*;
 public class ClientFriendChatHandler extends SimpleChannelInboundHandler<FriendChatRequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, FriendChatRequestMessage msg) throws Exception {
-        if ((immediate && msg.getUserID() == talkWith) || (immediateGroup && msg.getGroup() == talkWithGroup)) {
-            String ans = String.format("%s%s", msg.getPrefix(), msg.getMessage());
+        if ((immediate && msg.getUserID() == talkWith && msg.getTalker_type().equals("F")) || (immediateGroup && msg.getGroup() == talkWithGroup && msg.getTalker_type().equals("G"))) {
+            String m=msg.getMessage();
+            for(int i=m.length()-1;i>=0;i--){
+                if(m.charAt(i)=='/'){
+                    m=m.substring(i+1);
+                    break;
+                }
+            }
+            String ans = String.format("%s%s", msg.getPrefix(),m);
             System.out.println(ans);
             //log.info("in ClientFriendChatHandler");
             if (msg.getMsg_type().equals("F")) {
@@ -25,6 +32,14 @@ public class ClientFriendChatHandler extends SimpleChannelInboundHandler<FriendC
                 new Thread(() -> {
                     int count = 1000;
                     while (!checkRECV.equalsIgnoreCase("y") && count > 0) {
+                        if(checkRECV.equals("Q")){
+                            count=0;
+                            haveNoRead++;
+                            synchronized (waitRVFile) {
+                                waitRVFile.notifyAll();
+                                break;
+                            }
+                        }
                         try {
                             Thread.sleep(100);
                         } catch (InterruptedException e) {

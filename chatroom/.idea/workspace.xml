@@ -5,20 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9ffa9a4-92e7-4c59-af71-ec04fc0405e8" name="变更" comment="变更">
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/client/ReceiveFileHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/message/SendFileMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/message/SendFileMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/server/handler/SendFileHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ChatClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ResponseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ResponseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/SendFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/SendFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/ResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/message/ResponseMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/ResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/message/ResponseMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/ChatServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/handler/FriendGetFileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/handler/FriendGetFileHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/Test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/Test1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/test-classes/Test1.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/test-classes/Test1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,9 +246,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="应用程序.ChatClient (4)" />
         <item itemvalue="应用程序.ChatClient (3)" />
         <item itemvalue="应用程序.ChatServer (1)" />
+        <item itemvalue="应用程序.ChatClient (4)" />
         <item itemvalue="应用程序.Test1" />
         <item itemvalue="应用程序.ChatClient (2)" />
       </list>
@@ -344,7 +333,7 @@
       <workItem from="1659789426140" duration="532000" />
       <workItem from="1659789966936" duration="3533000" />
       <workItem from="1659795393134" duration="743000" />
-      <workItem from="1659839013719" duration="8330000" />
+      <workItem from="1659839013719" duration="9667000" />
     </task>
     <servers />
   </component>

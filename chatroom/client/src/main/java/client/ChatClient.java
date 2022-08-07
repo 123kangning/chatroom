@@ -15,9 +15,14 @@ import message.PingMessage;
 import protocol.MessageCodec;
 import protocol.ProtocolFrameDecoder;
 
+import javax.imageio.stream.FileImageInputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.InetSocketAddress;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 
 @Slf4j
@@ -42,12 +47,14 @@ public class ChatClient {
     public static volatile int fileLength;//文件总大小
     public static volatile int talkWith = 0;//正与哪个朋友聊天
     public static volatile int talkWithGroup = 0;//正在哪个群聊聊天
+    public static Properties properties=new Properties();
 
-    public static void main(String[] args) throws InterruptedException {
+
+    public static void main(String[] args) throws InterruptedException, IOException {
         NioEventLoopGroup group = new NioEventLoopGroup();
         LoggingHandler Log = new LoggingHandler(LogLevel.DEBUG);
         MessageCodec clientCodec = new MessageCodec();
-
+        properties.load(new java.io.FileInputStream("/home/kangning/clone/chatroom-java/chatroom/client/src/main/resources/application.properties"));
         try {
             ChannelFuture future = new Bootstrap()
                     .group(group)
@@ -86,7 +93,7 @@ public class ChatClient {
                                     });
                         }
                     })
-                    .connect(new InetSocketAddress("localhost", 8080));
+                    .connect(properties.getProperty("ip"), 8080);//properties.getProperty("ip")
             Channel channel = future.sync().channel();
 
             channel.closeFuture().sync();

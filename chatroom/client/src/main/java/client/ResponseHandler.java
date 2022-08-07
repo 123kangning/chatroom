@@ -5,6 +5,7 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
 import message.Message;
 import message.ResponseMessage;
+import message.SendFileMessage;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -36,9 +37,10 @@ public class ResponseHandler extends SimpleChannelInboundHandler<ResponseMessage
             if (msg.getMessageType() == Message.CheckGradeInGroup) {
                 gradeInGroup = msg.getGradeInGroup();
             } else if (msg.getMessageType() == Message.FriendGetFileRequestMessage) {
-                System.out.println("接收成功，请选择一个目录将其保存下来[使用绝对路径]");
-                receiveFile(msg.getFile());
-                System.out.println("保存成功");
+                System.out.println("请选择一个目录将其保存下来[使用绝对路径]");
+                setPath(msg.getReason());
+                ctx.writeAndFlush(new SendFileMessage(msg.getReason()));
+                return;
             } else if (msg.getMessageType() == Message.FriendQueryRequestMessage) {
                 haveFile = msg.getHaveFile();
                 friendList = msg.getFriendList();
@@ -56,36 +58,20 @@ public class ResponseHandler extends SimpleChannelInboundHandler<ResponseMessage
         synchronized (waitMessage) {
             waitMessage.notifyAll();
         }
-        //log.info("waitMessage.notifyAll();");
     }
 
-    public void receiveFile(File file) {
-        try {
-            Scanner scanner = new Scanner(System.in);
-            String addFile = scanner.nextLine();
-            //log.info("addFile = {}",addFile);
-            File tempFile1 = new File(addFile);
-            while (!tempFile1.isDirectory()) {
-                System.out.println("不是目录，请重新输入：");
-                addFile = scanner.nextLine();
-                tempFile1 = new File(addFile);
-            }
-            if (addFile.charAt(addFile.length() - 1) != '/') {
-                addFile = addFile.concat("/");
-            }
-            addFile = addFile.concat(file.getName());
+    public void setPath(String fileName) {
+        Scanner scanner = new Scanner(System.in);
+        String addFile = scanner.nextLine();
+        File tempFile1 = new File(addFile);
+        while (!tempFile1.isDirectory()) {
+            System.out.println("不是目录，请重新输入：");
+            addFile = scanner.nextLine();
             tempFile1 = new File(addFile);
-            FileChannel readChannel1 = new FileInputStream(file).getChannel();
-            FileChannel writeChannel1 = new FileOutputStream(tempFile1).getChannel();
-            ByteBuffer buf = ByteBuffer.allocate(1024);
-            while (readChannel1.read(buf) != -1) {
-                buf.flip();
-                writeChannel1.write(buf);
-                buf.clear();
-            }
-            tempFile1.createNewFile();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
+        if (addFile.charAt(addFile.length() - 1) != '/') {
+            addFile = addFile.concat("/");
+        }
+        path=addFile.concat(fileName);
     }
 }

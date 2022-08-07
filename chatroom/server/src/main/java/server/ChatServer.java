@@ -105,6 +105,7 @@ public class ChatServer {
                                     .addLast(new ReceiveFileHandler())
                                     .addLast(new FriendChatHandler())
                                     .addLast(new NoticeHandler())
+                                    .addLast(new SendFileHandler())
                                     .addLast(new SendApplyHandler())
                                     .addLast(new FriendQueryHandler())
                                     .addLast(new FriendAddHandler())

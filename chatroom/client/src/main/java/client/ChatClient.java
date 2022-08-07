@@ -25,6 +25,7 @@ public class ChatClient {
 
     public static String myUsername;
     public static int myUserID;
+    public static String path;
     public static volatile int mailAuthCode;
     public static volatile int haveNoRead = 0;//默认没有未读消息
     public static final Object waitMessage = new Object();//服务端消息返回时，notify线程 View handler
@@ -70,6 +71,7 @@ public class ChatClient {
                                             super.userEventTriggered(ctx, evt);
                                         }
                                     })
+                                    .addLast(new ReceiveFileHandler())
                                     .addLast(new FileResponseHandler())
                                     .addLast(new ResponseHandler())
                                     .addLast(new ClientFriendChatHandler())

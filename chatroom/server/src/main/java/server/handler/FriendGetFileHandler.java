@@ -46,9 +46,8 @@ public class FriendGetFileHandler extends SimpleChannelInboundHandler<FriendGetF
                 File file = new File(set.getString(1));
                 log.info("file绝对路径：{}", file.getAbsolutePath());
                 log.info("exist = {}", file.exists());
-                ResponseMessage message = new ResponseMessage(true, "");
+                ResponseMessage message = new ResponseMessage(true, file.getName());
                 if (!msg.isRefuse()) {
-                    message.setFile(file);
                     message.setMessageType(Message.FriendGetFileRequestMessage);
                 }
                 ctx.writeAndFlush(message);
@@ -61,10 +60,6 @@ public class FriendGetFileHandler extends SimpleChannelInboundHandler<FriendGetF
                 PreparedStatement ps1 = connection.prepareStatement(sql1);
                 ps1.setInt(1, set.getInt(2));
                 ps1.executeUpdate();
-                /*sql="update message set isAccept ='T' where msg_id=?";
-                ps= connection.prepareStatement(sql);
-                ps.setInt(1,set.getInt(2));
-                ps.executeUpdate();*/
             } else {
                 log.info("什么也没有找到");
             }

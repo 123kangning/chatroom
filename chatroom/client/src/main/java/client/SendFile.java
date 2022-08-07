@@ -1,6 +1,7 @@
 package client;
 
 import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import lombok.extern.slf4j.Slf4j;
 import message.*;
@@ -48,6 +49,15 @@ public class SendFile {
 
                 ChannelFuture sendFile= ctx.writeAndFlush(message);
                 sendFile.sync();
+                /*sendFile.addListener((ChannelFutureListener) future1 -> {
+                    if(!future1.isSuccess()){
+                        log.debug("出现错误");
+                    }
+                    Throwable throwable=future1.cause();
+                    if(throwable!=null){
+                        throwable.printStackTrace();
+                    }
+                });*/
                 //log.info("还在发送，fileSize={},sum={},send={},bytes.length={}",fileLength,sum,byteRead,bytes.length);
             }//log.info("发送完毕");
             try {

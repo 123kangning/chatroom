@@ -1,6 +1,5 @@
 package message;
 
-import java.io.File;
 import java.util.List;
 import java.util.Map;
 
@@ -14,7 +13,6 @@ public class ResponseMessage extends Message {
     int MessageType = ResponseMessage;
     private int gradeInGroup;
     private String haveFile = "";
-    private File file;//接收一个file实例化对象回来
 
     public ResponseMessage() {
     }
@@ -24,6 +22,7 @@ public class ResponseMessage extends Message {
         this.reason = reason;
     }
 
+
     public void setMailAuthCode(int mailAuthCode) {
         this.mailAuthCode = mailAuthCode;
     }
@@ -32,9 +31,6 @@ public class ResponseMessage extends Message {
         this.haveFile = haveFile;
     }
 
-    public void setFile(File file) {
-        this.file = file;
-    }
 
     public void setReadCount(int readCount) {
         this.readCount = readCount;
@@ -58,10 +54,6 @@ public class ResponseMessage extends Message {
 
     public void setMessageType(int MessageType) {
         this.MessageType = MessageType;
-    }
-
-    public File getFile() {
-        return file;
     }
 
     public int getMailAuthCode() {

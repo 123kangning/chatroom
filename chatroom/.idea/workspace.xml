@@ -5,44 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9ffa9a4-92e7-4c59-af71-ec04fc0405e8" name="变更" comment="变更">
-      <change afterPath="$PROJECT_DIR$/server/src/test/java/Test1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8598cf3d-151d-4ac9-8b83-ed55f4b5d4b2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8598cf3d-151d-4ac9-8b83-ed55f4b5d4b2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/client/ReceiveFileHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/message/SendFileMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/message/SendFileMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/server/handler/SendFileHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ClientFriendChatHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ClientFriendChatHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/FileResponseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/FileResponseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ChatClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ResponseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ResponseHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/client/SendFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/SendFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/view/EnterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/view/EnterView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/view/FriendView.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/view/FriendView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/view/GroupEnterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/view/GroupEnterView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/FriendChatRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/message/FriendChatRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/GroupChatRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/message/GroupChatRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/client/ClientFriendChatHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/client/ClientFriendChatHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/client/FileResponseHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/client/FileResponseHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/client/SendFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/client/SendFile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/client/view/EnterView.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/client/view/EnterView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/FriendChatRequestMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/message/FriendChatRequestMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/FriendChatRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/message/FriendChatRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/GroupChatRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/message/GroupChatRequestMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/ResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/message/ResponseMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/ResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/message/ResponseMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/server/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/ChatServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/handler/FriendChatHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/handler/FriendChatHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/handler/FriendNoticeHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/handler/FriendNoticeHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/handler/GroupChatHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/handler/GroupChatHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/handler/GroupNoticeHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/handler/GroupNoticeHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/handler/ReceiveFileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/handler/ReceiveFileHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/FriendChatRequestMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/message/FriendChatRequestMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/GroupChatRequestMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/message/GroupChatRequestMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/ChatServer$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/ChatServer$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/ChatServer$1$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/ChatServer$1$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/ChatServer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/ChatServer$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/ChatServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/ChatServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/handler/FriendChatHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/handler/FriendChatHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/handler/FriendNoticeHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/handler/FriendNoticeHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/handler/GroupChatHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/handler/GroupChatHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/handler/GroupNoticeHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/handler/GroupNoticeHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/handler/ReceiveFileHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/handler/ReceiveFileHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/test-classes/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/test-classes/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/handler/FriendGetFileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/handler/FriendGetFileHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/Test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/Test1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/test-classes/Test1.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/test-classes/Test1.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +66,7 @@
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
     "jdk.selected.JAVA_MODULE": "11",
-    "last_opened_file_path": "/home/kangning/clone/chatroom-java/chatroom/client/src/main/java",
+    "last_opened_file_path": "/home/kangning/clone/chatroom-java/chatroom/server/src/main/java",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -113,8 +89,9 @@
       <recent name="netty.c1" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/client/src/main/java" />
       <recent name="$PROJECT_DIR$/server/src/main/java" />
+      <recent name="$PROJECT_DIR$/client/src/main/java" />
+      <recent name="$PROJECT_DIR$/client/src/main/java/message" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/server/src/main/resources" />
@@ -130,7 +107,7 @@
       <recent name="netty.c2" />
     </key>
   </component>
-  <component name="RunManager" selected="应用程序.ChatClient (2)">
+  <component name="RunManager" selected="应用程序.ChatClient (4)">
     <configuration name="ChannelFile.ChatServer" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ChannelFile.ChatServer" />
       <module name="server" />
@@ -144,7 +121,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ChatClient (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="ChatClient (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="client.ChatClient" />
       <module name="client" />
       <extension name="coverage">
@@ -157,7 +134,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ChatClient (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="ChatClient (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="client.ChatClient" />
+      <module name="client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ChatClient (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="client.ChatClient" />
       <module name="client" />
       <extension name="coverage">
@@ -183,7 +173,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ChatServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="ChatServer (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="server.ChatServer" />
       <module name="server" />
       <extension name="coverage">
@@ -192,6 +182,13 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test1" />
+      <module name="server" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -252,15 +249,19 @@
       <item itemvalue="应用程序.ChannelFile.ChatServer" />
       <item itemvalue="应用程序.ChatClient" />
       <item itemvalue="应用程序.client.ChatClient" />
+      <item itemvalue="应用程序.ChatClient (3)" />
+      <item itemvalue="应用程序.ChatClient (4)" />
+      <item itemvalue="应用程序.ChatServer (1)" />
+      <item itemvalue="应用程序.Test1" />
       <item itemvalue="应用程序.ChatClient (2)" />
-      <item itemvalue="应用程序.ChatServer" />
-      <item itemvalue="应用程序.ChatClient (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="应用程序.ChatClient (4)" />
+        <item itemvalue="应用程序.ChatClient (3)" />
+        <item itemvalue="应用程序.ChatServer (1)" />
+        <item itemvalue="应用程序.Test1" />
         <item itemvalue="应用程序.ChatClient (2)" />
-        <item itemvalue="应用程序.ChatClient (1)" />
-        <item itemvalue="应用程序.ChatServer" />
       </list>
     </recent_temporary>
   </component>
@@ -341,7 +342,9 @@
       <workItem from="1659748447351" duration="16742000" />
       <workItem from="1659771870852" duration="16025000" />
       <workItem from="1659789426140" duration="532000" />
-      <workItem from="1659789966936" duration="3202000" />
+      <workItem from="1659789966936" duration="3533000" />
+      <workItem from="1659795393134" duration="743000" />
+      <workItem from="1659839013719" duration="8330000" />
     </task>
     <servers />
   </component>

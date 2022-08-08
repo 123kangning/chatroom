@@ -50,7 +50,7 @@ public class ChatClient {
         NioEventLoopGroup group = new NioEventLoopGroup();
         LoggingHandler Log = new LoggingHandler(LogLevel.DEBUG);
         MessageCodec clientCodec = new MessageCodec();
-        properties.load(new java.io.FileInputStream("/home/kangning/clone/chatroom-java/chatroom/client/src/main/resources/application.properties"));
+        properties.load(new java.io.FileInputStream(System.getProperty("user.dir")+"/client/src/main/resources/application.properties"));
         try {
             ChannelFuture future = new Bootstrap()
                     .group(group)

@@ -223,7 +223,7 @@ public class FriendView {
 
         System.out.println("对方发来一个文件，是否接收？[T->接收][F->拒绝][P->暂不处理]：");
         String choice = scanner.nextLine();
-        log.info("choice ={},length={}", choice, choice.length());
+        //log.info("choice ={},length={}", choice, choice.length());
         while (!choice.equalsIgnoreCase("T") && !choice.equalsIgnoreCase("F") && !choice.equalsIgnoreCase("P")) {
             System.out.println("输入不规范，请重新输入");
             choice = scanner.nextLine();
@@ -232,7 +232,7 @@ public class FriendView {
 
             FriendGetFileRequestMessage m1 = new FriendGetFileRequestMessage(myUserID, FriendID);
             if (isGroup) {
-                log.info("isGroup ==true groupID={}", groupID);
+                //log.info("isGroup ==true groupID={}", groupID);
                 m1.setGroup(isGroup);
                 m1.setGroupID(groupID);
             }
@@ -245,7 +245,7 @@ public class FriendView {
             FriendGetFileRequestMessage m1 = new FriendGetFileRequestMessage(myUserID, FriendID);
             m1.setRefuse(true);
             if (isGroup) {
-                log.info("isGroup ==true groupID={}", groupID);
+                //log.info("isGroup ==true groupID={}", groupID);
                 m1.setGroup(isGroup);
                 m1.setGroupID(groupID);
             }

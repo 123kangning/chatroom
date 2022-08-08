@@ -1,5 +1,6 @@
 package client.view;
 
+import client.ChatClient;
 import client.SendFile;
 import com.alibaba.druid.util.StringUtils;
 import io.netty.channel.ChannelFuture;
@@ -48,13 +49,9 @@ public class FriendView {
                     break;
                 case 4: {
                     ctx.writeAndFlush(new FriendQueryRequestMessage(myUserID));
-                    try {
-                        synchronized (waitMessage) {
-                            waitMessage.wait();
-                        }
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+
+                    ChatClient.wait1();
+
                     for (String s : friendList) {
                         System.out.println(s);
                     }
@@ -77,13 +74,9 @@ public class FriendView {
                     int FriendID = Integer.parseInt(s1);
                     ctx.writeAndFlush(new FriendUnShieldRequestMessage(myUserID, FriendID));
                     //log.info("1111");
-                    try {
-                        synchronized (waitMessage) {
-                            waitMessage.wait();
-                        }
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+
+                    ChatClient.wait1();
+
                     break;
                 }
                 case 6: {
@@ -101,13 +94,9 @@ public class FriendView {
                     SendApplyMessage message = new SendApplyMessage(myUserID, FriendID, "请求添加你为好友");
                     message.setPurpose("F");
                     ctx.writeAndFlush(message);
-                    try {
-                        synchronized (waitMessage) {
-                            waitMessage.wait();
-                        }
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+
+                    ChatClient.wait1();
+
                     break;
                 }
                 case 7: {
@@ -119,13 +108,9 @@ public class FriendView {
                     }
                     int FriendID = Integer.parseInt(s1);
                     ctx.writeAndFlush(new FriendDeleteRequestMessage(myUserID, FriendID));
-                    try {
-                        synchronized (waitMessage) {
-                            waitMessage.wait();
-                        }
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+
+                    ChatClient.wait1();
+
                     break;
                 }
                 case 8: {
@@ -137,13 +122,9 @@ public class FriendView {
                     }
                     int FriendID = Integer.parseInt(s1);
                     ctx.writeAndFlush(new FriendShieldRequestMessage(myUserID, FriendID));
-                    try {
-                        synchronized (waitMessage) {
-                            waitMessage.wait();
-                        }
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+
+                    ChatClient.wait1();
+
                     break;
                 }
                 case 9: {
@@ -155,13 +136,9 @@ public class FriendView {
                     }
                     int FriendID = Integer.parseInt(s1);
                     ctx.writeAndFlush(new FriendNoticeMessage(myUserID, FriendID));
-                    try {
-                        synchronized (waitMessage) {
-                            waitMessage.wait();
-                        }
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+
+                    ChatClient.wait1();
+
                     if (waitSuccess == 1) {
                         talkWith = FriendID;
                         int count = 0;
@@ -221,13 +198,9 @@ public class FriendView {
                             message = new FriendChatRequestMessage(myUserID, FriendID, chat, "S");
                             message.setTalker_type("F");
                             ctx.writeAndFlush(message);
-                            try {
-                                synchronized (waitMessage) {
-                                    waitMessage.wait();
-                                }
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
+
+                            ChatClient.wait1();
+
                             if (waitSuccess == 0) {
                                 break;
                             }
@@ -265,13 +238,9 @@ public class FriendView {
             }
             ctx.writeAndFlush(m1);
             System.out.println(1);
-            try {
-                synchronized (waitMessage) {
-                    waitMessage.wait();
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+
+            ChatClient.wait1();
+
         } else if (choice.equalsIgnoreCase("F")) {
             FriendGetFileRequestMessage m1 = new FriendGetFileRequestMessage(myUserID, FriendID);
             m1.setRefuse(true);
@@ -282,13 +251,9 @@ public class FriendView {
             }
             ctx.writeAndFlush(m1);
             System.out.println(1);
-            try {
-                synchronized (waitMessage) {
-                    waitMessage.wait();
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+
+            ChatClient.wait1();
+
         }
     }
 }

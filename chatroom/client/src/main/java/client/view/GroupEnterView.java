@@ -1,5 +1,6 @@
 package client.view;
 
+import client.ChatClient;
 import client.SendFile;
 import com.alibaba.druid.util.StringUtils;
 import io.netty.channel.ChannelHandlerContext;
@@ -174,13 +175,9 @@ public class GroupEnterView {
 
     public void case1() {
         ctx.writeAndFlush(new GroupMemberRequestMessage(groupID));
-        try {
-            synchronized (waitMessage) {
-                waitMessage.wait();
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
+        ChatClient.wait1();
+
         for (String s : friendList) {
             System.out.println(s);
         }
@@ -194,13 +191,9 @@ public class GroupEnterView {
 
     public void case2(Scanner scanner) {
         ctx.writeAndFlush(new GroupNoticeRequestMessage(myUserID, groupID));
-        try {
-            synchronized (waitMessage) {
-                waitMessage.wait();
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
+        ChatClient.wait1();
+
         if (waitSuccess == 1) {
             talkWithGroup = groupID;
             int count = 0;
@@ -252,13 +245,9 @@ public class GroupEnterView {
                 message.setMessage(chat);
                 message.setMsg_type("S");
                 ctx.writeAndFlush(message);
-                try {
-                    synchronized (waitMessage) {
-                        waitMessage.wait();
-                    }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+
+                ChatClient.wait1();
+
                 if (waitSuccess == 0) {
                     break;
                 }
@@ -281,13 +270,9 @@ public class GroupEnterView {
         }
         int unSayID = Integer.parseInt(s0);
         ctx.writeAndFlush(new GroupUnSayRequestMessage(unSayID, groupID, say));
-        try {
-            synchronized (waitMessage) {
-                waitMessage.wait();
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
+        ChatClient.wait1();
+
     }
 
     public void case5(Scanner scanner) {
@@ -299,13 +284,9 @@ public class GroupEnterView {
         }
         int delID = Integer.parseInt(s0);
         ctx.writeAndFlush(new GroupQuitRequestMessage(delID, groupID, myUserID));
-        try {
-            synchronized (waitMessage) {
-                waitMessage.wait();
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
+        ChatClient.wait1();
+
     }
 
     public void case6(Scanner scanner) {
@@ -320,13 +301,9 @@ public class GroupEnterView {
         message.setTalker_type("G");
         message.setGroupID(groupID);
         ctx.writeAndFlush(message);
-        try {
-            synchronized (waitMessage) {
-                waitMessage.wait();
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
+        ChatClient.wait1();
+
     }
 
     public void case7(Scanner scanner) {
@@ -338,13 +315,9 @@ public class GroupEnterView {
         }
         int FriendID = Integer.parseInt(s0);
         ctx.writeAndFlush(new GroupCutManagerRequestMessage(FriendID, groupID));
-        try {
-            synchronized (waitMessage) {
-                waitMessage.wait();
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
+        ChatClient.wait1();
+
     }
 
     public void case8(Scanner scanner) {
@@ -356,23 +329,15 @@ public class GroupEnterView {
         }
         int FriendID = Integer.parseInt(s0);
         ctx.writeAndFlush(new GroupAddManagerRequestMessage(FriendID, groupID));
-        try {
-            synchronized (waitMessage) {
-                waitMessage.wait();
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
+        ChatClient.wait1();
+
     }
 
     public void case9(Scanner scanner) {
         ctx.writeAndFlush(new GroupDeleteRequestMessage(myUserID, groupID));
-        try {
-            synchronized (waitMessage) {
-                waitMessage.wait();
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
+        ChatClient.wait1();
+
     }
 }

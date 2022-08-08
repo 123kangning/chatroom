@@ -1,5 +1,6 @@
 package client.view;
 
+import client.ChatClient;
 import io.netty.channel.ChannelHandlerContext;
 import message.NoticeRequestMessage;
 
@@ -13,13 +14,9 @@ public class NoticeView {
         System.out.printf("\n\t+------------- 您的ID为 %8d --------------+\n", myUserID);
         System.out.println("\t+------------------消息通知栏-------------------+");
         ctx.writeAndFlush(new NoticeRequestMessage(myUserID));
-        try {
-            synchronized (waitMessage) {
-                waitMessage.wait();
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
+        ChatClient.wait1();
+
         List<String> friend = noticeMap.get("F");
         List<String> group = noticeMap.get("G");
         for (String s1 : friend) {

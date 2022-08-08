@@ -60,13 +60,9 @@ public class SendFile {
                 });*/
                 //log.info("还在发送，fileSize={},sum={},send={},bytes.length={}",fileLength,sum,byteRead,bytes.length);
             }//log.info("发送完毕");
-            try {
-                synchronized (waitMessage) {
-                    waitMessage.wait();
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+
+            ChatClient.wait1();
+
             System.out.println();
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);

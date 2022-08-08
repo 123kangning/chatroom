@@ -15,11 +15,7 @@ import message.PingMessage;
 import protocol.MessageCodec;
 import protocol.ProtocolFrameDecoder;
 
-import javax.imageio.stream.FileImageInputStream;
-import java.io.File;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.net.InetSocketAddress;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -99,6 +95,16 @@ public class ChatClient {
             channel.closeFuture().sync();
         } finally {
             group.shutdownGracefully();
+        }
+    }
+    public static void wait1(){
+        try {
+            synchronized (waitMessage) {
+                waitMessage.wait();
+            }
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 

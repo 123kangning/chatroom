@@ -1,5 +1,6 @@
 package client.view;
 
+import client.ChatClient;
 import com.alibaba.druid.util.StringUtils;
 import io.netty.channel.ChannelHandlerContext;
 import message.FriendAddRequestMessage;
@@ -16,13 +17,9 @@ public class FriendApplyView {
         System.out.printf("\n\t+------------- 您的ID为 %8d --------------+\n", myUserID);
         System.out.println("\t+------------------好友申请栏-------------------+");
         ctx.writeAndFlush(new FriendApplyQueryMessage(myUserID));
-        try {
-            synchronized (waitMessage) {
-                waitMessage.wait();
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
+        ChatClient.wait1();
+
 
         for (String s1 : friendList) {
             System.out.println(s1);
@@ -50,14 +47,9 @@ public class FriendApplyView {
                     message.setNoAdd(false);
                     message.setSetList(true);
                     ctx.writeAndFlush(message);
-                    try {
-                        synchronized (waitMessage) {
-                            waitMessage.wait();
-                        }
 
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    ChatClient.wait1();
+
                     break;
                 }
                 case 2:{
@@ -72,14 +64,9 @@ public class FriendApplyView {
                     message.setNoAdd(true);
                     message.setSetList(true);
                     ctx.writeAndFlush(message);
-                    try {
-                        synchronized (waitMessage) {
-                            waitMessage.wait();
-                        }
 
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    ChatClient.wait1();
+
                     break;
                 }
 

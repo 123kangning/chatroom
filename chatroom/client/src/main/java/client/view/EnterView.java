@@ -51,14 +51,9 @@ public class EnterView {
 
                     LoginRequestMessage message = new LoginRequestMessage(userID, password);
                     ctx.writeAndFlush(message);
-                    try {
-                        synchronized (waitMessage) {
-                            waitMessage.wait();
-                        }
 
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    ChatClient.wait1();
+
                     if (waitSuccess == 1) {
                         new MainView(ctx);
                     }
@@ -81,14 +76,9 @@ public class EnterView {
                         mail = scanner.nextLine();
                     }
                     ctx.writeAndFlush(new AuthCodeRequestMessage(mail));
-                    try {
-                        synchronized (waitMessage) {
-                            waitMessage.wait();
-                        }
 
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    ChatClient.wait1();
+
                     if (waitSuccess == 1) {
                         System.out.println("请输入你收到的验证码：");
                         String s1;
@@ -98,14 +88,9 @@ public class EnterView {
                             if (AuthCode == mailAuthCode) {
                                 SignInRequestMessage message1 = new SignInRequestMessage(username, password1, mail);
                                 ctx.writeAndFlush(message1);
-                                try {
-                                    synchronized (waitMessage) {
-                                        waitMessage.wait();
-                                    }
 
-                                } catch (InterruptedException e) {
-                                    e.printStackTrace();
-                                }
+                                ChatClient.wait1();
+
                                 break;
                             }else{
                                 if(i==0){
@@ -128,14 +113,9 @@ public class EnterView {
                     }
                     int userID = Integer.parseInt(s1);
                     ctx.writeAndFlush(new SearchPasswordRequestMessage(userID));
-                    try {
-                        synchronized (waitMessage) {
-                            waitMessage.wait();
-                        }
 
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    ChatClient.wait1();
+
                     if (waitSuccess == 1) {
                         System.out.println("请输入你收到的验证码：");
                         s1 = scanner.nextLine();
@@ -148,13 +128,9 @@ public class EnterView {
                                 s1 = scanner.nextLine();
                             }
                             ctx.writeAndFlush(new ChangePasswordRequestMessage(userID, s1));
-                            try {
-                                synchronized (waitMessage) {
-                                    waitMessage.wait();
-                                }
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
+
+                            ChatClient.wait1();
+
                             if (waitSuccess == 1) {
                                 System.out.println("密码重置成功");
                             }

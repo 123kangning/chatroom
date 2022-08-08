@@ -46,13 +46,9 @@ public class MainView {
                     String s1 = scanner.nextLine();
                     if (s1.compareToIgnoreCase("y") == 0) {
                         ctx.writeAndFlush(new SignOutRequestMessage(ChatClient.myUserID));
-                        try {
-                            synchronized (waitMessage) {
-                                waitMessage.wait();
-                            }
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
+
+                        ChatClient.wait1();
+
                         if (waitSuccess == 1) {
                             return;
                         }
@@ -67,13 +63,9 @@ public class MainView {
                     //log.info("s={}",s1);
                     if (s1.compareToIgnoreCase("y") == 0) {
                         ctx.writeAndFlush(new LogoutRequestMessage());
-                        try {
-                            synchronized (waitMessage) {
-                                waitMessage.wait();
-                            }
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
+
+                        ChatClient.wait1();
+
                         if (waitSuccess == 1) {
                             return;
                         }

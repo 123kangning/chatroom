@@ -1,5 +1,6 @@
 package client.view;
 
+import client.ChatClient;
 import com.alibaba.druid.util.StringUtils;
 import io.netty.channel.ChannelHandlerContext;
 import lombok.extern.slf4j.Slf4j;
@@ -51,13 +52,9 @@ public class GroupView {
                 }
                 case 3: {
                     ctx.writeAndFlush(new GroupApplyQueryRequestMessage(myUserID));
-                    try {
-                        synchronized (waitMessage) {
-                            waitMessage.wait();
-                        }
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+
+                    ChatClient.wait1();
+
                     dealRequest(ctx, scanner);
                     break;
                 }
@@ -65,13 +62,9 @@ public class GroupView {
                     System.out.println("请输入要创建的群聊名称：");
                     String s1 = scanner.nextLine();
                     ctx.writeAndFlush(new GroupCreateRequestMessage(myUserID, s1));
-                    try {
-                        synchronized (waitMessage) {
-                            waitMessage.wait();
-                        }
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+
+                    ChatClient.wait1();
+
                     break;
                 }
                 case 5: {
@@ -104,13 +97,9 @@ public class GroupView {
                     GroupQuitRequestMessage message = new GroupQuitRequestMessage(myUserID, groupID, myUserID);
                     //log.info("GroupQuitRequestMessage");
                     ctx.writeAndFlush(message);
-                    try {
-                        synchronized (waitMessage) {
-                            waitMessage.wait();
-                        }
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+
+                    ChatClient.wait1();
+
                     break;
                 }
                 case 7: {
@@ -122,13 +111,9 @@ public class GroupView {
                     }
                     int groupID = Integer.parseInt(s0);
                     ctx.writeAndFlush(new GroupCheckGradeRequestMessage(myUserID, groupID));
-                    try {
-                        synchronized (waitMessage) {
-                            waitMessage.wait();
-                        }
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+
+                    ChatClient.wait1();
+
                     if (waitSuccess == 1) {
                         new GroupEnterView(ctx, groupID);
                     }
@@ -141,13 +126,9 @@ public class GroupView {
     protected void query(ChannelHandlerContext ctx) {
         GroupQueryRequestMessage message = new GroupQueryRequestMessage(myUserID);
         ctx.writeAndFlush(message);
-        try {
-            synchronized (waitMessage) {
-                waitMessage.wait();
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
+        ChatClient.wait1();
+
         for (String s : friendList) {
             System.out.println(s);
         }
@@ -166,13 +147,9 @@ public class GroupView {
         }
         ReceiveMessageRequestMessage message = new ReceiveMessageRequestMessage(list);
         ctx.writeAndFlush(message);
-        try {
-            synchronized (waitMessage) {
-                waitMessage.wait();
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
+        ChatClient.wait1();
+
     }
 
     protected void dealRequest(ChannelHandlerContext ctx, Scanner scanner) {
@@ -199,13 +176,9 @@ public class GroupView {
                 GroupJoinRequestMessage message = new GroupJoinRequestMessage(myUserID, list);
                 message.setSetList(true);
                 ctx.writeAndFlush(message);
-                try {
-                    synchronized (waitMessage) {
-                        waitMessage.wait();
-                    }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+
+                ChatClient.wait1();
+
                 break;
             }
             case 2: {
@@ -228,13 +201,9 @@ public class GroupView {
                 message.setTalkerID(Integer.parseInt(s[0]));
                 message.setTalker_type("F");
                 ctx.writeAndFlush(message);
-                try {
-                    synchronized (waitMessage) {
-                        waitMessage.wait();
-                    }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+
+                ChatClient.wait1();
+
                 break;
             }
             case 0:

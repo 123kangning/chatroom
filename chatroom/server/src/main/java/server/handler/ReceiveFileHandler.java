@@ -61,7 +61,7 @@ public class ReceiveFileHandler extends ChannelInboundHandlerAdapter {
                 if(current>rate){
                     ctx.writeAndFlush(new FileResponseMessage(start));
                     rate=current;
-                    log.info("rate=current");
+                    //log.info("rate=current");
                 }
                 //log.info("接收尚未结束");
             }else{//接收完毕

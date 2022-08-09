@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import message.FileResponseMessage;
 import message.FriendChatRequestMessage;
 import message.GroupChatRequestMessage;
+import message.SendFileMessage;
 
 import java.io.*;
 import java.nio.ByteBuffer;
@@ -39,6 +40,7 @@ public class ReceiveFileHandler extends ChannelInboundHandlerAdapter {
                 file=new RandomAccessFile(new File(path),"rw");
                 rate=0;
                 receive=false;
+                ctx.writeAndFlush(new FileResponseMessage(0,path));
             }
             if(((FriendChatRequestMessage) msg).getFile()==null){
                 receive=true;
@@ -59,7 +61,7 @@ public class ReceiveFileHandler extends ChannelInboundHandlerAdapter {
 
             if(start<size){//说明文件可能还未接收完毕，返回读取的字节数
                 if(current>rate){
-                    ctx.writeAndFlush(new FileResponseMessage(start));
+                    ctx.writeAndFlush(new FileResponseMessage(start,path));
                     rate=current;
                     //log.info("rate=current");
                 }
@@ -67,7 +69,7 @@ public class ReceiveFileHandler extends ChannelInboundHandlerAdapter {
             }else{//接收完毕
                 log.info("接收完毕");
                 receive=true;
-                ctx.writeAndFlush(new FileResponseMessage(start));
+                ctx.writeAndFlush(new FileResponseMessage(start,path));
                 start=0;
                 file.close();
                 super.channelRead(ctx, friendMsg);
@@ -84,6 +86,7 @@ public class ReceiveFileHandler extends ChannelInboundHandlerAdapter {
                 file=new RandomAccessFile(path,"rw");
                 rate=0;
                 receive=false;
+                ctx.writeAndFlush(new FileResponseMessage(0,path));
             }
 
             if(((GroupChatRequestMessage) msg).getFile()==null){
@@ -104,14 +107,14 @@ public class ReceiveFileHandler extends ChannelInboundHandlerAdapter {
 
             if(start<size){//说明文件可能还未接收完毕，返回读取的字节数
                 if(current>rate){
-                    ctx.writeAndFlush(new FileResponseMessage(start));
+                    ctx.writeAndFlush(new FileResponseMessage(start,path));
                     rate=current;
                 }
                 //log.info("接收尚未结束");
             }else{//接收完毕
                 log.info("接收完毕");
                 receive=true;
-                ctx.writeAndFlush(new FileResponseMessage(start));
+                ctx.writeAndFlush(new FileResponseMessage(start,path));
                 start=0;
                 file.close();
                 super.channelRead(ctx, groupMsg);

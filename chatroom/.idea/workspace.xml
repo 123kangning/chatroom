@@ -5,10 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9ffa9a4-92e7-4c59-af71-ec04fc0405e8" name="变更" comment="变更">
-      <change afterPath="$PROJECT_DIR$/client/src/test/java/TestBreakPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/test/java/breakPoint" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/breakPointReceive" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/breakPointSend" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ChatClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/SendFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/SendFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/FileResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/message/FileResponseMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/FileResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/message/FileResponseMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/handler/GroupJoinHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/handler/GroupJoinHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/handler/GroupQuitHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/handler/GroupQuitHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/server/handler/ReceiveFileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/handler/ReceiveFileHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/server/handler/GroupJoinHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/handler/GroupJoinHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/server/handler/GroupQuitHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/handler/GroupQuitHandler.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +107,7 @@
       <recent name="netty.c2" />
     </key>
   </component>
-  <component name="RunManager" selected="应用程序.TestBreakPoint">
+  <component name="RunManager" selected="应用程序.client.ChatClient">
     <configuration name="ChannelFile.ChatServer" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ChannelFile.ChatServer" />
       <module name="server" />
@@ -113,7 +121,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ChatClient (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="ChatClient (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="client.ChatClient" />
+      <module name="client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ChatClient (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="client.ChatClient" />
       <module name="client" />
       <extension name="coverage">
@@ -153,19 +174,6 @@
       </method>
     </configuration>
     <configuration name="ChatServer (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="server.ChatServer" />
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ChatServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="server.ChatServer" />
       <module name="server" />
       <extension name="coverage">
@@ -241,19 +249,19 @@
       <item itemvalue="应用程序.ChannelFile.ChatServer" />
       <item itemvalue="应用程序.ChatClient" />
       <item itemvalue="应用程序.client.ChatClient" />
+      <item itemvalue="应用程序.ChatClient (2)" />
+      <item itemvalue="应用程序.ChatServer (1)" />
+      <item itemvalue="应用程序.ChatClient (1)" />
       <item itemvalue="应用程序.ChatServer (2)" />
       <item itemvalue="应用程序.TestBreakPoint" />
-      <item itemvalue="应用程序.ChatServer" />
-      <item itemvalue="应用程序.ChatClient (3)" />
-      <item itemvalue="应用程序.ChatServer (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="应用程序.ChatClient (2)" />
+        <item itemvalue="应用程序.ChatServer (1)" />
+        <item itemvalue="应用程序.ChatClient (1)" />
         <item itemvalue="应用程序.ChatServer (2)" />
         <item itemvalue="应用程序.TestBreakPoint" />
-        <item itemvalue="应用程序.ChatServer" />
-        <item itemvalue="应用程序.ChatClient (3)" />
-        <item itemvalue="应用程序.ChatServer (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -338,7 +346,8 @@
       <workItem from="1659795393134" duration="743000" />
       <workItem from="1659839013719" duration="10082000" />
       <workItem from="1659874846211" duration="3422000" />
-      <workItem from="1659945528765" duration="14280000" />
+      <workItem from="1659945528765" duration="16668000" />
+      <workItem from="1660007327490" duration="6554000" />
     </task>
     <servers />
   </component>

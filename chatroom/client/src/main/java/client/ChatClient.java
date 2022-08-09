@@ -16,6 +16,7 @@ import protocol.MessageCodec;
 import protocol.ProtocolFrameDecoder;
 
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -27,6 +28,10 @@ public class ChatClient {
     public static String myUsername;
     public static int myUserID;
     public static String path;
+    public static volatile RandomAccessFile breakPointSend;//处理发送断点续传配置文件
+    public static String breakPointSendPath=System.getProperty("user.dir")+"/client/src/main/java/breakPointSend";
+    public static volatile RandomAccessFile breakPointReceive;//处理接收断点续传配置文件
+    public static String breakPointReceivePath=System.getProperty("user.dir")+"/client/src/main/java/breakPointReceive";
     public static volatile int mailAuthCode;
     public static volatile int haveNoRead = 0;//默认没有未读消息
     public static final Object waitMessage = new Object();//服务端消息返回时，notify线程 View handler
@@ -51,6 +56,9 @@ public class ChatClient {
         LoggingHandler Log = new LoggingHandler(LogLevel.DEBUG);
         MessageCodec clientCodec = new MessageCodec();
         properties.load(new java.io.FileInputStream(System.getProperty("user.dir")+"/client/src/main/resources/application.properties"));
+        //breakPointSend=new RandomAccessFile(System.getProperty("user.dir")+"/client/src/main/java/breakPointSend","rw");
+        //breakPointReceive=new RandomAccessFile(System.getProperty("user.dir")+"/client/src/main/java/breakPointReceive","rw");
+
         try {
             ChannelFuture future = new Bootstrap()
                     .group(group)
@@ -102,7 +110,6 @@ public class ChatClient {
             synchronized (waitMessage) {
                 waitMessage.wait();
             }
-
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

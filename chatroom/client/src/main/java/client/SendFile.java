@@ -16,8 +16,8 @@ public class SendFile {
     private static final int MAX_LENGTH = 1 << 30;
 
     public SendFile(ChannelHandlerContext ctx, File file,Message message){
-
         try (RandomAccessFile randomAccessFile = new RandomAccessFile(file, "r")) {
+            breakPointSend=new RandomAccessFile(System.getProperty("user.dir")+"/client/src/main/java/breakPointSend","rw");
             fileLength= (int) randomAccessFile.length();
             if(fileLength>MAX_LENGTH){
                 System.out.println("文件大于1G，拒绝发送！");
@@ -39,8 +39,8 @@ public class SendFile {
                 once=1048000;
             }
             byte[] bytes=new byte[once];
-
-            while(randomAccessFile.read(bytes)!=-1){
+            int start=0,byteRead=0;
+            while((byteRead=randomAccessFile.read(bytes))!=-1){
                 if(message instanceof FriendChatRequestMessage){
                     ((FriendChatRequestMessage)message).setFile(bytes);
                 }else{

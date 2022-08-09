@@ -42,14 +42,9 @@ public class GroupJoinHandler extends SimpleChannelInboundHandler<GroupJoinReque
 
     protected int choice(ChannelHandlerContext ctx, GroupJoinRequestMessage msg, int groupID) {
         try {
-            int userID;
-            if (msg.getTalker_type().equals("F")) {
-                userID = msg.getTalkerID();
-                log.info("case 1");
-            } else {
-                userID = msg.getUserID();
-                log.info("case 0");
-            }
+            int userID = msg.getUserID();
+            int talkerID=msg.getTalkerID();
+            String talker_type=msg.getTalker_type();
             String group_name;
             String sqlCheck = "select group_name from group1 where groupID=?";
             PreparedStatement psCheck = connection.prepareStatement(sqlCheck);
@@ -65,7 +60,7 @@ public class GroupJoinHandler extends SimpleChannelInboundHandler<GroupJoinReque
             String sql = "select groupID from group2 where groupID=? and userID=?";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, groupID);
-            ps.setInt(2, userID);
+            ps.setInt(2, talker_type.equals("G")?userID:talkerID);
             ResultSet set = ps.executeQuery();
             if (set.next()) {
                 ctx.writeAndFlush(new ResponseMessage(false, "你已经在群聊中了"));
@@ -75,24 +70,45 @@ public class GroupJoinHandler extends SimpleChannelInboundHandler<GroupJoinReque
             PreparedStatement ps1 = connection.prepareStatement(sql1);
             ps1.setInt(1, groupID);
             ps1.setString(2, group_name);
-            ps1.setInt(3, userID);
+            ps1.setInt(3, talker_type.equals("G")?userID:talkerID);
             ps1.executeUpdate();
             log.info("case 2");
+            int count;
+            log.info("userID = {}, talker_type = {}",userID,msg.getTalker_type());
+            if(msg.getTalker_type().equals("G")){
+                String sql3 = "select count(msg_id) from message where userID=? and groupID=? and  msg_type='A' and talker_type='G' and content='邀请你加入群组' and isAccept='F'";
+                PreparedStatement ps3 = connection.prepareStatement(sql3);
+                ps3.setInt(1, userID);
+                ps3.setInt(2, groupID);
+                ResultSet set2 = ps3.executeQuery();
+                set2.next();
+                count = set2.getInt(1);
+                String sql2 = "update message set isAccept='T' where userID=? and groupID=? and talker_type=? and msg_type='A' and isAccept='F'";
+                PreparedStatement ps2 = connection.prepareStatement(sql2);
+                ps2.setInt(1, userID);
+                ps2.setInt(2, groupID);
+                ps2.setString(3, msg.getTalker_type());
+                int row=ps2.executeUpdate();
+                log.info("ps2.executeUpdate() = {}",row);
+            }else{
+                String sql3 = "select count(msg_id) from message where talkerID=? and groupID=? and  msg_type='A' and talker_type='F' and content='申请加入群组' and isAccept='F'";
+                PreparedStatement ps3 = connection.prepareStatement(sql3);
+                ps3.setInt(1, talkerID);
+                ps3.setInt(2, groupID);
+                ResultSet set2 = ps3.executeQuery();
+                set2.next();
+                count = set2.getInt(1);
+                String sql2 = "update message set isAccept='T' where talkerID=? and groupID=? and talker_type=? and msg_type='A' and isAccept='F'";
+                PreparedStatement ps2 = connection.prepareStatement(sql2);
+                ps2.setInt(1, msg.getTalkerID());
+                ps2.setInt(2, groupID);
+                ps2.setString(3, msg.getTalker_type());
+                int row=ps2.executeUpdate();
+                log.info("ps2.executeUpdate() = {}",row);
+            }
 
-            String sql3 = "select count(msg_id) from message where userID=? and groupID=? and  msg_type='A' and talker_type='G' and content='邀请你加入群组' and isAccept='F'";
-            PreparedStatement ps3 = connection.prepareStatement(sql3);
-            ps3.setInt(1, userID);
-            ps3.setInt(2, groupID);
-            ResultSet set2 = ps3.executeQuery();
-            set2.next();
-            int count = set2.getInt(1);
             log.info("同类型邀请 count = {}", count);
-            String sql2 = "update message set isAccept='T' where userID=? and groupID=? and talker_type=? and msg_type='A' and isAccept='F'";
-            PreparedStatement ps2 = connection.prepareStatement(sql2);
-            ps2.setInt(1, userID);
-            ps2.setInt(2, groupID);
-            ps2.setString(3, msg.getTalker_type());
-            ps2.executeUpdate();
+
             return count;
         } catch (SQLException e) {
             e.printStackTrace();

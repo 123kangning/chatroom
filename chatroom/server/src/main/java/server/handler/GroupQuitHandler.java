@@ -36,15 +36,18 @@ public class GroupQuitHandler extends SimpleChannelInboundHandler<GroupQuitReque
                 log.info("群聊中无此人");
                 return;
             }
-            String sql0="select userID from group2 where userID=? and  user_type<(select user_type from group2 where userID=? and groupID=?)";
-            PreparedStatement ps0= connection.prepareStatement(sql0);
-            ps0.setInt(1,delID);
-            ps0.setInt(2,userID);
-            ps0.setInt(3,groupID);
-            ResultSet set0=ps0.executeQuery();
-            if(!set0.next()){
-                ctx.writeAndFlush(new ResponseMessage(false,"您没有权限踢出该成员"));
-                return;
+            String sql0;
+            if(userID!=delID){
+                sql0="select userID from group2 where userID=? and  user_type<(select user_type from group2 where userID=? and groupID=?)";
+                PreparedStatement ps0= connection.prepareStatement(sql0);
+                ps0.setInt(1,delID);
+                ps0.setInt(2,userID);
+                ps0.setInt(3,groupID);
+                ResultSet set0=ps0.executeQuery();
+                if(!set0.next()){
+                    ctx.writeAndFlush(new ResponseMessage(false,"您没有权限踢出该成员"));
+                    return;
+                }
             }
 
             String sql1 = "delete from group2 where userID=? and groupID=?";

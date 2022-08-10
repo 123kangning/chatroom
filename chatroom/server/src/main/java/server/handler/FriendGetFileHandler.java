@@ -70,6 +70,7 @@ public class FriendGetFileHandler extends SimpleChannelInboundHandler<FriendGetF
             } else {
                 log.info("什么也没有找到");
             }
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

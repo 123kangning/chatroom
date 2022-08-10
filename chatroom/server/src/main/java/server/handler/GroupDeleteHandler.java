@@ -45,5 +45,6 @@ public class GroupDeleteHandler extends SimpleChannelInboundHandler<GroupDeleteR
         ps.executeUpdate();
         log.info("delete in group1");
         ctx.writeAndFlush(new ResponseMessage(true,""));
+        connection.close();
     }
 }

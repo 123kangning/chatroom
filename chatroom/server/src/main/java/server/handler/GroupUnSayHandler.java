@@ -42,6 +42,7 @@ public class GroupUnSayHandler extends SimpleChannelInboundHandler<GroupUnSayReq
                 message = new ResponseMessage(false, "禁言失败");
             }
             ctx.writeAndFlush(message);
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

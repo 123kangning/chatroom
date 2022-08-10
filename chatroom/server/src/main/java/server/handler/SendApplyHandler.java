@@ -70,6 +70,7 @@ public class SendApplyHandler extends SimpleChannelInboundHandler<SendApplyMessa
 
 
             ctx.writeAndFlush(new ResponseMessage(true, ""));
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

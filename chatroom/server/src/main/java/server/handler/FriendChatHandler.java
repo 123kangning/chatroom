@@ -64,6 +64,7 @@ public class FriendChatHandler extends SimpleChannelInboundHandler<FriendChatReq
                 message = new ResponseMessage(false, "找不到该朋友");
             }
             ctx.writeAndFlush(message);
+            connection.close();
         } catch (SQLException | IOException | NullPointerException e) {
             e.printStackTrace();
         }
@@ -131,6 +132,7 @@ public class FriendChatHandler extends SimpleChannelInboundHandler<FriendChatReq
         }
 
         int row = ps2.executeUpdate();
+        connection.close();
         return message;
     }
 }

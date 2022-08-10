@@ -70,5 +70,6 @@ public class FriendUnShiedHandler extends SimpleChannelInboundHandler<FriendUnSh
         }
         log.info("结束");
         ctx.writeAndFlush(new ResponseMessage(true, ""));
+        connection.close();
     }
 }

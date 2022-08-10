@@ -32,6 +32,7 @@ public class FriendDeleteHandler extends SimpleChannelInboundHandler<FriendDelet
                 message = new ResponseMessage(false, "没有这个朋友");
             }
             ctx.writeAndFlush(message);
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

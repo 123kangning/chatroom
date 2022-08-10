@@ -31,5 +31,6 @@ public class SearchPasswordHandler extends SimpleChannelInboundHandler<SearchPas
             ctx.writeAndFlush(message);
             MailSession.email(mail, mailAuthCode);
         }
+        connection.close();
     }
 }

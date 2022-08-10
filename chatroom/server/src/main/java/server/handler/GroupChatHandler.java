@@ -45,14 +45,7 @@ public class GroupChatHandler extends SimpleChannelInboundHandler<GroupChatReque
                 PreparedStatement ps1 = connection.prepareStatement(sql1);
                 ps1.setInt(1, FriendID);
                 ResultSet set1 = ps1.executeQuery();
-/*                FriendChatRequestMessage message;
-                if (msg_type.equals("F")) {
-                    message = new FriendChatRequestMessage(userID, FriendID, file, "F");
-                } else {
-                    message = new FriendChatRequestMessage(userID, FriendID, chat, "S");
-                }
-                message.setTalker_type("G");
-                message.setGroup(groupID);*/
+
                 set1.next();
                 String onLine = set1.getString(1);
                 log.info("online = {}", onLine);
@@ -60,6 +53,7 @@ public class GroupChatHandler extends SimpleChannelInboundHandler<GroupChatReque
                 ctx.writeAndFlush(handler.ChatHandler(userID, FriendID, msg_type, "G", groupID, chat, msg.getPath(),onLine));
 
             }
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

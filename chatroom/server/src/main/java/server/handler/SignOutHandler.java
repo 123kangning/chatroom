@@ -44,5 +44,6 @@ public class SignOutHandler extends SimpleChannelInboundHandler<SignOutRequestMe
         ps.setInt(1,userID);
         ps.executeUpdate();
         log.info("ctx.writeAndFlush(message)");
+        connection.close();
     }
 }

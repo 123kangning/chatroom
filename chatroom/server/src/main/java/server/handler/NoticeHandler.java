@@ -58,6 +58,7 @@ public class NoticeHandler extends SimpleChannelInboundHandler<NoticeRequestMess
             message.setMessageType(Message.noticeMapMessage);
             ctx.writeAndFlush(message);
             log.info("ctx.writeAndFlush(noticeMap)");
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

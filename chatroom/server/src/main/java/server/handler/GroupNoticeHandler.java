@@ -103,6 +103,7 @@ public class GroupNoticeHandler extends SimpleChannelInboundHandler<GroupNoticeR
         log.info("count in GroupNoticeHandler = {}", count1);
         message.setReadCount(count1);
         ctx.writeAndFlush(message);
+        connection.close();
     }
 
     public String Id2Type(int userID, int groupID,Connection connection) throws Exception {

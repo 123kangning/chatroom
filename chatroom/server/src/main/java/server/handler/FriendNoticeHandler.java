@@ -89,6 +89,7 @@ public class FriendNoticeHandler extends SimpleChannelInboundHandler<FriendNotic
             log.info("count in FriendNoticeHandler = {}", count1);
             message.setReadCount(count1);
             ctx.writeAndFlush(message);
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

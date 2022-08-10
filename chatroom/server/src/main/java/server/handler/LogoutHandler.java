@@ -26,6 +26,7 @@ public class LogoutHandler extends SimpleChannelInboundHandler<LogoutRequestMess
             log.info("In LogoutHandler userID={}", SessionMap.getUser(ctx.channel()));
             if (userID == 0) {
                 ctx.writeAndFlush(new ResponseMessage(true, ""));
+                connection.close();
                 return;
             }
             String sql = "update user set online='F' where userID=?";
@@ -42,6 +43,7 @@ public class LogoutHandler extends SimpleChannelInboundHandler<LogoutRequestMess
             message.setMessageType(Message.LogoutResponseMessage);
             if (ctx.channel() != null)
                 ctx.writeAndFlush(message);
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

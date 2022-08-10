@@ -74,6 +74,7 @@ public class LoginHandler extends SimpleChannelInboundHandler<LoginRequestMessag
             }
             message.setMessageType(Message.LoginResponseMessage);
             ctx.writeAndFlush(message);
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

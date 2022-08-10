@@ -39,6 +39,7 @@ public class GroupApplyQueryHandler extends SimpleChannelInboundHandler<GroupApp
             message.setFriendList(list);
             message.setMessageType(Message.FriendQueryRequestMessage);
             ctx.writeAndFlush(message);
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

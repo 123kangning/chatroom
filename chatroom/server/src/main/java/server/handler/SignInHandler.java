@@ -62,6 +62,7 @@ public class SignInHandler extends SimpleChannelInboundHandler<SignInRequestMess
             }
             message.setMessageType(Message.SignInResponseMessage);
             ctx.writeAndFlush(message);
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

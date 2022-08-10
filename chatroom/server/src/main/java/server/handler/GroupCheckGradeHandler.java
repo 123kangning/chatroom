@@ -34,6 +34,7 @@ public class GroupCheckGradeHandler extends SimpleChannelInboundHandler<GroupChe
                 message = new ResponseMessage(false, "判断失败");
             }
             ctx.writeAndFlush(message);
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

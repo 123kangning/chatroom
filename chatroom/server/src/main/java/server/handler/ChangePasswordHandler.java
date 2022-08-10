@@ -22,5 +22,6 @@ public class ChangePasswordHandler extends SimpleChannelInboundHandler<ChangePas
         ps.setInt(2, userID);
         ps.executeUpdate();
         ctx.writeAndFlush(new ResponseMessage(true, ""));
+        connection.close();
     }
 }

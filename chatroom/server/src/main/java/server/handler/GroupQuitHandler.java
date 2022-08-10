@@ -71,6 +71,7 @@ public class GroupQuitHandler extends SimpleChannelInboundHandler<GroupQuitReque
             }
 
             log.info("row=SendInsertIntoMessage = {}", row);
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

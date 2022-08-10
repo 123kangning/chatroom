@@ -66,6 +66,7 @@ public class FriendShieldHandler extends SimpleChannelInboundHandler<FriendShiel
                 }
             }
             ctx.writeAndFlush(message);
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

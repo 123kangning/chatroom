@@ -35,5 +35,6 @@ public class GroupCutManagerHandler extends SimpleChannelInboundHandler<GroupCut
         int row = ps.executeUpdate();
         log.info("row={}", row);
         ctx.writeAndFlush(new ResponseMessage(true, ""));
+        connection.close();
     }
 }

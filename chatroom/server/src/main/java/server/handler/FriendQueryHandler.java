@@ -63,6 +63,7 @@ public class FriendQueryHandler extends SimpleChannelInboundHandler<FriendQueryR
             message.setFriendList(friendList);
             message.setMessageType(Message.FriendQueryRequestMessage);
             ctx.writeAndFlush(message);
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

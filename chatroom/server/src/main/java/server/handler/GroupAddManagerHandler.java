@@ -25,5 +25,6 @@ public class GroupAddManagerHandler extends SimpleChannelInboundHandler<GroupAdd
         int row = ps.executeUpdate();
         log.info("row={}", row);
         ctx.writeAndFlush(new ResponseMessage(true, ""));
+        connection.close();
     }
 }

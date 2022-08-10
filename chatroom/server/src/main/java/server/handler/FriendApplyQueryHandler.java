@@ -42,6 +42,7 @@ public class FriendApplyQueryHandler extends SimpleChannelInboundHandler<FriendA
             message.setReadCount(count);
             ctx.writeAndFlush(message);
             log.info("ctx.writeAndFlush(message) FriendApplyQueryHandler");
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

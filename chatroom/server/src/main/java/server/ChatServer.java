@@ -29,21 +29,8 @@ public class ChatServer {
 
     public static ComboPooledDataSource jdbcPool;
 
-    public static void jdbc() {
-            final String URL = "jdbc:mysql://localhost:3306/chatroom";
-        final String NAME = "root";
-        final String PASSWORD = "9264wkn.";
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            jdbcPool=new ComboPooledDataSource();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
     public static void main(String[] args) {
-        jdbc();
+        jdbcPool=new ComboPooledDataSource();
         NioEventLoopGroup boss = new NioEventLoopGroup();
         NioEventLoopGroup worker = new NioEventLoopGroup();
         LoggingHandler Log = new LoggingHandler(LogLevel.DEBUG);
@@ -142,6 +129,7 @@ public class ChatServer {
         } finally {
             boss.shutdownGracefully();
             worker.shutdownGracefully();
+            jdbcPool.close();
         }
     }
 }

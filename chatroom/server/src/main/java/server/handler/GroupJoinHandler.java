@@ -110,7 +110,7 @@ public class GroupJoinHandler extends SimpleChannelInboundHandler<GroupJoinReque
             }
 
             log.info("同类型邀请 count = {}", count);
-
+            connection.close();
             return count;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -140,6 +140,7 @@ public class GroupJoinHandler extends SimpleChannelInboundHandler<GroupJoinReque
             }
 
             ResultSet set = ps.executeQuery();
+            connection.close();
             return set.next();
         } catch (SQLException e) {
             e.printStackTrace();

@@ -97,6 +97,7 @@ public class FriendAddHandler extends SimpleChannelInboundHandler<FriendAddReque
                 }
             }
             ctx.writeAndFlush(message);
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -159,6 +160,7 @@ public class FriendAddHandler extends SimpleChannelInboundHandler<FriendAddReque
             ps.setInt(2, FriendID);
             ps.executeUpdate();
             ctx.writeAndFlush(message);
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

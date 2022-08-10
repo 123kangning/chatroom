@@ -48,6 +48,7 @@ public class GroupCreateHandler extends SimpleChannelInboundHandler<GroupCreateR
                 message = new ResponseMessage(false, "创建失败");
             }
             ctx.writeAndFlush(message);
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

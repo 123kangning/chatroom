@@ -20,6 +20,8 @@ import java.io.RandomAccessFile;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
 
 
 @Slf4j
@@ -49,6 +51,7 @@ public class ChatClient {
     public static volatile int talkWith = 0;//正与哪个朋友聊天
     public static volatile int talkWithGroup = 0;//正在哪个群聊聊天
     public static Properties properties=new Properties();
+    public static volatile BlockingQueue<Object> blockingQueue=new ArrayBlockingQueue<>(5);
 
 
     public static void main(String[] args) throws InterruptedException, IOException {

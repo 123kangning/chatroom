@@ -9,7 +9,6 @@ import message.FriendChatRequestMessage;
 import message.GroupChatRequestMessage;
 import message.SendFileMessage;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.Arrays;

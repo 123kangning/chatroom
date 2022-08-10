@@ -6,7 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 import message.GroupChatRequestMessage;
 import message.ResponseMessage;
 
-import java.io.File;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

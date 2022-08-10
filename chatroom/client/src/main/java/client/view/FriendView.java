@@ -3,10 +3,7 @@ package client.view;
 import client.ChatClient;
 import client.SendFile;
 import com.alibaba.druid.util.StringUtils;
-import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.util.concurrent.Future;
-import io.netty.util.concurrent.GenericFutureListener;
 import lombok.extern.slf4j.Slf4j;
 import message.*;
 
@@ -237,8 +234,6 @@ public class FriendView {
                 m1.setGroupID(groupID);
             }
             ctx.writeAndFlush(m1);
-            System.out.println(1);
-
             ChatClient.wait1();
 
         } else if (choice.equalsIgnoreCase("F")) {
@@ -250,10 +245,7 @@ public class FriendView {
                 m1.setGroupID(groupID);
             }
             ctx.writeAndFlush(m1);
-            System.out.println(1);
-
             ChatClient.wait1();
-
         }
     }
 }

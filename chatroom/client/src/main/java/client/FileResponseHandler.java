@@ -7,8 +7,18 @@ import message.FileResponseMessage;
 import static client.ChatClient.*;
 @Slf4j
 public class FileResponseHandler extends SimpleChannelInboundHandler<FileResponseMessage> {
+    private static boolean receive;
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, FileResponseMessage msg) throws Exception {
+        if(!receive){
+            breakPointSend.writeUTF(msg.getServerPath());
+            breakPointSend.writeInt(0);
+            receive=true;
+            blockingQueue.put(msg.getServerPath());
+            synchronized (waitMessage){
+                waitMessage.notify();
+            }
+        }
         int percent=(int)(((msg.getLength()*1.0)/fileLength)*100);
         //log.info("percent = {}",percent);
         System.out.print("\r|");
@@ -19,14 +29,12 @@ public class FileResponseHandler extends SimpleChannelInboundHandler<FileRespons
             System.out.print("-");
         }
         System.out.printf("|%3d%%",percent);
-        /*if(percent==100){//1.客户端循环将文件所有内容发送完毕之后，才陷入阻塞
-            synchronized (waitMessage){
-                waitMessage.notifyAll();
+            breakPointSend.seek(breakPointSend.getFilePointer()-4);
+            log.info("breakPointSend.getFilePointer() = {}",breakPointSend.getFilePointer());
+            breakPointSend.writeInt(msg.getLength());
+            if(percent==100){
+                receive=false;
+                breakPointSend.close();
             }
-        }*/
-        //2.客户端每次发送文件的一部分之后都会陷入阻塞，等待进度消息返回后被唤醒
-        /*synchronized (waitMessage){
-            waitMessage.notifyAll();
-        }*/
     }
 }

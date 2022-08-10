@@ -8,11 +8,6 @@ import message.ResponseMessage;
 import message.SendFileMessage;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.channels.FileChannel;
 import java.util.Scanner;
 
 import static client.ChatClient.*;
@@ -73,5 +68,6 @@ public class ResponseHandler extends SimpleChannelInboundHandler<ResponseMessage
             addFile = addFile.concat("/");
         }
         path=addFile.concat(fileName);
+        System.out.println("serverPath is ="+path);
     }
 }

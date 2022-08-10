@@ -20,6 +20,7 @@ public class ReceiveFileHandler extends SimpleChannelInboundHandler<SendFileMess
         }
         file.write(msg.getFile());
         int percent=msg.getPercent();
+
         if(percent>rate){//打印进度条
             System.out.print("\r|");
             for(int i=0;i<percent;i++){

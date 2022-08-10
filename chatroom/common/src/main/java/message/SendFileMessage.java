@@ -2,27 +2,17 @@ package message;
 
 public class SendFileMessage extends Message{
     private String fileName;
-    private String serverPath;
-    private int percent;
     private int fileLength=0;
-    private int start;
+    private int start,once;
     private byte[] file;
-    public SendFileMessage(String serverPath,byte[] file,int start,int fileLength){//客户端向服务端发文件
-        this.serverPath=serverPath;
-        this.file=file;
-        this.start=start;
-        this.fileLength=fileLength;
-    }
-    public SendFileMessage(String fileName){
+    public SendFileMessage(String fileName,int start,int once){
         this.fileName=fileName;
+        this.start=start;
+        this.once=once;
     }//客户端请求服务端发送文件
-    public SendFileMessage(int percent,byte[] file){//服务端向客户端回复消息
-        this.percent=percent;
+    public SendFileMessage(int start,byte[] file){//服务端向客户端回复消息
+        this.start=start;
         this.file=file;
-    }
-
-    public int getPercent() {
-        return percent;
     }
 
     public byte[] getFile() {
@@ -37,8 +27,8 @@ public class SendFileMessage extends Message{
         return start;
     }
 
-    public String getServerPath() {
-        return serverPath;
+    public int getOnce() {
+        return once;
     }
 
     public int getFileLength() {

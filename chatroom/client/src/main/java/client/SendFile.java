@@ -86,23 +86,18 @@ public class SendFile {
             serverPath=(String)blockingQueue.take();
             log.info("准备发送文件");
             while((byteRead=randomAccessFile.read(bytes))!=-1){
-                System.out.println("File serverPath is "+serverPath);
+                //System.out.println("File serverPath is "+serverPath);
                 if(byteRead<once){
                     bytes=Arrays.copyOfRange(bytes,0,byteRead);
                 }
-                ChannelFuture sendFile= ctx.writeAndFlush(new SendFile1Message(serverPath,bytes,start,fileLength));
+                SendFile1Message sendFile1Message=new SendFile1Message(serverPath,bytes,start,fileLength);
+                if(message instanceof GroupChatRequestMessage){
+                    sendFile1Message.setChatType((byte)1);
+                }
+
+                ChannelFuture sendFile= ctx.writeAndFlush(sendFile1Message);
                 start+=byteRead;
                 sendFile.sync();
-                /*sendFile.addListener((ChannelFutureListener) future1 -> {
-                    if(!future1.isSuccess()){
-                        log.debug("出现错误");
-                    }
-                    Throwable throwable=future1.cause();
-                    if(throwable!=null){
-                        throwable.printStackTrace();
-                    }
-                });*/
-                //log.info("还在发送，fileSize={},sum={},send={},bytes.length={}",fileLength,sum,byteRead,bytes.length);
             }log.info("发送完毕");
 
             ChatClient.wait1();

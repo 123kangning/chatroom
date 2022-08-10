@@ -10,6 +10,7 @@ public class ResponseMessage extends Message {
     private int mailAuthCode;
     private Map<String, List<String>> noticeMap;
     public List<String> friendList;
+    private int fileLength;
     int MessageType = ResponseMessage;
     private int gradeInGroup;
     private String haveFile = "";
@@ -31,6 +32,9 @@ public class ResponseMessage extends Message {
         this.haveFile = haveFile;
     }
 
+    public void setFileLength(int fileLength) {
+        this.fileLength = fileLength;
+    }
 
     public void setReadCount(int readCount) {
         this.readCount = readCount;
@@ -66,6 +70,10 @@ public class ResponseMessage extends Message {
 
     public int getReadCount() {
         return readCount;
+    }
+
+    public int getFileLength() {
+        return fileLength;
     }
 
     public String getHaveFile() {

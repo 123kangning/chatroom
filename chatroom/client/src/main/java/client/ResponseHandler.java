@@ -34,7 +34,12 @@ public class ResponseHandler extends SimpleChannelInboundHandler<ResponseMessage
             } else if (msg.getMessageType() == Message.FriendGetFileRequestMessage) {
                 System.out.println("请选择一个目录将其保存下来[使用绝对路径]");
                 setPath(msg.getReason());
-                ctx.writeAndFlush(new SendFileMessage(msg.getReason()));
+                /*
+                * 加上接收文件类
+                * */
+                fileLength=msg.getFileLength();
+                new StartReceiveFile(ctx,msg.getReason());
+                //ctx.writeAndFlush(new SendFileMessage(msg.getReason()));
                 return;
             } else if (msg.getMessageType() == Message.FriendQueryRequestMessage) {
                 haveFile = msg.getHaveFile();

@@ -21,22 +21,16 @@ public class SendFileHandler extends SimpleChannelInboundHandler<SendFileMessage
         String path=System.getProperty("user.dir")+"/server/story/"+msg.getFileName();
         try {
             RandomAccessFile file=new RandomAccessFile(path,"r");
-            int fileLength= (int) file.length();
-            int once=fileLength/100;
-            if(once<1024){
-                once=1024;
-            }else if(once>1048000){
-                once=1048000;
-            }
+            int once=msg.getOnce();
             byte[] bytes=new byte[once];
-            int sum=0,byteRead=0;
+            int start= msg.getStart(), byteRead;
+            file.seek(start);
             while((byteRead=file.read(bytes))!=-1){
-                sum+=byteRead;
-                int percent=(int)((sum*1.0/fileLength)*100);
                 if(byteRead<once){
                     bytes= Arrays.copyOfRange(bytes,0,byteRead);
                 }
-                ChannelFuture future= ctx.writeAndFlush(new SendFileMessage(percent,bytes));
+
+                ChannelFuture future= ctx.writeAndFlush(new SendFileMessage(start,bytes));
                 future.addListener((ChannelFutureListener) future1 -> {
                     if(!future1.isSuccess()){
                         log.debug("出现错误");
@@ -46,8 +40,11 @@ public class SendFileHandler extends SimpleChannelInboundHandler<SendFileMessage
                         throwable.printStackTrace();
                     }
                 });
+                start+=byteRead;
+                file.seek(start);
                 //log.info("还在发送，fileLength={},sum={},send={},bytes.length={}",fileLength,sum,byteRead,bytes.length);
             }
+
             log.info("发送完毕");
         } catch (IOException e) {
             e.printStackTrace();

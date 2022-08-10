@@ -47,8 +47,17 @@ public class FriendGetFileHandler extends SimpleChannelInboundHandler<FriendGetF
                 log.info("file绝对路径：{}", file.getAbsolutePath());
                 log.info("exist = {}", file.exists());
                 ResponseMessage message = new ResponseMessage(true, file.getName());
-                if (!msg.isRefuse()) {
+                if (!msg.isRefuse()&&msg.getUpdate()!=1) {
+                    log.info("!msg.isRefuse()&&msg.getUpdate()!=1");
                     message.setMessageType(Message.FriendGetFileRequestMessage);
+                    message.setFileLength((int)file.length());
+                }
+                if(msg.getUpdate()==1){
+                    log.info("msg.getUpdate()==1");
+                    String sql1 = "update message set isAccept ='T' where msg_id =?";
+                    PreparedStatement ps1 = connection.prepareStatement(sql1);
+                    ps1.setInt(1, set.getInt(2));
+                    ps1.executeUpdate();
                 }
                 ctx.writeAndFlush(message);
                 /*if (!isGroup) {
@@ -56,10 +65,6 @@ public class FriendGetFileHandler extends SimpleChannelInboundHandler<FriendGetF
                     log.info("story 中文件空间清除 {}", del);
                 }*/
                 log.info("服务端文件发送成功");
-                String sql1 = "update message set isAccept ='T' where msg_id =?";
-                PreparedStatement ps1 = connection.prepareStatement(sql1);
-                ps1.setInt(1, set.getInt(2));
-                ps1.executeUpdate();
             } else {
                 log.info("什么也没有找到");
             }

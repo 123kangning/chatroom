@@ -5,222 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9ffa9a4-92e7-4c59-af71-ec04fc0405e8" name="变更" comment="变更">
-      <change afterPath="$PROJECT_DIR$/common/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/message/SendFile1Message.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/server/handler/FriendReceiveFileHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8598cf3d-151d-4ac9-8b83-ed55f4b5d4b2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8598cf3d-151d-4ac9-8b83-ed55f4b5d4b2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/client/StartReceiveFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/breakPointReceive" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/breakPointReceive" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/breakPointSend" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/breakPointSend" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ChatClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/FileResponseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/FileResponseHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ReceiveFileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ReceiveFileHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ResponseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ResponseHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/client/SendFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/SendFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/client/view/FriendView.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/view/FriendView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/AuthCodeRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/AuthCodeRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/ChangePasswordRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/ChangePasswordRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/FileResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/FileResponseMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/FriendAddRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/FriendAddRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/FriendApplyQueryMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/FriendApplyQueryMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/FriendChatRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/FriendChatRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/FriendDeleteRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/FriendDeleteRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/FriendGetFileRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/FriendGetFileRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/FriendNoticeMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/FriendNoticeMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/FriendQueryRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/FriendQueryRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/FriendShieldRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/FriendShieldRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/FriendUnShieldRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/FriendUnShieldRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/GroupAddManagerRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/GroupAddManagerRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/GroupApplyQueryRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/GroupApplyQueryRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/GroupChatRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/GroupChatRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/GroupCheckGradeRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/GroupCheckGradeRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/GroupCreateRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/GroupCreateRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/GroupCutManagerRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/GroupCutManagerRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/GroupDeleteRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/GroupDeleteRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/GroupJoinRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/GroupJoinRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/GroupMemberRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/GroupMemberRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/GroupNoticeRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/GroupNoticeRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/GroupQueryRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/GroupQueryRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/GroupQuitRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/GroupQuitRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/GroupUnSayRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/GroupUnSayRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/LoginRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/LoginRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/LogoutRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/LogoutRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/NoticeRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/NoticeRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/PingMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/PingMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/ReceiveMessageRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/ReceiveMessageRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/ResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/ResponseMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/SearchPasswordRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/SearchPasswordRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/SendApplyMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/SendApplyMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/SendFileMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/SignInRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/SignInRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/message/SignOutRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/SignOutRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/protocol/MessageCodec.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/protocol/MessageCodec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/protocol/ProtocolFrameDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/protocol/ProtocolFrameDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/protocol/TestMessageCodec.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/protocol/TestMessageCodec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/client/ChatClient$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/client/ChatClient$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/client/ChatClient$1$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/client/ChatClient$1$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/client/ChatClient$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/client/ChatClient$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/client/ChatClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/client/ChatClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/client/FileResponseHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/client/FileResponseHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/target/classes/client/ReceiveFileHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/client/ReceiveFileHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/target/classes/client/ResponseHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/client/ResponseHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/target/classes/client/SendFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/client/SendFile.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/target/classes/client/view/FriendView.class" beforeDir="false" afterPath="$PROJECT_DIR$/client/target/classes/client/view/FriendView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/AuthCodeRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/ChangePasswordRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/FileResponseMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/FriendAddRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/FriendApplyQueryMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/FriendChatRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/FriendDeleteRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/FriendGetFileRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/FriendNoticeMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/FriendQueryRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/FriendShieldRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/FriendUnShieldRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/GroupAddManagerRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/GroupApplyQueryRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/GroupChatRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/GroupCheckGradeRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/GroupCreateRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/GroupCutManagerRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/GroupDeleteRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/GroupJoinRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/GroupMemberRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/GroupNoticeRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/GroupQueryRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/GroupQuitRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/GroupUnSayRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/LoginRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/LogoutRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/Message.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/NoticeRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/PingMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/ReceiveMessageRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/ResponseMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/SearchPasswordRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/SendApplyMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/SendFileMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/SignInRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/message/SignOutRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/protocol/MessageCodec.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/protocol/ProtocolFrameDecoder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/target/classes/protocol/TestMessageCodec.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/AuthCodeRequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/ChangePasswordRequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/FileResponseMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/FriendAddRequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/FriendApplyQueryMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/FriendChatRequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/FriendDeleteRequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/FriendGetFileRequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/FriendNoticeMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/FriendQueryRequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/FriendShieldRequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/FriendUnShieldRequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/GroupAddManagerRequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/GroupApplyQueryRequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/GroupChatRequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/GroupCheckGradeRequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/GroupCreateRequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/GroupCutManagerRequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/GroupDeleteRequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/GroupJoinRequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/GroupMemberRequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/GroupNoticeRequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/GroupQueryRequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/GroupQuitRequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/GroupUnSayRequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/LoginRequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/LogoutRequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/Message.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/NoticeRequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/PingMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/ReceiveMessageRequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/ResponseMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/SearchPasswordRequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/SendApplyMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/SendFileMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/SendFileMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/SignInRequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/message/SignOutRequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/protocol/MessageCodec.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/protocol/ProtocolFrameDecoder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/protocol/TestMessageCodec.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/ChatServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/handler/FriendChatHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/handler/FriendChatHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/handler/FriendNoticeHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/handler/FriendNoticeHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/handler/GroupChatHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/handler/GroupChatHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/message/FriendGetFileRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/FriendGetFileRequestMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/message/ResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/ResponseMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/message/SendFile1Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/SendFile1Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/message/SendFileMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/message/SendFileMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/message/FriendGetFileRequestMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/message/FriendGetFileRequestMessage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/message/ResponseMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/message/ResponseMessage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/message/SendFile1Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/message/SendFile1Message.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/message/SendFileMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/message/SendFileMessage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/handler/FriendGetFileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/handler/FriendGetFileHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/handler/FriendReceiveFileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/handler/FriendReceiveFileHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/server/handler/ReceiveFileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/handler/ReceiveFileHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/server/handler/SendFileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/handler/SendFileHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/ChannelFile/ChatClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/ChannelFile/ChatServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/ChannelFile/ResponseHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/ChannelFile/SendFileHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/AuthCodeRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/ChangePasswordRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/FileResponseMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/FriendAddRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/FriendApplyQueryMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/FriendChatRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/FriendDeleteRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/FriendGetFileRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/FriendNoticeMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/FriendQueryRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/FriendShieldRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/FriendUnShieldRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/GroupAddManagerRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/GroupApplyQueryRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/GroupChatRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/GroupCheckGradeRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/GroupCreateRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/GroupCutManagerRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/GroupDeleteRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/GroupJoinRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/GroupMemberRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/GroupNoticeRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/GroupQueryRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/GroupQuitRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/GroupUnSayRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/LoginRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/LogoutRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/Message.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/NoticeRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/PingMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/ReceiveMessageRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/ResponseMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/SearchPasswordRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/SendApplyMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/SendFileMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/SignInRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/message/SignOutRequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/protocol/MessageCodec.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/protocol/ProtocolFrameDecoder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/protocol/TestMessageCodec.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/ChatServer$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/ChatServer$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/ChatServer$1$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/ChatServer$1$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/ChatServer$1$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/ChatServer$1$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/ChatServer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/ChatServer$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/ChatServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/ChatServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/handler/FriendChatHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/handler/FriendChatHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/server/handler/GroupChatHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/handler/GroupChatHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/server/handler/FriendReceiveFileHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/handler/FriendReceiveFileHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/target/classes/server/handler/ReceiveFileHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/handler/ReceiveFileHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/target/classes/server/handler/SendFileHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/server/handler/SendFileHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/test-classes/ChannelFile/ChatClient$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/test-classes/ChannelFile/ChatClient$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/test-classes/ChannelFile/ChatClient.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/test-classes/ChannelFile/ChatServer$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/test-classes/ChannelFile/ChatServer$1$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/test-classes/ChannelFile/ChatServer$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/test-classes/ChannelFile/ChatServer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/test-classes/ChannelFile/ResponseHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/test-classes/ChannelFile/SendFileHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/test-classes/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/test-classes/Test.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -268,7 +79,7 @@
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
     "jdk.selected.JAVA_MODULE": "11",
-    "last_opened_file_path": "/home/kangning/clone/chatroom-java/chatroom",
+    "last_opened_file_path": "/home/kangning/clone/yanran/my room",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -546,7 +357,7 @@
       <workItem from="1659874846211" duration="3422000" />
       <workItem from="1659945528765" duration="16668000" />
       <workItem from="1660007327490" duration="32882000" />
-      <workItem from="1660093552648" duration="4140000" />
+      <workItem from="1660093552648" duration="17879000" />
     </task>
     <servers />
   </component>

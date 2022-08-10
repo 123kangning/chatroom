@@ -235,6 +235,10 @@ public class FriendView {
             }
             ctx.writeAndFlush(m1);
             ChatClient.wait1();
+            //这次阻塞被唤醒意味着接收文件的事件已经完成，接下来要发送信息，让服务器修改发送文件信息的接收状态
+            m1.setUpdate((byte)1);
+            ctx.writeAndFlush(m1);
+            ChatClient.wait1();
 
         } else if (choice.equalsIgnoreCase("F")) {
             FriendGetFileRequestMessage m1 = new FriendGetFileRequestMessage(myUserID, FriendID);

@@ -5,6 +5,7 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
 import message.FileResponseMessage;
 import message.FriendChatRequestMessage;
+import message.GroupChatRequestMessage;
 import message.SendFile1Message;
 
 import java.io.RandomAccessFile;
@@ -31,9 +32,16 @@ public class FriendReceiveFileHandler extends SimpleChannelInboundHandler<SendFi
             //将文件合成FriendChat消息传递
             ctx.writeAndFlush(new FileResponseMessage(start,serverPath));
             rate=0;
-            FriendChatRequestMessage message=new FriendChatRequestMessage();
-            message.setFile(new byte[]{1});
-            super.channelRead(ctx,message);
+            if(msg.getChatType()==1){
+                GroupChatRequestMessage message=new GroupChatRequestMessage();
+                message.setFile(new byte[]{1});
+                super.channelRead(ctx,message);
+            }else{
+                FriendChatRequestMessage message=new FriendChatRequestMessage();
+                message.setFile(new byte[]{1});
+                super.channelRead(ctx,message);
+            }
+
         }else{
             //返回给客户端发送文件的进度
             if(percent>rate){

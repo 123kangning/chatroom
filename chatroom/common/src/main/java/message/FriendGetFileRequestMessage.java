@@ -6,6 +6,7 @@ public class FriendGetFileRequestMessage extends Message {
     private boolean refuse = false;
     private boolean isGroup = false;
     private int groupID;
+    private byte update=0;//为1时只进行更改消息状态操作
 
     public FriendGetFileRequestMessage() {
     }
@@ -17,6 +18,10 @@ public class FriendGetFileRequestMessage extends Message {
 
     public void setGroup(boolean group) {
         isGroup = group;
+    }
+
+    public void setUpdate(byte update) {
+        this.update = update;
     }
 
     public void setGroupID(int groupID) {
@@ -33,6 +38,10 @@ public class FriendGetFileRequestMessage extends Message {
 
     public boolean isGroup() {
         return isGroup;
+    }
+
+    public byte getUpdate() {
+        return update;
     }
 
     public int getGroupID() {

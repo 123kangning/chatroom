@@ -30,7 +30,7 @@ public class ChatServer {
     public static ComboPooledDataSource jdbcPool;
 
     public static void jdbc() {
-        final String URL = "jdbc:mysql://localhost:3306/chatroom";
+            final String URL = "jdbc:mysql://localhost:3306/chatroom";
         final String NAME = "root";
         final String PASSWORD = "9264wkn.";
 

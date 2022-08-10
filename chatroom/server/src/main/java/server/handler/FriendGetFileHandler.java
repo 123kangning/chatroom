@@ -8,17 +8,19 @@ import message.Message;
 import message.ResponseMessage;
 
 import java.io.File;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import static server.ChatServer.connection;
+import static server.ChatServer.jdbcPool;
 
 @Slf4j
 public class FriendGetFileHandler extends SimpleChannelInboundHandler<FriendGetFileRequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, FriendGetFileRequestMessage msg) throws Exception {
         try {
+            Connection connection= jdbcPool.getConnection();
             log.info("enter FriendGetFileHandler");
             int userID = msg.getUserID();
             int FriendID = msg.getFriendID();

@@ -6,15 +6,17 @@ import message.ResponseMessage;
 import message.SearchPasswordRequestMessage;
 import server.session.MailSession;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Random;
 
-import static server.ChatServer.connection;
+import static server.ChatServer.jdbcPool;
 
 public class SearchPasswordHandler extends SimpleChannelInboundHandler<SearchPasswordRequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, SearchPasswordRequestMessage msg) throws Exception {
+        Connection connection= jdbcPool.getConnection();
         int userID = msg.getUserID();
         String mail = "";
         String sql = "select mail from user where userID=?";

@@ -7,17 +7,19 @@ import message.Message;
 import message.ResponseMessage;
 import message.SignInRequestMessage;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import static server.ChatServer.connection;
+import static server.ChatServer.jdbcPool;
 
 @Slf4j
 public class SignInHandler extends SimpleChannelInboundHandler<SignInRequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, SignInRequestMessage msg) throws Exception {
         try {
+            Connection connection= jdbcPool.getConnection();
             log.info("run SignInRequestMessage");
             String username = msg.getUsername();
             String password = msg.getPassword();

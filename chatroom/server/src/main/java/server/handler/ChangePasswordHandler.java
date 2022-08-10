@@ -5,13 +5,15 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import message.ChangePasswordRequestMessage;
 import message.ResponseMessage;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-import static server.ChatServer.connection;
+import static server.ChatServer.jdbcPool;
 
 public class ChangePasswordHandler extends SimpleChannelInboundHandler<ChangePasswordRequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, ChangePasswordRequestMessage msg) throws Exception {
+        Connection connection= jdbcPool.getConnection();
         int userID = msg.getUserID();
         String password = msg.getPassword();
         String sql = "update user set password=? where userID=?";

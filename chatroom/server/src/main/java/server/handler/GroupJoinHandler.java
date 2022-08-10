@@ -6,11 +6,12 @@ import lombok.extern.slf4j.Slf4j;
 import message.GroupJoinRequestMessage;
 import message.ResponseMessage;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import static server.ChatServer.connection;
+import static server.ChatServer.jdbcPool;
 
 @Slf4j
 public class GroupJoinHandler extends SimpleChannelInboundHandler<GroupJoinRequestMessage> {
@@ -42,6 +43,7 @@ public class GroupJoinHandler extends SimpleChannelInboundHandler<GroupJoinReque
 
     protected int choice(ChannelHandlerContext ctx, GroupJoinRequestMessage msg, int groupID) {
         try {
+            Connection connection= jdbcPool.getConnection();
             int userID = msg.getUserID();
             int talkerID=msg.getTalkerID();
             String talker_type=msg.getTalker_type();
@@ -118,6 +120,7 @@ public class GroupJoinHandler extends SimpleChannelInboundHandler<GroupJoinReque
 
     public static boolean CheckHaveMessage(int userID, String msg_type, int talkerID, String talker_type, int groupID, String content, String isAccept) {
         try {
+            Connection connection= jdbcPool.getConnection();
             String sql;
             if (talker_type.equals("G")) {
                 sql = "select msg_id from message where userID=? and msg_type=?  and talker_type=? and groupID=? and content=? and isAccept=?";

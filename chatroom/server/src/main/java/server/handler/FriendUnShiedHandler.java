@@ -6,15 +6,17 @@ import lombok.extern.slf4j.Slf4j;
 import message.FriendUnShieldRequestMessage;
 import message.ResponseMessage;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import static server.ChatServer.connection;
+import static server.ChatServer.jdbcPool;
 
 @Slf4j
 public class FriendUnShiedHandler extends SimpleChannelInboundHandler<FriendUnShieldRequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, FriendUnShieldRequestMessage msg) throws Exception {
+        Connection connection= jdbcPool.getConnection();
         log.info("Enter");
         int userID = msg.getUserID();
         int FriendID = msg.getFriendId();

@@ -6,12 +6,12 @@ import lombok.extern.slf4j.Slf4j;
 import message.FriendAddRequestMessage;
 import message.ResponseMessage;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-
-import static server.ChatServer.connection;
+import static server.ChatServer.jdbcPool;
 
 @Slf4j
 public class FriendAddHandler extends SimpleChannelInboundHandler<FriendAddRequestMessage> {
@@ -27,6 +27,7 @@ public class FriendAddHandler extends SimpleChannelInboundHandler<FriendAddReque
 
     public void choice1(ChannelHandlerContext ctx, FriendAddRequestMessage msg) {
         try {
+            Connection connection= jdbcPool.getConnection();
             ResponseMessage message;
             List<Integer> friendIDList = msg.getFriendIDList();
             int length = friendIDList.size();
@@ -103,6 +104,7 @@ public class FriendAddHandler extends SimpleChannelInboundHandler<FriendAddReque
 
     public void choice2(ChannelHandlerContext ctx, FriendAddRequestMessage msg) {
         try {
+            Connection connection= jdbcPool.getConnection();
             int userID = msg.getUserId();
             int FriendID = msg.getFriendId();
             if (!GroupJoinHandler.CheckHaveMessage(userID, "A", FriendID, "F", 0, "请求添加你为好友", "F")) {

@@ -1,5 +1,6 @@
 package server;
 
+import com.mchange.v2.c3p0.ComboPooledDataSource;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -18,6 +19,7 @@ import protocol.ProtocolFrameDecoder;
 import server.handler.*;
 import server.session.SessionMap;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -25,7 +27,7 @@ import java.sql.SQLException;
 @Slf4j
 public class ChatServer {
 
-    public static Connection connection;
+    public static ComboPooledDataSource jdbcPool;
 
     public static void jdbc() {
         final String URL = "jdbc:mysql://localhost:3306/chatroom";
@@ -34,9 +36,7 @@ public class ChatServer {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(URL, NAME, PASSWORD);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            jdbcPool=new ComboPooledDataSource();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -47,7 +47,6 @@ public class ChatServer {
         NioEventLoopGroup boss = new NioEventLoopGroup();
         NioEventLoopGroup worker = new NioEventLoopGroup();
         LoggingHandler Log = new LoggingHandler(LogLevel.DEBUG);
-//        MessageCodec codec=new MessageCodec();
 
         ChannelFuture future;
         try {

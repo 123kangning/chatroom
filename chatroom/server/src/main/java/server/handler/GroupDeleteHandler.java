@@ -9,15 +9,17 @@ import message.GroupDeleteRequestMessage;
 import message.ResponseMessage;
 import server.session.SessionMap;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import static server.ChatServer.connection;
+import static server.ChatServer.jdbcPool;
 
 @Slf4j
 public class GroupDeleteHandler extends SimpleChannelInboundHandler<GroupDeleteRequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, GroupDeleteRequestMessage msg) throws Exception {
+        Connection connection= jdbcPool.getConnection();
         int userID = msg.getUserID();
         int groupID = msg.getGroupId();
         String sql = "select userID from group2 where groupID=? and user_type!='9'";
@@ -25,7 +27,7 @@ public class GroupDeleteHandler extends SimpleChannelInboundHandler<GroupDeleteR
         ps.setInt(1, groupID);
         ResultSet set = ps.executeQuery();
         while (set.next()) {
-            new GroupQuitHandler().SendInsertIntoMessage(set.getInt(1), userID, "G", groupID, "该群聊已被解散", "F");
+            new GroupQuitHandler().SendInsertIntoMessage(set.getInt(1), userID, "G", groupID, "该群聊已被解散", "F",connection);
             log.info("发送解散消息");
             Channel channel = SessionMap.getChannel(set.getInt(1));
             if (channel != null)

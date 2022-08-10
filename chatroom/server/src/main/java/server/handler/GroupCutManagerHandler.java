@@ -6,15 +6,17 @@ import lombok.extern.slf4j.Slf4j;
 import message.GroupCutManagerRequestMessage;
 import message.ResponseMessage;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import static server.ChatServer.connection;
+import static server.ChatServer.jdbcPool;
 
 @Slf4j
 public class GroupCutManagerHandler extends SimpleChannelInboundHandler<GroupCutManagerRequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, GroupCutManagerRequestMessage msg) throws Exception {
+        Connection connection= jdbcPool.getConnection();
         int managerID = msg.getManagerID();
         int groupID = msg.getGroupID();
         String sql = "select groupID from group2 where userID=? and user_type='1' and groupID=?";

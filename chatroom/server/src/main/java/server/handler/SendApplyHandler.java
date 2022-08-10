@@ -8,14 +8,11 @@ import message.ResponseMessage;
 import message.SendApplyMessage;
 import server.session.SessionMap;
 
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static server.ChatServer.connection;
+import static server.ChatServer.jdbcPool;
 
 public class SendApplyHandler extends SimpleChannelInboundHandler<SendApplyMessage> {
     @Override
@@ -30,6 +27,7 @@ public class SendApplyHandler extends SimpleChannelInboundHandler<SendApplyMessa
 
     public void choiceFriend(ChannelHandlerContext ctx, SendApplyMessage msg) {
         try {
+            Connection connection= jdbcPool.getConnection();
             int userID = msg.getUserID();
             int friendID = msg.getFriendID();
             int groupID = msg.getGroupID();
@@ -78,6 +76,7 @@ public class SendApplyHandler extends SimpleChannelInboundHandler<SendApplyMessa
     }
 
     public int SendInsertIntoMessage(int userID, int talkerID, String talker_type, int groupID, String content, String isAccept) throws SQLException {
+        Connection connection= jdbcPool.getConnection();
         String sql = "insert into message(userID,msg_type,create_date,talkerID,talker_type,groupID,content,isAccept) values(?,'A',?,?,?,?,?,?)";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setInt(1, userID);
@@ -92,6 +91,7 @@ public class SendApplyHandler extends SimpleChannelInboundHandler<SendApplyMessa
 
     public void choiceGroup(ChannelHandlerContext ctx, SendApplyMessage msg) {
         try {
+            Connection connection= jdbcPool.getConnection();
             int userID = msg.getUserID();
             int friendID = msg.getFriendID();
             int groupID = msg.getGroupID();

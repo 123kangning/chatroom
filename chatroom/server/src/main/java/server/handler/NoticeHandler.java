@@ -7,6 +7,7 @@ import message.Message;
 import message.NoticeRequestMessage;
 import message.ResponseMessage;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,13 +16,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static server.ChatServer.connection;
+import static server.ChatServer.jdbcPool;
 
 @Slf4j
 public class NoticeHandler extends SimpleChannelInboundHandler<NoticeRequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, NoticeRequestMessage msg) {
         try {
+            Connection connection= jdbcPool.getConnection();
             int userID = msg.getUserID();
             String sql = "select  talkerID ,count(1) from message  where userID=? and talker_type='F' and isAccept ='F' group by talkerID";
             PreparedStatement ps = connection.prepareStatement(sql);

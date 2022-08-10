@@ -7,18 +7,20 @@ import message.GroupNoticeRequestMessage;
 import message.Message;
 import message.ResponseMessage;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static server.ChatServer.connection;
+import static server.ChatServer.jdbcPool;
 
 @Slf4j
 public class GroupNoticeHandler extends SimpleChannelInboundHandler<GroupNoticeRequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, GroupNoticeRequestMessage msg) throws Exception {
+        Connection connection= jdbcPool.getConnection();
         int userID = msg.getUserID();
         int groupID = msg.getGroupID();
         int count = msg.getCount();
@@ -62,7 +64,7 @@ public class GroupNoticeHandler extends SimpleChannelInboundHandler<GroupNoticeR
             } else {
                 ans.append("0");
             }
-            String people = Id2Type(talkerID, groupID);
+            String people = Id2Type(talkerID, groupID,connection);
             String content1=content;
             if(set.getString(5).equals("F")){
                 for(int i=content.length()-1;i>=0;i--){
@@ -103,7 +105,7 @@ public class GroupNoticeHandler extends SimpleChannelInboundHandler<GroupNoticeR
         ctx.writeAndFlush(message);
     }
 
-    public String Id2Type(int userID, int groupID) throws Exception {
+    public String Id2Type(int userID, int groupID,Connection connection) throws Exception {
         String sql = "select user_type from group2 where userID=? and groupID=?";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setInt(1, userID);

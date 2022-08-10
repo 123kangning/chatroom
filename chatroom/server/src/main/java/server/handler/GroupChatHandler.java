@@ -6,17 +6,19 @@ import lombok.extern.slf4j.Slf4j;
 import message.GroupChatRequestMessage;
 import message.ResponseMessage;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import static server.ChatServer.connection;
+import static server.ChatServer.jdbcPool;
 
 @Slf4j
 public class GroupChatHandler extends SimpleChannelInboundHandler<GroupChatRequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, GroupChatRequestMessage msg) throws Exception {
         try {
+            Connection connection= jdbcPool.getConnection();
             int userID = msg.getUserID();
             int groupID = msg.getGroupId();
             String msg_type = msg.getMsg_type();

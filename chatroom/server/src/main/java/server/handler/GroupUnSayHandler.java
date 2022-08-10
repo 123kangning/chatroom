@@ -5,16 +5,18 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import message.GroupUnSayRequestMessage;
 import message.ResponseMessage;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import static server.ChatServer.connection;
+import static server.ChatServer.jdbcPool;
 
 public class GroupUnSayHandler extends SimpleChannelInboundHandler<GroupUnSayRequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, GroupUnSayRequestMessage msg) throws Exception {
         try {
+            Connection connection= jdbcPool.getConnection();
             int unSayID = msg.getUnSayID();
             int groupID = msg.getGroupID();
             String say = msg.getSay();

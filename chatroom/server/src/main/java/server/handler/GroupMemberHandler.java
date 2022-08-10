@@ -6,18 +6,20 @@ import message.GroupMemberRequestMessage;
 import message.Message;
 import message.ResponseMessage;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static server.ChatServer.connection;
+import static server.ChatServer.jdbcPool;
 
 public class GroupMemberHandler extends SimpleChannelInboundHandler<GroupMemberRequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, GroupMemberRequestMessage msg) throws Exception {
         try {
+            Connection connection= jdbcPool.getConnection();
             int groupID = msg.getGroupId();
             String sql = "select userID ,user_type,say from group2 where groupID=? order by user_type desc";
             PreparedStatement ps = connection.prepareStatement(sql);

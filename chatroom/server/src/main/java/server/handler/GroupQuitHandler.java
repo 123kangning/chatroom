@@ -9,18 +9,16 @@ import message.GroupQuitRequestMessage;
 import message.ResponseMessage;
 import server.session.SessionMap;
 
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
-import static server.ChatServer.connection;
+import static server.ChatServer.jdbcPool;
 
 @Slf4j
 public class GroupQuitHandler extends SimpleChannelInboundHandler<GroupQuitRequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, GroupQuitRequestMessage msg) throws Exception {
         try {
+            Connection connection= jdbcPool.getConnection();
             log.info("enter GroupQuitHandler");
             int delID = msg.getDelID();
             int userID = msg.getUserID();
@@ -66,7 +64,7 @@ public class GroupQuitHandler extends SimpleChannelInboundHandler<GroupQuitReque
             }
             ctx.writeAndFlush(message);
             if (userID != delID) {
-                row = SendInsertIntoMessage(delID, userID, "G", groupID, "您已被移出群聊", "F");
+                row = SendInsertIntoMessage(delID, userID, "G", groupID, "您已被移出群聊", "F",connection);
                 Channel channel = SessionMap.getChannel(delID);
                 if (channel != null)
                     channel.writeAndFlush(new FriendChatRequestMessage());
@@ -78,7 +76,7 @@ public class GroupQuitHandler extends SimpleChannelInboundHandler<GroupQuitReque
         }
     }
 
-    public int SendInsertIntoMessage(int userID, int talkerID, String talker_type, int groupID, String content, String isAccept) throws SQLException {
+    public int SendInsertIntoMessage(int userID, int talkerID, String talker_type, int groupID, String content, String isAccept,Connection connection) throws SQLException {
         String sql = "insert into message(userID,msg_type,create_date,talkerID,talker_type,groupID,content,isAccept) values(?,'A',?,?,?,?,?,?)";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setInt(1, userID);

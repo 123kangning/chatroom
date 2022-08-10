@@ -8,16 +8,18 @@ import message.Message;
 import message.ResponseMessage;
 import server.session.SessionMap;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import static server.ChatServer.connection;
+import static server.ChatServer.jdbcPool;
 
 @Slf4j
 public class LogoutHandler extends SimpleChannelInboundHandler<LogoutRequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, LogoutRequestMessage msg) {
         try {
+            Connection connection= jdbcPool.getConnection();
             log.info("LogoutHandler");
             long userID = SessionMap.getUser(ctx.channel());
             log.info("这个管道是 {}", ctx.channel());

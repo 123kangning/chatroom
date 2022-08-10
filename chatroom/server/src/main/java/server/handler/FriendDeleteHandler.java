@@ -5,15 +5,17 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import message.FriendDeleteRequestMessage;
 import message.ResponseMessage;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import static server.ChatServer.connection;
+import static server.ChatServer.jdbcPool;
 
 public class FriendDeleteHandler extends SimpleChannelInboundHandler<FriendDeleteRequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, FriendDeleteRequestMessage msg) throws Exception {
         try {
+            Connection connection= jdbcPool.getConnection();
             int userID = msg.getUserID();
             int FriendID = msg.getFriendId();
             String sql = "delete from friend where (fromID=? and toID=?) or (fromID=? and toID=?)";

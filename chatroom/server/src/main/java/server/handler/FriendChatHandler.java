@@ -9,12 +9,10 @@ import message.ResponseMessage;
 import server.session.SessionMap;
 
 import java.io.IOException;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
-import static server.ChatServer.connection;
+import static server.ChatServer.jdbcPool;
+
 
 @Slf4j
 public class FriendChatHandler extends SimpleChannelInboundHandler<FriendChatRequestMessage> {
@@ -22,6 +20,7 @@ public class FriendChatHandler extends SimpleChannelInboundHandler<FriendChatReq
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, FriendChatRequestMessage msg) throws Exception {
         try {
+            Connection connection= jdbcPool.getConnection();
             int userID = msg.getUserID();
             int FriendID = msg.getFriendId();
             int groupID = msg.getGroup();
@@ -71,6 +70,7 @@ public class FriendChatHandler extends SimpleChannelInboundHandler<FriendChatReq
     }
 
     public ResponseMessage ChatHandler(int fromID, int toID, String msg_type, String talker_type, int groupID, String chat,String path, String onLine) throws Exception {
+        Connection connection= jdbcPool.getConnection();
         ResponseMessage message;
         String sql2 = "insert into message(userID,msg_type,create_date,talkerID,talker_type,groupID,content,isAccept) values(?,?,?,?,?,?,?,?)";
         PreparedStatement ps2 = connection.prepareStatement(sql2);
@@ -86,7 +86,7 @@ public class FriendChatHandler extends SimpleChannelInboundHandler<FriendChatReq
         msg.setTalker_type(talker_type);
         msg.setGroup(groupID);
         if (talker_type.equals("G")) {
-            msg.setPrefix(String.format("%3s %d:", new GroupNoticeHandler().Id2Type(fromID, groupID), fromID));
+            msg.setPrefix(String.format("%3s %d:", new GroupNoticeHandler().Id2Type(fromID, groupID,connection), fromID));
         } else {
             msg.setPrefix(String.format("\t%d :", fromID));
         }

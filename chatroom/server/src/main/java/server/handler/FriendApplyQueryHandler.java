@@ -7,19 +7,21 @@ import message.FriendApplyQueryMessage;
 import message.Message;
 import message.ResponseMessage;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static server.ChatServer.connection;
+import static server.ChatServer.jdbcPool;
 
 @Slf4j
 public class FriendApplyQueryHandler extends SimpleChannelInboundHandler<FriendApplyQueryMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, FriendApplyQueryMessage msg) throws Exception {
         try {
+            Connection connection= jdbcPool.getConnection();
             int userID = msg.getUserID();
             String sql = "select talkerID from message where userID=? and talker_type='F' and msg_type='A' and groupID=0 and  isAccept='F'";
             PreparedStatement ps = connection.prepareStatement(sql);

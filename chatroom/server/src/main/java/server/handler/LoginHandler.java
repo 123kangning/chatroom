@@ -10,17 +10,19 @@ import message.Message;
 import message.ResponseMessage;
 import server.session.SessionMap;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import static server.ChatServer.connection;
+import static server.ChatServer.jdbcPool;
 
 @Slf4j
 public class LoginHandler extends SimpleChannelInboundHandler<LoginRequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, LoginRequestMessage msg) {
         try {
+            Connection connection= jdbcPool.getConnection();
             log.info("run LoginRequestMessage");
             int userID = msg.getUserID();
             String password = msg.getPassword();

@@ -7,14 +7,16 @@ import message.ResponseMessage;
 import message.SignOutRequestMessage;
 import server.session.SessionMap;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-import static server.ChatServer.connection;
+import static server.ChatServer.jdbcPool;
 
 @Slf4j
 public class SignOutHandler extends SimpleChannelInboundHandler<SignOutRequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, SignOutRequestMessage msg) throws Exception {
+        Connection connection= jdbcPool.getConnection();
         int userID = SessionMap.getUser(ctx.channel());
         String sql = "delete from user where userID=?";
         PreparedStatement statement = connection.prepareStatement(sql);

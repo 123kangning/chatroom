@@ -6,16 +6,18 @@ import message.GroupCheckGradeRequestMessage;
 import message.Message;
 import message.ResponseMessage;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import static server.ChatServer.connection;
+import static server.ChatServer.jdbcPool;
 
 public class GroupCheckGradeHandler extends SimpleChannelInboundHandler<GroupCheckGradeRequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, GroupCheckGradeRequestMessage msg) throws Exception {
         try {
+            Connection connection= jdbcPool.getConnection();
             int userID = msg.getUserID();
             int groupID = msg.getGroupID();
             String sql = "select user_type from group2 where groupID=? and userID=?";

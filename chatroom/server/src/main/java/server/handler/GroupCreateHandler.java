@@ -6,17 +6,19 @@ import lombok.extern.slf4j.Slf4j;
 import message.GroupCreateRequestMessage;
 import message.ResponseMessage;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import static server.ChatServer.connection;
+import static server.ChatServer.jdbcPool;
 
 @Slf4j
 public class GroupCreateHandler extends SimpleChannelInboundHandler<GroupCreateRequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, GroupCreateRequestMessage msg) {
         try {
+            Connection connection= jdbcPool.getConnection();
             int userID = msg.getUserID();
             String groupName = msg.getGroupName();
             String sql1 = "insert into group1(group_name,ownerID) values(?,?)";

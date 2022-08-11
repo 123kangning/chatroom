@@ -37,7 +37,7 @@ public class ReceiveFileHandler extends ChannelInboundHandlerAdapter {
                 if(friendMsg.getPath()!=null){
                     path= friendMsg.getPath();
                 }else {
-                    path= System.getProperty("user.dir") + "/server/story/" + friendMsg.getFileName() + dateTime;
+                    path= System.getProperty("user.dir") + "/chatroom/server/story/" + friendMsg.getFileName() + dateTime;
                 }
                 friendMsg.setPath(path);
             }
@@ -67,7 +67,7 @@ public class ReceiveFileHandler extends ChannelInboundHandlerAdapter {
                 if(groupMsg.getPath()!=null){
                     path= groupMsg.getPath();
                 }else {
-                    path= System.getProperty("user.dir") + "/server/story/" + groupMsg.getFileName() + dateTime;
+                    path= System.getProperty("user.dir") + "/chatroom/server/story/" + groupMsg.getFileName() + dateTime;
                 }
                 groupMsg.setPath(path);
             }

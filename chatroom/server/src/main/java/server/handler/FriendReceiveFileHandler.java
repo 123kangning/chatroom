@@ -41,7 +41,6 @@ public class FriendReceiveFileHandler extends SimpleChannelInboundHandler<SendFi
                 message.setFile(new byte[]{1});
                 super.channelRead(ctx,message);
             }
-
         }else{
             //返回给客户端发送文件的进度
             if(percent>rate){

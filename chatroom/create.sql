@@ -26,7 +26,9 @@ primary key(userID)
 create table friend(
 fromID int(11) NOT NULL COMMENT '用户1 id',
 toID int(11) NOT NULL COMMENT '用户2 id',
-shield char(1) NOT NULL COMMENT '0=无屏蔽关系，1=前者屏蔽后者，2=后者屏蔽前者，3=双向屏蔽'
+shield char(1) NOT NULL COMMENT '0=无屏蔽关系，1=前者屏蔽后者，2=后者屏蔽前者，3=双向屏蔽',
+from_name char(50) NOT NULL,
+to_name char(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 #群组表设计

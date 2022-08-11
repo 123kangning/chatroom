@@ -18,7 +18,7 @@ public class SendFileHandler extends SimpleChannelInboundHandler<SendFileMessage
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, SendFileMessage msg) {
-        String path=System.getProperty("user.dir")+"/server/story/"+msg.getFileName();
+        String path=System.getProperty("user.dir")+"/chatroom/server/story/"+msg.getFileName();
         try {
             RandomAccessFile file=new RandomAccessFile(path,"r");
             int once=msg.getOnce();

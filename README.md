@@ -57,42 +57,6 @@
 │   └── server
 │       ├── ChatServer.java         服务端启动类 
 │       ├── handler                 所有的业务处理类  
-│       │   ├── ChangePasswordHandler.java
-│       │   ├── FriendAddHandler.java
-│       │   ├── FriendApplyQueryHandler.java
-│       │   ├── FriendChatHandler.java
-│       │   ├── FriendDeleteHandler.java
-│       │   ├── FriendGetFileHandler.java
-│       │   ├── FriendNoticeHandler.java
-│       │   ├── FriendQueryHandler.java
-│       │   ├── FriendReceiveFileHandler.java
-│       │   ├── FriendShieldHandler.java
-│       │   ├── FriendUnShiedHandler.java
-│       │   ├── GroupAddManagerHandler.java
-│       │   ├── GroupApplyQueryHandler.java
-│       │   ├── GroupChatHandler.java
-│       │   ├── GroupCheckGradeHandler.java
-│       │   ├── GroupCreateHandler.java
-│       │   ├── GroupCutManagerHandler.java
-│       │   ├── GroupDeleteHandler.java
-│       │   ├── GroupJoinHandler.java
-│       │   ├── GroupMemberHandler.java
-│       │   ├── GroupNoticeHandler.java
-│       │   ├── GroupQueryHandler.java
-│       │   ├── GroupQuitHandler.java
-│       │   ├── GroupUnSayHandler.java
-│       │   ├── LoginHandler.java
-│       │   ├── LogoutHandler.java
-│       │   ├── NoticeHandler.java
-│       │   ├── ReceiveFileHandler.java
-│       │   ├── ReceiveMessageHandler.java
-│       │   ├── SearchPasswordHandler.java
-│       │   ├── SecuritySHA1Utils.java
-│       │   ├── SendApplyHandler.java
-│       │   ├── SendAuthCodeHandler.java
-│       │   ├── SendFileHandler.java
-│       │   ├── SignInHandler.java
-│       │   └── SignOutHandler.java
 │       └── session     会话层 
 │           ├── MailSession.java      发送邮件类，用于注册和找回密码  
 │           └── SessionMap.java       会话绑定类，对于上线的每一个用户，将其的ID和其与服务端建立的Channel进行绑定，用于发送消息  
@@ -102,44 +66,8 @@
 
 三、公共数据模块
 ├── message   客户端与服务端进行交互的所有事件的消息类型，所有消息都继承于父类Message 
-│   ├── AuthCodeRequestMessage.java
-│   ├── ChangePasswordRequestMessage.java
-│   ├── FileResponseMessage.java
-│   ├── FriendAddRequestMessage.java
-│   ├── FriendApplyQueryMessage.java
-│   ├── FriendChatRequestMessage.java
-│   ├── FriendDeleteRequestMessage.java
-│   ├── FriendGetFileRequestMessage.java
-│   ├── FriendNoticeMessage.java
-│   ├── FriendQueryRequestMessage.java
-│   ├── FriendShieldRequestMessage.java
-│   ├── FriendUnShieldRequestMessage.java
-│   ├── GroupAddManagerRequestMessage.java
-│   ├── GroupApplyQueryRequestMessage.java
-│   ├── GroupChatRequestMessage.java
-│   ├── GroupCheckGradeRequestMessage.java
-│   ├── GroupCreateRequestMessage.java
-│   ├── GroupCutManagerRequestMessage.java
-│   ├── GroupDeleteRequestMessage.java
-│   ├── GroupJoinRequestMessage.java
-│   ├── GroupMemberRequestMessage.java
-│   ├── GroupNoticeRequestMessage.java
-│   ├── GroupQueryRequestMessage.java
-│   ├── GroupQuitRequestMessage.java
-│   ├── GroupUnSayRequestMessage.java
-│   ├── LoginRequestMessage.java
-│   ├── LogoutRequestMessage.java
-│   ├── Message.java
-│   ├── NoticeRequestMessage.java
-│   ├── PingMessage.java
-│   ├── ReceiveMessageRequestMessage.java
-│   ├── ResponseMessage.java
-│   ├── SearchPasswordRequestMessage.java
-│   ├── SendApplyMessage.java
-│   ├── SendFile1Message.java
-│   ├── SendFileMessage.java
-│   ├── SignInRequestMessage.java
-│   └── SignOutRequestMessage.java
+
 └── protocol    服务端和客户端之间数据传输一致遵循的编解码协议 
+
     ├── MessageCodec.java
     └── ProtocolFrameDecoder.java

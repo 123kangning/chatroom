@@ -32,7 +32,7 @@ public class LoginHandler extends SimpleChannelInboundHandler<LoginRequestMessag
             log.info("connection = {}", connection);
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setLong(1, userID);
-            statement.setObject(2, password);
+            statement.setObject(2, SecuritySHA1Utils.shaEncode(password));
             ResultSet set = statement.executeQuery();
 
             if (set.next()) {
@@ -75,7 +75,7 @@ public class LoginHandler extends SimpleChannelInboundHandler<LoginRequestMessag
             message.setMessageType(Message.LoginResponseMessage);
             ctx.writeAndFlush(message);
             connection.close();
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

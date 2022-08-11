@@ -1,4 +1,4 @@
-消息表设计
+#消息表设计
 CREATE TABLE `message` (
   `msg_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '消息id，自增长',
   userID int(11) not null comment '消息接收者',
@@ -12,7 +12,7 @@ CREATE TABLE `message` (
   PRIMARY KEY (`msg_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-用户表设计
+#用户表设计
 create table user(
 userID int(11) NOT NULL AUTO_INCREMENT COMMENT '用户id，自增长',
 username varchar(50) NOT NULL COMMENT '用户名',
@@ -22,14 +22,14 @@ online char(1) NOT NULL COMMENT '在线状态，T=在线、F=下线',
 primary key(userID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-朋友表设计
+#朋友表设计
 create table friend(
 fromID int(11) NOT NULL COMMENT '用户1 id',
 toID int(11) NOT NULL COMMENT '用户2 id',
 shield char(1) NOT NULL COMMENT '0=无屏蔽关系，1=前者屏蔽后者，2=后者屏蔽前者，3=双向屏蔽'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-群组表设计
+#群组表设计
 create table group1(
 groupID int(11) NOT NULL AUTO_INCREMENT COMMENT '组id，自增长',
 group_name varchar(50) NOT NULL COMMENT '组名',
@@ -37,7 +37,7 @@ ownerID int(11) NOT NULL COMMENT '群主',
 primary key (groupID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-群组表设计
+#群组表设计
 create table group2(
 groupID int(11) NOT NULL  COMMENT '组id',
 group_name varchar(50) NOT NULL COMMENT '组名',

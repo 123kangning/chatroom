@@ -22,13 +22,21 @@
 
 项目分为三个模块：服务端、客户端、公共数据模块
 一、客户端：
+
 ├── java
+
 │   └── client
-│       ├── ChatClient.java   客户端启动类       
+
+│       ├── ChatClient.java   客户端启动类    
+
 │       ├── ClientFriendChatHandler.java    实时接收消息类  
+
 │       ├── FileResponseHandler.java        发送文件时，统计发送进度，并记录在breakPointSend文件中      
+
 │       ├── ReceiveFileHandler.java         接收文件内容，统计接收文件进度，并记录在breakPointReceive文件中  
+
 │       ├── ResponseHandler.java            与客户端进行消息交互 
+
 │       ├── SendFile.java                   启动发送文件事件  
 │       ├── StartReceiveFile.java           启动接收文件事件  
 │       └── view      所有的界面层

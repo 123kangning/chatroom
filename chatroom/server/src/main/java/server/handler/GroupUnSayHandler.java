@@ -18,6 +18,7 @@ public class GroupUnSayHandler extends SimpleChannelInboundHandler<GroupUnSayReq
         try {
             Connection connection= jdbcPool.getConnection();
             int unSayID = msg.getUnSayID();
+            int userID=msg.getUserID();
             int groupID = msg.getGroupID();
             String say = msg.getSay();
             String sql = "select groupID from group2 where groupID=? and userID=?";
@@ -29,6 +30,17 @@ public class GroupUnSayHandler extends SimpleChannelInboundHandler<GroupUnSayReq
                 ctx.writeAndFlush(new ResponseMessage(false, "群聊中无此人"));
                 return;
             }
+            String sql0="select userID from group2 where userID=? and  user_type<(select user_type from group2 where userID=? and groupID=?)";
+            PreparedStatement ps0= connection.prepareStatement(sql0);
+            ps0.setInt(1,unSayID);
+            ps0.setInt(2,userID);
+            ps0.setInt(3,groupID);
+            ResultSet set0=ps0.executeQuery();
+            if(!set0.next()){
+                ctx.writeAndFlush(new ResponseMessage(false,"您没有权限禁言该成员"));
+                return;
+            }
+
             String sql1 = "update group2 set say=? where groupID=? and userID=?";
             PreparedStatement ps1 = connection.prepareStatement(sql1);
             ps1.setString(1, say);

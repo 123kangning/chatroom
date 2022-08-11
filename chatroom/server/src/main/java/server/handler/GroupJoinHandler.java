@@ -65,7 +65,7 @@ public class GroupJoinHandler extends SimpleChannelInboundHandler<GroupJoinReque
             ps.setInt(2, talker_type.equals("G")?userID:talkerID);
             ResultSet set = ps.executeQuery();
             if (set.next()) {
-                ctx.writeAndFlush(new ResponseMessage(false, "你已经在群聊中了"));
+                ctx.writeAndFlush(new ResponseMessage(false, "用户已经在群聊中了"));
                 return 0;
             }
             String sql1 = "insert into group2(groupID,group_name,userID,user_type,say) values(?,?,?,'0','T')";
@@ -140,8 +140,9 @@ public class GroupJoinHandler extends SimpleChannelInboundHandler<GroupJoinReque
             }
 
             ResultSet set = ps.executeQuery();
+            boolean ans=set.next();
             connection.close();
-            return set.next();
+            return ans;
         } catch (SQLException e) {
             e.printStackTrace();
         }

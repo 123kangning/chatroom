@@ -27,13 +27,13 @@ import java.util.concurrent.BlockingQueue;
 @Slf4j
 public class ChatClient {
 
-    public static String myUsername;
+    public static boolean login;
     public static int myUserID;
     public static String path;
     public static volatile RandomAccessFile breakPointSend;//处理发送断点续传配置文件
-    public static String breakPointSendPath=System.getProperty("user.dir")+"/client/src/main/java/breakPointSend";
+    public static String breakPointSendPath=ChatClient.class.getClassLoader().getResource("breakPointSend").getPath();
     public static volatile RandomAccessFile breakPointReceive;//处理接收断点续传配置文件
-    public static String breakPointReceivePath=System.getProperty("user.dir")+"/client/src/main/java/breakPointReceive";
+    public static String breakPointReceivePath=ChatClient.class.getClassLoader().getResource("breakPointReceive").getPath();
     public static volatile int mailAuthCode;
     public static volatile int haveNoRead = 0;//默认没有未读消息
     public static final Object waitMessage = new Object();//服务端消息返回时，notify线程 View handler
@@ -58,9 +58,7 @@ public class ChatClient {
         NioEventLoopGroup group = new NioEventLoopGroup();
         LoggingHandler Log = new LoggingHandler(LogLevel.DEBUG);
         MessageCodec clientCodec = new MessageCodec();
-        properties.load(new java.io.FileInputStream(System.getProperty("user.dir")+"/client/src/main/resources/application.properties"));
-        //breakPointSend=new RandomAccessFile(System.getProperty("user.dir")+"/client/src/main/java/breakPointSend","rw");
-        //breakPointReceive=new RandomAccessFile(System.getProperty("user.dir")+"/client/src/main/java/breakPointReceive","rw");
+        properties.load(new java.io.FileInputStream(ChatClient.class.getClassLoader().getResource("application.properties").getPath()));
 
         try {
             ChannelFuture future = new Bootstrap()

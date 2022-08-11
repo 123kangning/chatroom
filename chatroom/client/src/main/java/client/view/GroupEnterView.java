@@ -168,7 +168,7 @@ public class GroupEnterView {
                     break;
                 case 9:
                     case9(scanner);
-                    break;
+                    return;
             }
         }
     }
@@ -262,14 +262,14 @@ public class GroupEnterView {
     }
 
     public void case4(Scanner scanner, String say) {
-        System.out.println("输入要禁言的成员ID：");
+        System.out.println("输入要解除禁言的成员ID：");
         String s0 = scanner.nextLine();
         while (!StringUtils.isNumber(s0)) {
-            System.out.println("输入不规范，请重新输入要禁言的成员ID：");
+            System.out.println("输入不规范，请重新输入要解除禁言的成员ID：");
             s0 = scanner.nextLine();
         }
         int unSayID = Integer.parseInt(s0);
-        ctx.writeAndFlush(new GroupUnSayRequestMessage(unSayID, groupID, say));
+        ctx.writeAndFlush(new GroupUnSayRequestMessage(myUserID,unSayID, groupID, say));
 
         ChatClient.wait1();
 

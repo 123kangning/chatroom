@@ -76,7 +76,7 @@ public class GroupView {
                     }
                     int groupID = Integer.parseInt(s0);
                     /*GroupJoinRequestMessage message=new GroupJoinRequestMessage(myUserID,groupID);*/
-                    SendApplyMessage message = new SendApplyMessage(myUserID, groupID, "申请加入群组");
+                    SendApplyMessage message = new SendApplyMessage(myUserID, myUserID, "申请加入群组");
                     message.setPurpose("G");
                     message.setGroupID(groupID);
                     ctx.writeAndFlush(message);

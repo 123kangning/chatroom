@@ -11,6 +11,7 @@ import java.io.File;
 import java.util.Scanner;
 
 import static client.ChatClient.*;
+import static message.Message.GroupCreateResponseMessage;
 
 @Slf4j
 public class ResponseHandler extends SimpleChannelInboundHandler<ResponseMessage> {
@@ -49,6 +50,8 @@ public class ResponseHandler extends SimpleChannelInboundHandler<ResponseMessage
                 noticeMap = msg.getNoticeMap();
             }else if(msg.getMessageType()==Message.SignInResponseMessage){
                 System.out.println("\t"+msg.getReason());
+            }else if(msg.getMessageType()==Message.GroupCreateResponseMessage){
+                System.out.println("\n\t"+msg.getReason());
             }
             else {
                 //System.out.print("操作成功 "+reason);

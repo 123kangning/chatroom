@@ -16,7 +16,7 @@ public class SendFile {
 
     public SendFile(ChannelHandlerContext ctx, File file,Message message){
         try (RandomAccessFile randomAccessFile = new RandomAccessFile(file, "r")) {
-            breakPointSend=new RandomAccessFile(System.getProperty("user.dir")+"/client/src/main/java/breakPointSend","rw");
+            breakPointSend=new RandomAccessFile(breakPointSendPath,"rw");
             String sendFilePath=file.getAbsolutePath();
             String serverPath=null;
             fileLength= (int) randomAccessFile.length();

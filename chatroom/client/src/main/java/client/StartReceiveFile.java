@@ -13,7 +13,7 @@ public class StartReceiveFile {
     public StartReceiveFile(ChannelHandlerContext ctx,String serverFileName){
         int start=0;
         try {
-            breakPointReceive=new RandomAccessFile(System.getProperty("user.dir")+"/client/src/main/java/breakPointReceive","rw");
+            breakPointReceive=new RandomAccessFile(breakPointReceivePath,"rw");
 
             while(breakPointReceive.read()!=-1){
                 breakPointReceive.seek(breakPointReceive.getFilePointer()-1);

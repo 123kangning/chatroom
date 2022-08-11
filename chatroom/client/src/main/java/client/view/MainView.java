@@ -67,6 +67,7 @@ public class MainView {
                         ChatClient.wait1();
 
                         if (waitSuccess == 1) {
+                            login=false;
                             return;
                         }
                     }

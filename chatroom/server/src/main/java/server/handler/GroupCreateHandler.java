@@ -4,6 +4,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
 import message.GroupCreateRequestMessage;
+import message.Message;
 import message.ResponseMessage;
 
 import java.sql.Connection;
@@ -43,7 +44,8 @@ public class GroupCreateHandler extends SimpleChannelInboundHandler<GroupCreateR
             log.info("第二次 row={}", row);
             ResponseMessage message;
             if (row == 1) {
-                message = new ResponseMessage(true, "");
+                message = new ResponseMessage(true, String.format("新创建的群组ID为%d",groupID));
+                message.setMessageType(Message.GroupCreateResponseMessage);
             } else {
                 message = new ResponseMessage(false, "创建失败");
             }

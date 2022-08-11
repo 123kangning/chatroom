@@ -10,8 +10,7 @@ import message.*;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-import static client.ChatClient.mailAuthCode;
-import static client.ChatClient.waitSuccess;
+import static client.ChatClient.*;
 
 @Slf4j
 public class EnterView {
@@ -56,6 +55,7 @@ public class EnterView {
                     ChatClient.wait1();
 
                     if (waitSuccess == 1) {
+                        login=true;
                         new MainView(ctx);
                     }
                     break;

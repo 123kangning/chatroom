@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 import static client.ChatClient.*;
 
-public class FriendApplyView {
+public class    FriendApplyView {
     public FriendApplyView(ChannelHandlerContext ctx) {
         System.out.printf("\n\t+------------- 您的ID为 %8d --------------+\n", myUserID);
         System.out.println("\t+------------------好友申请栏-------------------+");

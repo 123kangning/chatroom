@@ -33,7 +33,7 @@ public class ChatServer {
         jdbcPool=new ComboPooledDataSource();
         NioEventLoopGroup boss = new NioEventLoopGroup();
         NioEventLoopGroup worker = new NioEventLoopGroup();
-        LoggingHandler Log = new LoggingHandler(LogLevel.DEBUG);
+        //LoggingHandler Log = new LoggingHandler(LogLevel.DEBUG);
 
         ChannelFuture future;
         try {

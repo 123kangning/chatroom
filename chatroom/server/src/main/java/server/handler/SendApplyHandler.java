@@ -3,6 +3,7 @@ package server.handler;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
+import lombok.extern.slf4j.Slf4j;
 import message.FriendChatRequestMessage;
 import message.ResponseMessage;
 import message.SendApplyMessage;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static server.ChatServer.jdbcPool;
-
+@Slf4j
 public class SendApplyHandler extends SimpleChannelInboundHandler<SendApplyMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, SendApplyMessage msg) throws Exception {
@@ -52,6 +53,16 @@ public class SendApplyHandler extends SimpleChannelInboundHandler<SendApplyMessa
                 if (channel != null)
                     channel.writeAndFlush(new FriendChatRequestMessage());
             } else {
+                String sql2="select groupID from group2 where groupID=? and userID=?";
+                PreparedStatement check = connection.prepareStatement(sql2);
+                check.setInt(1, groupID);
+                check.setInt(2, userID);
+                ResultSet checkSet = check.executeQuery();
+                if (checkSet.next()) {
+                    ctx.writeAndFlush(new ResponseMessage(false, "您已经进入该群聊了"));
+                    return;
+                }
+
                 String sql = "select userID from group2 where groupID=? and (user_type='1' or user_type='9')";
                 PreparedStatement ps = connection.prepareStatement(sql);
                 ps.setInt(1, groupID);

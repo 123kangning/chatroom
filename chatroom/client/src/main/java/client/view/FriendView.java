@@ -159,18 +159,24 @@ public class FriendView {
                             File file;
                             System.out.println("请输入待发送的文件的[绝对路径](不支持1G以上文件！)：");
                             file = new File(scanner.nextLine());
+                            String temp="";
                             while (!file.exists() || !file.isFile()) {
                                 if (!file.exists()) {
-                                    System.out.println("文件不存在，请重新输入待发送的文件的[绝对路径]");
+                                    System.out.println("文件不存在，请重新输入待发送的文件的[绝对路径](输入exit取消发送)");
                                 } else {
-                                    System.out.println("不是文件，请重新输入待发送的文件的[绝对路径]");
+                                    System.out.println("不是文件，请重新输入待发送的文件的[绝对路径](输入exit取消发送)");
                                 }
-                                file = new File(scanner.nextLine());
+                                temp=scanner.nextLine();
+                                if(temp.equals("exit")){
+                                    break;
+                                }
+                                file = new File(temp);
                             }
-                            message = new FriendChatRequestMessage(myUserID, FriendID, (byte[]) null, "F");
-                            message.setTalker_type("F");
-                            new SendFile(ctx,file,message);//调用发送文件类
-
+                            if(!temp.equals("exit")){
+                                message = new FriendChatRequestMessage(myUserID, FriendID, (byte[]) null, "F");
+                                message.setTalker_type("F");
+                                new SendFile(ctx,file,message);//调用发送文件类
+                            }
                         } else if (chat.equalsIgnoreCase("Y") && isY) {
                             checkRECV = "y";
                             synchronized (waitRVFile) {
@@ -248,6 +254,7 @@ public class FriendView {
                 m1.setGroup(isGroup);
                 m1.setGroupID(groupID);
             }
+            m1.setUpdate((byte)1);
             ctx.writeAndFlush(m1);
             ChatClient.wait1();
         }

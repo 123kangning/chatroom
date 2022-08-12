@@ -15,6 +15,14 @@ public class SendFileMessage extends Message{
         this.file=file;
     }
 
+    public void setStart(int start) {
+        this.start = start;
+    }
+
+    public void setFile(byte[] file) {
+        this.file = file;
+    }
+
     public byte[] getFile() {
         return file;
     }

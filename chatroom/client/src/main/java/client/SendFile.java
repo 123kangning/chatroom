@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 @Slf4j
 public class SendFile {
-    private static final int MAX_LENGTH = 1 << 31;
+    private static final int MAX_LENGTH = 1 << 30;
 
     public SendFile(ChannelHandlerContext ctx, File file,Message message){
         try (RandomAccessFile randomAccessFile = new RandomAccessFile(file, "r")) {

@@ -14,9 +14,9 @@
 
 2.设置服务端ip地址，端口号默认8080 配置文件路径：chatroom/client/src/main/resources/application.properties
 
-3.在IDEA上打开项目进行构建时，可能会遇到 java: java.lang.IllegalArgumentException 异常，按照IDEA的提示，在设置>构建、执行、
+3.在IDEA上打开项目进行构建时，可能会遇到 java: java.lang.IllegalArgumentException 异常，按照IDEA的提
 
-部署>编译器>共享构建过程VM选项中设置  -Djps.track.ap.dependencies=false 即可
+示，在设置>构建、执行、部署>编译器>共享构建过程VM选项中设置  -Djps.track.ap.dependencies=false 即可
 
 
 

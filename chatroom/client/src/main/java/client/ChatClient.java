@@ -115,5 +115,11 @@ public class ChatClient {
             e.printStackTrace();
         }
     }
+    public static void notification(){
+        if (haveNoRead > 0) {
+            System.out.println("\thaveNoRead = " + haveNoRead);
+            System.out.println("\t您有未查看的信息，请注意查看...");
+        }
+    }
 
 }

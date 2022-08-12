@@ -26,12 +26,8 @@ public class GroupView {
             System.out.println("\t+-----------------------+-----------------------+");
             System.out.println("\t| 4 -> 创建群聊       \t|");
             System.out.println("\t+-----------------------+");
-            if (haveNoRead > 0) {
-                System.out.println("\thaveNoRead = " + haveNoRead);
-                System.out.println("\t主人，您有未查看的信息，请注意查看...");
-            }
+            notification();
             Scanner scanner = new Scanner(System.in);
-
             String s0 = scanner.nextLine();
             while (!StringUtils.isNumber(s0)) {
                 System.out.println("输入不规范，请重新输入您的选择：");
@@ -52,9 +48,7 @@ public class GroupView {
                 }
                 case 3: {
                     ctx.writeAndFlush(new GroupApplyQueryRequestMessage(myUserID));
-
                     ChatClient.wait1();
-
                     dealRequest(ctx, scanner);
                     break;
                 }
@@ -62,9 +56,7 @@ public class GroupView {
                     System.out.println("请输入要创建的群聊名称：");
                     String s1 = scanner.nextLine();
                     ctx.writeAndFlush(new GroupCreateRequestMessage(myUserID, s1));
-
                     ChatClient.wait1();
-
                     break;
                 }
                 case 5: {
@@ -75,7 +67,6 @@ public class GroupView {
                         s0 = scanner.nextLine();
                     }
                     int groupID = Integer.parseInt(s0);
-                    /*GroupJoinRequestMessage message=new GroupJoinRequestMessage(myUserID,groupID);*/
                     SendApplyMessage message = new SendApplyMessage(myUserID, myUserID, "申请加入群组");
                     message.setPurpose("G");
                     message.setGroupID(groupID);
@@ -95,9 +86,7 @@ public class GroupView {
                         break;
                     }
                     GroupQuitRequestMessage message = new GroupQuitRequestMessage(myUserID, groupID, myUserID);
-                    //log.info("GroupQuitRequestMessage");
                     ctx.writeAndFlush(message);
-
                     ChatClient.wait1();
 
                     break;

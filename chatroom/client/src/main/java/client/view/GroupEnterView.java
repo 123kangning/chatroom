@@ -41,13 +41,8 @@ public class GroupEnterView {
             System.out.println("\t+-----------------------+");
             System.out.println("\t| 0 -> 返回上一级目录   \t|");
             System.out.println("\t+-----------------------+");
-
-            if (haveNoRead > 0) {
-                System.out.println("\thaveNoRead = " + haveNoRead);
-                System.out.println("\t主人，您有未查看的信息，请注意查看...");
-            }
+            notification();
             Scanner scanner = new Scanner(System.in);
-
             String s0 = scanner.nextLine();
             while (!StringUtils.isNumber(s0)) {
                 System.out.println("输入不规范，请重新输入您的选择：");
@@ -77,11 +72,7 @@ public class GroupEnterView {
             System.out.println("\t+-----------------------------------------------+");
             System.out.println("\t| 3 -> 解除禁言(通过ID) \t|");
             System.out.println("\t+-----------------------+");
-
-            if (haveNoRead > 0) {
-                System.out.println("\thaveNoRead = " + haveNoRead);
-                System.out.println("\t主人，您有未查看的信息，请注意查看...");
-            }
+            notification();
             Scanner scanner = new Scanner(System.in);
 
             String s0 = scanner.nextLine();
@@ -128,10 +119,7 @@ public class GroupEnterView {
             System.out.println("\t| 5 -> 踢出成员(通过ID) \t| 0 -> 返回上一级目录   \t|");
             System.out.println("\t+-----------------------------------------------+");
 
-            if (haveNoRead > 0) {
-                System.out.println("\thaveNoRead = " + haveNoRead);
-                System.out.println("\t主人，您有未查看的信息，请注意查看...");
-            }
+            notification();
             Scanner scanner = new Scanner(System.in);
 
             String s0 = scanner.nextLine();
@@ -191,7 +179,6 @@ public class GroupEnterView {
 
     public void case2(Scanner scanner) {
         ctx.writeAndFlush(new GroupNoticeRequestMessage(myUserID, groupID));
-
         ChatClient.wait1();
 
         if (waitSuccess == 1) {
@@ -199,7 +186,6 @@ public class GroupEnterView {
             int count = 0;
             for (String s : friendList) {
                 System.out.println(s);
-                //System.out.printf("count=%d, haveFile=%s\n",count,haveFile);
                 if (haveFile.charAt(count) == '1') {
                     FriendView.receiveFile(s, scanner, ctx, 0, true, groupID);
                 }

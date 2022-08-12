@@ -26,11 +26,7 @@ public class MainView {
                     "\t+-----------------------+\n" +
                     "\t| 2 -> 注销          \t|\n" +
                     "\t+-----------------------+\n", myUserID);
-
-            if (haveNoRead > 0) {
-                System.out.println("\thaveNoRead = " + haveNoRead);
-                System.out.println("\t主人，您有未查看的信息，请注意查看...");
-            }
+            notification();
 
             Scanner scanner = new Scanner(System.in);
             String s = scanner.nextLine();

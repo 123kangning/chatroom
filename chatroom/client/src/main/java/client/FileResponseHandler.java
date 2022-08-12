@@ -20,7 +20,6 @@ public class FileResponseHandler extends SimpleChannelInboundHandler<FileRespons
             }
         }
         int percent=(int)(((msg.getLength()*1.0)/fileLength)*100);
-        //log.info("percent = {}",percent);
         System.out.print("\r|");
         for(int i=0;i<percent;i++){
             System.out.print("#");
@@ -30,7 +29,6 @@ public class FileResponseHandler extends SimpleChannelInboundHandler<FileRespons
         }
         System.out.printf("|%3d%%",percent);
             breakPointSend.seek(breakPointSend.getFilePointer()-4);
-            log.info("breakPointSend.getFilePointer() = {}",breakPointSend.getFilePointer());
             breakPointSend.writeInt(msg.getLength());
             if(percent==100){
                 receive=false;

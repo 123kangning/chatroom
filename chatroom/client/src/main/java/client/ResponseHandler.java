@@ -21,12 +21,10 @@ public class ResponseHandler extends SimpleChannelInboundHandler<ResponseMessage
         boolean success = msg.getSuccess();
         String reason = msg.getReason();
         int ResponseMessageType = msg.getMessageType();
-        //log.info("ResponseMessageType={}",ResponseMessageType);
         if (!success) {
             System.out.print("操作失败 " + reason);
             waitSuccess = 0;
         } else {
-            //System.out.println(3);
             waitSuccess = 1;
             haveNoRead -= msg.getReadCount();
             mailAuthCode = msg.getMailAuthCode();
@@ -35,12 +33,8 @@ public class ResponseHandler extends SimpleChannelInboundHandler<ResponseMessage
             } else if (msg.getMessageType() == Message.FriendGetFileRequestMessage) {
                 System.out.println("请选择一个目录将其保存下来[使用绝对路径]");
                 setPath(msg.getReason());
-                /*
-                * 加上接收文件类
-                * */
                 fileLength=msg.getFileLength();
                 new StartReceiveFile(ctx,msg.getReason());
-                //ctx.writeAndFlush(new SendFileMessage(msg.getReason()));
                 return;
             } else if (msg.getMessageType() == Message.FriendQueryRequestMessage) {
                 haveFile = msg.getHaveFile();
@@ -54,9 +48,8 @@ public class ResponseHandler extends SimpleChannelInboundHandler<ResponseMessage
                 System.out.println("\n\t"+msg.getReason());
             }
             else {
-                //System.out.print("操作成功 "+reason);
+                // 操作成功时默认不输出任何内容
             }
-
         }
         synchronized (waitMessage) {
             waitMessage.notifyAll();
@@ -76,6 +69,5 @@ public class ResponseHandler extends SimpleChannelInboundHandler<ResponseMessage
             addFile = addFile.concat("/");
         }
         path=addFile.concat(fileName);
-        System.out.println("serverPath is ="+path);
     }
 }

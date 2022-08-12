@@ -22,7 +22,6 @@ public class ReceiveFileHandler extends SimpleChannelInboundHandler<SendFileMess
         start+=bytes.length;
 
         int percent=(int)(((start*1.0)/fileLength)*100);
-        //log.info("start = {},once = {}, percent = {}",start,bytes.length,percent);
         if(percent>rate){//打印进度条
             System.out.print("\r|");
             for(int i=0;i<percent;i++){

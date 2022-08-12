@@ -17,14 +17,11 @@ public class    FriendApplyView {
         System.out.printf("\n\t+------------- 您的ID为 %8d --------------+\n", myUserID);
         System.out.println("\t+------------------好友申请栏-------------------+");
         ctx.writeAndFlush(new FriendApplyQueryMessage(myUserID));
-
         ChatClient.wait1();
-
 
         for (String s1 : friendList) {
             System.out.println(s1);
         }
-
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
@@ -69,12 +66,9 @@ public class    FriendApplyView {
 
                     break;
                 }
-
                 case 0:
                     return;
             }
-
-
         }
     }
 }

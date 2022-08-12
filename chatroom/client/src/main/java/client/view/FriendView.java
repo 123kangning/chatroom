@@ -28,10 +28,7 @@ public class FriendView {
             System.out.println("\t| 6 -> 添加好友(通过ID)\t| 0 -> 返回上级目录    \t|");
             System.out.println("\t+-----------------------------------------------+");
 
-            System.out.println("\thaveNoRead = " + haveNoRead);
-            if (haveNoRead > 0) {
-                System.out.println("\t主人，您有未查看的信息，请注意查看...");
-            }
+            notification();
             Scanner scanner = new Scanner(System.in);
             String s0 = scanner.nextLine();
             while (!StringUtils.isNumber(s0)) {
@@ -45,179 +42,203 @@ public class FriendView {
                     new FriendApplyView(ctx);
                     break;
                 case 4: {
-                    ctx.writeAndFlush(new FriendQueryRequestMessage(myUserID));
-
-                    ChatClient.wait1();
-
-                    for (String s : friendList) {
-                        System.out.println(s);
-                    }
-                    System.out.println("\t+---------------------+");
-                    System.out.println("按下回车返回...");
-                    try {
-                        System.in.read();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    case4(ctx);
                     break;
                 }
                 case 5: {
-                    System.out.println("请输入要解除屏蔽的好友ID：");
-                    String s1 = scanner.nextLine();
-                    while (!StringUtils.isNumber(s1)) {
-                        System.out.println("输入不规范，请重新输入用户ID：");
-                        s1 = scanner.nextLine();
-                    }
-                    int FriendID = Integer.parseInt(s1);
-                    ctx.writeAndFlush(new FriendUnShieldRequestMessage(myUserID, FriendID));
-                    //log.info("1111");
-
-                    ChatClient.wait1();
-
+                    case5(ctx, scanner);
                     break;
                 }
                 case 6: {
-                    System.out.println("请输入要添加的好友ID：");
-                    String s1 = scanner.nextLine();
-                    while (!StringUtils.isNumber(s1)) {
-                        System.out.println("输入不规范，请重新输入用户ID：");
-                        s1 = scanner.nextLine();
-                    }
-                    int FriendID = Integer.parseInt(s1);
-                    if (FriendID == myUserID) {
-                        System.out.println("哦，愚蠢的土拨鼠，你怎么能添加你自己呢？");
-                        break;
-                    }
-                    SendApplyMessage message = new SendApplyMessage(myUserID, FriendID, "请求添加你为好友");
-                    message.setPurpose("F");
-                    ctx.writeAndFlush(message);
-
-                    ChatClient.wait1();
-
+                    case6(ctx, scanner);
                     break;
                 }
                 case 7: {
-                    System.out.println("请输入要删除的好友ID：");
-                    String s1 = scanner.nextLine();
-                    while (!StringUtils.isNumber(s1)) {
-                        System.out.println("输入不规范，请重新输入用户ID：");
-                        s1 = scanner.nextLine();
-                    }
-                    int FriendID = Integer.parseInt(s1);
-                    ctx.writeAndFlush(new FriendDeleteRequestMessage(myUserID, FriendID));
-
-                    ChatClient.wait1();
-
+                    case7(ctx, scanner);
                     break;
                 }
                 case 8: {
-                    System.out.println("请输入要屏蔽的好友ID：");
-                    String s1 = scanner.nextLine();
-                    while (!StringUtils.isNumber(s1)) {
-                        System.out.println("输入不规范，请重新输入用户ID：");
-                        s1 = scanner.nextLine();
-                    }
-                    int FriendID = Integer.parseInt(s1);
-                    ctx.writeAndFlush(new FriendShieldRequestMessage(myUserID, FriendID));
-
-                    ChatClient.wait1();
-
+                    case8(ctx, scanner);
                     break;
                 }
                 case 9: {
-                    System.out.println("请输入好友ID：");
-                    String s1 = scanner.nextLine();
-                    while (!StringUtils.isNumber(s1)) {
-                        System.out.println("输入不规范，请重新输入用户ID：");
-                        s1 = scanner.nextLine();
-                    }
-                    int FriendID = Integer.parseInt(s1);
-                    ctx.writeAndFlush(new FriendNoticeMessage(myUserID, FriendID));
-
-                    ChatClient.wait1();
-
-                    if (waitSuccess == 1) {
-                        talkWith = FriendID;
-                        int count = 0;
-                        for (String s : friendList) {
-                            System.out.println(s);
-                            if (haveFile.charAt(count) == '1') {
-                                FriendView.receiveFile(s, scanner, ctx, FriendID, false, 0);
-                            }
-                            count++;
-                        }
-                    } else {
-                        break;
-                    }
-
-                    System.out.println("聊天内容(按下回车发送)[输入F表示发送文件][输入r退出]：");
-                    immediate = true;
-                    String chat = scanner.nextLine();
-                    while (!chat.equalsIgnoreCase("r")) {
-                        FriendChatRequestMessage message;
-                        if (chat.equalsIgnoreCase("F")) {
-                            File file;
-                            System.out.println("请输入待发送的文件的[绝对路径](不支持1G以上文件！)：");
-                            file = new File(scanner.nextLine());
-                            String temp="";
-                            while (!file.exists() || !file.isFile()) {
-                                if (!file.exists()) {
-                                    System.out.println("文件不存在，请重新输入待发送的文件的[绝对路径](输入exit取消发送)");
-                                } else {
-                                    System.out.println("不是文件，请重新输入待发送的文件的[绝对路径](输入exit取消发送)");
-                                }
-                                temp=scanner.nextLine();
-                                if(temp.equals("exit")){
-                                    break;
-                                }
-                                file = new File(temp);
-                            }
-                            if(!temp.equals("exit")){
-                                message = new FriendChatRequestMessage(myUserID, FriendID, (byte[]) null, "F");
-                                message.setTalker_type("F");
-                                new SendFile(ctx,file,message);//调用发送文件类
-                            }
-                        } else if (chat.equalsIgnoreCase("Y") && isY) {
-                            checkRECV = "y";
-                            synchronized (waitRVFile) {
-                                try {
-                                    waitRVFile.wait();
-                                } catch (InterruptedException e) {
-                                    e.printStackTrace();
-                                }
-                                checkRECV = "n";
-                            }
-                        }else if(chat.equalsIgnoreCase("N") && isY){
-                            checkRECV = "Q";
-                            synchronized (waitRVFile) {
-                                try {
-                                    waitRVFile.wait();
-                                } catch (InterruptedException e) {
-                                    e.printStackTrace();
-                                }
-                                checkRECV = "n";
-                            }
-                        }else if(chat.length()>0){
-                            message = new FriendChatRequestMessage(myUserID, FriendID, chat, "S");
-                            message.setTalker_type("F");
-                            ctx.writeAndFlush(message);
-
-                            ChatClient.wait1();
-
-                            if (waitSuccess == 0) {
-                                break;
-                            }
-                        }
-                        System.out.println("聊天内容(按下回车发送)[输入F表示发送文件][输入r退出]：");
-                        chat = scanner.nextLine();
-                    }
-                    if (chat.equalsIgnoreCase("r")) {
-                        immediate = false;
-                        talkWith=0;
-                    }
+                    case9(ctx, scanner);
                     break;
                 }
             }
+        }
+    }
+
+    private static void case4(ChannelHandlerContext ctx) {
+        ctx.writeAndFlush(new FriendQueryRequestMessage(myUserID));
+
+        ChatClient.wait1();
+
+        for (String s : friendList) {
+            System.out.println(s);
+        }
+        System.out.println("\t+---------------------+");
+        System.out.println("按下回车返回...");
+        try {
+            System.in.read();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void case5(ChannelHandlerContext ctx, Scanner scanner) {
+        System.out.println("请输入要解除屏蔽的好友ID：");
+        String s1 = scanner.nextLine();
+        while (!StringUtils.isNumber(s1)) {
+            System.out.println("输入不规范，请重新输入用户ID：");
+            s1 = scanner.nextLine();
+        }
+        int FriendID = Integer.parseInt(s1);
+        ctx.writeAndFlush(new FriendUnShieldRequestMessage(myUserID, FriendID));
+        //log.info("1111");
+
+        ChatClient.wait1();
+    }
+
+    private static void case6(ChannelHandlerContext ctx, Scanner scanner) {
+        System.out.println("请输入要添加的好友ID：");
+        String s1 = scanner.nextLine();
+        while (!StringUtils.isNumber(s1)) {
+            System.out.println("输入不规范，请重新输入用户ID：");
+            s1 = scanner.nextLine();
+        }
+        int FriendID = Integer.parseInt(s1);
+        if (FriendID == myUserID) {
+            System.out.println("哦，愚蠢的土拨鼠，你怎么能添加你自己呢？");
+            return;
+        }
+        SendApplyMessage message = new SendApplyMessage(myUserID, FriendID, "请求添加你为好友");
+        message.setPurpose("F");
+        ctx.writeAndFlush(message);
+
+        ChatClient.wait1();
+    }
+
+    private static void case7(ChannelHandlerContext ctx, Scanner scanner) {
+        System.out.println("请输入要删除的好友ID：");
+        String s1 = scanner.nextLine();
+        while (!StringUtils.isNumber(s1)) {
+            System.out.println("输入不规范，请重新输入用户ID：");
+            s1 = scanner.nextLine();
+        }
+        int FriendID = Integer.parseInt(s1);
+        ctx.writeAndFlush(new FriendDeleteRequestMessage(myUserID, FriendID));
+
+        ChatClient.wait1();
+    }
+
+    private static void case8(ChannelHandlerContext ctx, Scanner scanner) {
+        System.out.println("请输入要屏蔽的好友ID：");
+        String s1 = scanner.nextLine();
+        while (!StringUtils.isNumber(s1)) {
+            System.out.println("输入不规范，请重新输入用户ID：");
+            s1 = scanner.nextLine();
+        }
+        int FriendID = Integer.parseInt(s1);
+        ctx.writeAndFlush(new FriendShieldRequestMessage(myUserID, FriendID));
+
+        ChatClient.wait1();
+    }
+
+    private static void case9(ChannelHandlerContext ctx, Scanner scanner) {
+        System.out.println("请输入好友ID：");
+        String s1 = scanner.nextLine();
+        while (!StringUtils.isNumber(s1)) {
+            System.out.println("输入不规范，请重新输入用户ID：");
+            s1 = scanner.nextLine();
+        }
+        int FriendID = Integer.parseInt(s1);
+        ctx.writeAndFlush(new FriendNoticeMessage(myUserID, FriendID));
+
+        ChatClient.wait1();
+
+        if (waitSuccess == 1) {
+            talkWith = FriendID;
+            int count = 0;
+            for (String s : friendList) {
+                System.out.println(s);
+                if (haveFile.charAt(count) == '1') {
+                    FriendView.receiveFile(s, scanner, ctx, FriendID, false, 0);
+                }
+                count++;
+            }
+        } else {
+            return;
+        }
+
+        chatWithFriend(ctx, scanner, FriendID);
+    }
+
+    private static void chatWithFriend(ChannelHandlerContext ctx, Scanner scanner, int FriendID) {
+        System.out.println("聊天内容(按下回车发送)[输入F表示发送文件][输入r退出]：");
+        immediate = true;
+        String chat = scanner.nextLine();
+        while (!chat.equalsIgnoreCase("r")) {
+            FriendChatRequestMessage message;
+            if (chat.equalsIgnoreCase("F")) {
+                File file;
+                System.out.println("请输入待发送的文件的[绝对路径](不支持1G以上文件！)：");
+                file = new File(scanner.nextLine());
+                String temp="";
+                while (!file.exists() || !file.isFile()) {
+                    if (!file.exists()) {
+                        System.out.println("文件不存在，请重新输入待发送的文件的[绝对路径](输入exit取消发送)");
+                    } else {
+                        System.out.println("不是文件，请重新输入待发送的文件的[绝对路径](输入exit取消发送)");
+                    }
+                    temp= scanner.nextLine();
+                    if(temp.equals("exit")){
+                        break;
+                    }
+                    file = new File(temp);
+                }
+                if(!temp.equals("exit")){
+                    message = new FriendChatRequestMessage(myUserID, FriendID, (byte[]) null, "F");
+                    message.setTalker_type("F");
+                    new SendFile(ctx,file,message);//调用发送文件类
+                }
+            } else if (chat.equalsIgnoreCase("Y") && isY) {
+                checkRECV = "y";
+                synchronized (waitRVFile) {
+                    try {
+                        waitRVFile.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    checkRECV = "n";
+                }
+            }else if(chat.equalsIgnoreCase("N") && isY){
+                checkRECV = "Q";
+                synchronized (waitRVFile) {
+                    try {
+                        waitRVFile.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    checkRECV = "n";
+                }
+            }else if(chat.length()>0){
+                message = new FriendChatRequestMessage(myUserID, FriendID, chat, "S");
+                message.setTalker_type("F");
+                ctx.writeAndFlush(message);
+
+                ChatClient.wait1();
+
+                if (waitSuccess == 0) {
+                    break;
+                }
+            }
+            System.out.println("聊天内容(按下回车发送)[输入F表示发送文件][输入r退出]：");
+            chat = scanner.nextLine();
+        }
+        if (chat.equalsIgnoreCase("r")) {
+            immediate = false;
+            talkWith=0;
         }
     }
 

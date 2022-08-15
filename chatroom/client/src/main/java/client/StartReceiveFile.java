@@ -44,8 +44,8 @@ public class StartReceiveFile {
             int once=(fileLength-start)/100;
             if(once<1024){
                 once=1024;
-            }else if(once>1048000){
-                once=1048000;
+            }else if(once>1048576){
+                once=1048576;
             }
             ctx.writeAndFlush(new SendFileMessage(serverFileName,start,once));
 

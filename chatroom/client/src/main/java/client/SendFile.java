@@ -72,8 +72,8 @@ public class SendFile {
             int once=(fileLength-start)/100;
             if(once<1024){
                 once=1024;
-            }else if(once>1048000){
-                once=1048000;
+            }else if(once>1048576){
+                once=1048576;
             }
             byte[] bytes=new byte[once];
             int byteRead;

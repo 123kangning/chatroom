@@ -14,6 +14,8 @@
         <module>client</module>
     </modules>
 
+
+
     <dependencies>
         <dependency>
             <groupId>com.mchange</groupId>
@@ -24,12 +26,6 @@
             <groupId>com.github.tomcat-slf4j-logback</groupId>
             <artifactId>tomcat8-slf4j-logback</artifactId>
             <version>8.0.53</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>2.0.0-beta1</version>
-            <type>pom</type>
         </dependency>
         <dependency>
             <groupId>io.github.shaohuizhe</groupId>

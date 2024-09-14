@@ -116,6 +116,9 @@ public class EnterView {
             String s1;
             for(int i=0;i<2;i++){
                 s1= scanner.nextLine();
+                if(s1.isBlank()){
+                    s1="0";
+                }
                 int AuthCode = Integer.parseInt(s1);
                 if (AuthCode == mailAuthCode) {
                     SignInRequestMessage message1 = new SignInRequestMessage(username, password1, mail);

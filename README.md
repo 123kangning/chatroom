@@ -8,16 +8,15 @@
 
 本项目使用maven进行构建，在运行时需要注意以下几点：
 
-1.直接在chatroom-java文件夹（即最外层）级别打开工作区
+1. 直接在chatroom-java文件夹（即最外层）级别打开工作区
 
-2.加载maven依赖项、jdk为11
+2. 加载maven依赖项(new->Project from Existing Sources先导入项目)、jdk为11
 
-2.设置服务端ip地址，端口号默认8080 配置文件路径：chatroom/client/src/main/resources/application.properties
+3. 设置服务端ip地址，端口号默认8080 配置文件路径：chatroom/client/src/main/resources/application.properties
 
-3.在IDEA上打开项目进行构建时，可能会遇到 java: java.lang.IllegalArgumentException 异常，按照IDEA的提
+4. 在IDEA上打开项目进行构建时，可能会遇到 java: java.lang.IllegalArgumentException 异常，按照IDEA的提
 
 示，在设置>构建、执行、部署>编译器>共享构建过程VM选项中设置  -Djps.track.ap.dependencies=false 即可
-
 
 
 项目分为三个模块：服务端、客户端、公共数据模块

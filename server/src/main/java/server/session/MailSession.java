@@ -34,7 +34,7 @@ public class MailSession {
         message.setSubject("邮箱验证");//设置邮件主题
         //发送邮件
         Transport tran = session.getTransport();
-        tran.connect("smtp.qq.com", 465, "3390142252", "axgppxpfftgfdbcg");//连接到qq邮箱服务器
+        tran.connect("smtp.qq.com", 465, "3390142252", "yjysoegmqmytcgjc");//连接到qq邮箱服务器
         // tran.connect("smtp.qq.com",587, "Michael8@qq.vip.com", "xxxx");//连接到QQ邮箱服务器
         tran.sendMessage(message, new Address[]{new InternetAddress(email)});//设置邮件接收人
         tran.close();

@@ -1,18 +1,18 @@
-# chatroom-java
+# chatroom
 
-本次聊天室所有代码及配置文件都在chatroom目录下
+本次聊天室所有代码及配置文件都在`chatroom`目录下
 
-数据库使用mysql，mysql创建脚本路径：chatroom/create.sql (需要自行创建一个数据库：chatroom,然后进入这个数据库，运行该脚本创建表、脚本运行命令> source "create.sql 创建脚本的绝对路径")
+数据库使用mysql，mysql创建脚本路径：`create.sql` (需要自行创建一个数据库：chatroom,然后进入这个数据库，运行该脚本创建表、脚本运行命令> source "create.sql 创建脚本的绝对路径")
 
 
 
 本项目使用maven进行构建，在运行时需要注意以下几点：
 
-1. 直接在chatroom-java文件夹（即最外层）级别打开工作区
+1. 直接在chatroom文件夹（即最外层）级别打开工作区
 
 2. 加载maven依赖项(new->Project from Existing Sources先导入项目)、jdk为11
 
-3. 设置服务端ip地址，端口号默认8080 配置文件路径：chatroom/client/src/main/resources/application.properties
+3. 设置服务端ip地址，端口号默认8080 配置文件路径：`client/src/main/resources/application.properties`
 
 4. 在IDEA上打开项目进行构建时，可能会遇到 java: java.lang.IllegalArgumentException 异常，按照IDEA的提
 
